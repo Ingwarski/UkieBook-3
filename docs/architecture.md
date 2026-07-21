@@ -9,7 +9,8 @@
 - `docs/guardrails.md` — заборонені зміни, правила доказовості.
 - `docs/user-journey.md`, `docs/screen-map.md`, `docs/wireframes.md`, `docs/design-brief.md` — поверхні, стани, навігаційна модель та Approved Baseline `AVB-UKIEBOOK-AURORA-7B-V2` (UI-межі).
 - `forge/design/README.md` і `forge/design/candidates/operator-final-7b/v2/README.md` — React + TypeScript recommendation, visual-reference-not-production-code constraint та immutable V2 target з інтегрованим офіційним логотипом.
-- `package.json`, `app/`, `components/aurora/`, `modules/platform/`, `db/`, `workers/`, `scripts/` і `tests/` — реалізований UNIT-00 foundation at revision `f6e503b242d5a5eca59972dece1657f4d207b3e3`; canonical verification evidence: `forge/runs/UNIT-00/20260721T202102Z-f6e503b242d5/`. Це implementation evidence для platform foundation, не доказ реалізації продуктових модулів або S-01…S-21.
+- `package.json`, `app/`, `components/aurora/`, `modules/platform/`, `db/`, `workers/`, `scripts/` і `tests/` — реалізований UNIT-00 foundation at revision `f6e503b242d5a5eca59972dece1657f4d207b3e3`; canonical verification evidence: `forge/runs/UNIT-00/20260721T202102Z-f6e503b242d5/`.
+- `app/login/`, `app/api/auth/`, `app/author/profile/`, `components/identity/`, `modules/identity/`, `modules/author-profile/`, `modules/payout-details/`, migration `0002_identity_sessions_author_profile`, `scripts/verify-unit01-postgres.ts` і UNIT-01 tests — реалізований identity/profile slice at revision `ab030a00f213d33f62783f0287dd8e5dcfe67101`; canonical evidence: `forge/runs/UNIT-01/20260721T221049Z-ab030a00f213/`. Доказ покриває S-03, S-17 і access guards у межах UNIT-01, включно з виміряними AA control contrast і ≥44px interactive targets; live consent у зареєстрованих production apps Google/Facebook лишається окремим activation gate і не позначений як passed.
 
 ## Architecture Overview
 
@@ -34,8 +35,9 @@ UkieBook — адаптивний вебзастосунок із трьома �
 
 | Модуль | Володіє | Обслуговує екрани |
 |---|---|---|
-| `identity` | Користувачі, OAuth-звʼязки, ролі, сесії | S-03; guard-и всіх `/author/*`, `/admin/*`, `/library` |
-| `author-profile` | Публічне імʼя/псевдонім; окремо — договірні/платіжні/податкові дані (закритий піддомен `payout-details`) | S-16, S-17 |
+| `identity` | Користувачі, OAuth-звʼязки й одноразові flows, явні ролі, hashed sessions, append-only identity audit | S-03; guard-и всіх `/author/*`, `/admin/*`, `/library` |
+| `author-profile` | Лише публічне імʼя/псевдонім; public DTO не містить OAuth email чи платіжних полів | S-17 |
+| `payout-details` | Закритий encrypted envelope договірних/платіжних/податкових даних; зміст і UI належать UNIT-07 | S-16 |
 | `publishing` | Рукописи, конвеєр конвертації, Обкладинки, версії Книжки, артефакти Попереднього перегляду видання, Декларації прав | S-10..S-14 |
 | `catalog` | Опубліковані книжки, жанри, пошук/фільтри, знижки, безкоштовні фрагменти | S-01, S-02 |
 | `moderation` | Модераційні кейси (книжка/оновлення/відгук), сигнали ШІ, рішення, категорії причин | S-18; статуси в S-08/S-10/S-13 |
@@ -59,7 +61,8 @@ UkieBook — адаптивний вебзастосунок із трьома �
 
 Ключові сутності (ідентифікатори — canonical-terms):
 
-- `user` (роль/ролі) → `author_profile` (публічне імʼя) + закритий `payout_details` (модель винагороди ФОП/роялті, договірні/платіжні/податкові дані; FR-AUTH-3/4).
+- `user` → explicit `user_role` assignments + `oauth_account` provider mapping + hashed `session`; `oauth_flow` одноразово тримає зашифровані PKCE/nonce та server-held author-onboarding intent; `identity_audit_event` є append-only. OAuth email не використовується для автоматичного злиття облікових записів.
+- `author_profile` містить лише публічне імʼя; закритий `author_payout_details` уже має окрему encrypted-envelope межу (`schema_version`, `key_id`, nonce, ciphertext, authentication tag), але модель винагороди ФОП/роялті та S-16 реалізує UNIT-07 (FR-AUTH-3/4).
 - `book` → `book_version` (рукопис, ілюстрації, обкладинка, результати конвертації EPUB/MOBI, статус модерації); активна опублікована версія — одна; `free_sample`, `genre`, базова ціна, `discount` (дати з-по).
 - `rights_declaration` — привʼязана до подання версії (FR-PUB-8).
 - `moderation_case` — тип (книжка/оновлення/відгук), сигнал ШІ, рішення, `reason_category` (FR-MOD-*).
@@ -74,7 +77,7 @@ UkieBook — адаптивний вебзастосунок із трьома �
 
 | Інтеграція | Напрям | Контракт | Помилковий шлях |
 |---|---|---|---|
-| Google OAuth / Facebook OAuth | вихідний redirect + callback | стандартний OAuth 2.0; лише автентифікація й email/імʼя | помилка OAuth → S-03 інлайн (screen-map) |
+| Google OAuth / Facebook OAuth | вихідний redirect + callback | authorization code + PKCE S256; Google OIDC додатково перевіряє nonce, JWKS-підпис, issuer/audience/subject і збіг `userinfo.sub`; звʼязування лише за provider+subject; provider tokens після перевірки не зберігаються | відмова/помилка/повтор callback → S-03 з контрольованим кодом; flow одноразовий, failure audit append-only |
 | Google Docs API | вихідний | імпорт документа за наданим автором доступом | помилка формату → dropzone S-11 |
 | mono (plata by mono) | redirect на checkout (дефолт OQ-SM1) + вхідний вебхук | створення платіжної сесії кошика; підтвердження/скасування вебхуком; ідемпотентна обробка | невдача → S-06 failure, кошик збережено |
 | Email-провайдер | вихідний | транзакційний лист E-01 (перелік книжок + лінк бібліотеки) | ретраї воркера; недоставка не блокує доступ до бібліотеки |
@@ -89,23 +92,25 @@ UkieBook — адаптивний вебзастосунок із трьома �
 - **Persistence:** PostgreSQL; committed reversible migrations with advisory-lock serialization and checksum verification; explicit transactions behind an inward SQL port. PGlite is test-only and never substitutes for the real-PostgreSQL acceptance proof. Monetary values stored only as integer kopiykas; percentage model stored as exact basis points/rules (`600 + 6580 + 2820 = 10000`), never binary floating point.
 - **Async/durability:** PostgreSQL-backed durable job table/queue + worker, transactional outbox from domain transactions, semantic idempotency conflict detection, lease renewal/loss cancellation, bounded retries and dead-letter state. Monthly payout generation is a scheduled job using the same mechanism.
 - **Files:** private S3-compatible object storage; database holds metadata/hashes/version links; short-lived signed/authorized download after `library_item` access check.
-- **Auth:** server-side OAuth sessions through Google/Facebook providers; persistent user/provider mapping; centralized RBAC guards for `/author/*`, `/admin/*`, `/library`; no auth tokens in browser storage.
+- **Auth:** pinned `oauth4webapi` production adapters для Google/Facebook; authorization code + PKCE S256, Google OIDC nonce/JWKS verification; opaque 256-bit session/flow tokens, у PostgreSQL зберігаються лише SHA-256 digests; AES-GCM для server-held flow values; HMAC-bound CSRF; `HttpOnly`, `SameSite=Lax`, `Secure`/`__Host-` cookies для HTTPS; centralized explicit-capability guards; жодних auth/provider tokens у browser storage або OAuth-token columns.
 - **Payments:** mono redirect checkout; signed/authenticated webhook verification per provider docs current at implementation time; unique provider event/session keys, idempotent transaction + outbox, scheduled reconciliation.
 - **Email/AI:** provider adapters with local fakes; production provider selection does not cross domain interfaces. AI outage safe-fails to `manual_review_pending`.
 - **Conversion:** isolated `EditionConverter` adapter produces normalized intermediate document, EPUB, MOBI and `PreviewArtifact`. A fixture-based enabler must prove the selected MOBI engine before the publishing unit; failure routes to upstream product decision rather than silently dropping MOBI.
-- **Verification tooling:** Vitest `4.1.10` and Playwright `1.61.1`; stable commands `npm run build`, `npm run lint`, `npm run typecheck`, `npm test`, `npm run test:e2e`, `npm run test:visual` are executable. `npm run verify:unit00` writes the canonical revision-bound evidence bundle and requires a real PostgreSQL URL for the database proof.
+- **Verification tooling:** Vitest `4.1.10` and Playwright `1.61.1`; stable commands `npm run build`, `npm run lint`, `npm run typecheck`, `npm test`, `npm run test:e2e`, `npm run test:visual` are executable. `npm run verify:unit00` and `npm run verify:unit01` write revision-bound evidence bundles; UNIT-01 additionally requires the exact dedicated loopback database `ukiebook_unit01`, proves rollback/reapply, callback/session/onboarding concurrency and privacy separation, then leaves identity rows clean.
 - **Deployment topology:** three process roles from one revision — web, worker, scheduler — plus managed PostgreSQL and private object storage. Environments use injected secrets/config; secrets never enter Git or client bundles. Hosting vendor remains replaceable.
 - **Card data:** never stored or processed by UkieBook; mono owns payment entry surface.
 
 ## Security Privacy And Access Model
 
-- RBAC: guest < buyer < author; manager — окрема роль; guard-и маршрутів за Navigation Model (screen-map «Права доступу»).
-- Сепарація даних: `payout_details` — закритий піддомен (доступ: сам автор + менеджер у S-19); ПД покупців ніколи не потрапляють у авторські звіти (FR-REW-6); статус засновника невидимий у авторських поверхнях (FR-FND-3).
+- RBAC: `buyer`, `author`, `manager` — окремі явні ролі/capabilities без порядку успадкування; роль Автора надається лише атомарно зі збереженням першого S-17, після чого всі попередні сесії відкликаються й видається replacement session; guard-и маршрутів відповідають Navigation Model.
+- OAuth boundary: safe `returnTo` allow-list не допускає зовнішні/службові маршрути; flow claim одноразовий; provider mapping не auto-links за email; forged Google signature, wrong nonce і `userinfo.sub` mismatch fail closed без створення user/account/session.
+- Сепарація даних: `author_payout_details` — закритий encrypted-envelope піддомен; public `AuthorProfile` повертає лише `authorId` і `publicName`; ПД покупців ніколи не потрапляють у авторські звіти (FR-REW-6); статус засновника невидимий у авторських поверхнях (FR-FND-3).
 - Платежі: платформа тримає лише ідентифікатори сесій mono і результати; карткові дані — ні (FR-PAY-3).
 - Файли книжок: видача лише автентифікованому власнику `library_item`; посилання — короткоживучі/авторизовані.
 - Внутрішні правила модерації — лише в закритому контурі `moderation`; назовні — `reason_category` (FR-MOD-3).
 - Аудит-слід: рішення менеджера (модерація, виплати, повернення, перемикач засновника) фіксуються з часом і актором.
 - Webhook secrets, OAuth secrets, database/object-storage credentials and email/AI keys are server-only injected secrets; logs redact tokens and personal fields.
+- Same-origin + CSRF перевірки захищають mutation boundaries; недійсна S-17 мутація повертає privacy-safe form error, тоді як auth/RBAC/persistence failures не маскуються як validation success.
 - Enabling a new Автор-засновник is one transaction that clears any prior singleton assignment, writes the new assignment and audit event, or changes nothing on failure.
 
 ## Performance Reliability And Observability
@@ -224,6 +229,14 @@ flowchart TB
 - Why This Direction: prevents cross-buyer access and makes approved updates reproducible without destroying prior artifacts.
 - Consequences: object lifecycle/retention is explicit; signed URLs are short-lived; `library_item` resolves the active approved `book_version`.
 
+### AD-10 Server-owned OAuth identity with explicit roles and rotated opaque sessions
+
+- Decision: Google/Facebook callbacks завершують одноразовий server-owned flow; provider+subject є єдиним ключем OAuth-звʼязку, ролі перевіряються як окремі capabilities, а зміна authorization state відкликає старі hashed sessions і видає нову opaque session.
+- Source References: FR-AUTH-1..3, S-03/S-17, NFR-3; UNIT-01 implementation/evidence at `ab030a00f213d33f62783f0287dd8e5dcfe67101`.
+- Alternatives Considered: JWT у browser storage; auto-link за email; role hierarchy; роль Автора одразу після OAuth.
+- Why This Direction: не довіряє mutable email як identity key, мінімізує browser secret surface, не підвищує first-time user до Автора до валідного S-17 і робить authorization change негайно відкличним.
+- Consequences: потрібні persistent flow/session tables, centralized guards, CSRF/Origin checks і credentialed smoke перед production activation кожного provider app.
+
 ## Risks And Mitigations
 
 | Ризик | Джерело | Мітигація |
@@ -233,6 +246,7 @@ flowchart TB
 | Розбіжність вебхуків mono і фактичних оплат | FR-PAY-5 | Ідемпотентність + періодична звірка сесій |
 | Помилки в ручних виплатах | FR-PYT | Лідж як єдине джерело сум; payout-рядки — похідні; аудит-слід підтверджень |
 | Витік ПД через звіти | FR-REW-6, NFR-3 | Сепарація доменів даних; звіти автора будуються без полів покупця |
+| Розбіжність локально перевіреного OAuth adapter contract із production app/redirect registration | FR-AUTH-1, NFR-3 | Loopback protocol simulator + негативні OIDC-вектори в CI; credentialed Google/Facebook consent smoke є обовʼязковим activation gate |
 
 ## Out Of Scope
 

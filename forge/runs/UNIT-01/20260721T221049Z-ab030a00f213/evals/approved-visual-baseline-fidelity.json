@@ -1,0 +1,69 @@
+{
+  "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V2",
+  "comparison_mode": "approved Aurora extension; S-01 pixel lock not touched",
+  "evidence": [
+    "forge/runs/UNIT-01/20260721T221049Z-ab030a00f213/evidence/commands/visual.txt",
+    "forge/runs/UNIT-01/20260721T221049Z-ab030a00f213/evidence/commands/unit01-visual.txt",
+    "forge/runs/UNIT-01/20260721T221049Z-ab030a00f213/evidence/visual/vis-tokens.json",
+    "forge/runs/UNIT-01/20260721T221049Z-ab030a00f213/evidence/visual/vis-tokens.png",
+    "forge/runs/UNIT-01/20260721T221049Z-ab030a00f213/evidence/visual/unit01-responsive-matrix.json",
+    "forge/runs/UNIT-01/20260721T221049Z-ab030a00f213/evidence/visual/s03-default-390@2x.png",
+    "forge/runs/UNIT-01/20260721T221049Z-ab030a00f213/evidence/visual/s03-oauth-error-390@2x.png",
+    "forge/runs/UNIT-01/20260721T221049Z-ab030a00f213/evidence/visual/s17-default-390@2x.png",
+    "forge/runs/UNIT-01/20260721T221049Z-ab030a00f213/evidence/visual/s17-validation-error-390@2x.png",
+    "forge/runs/UNIT-01/20260721T221049Z-ab030a00f213/evidence/visual/s17-saved-390@2x.png",
+    "forge/runs/UNIT-01/20260721T221049Z-ab030a00f213/evidence/visual/s03-default-430@2x.png",
+    "forge/runs/UNIT-01/20260721T221049Z-ab030a00f213/evidence/visual/s03-oauth-error-430@2x.png",
+    "forge/runs/UNIT-01/20260721T221049Z-ab030a00f213/evidence/visual/s17-default-430@2x.png",
+    "forge/runs/UNIT-01/20260721T221049Z-ab030a00f213/evidence/visual/s17-validation-error-430@2x.png",
+    "forge/runs/UNIT-01/20260721T221049Z-ab030a00f213/evidence/visual/s17-saved-430@2x.png",
+    "forge/runs/UNIT-01/20260721T221049Z-ab030a00f213/evidence/visual/s03-default-768@2x.png",
+    "forge/runs/UNIT-01/20260721T221049Z-ab030a00f213/evidence/visual/s03-oauth-error-768@2x.png",
+    "forge/runs/UNIT-01/20260721T221049Z-ab030a00f213/evidence/visual/s17-default-768@2x.png",
+    "forge/runs/UNIT-01/20260721T221049Z-ab030a00f213/evidence/visual/s17-validation-error-768@2x.png",
+    "forge/runs/UNIT-01/20260721T221049Z-ab030a00f213/evidence/visual/s17-saved-768@2x.png",
+    "forge/runs/UNIT-01/20260721T221049Z-ab030a00f213/evidence/visual/s03-default-1280@2x.png",
+    "forge/runs/UNIT-01/20260721T221049Z-ab030a00f213/evidence/visual/s03-oauth-error-1280@2x.png",
+    "forge/runs/UNIT-01/20260721T221049Z-ab030a00f213/evidence/visual/s17-default-1280@2x.png",
+    "forge/runs/UNIT-01/20260721T221049Z-ab030a00f213/evidence/visual/s17-validation-error-1280@2x.png",
+    "forge/runs/UNIT-01/20260721T221049Z-ab030a00f213/evidence/visual/s17-saved-1280@2x.png",
+    "forge/runs/UNIT-01/20260721T221049Z-ab030a00f213/evidence/visual/s03-default-1440@2x.png",
+    "forge/runs/UNIT-01/20260721T221049Z-ab030a00f213/evidence/visual/s03-oauth-error-1440@2x.png",
+    "forge/runs/UNIT-01/20260721T221049Z-ab030a00f213/evidence/visual/s17-default-1440@2x.png",
+    "forge/runs/UNIT-01/20260721T221049Z-ab030a00f213/evidence/visual/s17-validation-error-1440@2x.png",
+    "forge/runs/UNIT-01/20260721T221049Z-ab030a00f213/evidence/visual/s17-saved-1440@2x.png",
+    "forge/runs/UNIT-01/20260721T221049Z-ab030a00f213/evidence/visual/s03-focus-1280@2x.png"
+  ],
+  "gate": "approved_visual_baseline_fidelity",
+  "routes": [
+    "/login",
+    "/author/profile"
+  ],
+  "screens": [
+    "S-03",
+    "S-17"
+  ],
+  "states": [
+    "default",
+    "oauth-error",
+    "focus",
+    "zoom-200",
+    "validation-error",
+    "saved"
+  ],
+  "target_bundle_hash": "c66b23c55e68649e67e029d47c8e69d3bef3791f8c4c6677aa0a6cef2259c51d",
+  "viewports": [
+    390,
+    430,
+    768,
+    1280,
+    1440
+  ],
+  "findings": [],
+  "implementation_revision": "ab030a00f213d33f62783f0287dd8e5dcfe67101",
+  "owner": "Codex / identity and author-profile",
+  "rerun_of": null,
+  "status": "passed",
+  "timestamp": "2026-07-21T22:11:41.723Z",
+  "unit": "UNIT-01"
+}

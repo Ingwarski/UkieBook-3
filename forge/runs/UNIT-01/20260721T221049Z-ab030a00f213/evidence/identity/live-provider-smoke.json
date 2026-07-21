@@ -1,0 +1,20 @@
+{
+  "activation_effect": "production-provider-activation-blocking",
+  "local_protocol_evidence": [
+    "forge/runs/UNIT-01/20260721T221049Z-ab030a00f213/evidence/commands/unit-tests.txt",
+    "forge/runs/UNIT-01/20260721T221049Z-ab030a00f213/evidence/commands/unit01-e2e.txt"
+  ],
+  "providers": {
+    "facebook": {
+      "reason": "Production app credentials, registered callback and a live test account are not available to this local run.",
+      "status": "deferred"
+    },
+    "google": {
+      "reason": "Production app credentials, registered callback and a live test account are not available to this local run.",
+      "status": "deferred"
+    }
+  },
+  "scope": "Live consent and registered-redirect smoke only; exact production adapter code is covered by the local HTTP protocol and browser flows.",
+  "status": "blocked",
+  "verified_at": "2026-07-21T22:11:41.721Z"
+}

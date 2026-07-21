@@ -1,0 +1,12 @@
+name: dependency-audit
+command: npm audit --audit-level=high
+implementation_revision: ab030a00f213d33f62783f0287dd8e5dcfe67101
+started_at: 2026-07-21T22:10:50.093Z
+finished_at: 2026-07-21T22:10:50.643Z
+exit_code: 0
+signal: none
+
+[stdout]
+found 0 vulnerabilities
+
+[stderr]

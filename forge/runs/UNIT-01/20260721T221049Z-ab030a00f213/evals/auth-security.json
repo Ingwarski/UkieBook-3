@@ -1,0 +1,29 @@
+{
+  "covered_checks": [
+    "OAuth state, nonce and PKCE",
+    "unsafe return-target rejection",
+    "opaque hashed and revocable sessions",
+    "server-side authorization matrix",
+    "public profile and payout-data separation",
+    "append-only identity audit",
+    "repository, bundle, browser and evidence secret boundaries"
+  ],
+  "evidence": [
+    "forge/runs/UNIT-01/20260721T221049Z-ab030a00f213/evidence/commands/unit-tests.txt",
+    "forge/runs/UNIT-01/20260721T221049Z-ab030a00f213/evidence/commands/unit01-e2e.txt",
+    "forge/runs/UNIT-01/20260721T221049Z-ab030a00f213/evidence/security/access-separation.json",
+    "forge/runs/UNIT-01/20260721T221049Z-ab030a00f213/evidence/security/browser-secret-boundary.json",
+    "forge/runs/UNIT-01/20260721T221049Z-ab030a00f213/evidence/security/client-secret-boundary.json",
+    "forge/runs/UNIT-01/20260721T221049Z-ab030a00f213/evidence/security/negative-client-import.json",
+    "forge/runs/UNIT-01/20260721T221049Z-ab030a00f213/evidence/security/repository-secret-hygiene.json",
+    "forge/runs/UNIT-01/20260721T221049Z-ab030a00f213/evidence/security/unit01-evidence-secret-scan.json"
+  ],
+  "gate": "auth_security",
+  "findings": [],
+  "implementation_revision": "ab030a00f213d33f62783f0287dd8e5dcfe67101",
+  "owner": "Codex / identity and author-profile",
+  "rerun_of": null,
+  "status": "passed",
+  "timestamp": "2026-07-21T22:11:41.722Z",
+  "unit": "UNIT-01"
+}

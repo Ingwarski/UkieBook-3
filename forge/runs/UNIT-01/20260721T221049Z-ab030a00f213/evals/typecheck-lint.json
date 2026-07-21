@@ -1,0 +1,16 @@
+{
+  "evidence": [
+    "forge/runs/UNIT-01/20260721T221049Z-ab030a00f213/evidence/commands/typecheck.txt",
+    "forge/runs/UNIT-01/20260721T221049Z-ab030a00f213/evidence/commands/lint.txt",
+    "forge/runs/UNIT-01/20260721T221049Z-ab030a00f213/evidence/architecture/boundary-review.json",
+    "forge/runs/UNIT-01/20260721T221049Z-ab030a00f213/evidence/security/negative-client-import.json"
+  ],
+  "gate": "typecheck_lint",
+  "findings": [],
+  "implementation_revision": "ab030a00f213d33f62783f0287dd8e5dcfe67101",
+  "owner": "Codex / identity and author-profile",
+  "rerun_of": null,
+  "status": "passed",
+  "timestamp": "2026-07-21T22:11:41.721Z",
+  "unit": "UNIT-01"
+}

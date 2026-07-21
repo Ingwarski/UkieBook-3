@@ -7,7 +7,7 @@
 - `docs/canonical-terms.md` — applied roles, domain objects/actions/states, Screen/Flow Names and Terms to Avoid.
 - `docs/user-journey.md`, `docs/screen-map.md`, `docs/wireframes.md` — journey, S-01…S-21, routes/states/structure.
 - `docs/design-brief.md` — Approved Baseline `AVB-UKIEBOOK-AURORA-7B-V2`; target bundle hash `c66b23c55e68649e67e029d47c8e69d3bef3791f8c4c6677aa0a6cef2259c51d`; tree hash `8aaddd35645bd9c58c095a7182fbbbd43dd8730c5cf90b489a97597431cc6505`; permitted variance.
-- `docs/architecture.md` — AD-1…AD-9, module/data/integration/security/runtime contracts.
+- `docs/architecture.md` — AD-1…AD-10, module/data/integration/security/runtime contracts.
 - `docs/dod-evals.md` — standing DoD and reusable gates.
 - `docs/qa-checklist.md` — concrete ACC/UJ/ST/WF/UX/VIS/RES/A11Y/INT/BD checks.
 - `docs/guardrails.md` — authority, evidence and high-risk boundaries.
@@ -25,28 +25,38 @@ Money is integer kopiykas; ledger/outbox/jobs are transactional PostgreSQL recor
 
 ## Codebase Map
 
-Current UNIT-00 foundation at revision `f6e503b242d5a5eca59972dece1657f4d207b3e3`:
+Current UNIT-00 foundation plus UNIT-01 identity/profile slice at revision `ab030a00f213d33f62783f0287dd8e5dcfe67101`:
 
 ```text
 app/
   api/health/               web runtime/revision health
+  api/auth/                 Google/Facebook start, callback and logout boundaries
+  login/                    S-03
+  author/profile/           S-17 page and protected Server Action
+  author/books|publish/     guarded handoff routes for later owning units
+  admin/ library/           explicit guarded placeholders, not feature completion
   fixtures/aurora/          explicit non-product VIS-TOKENS fixture
 components/
   aurora/                   tokens and accessible visual primitives
+  identity/                 S-03/S-17 Aurora extension components and pending states
 modules/
   platform/                 runtime identity, SQL port, transactions, outbox/jobs, env/evidence
+  identity/                 OAuth adapters, crypto, repository, sessions, guards and policy
+  author-profile/           public profile validation/repository/service
+  payout-details/           restricted encrypted-envelope repository boundary only
 db/
-  migrations/               reversible checksummed PostgreSQL migrations
+  migrations/               reversible checksummed PostgreSQL migrations 0001 + 0002
   postgres.ts               production adapter
   pglite.ts                 test-only adapter
 workers/
   worker.ts scheduler.ts    separate executable roles
-scripts/                    build, boundary, hygiene and UNIT-00 evidence runners
+scripts/                    build/boundary/hygiene, OAuth simulator, UNIT-00/01 evidence runners
 tests/
-  unit/ integration/ e2e/ visual/
+  unit/ integration/ e2e/ visual/ plus UNIT-01 browser/visual suites
+public/brand/               official Google sign-in mark with provenance
 ```
 
-Product route groups `(public)`, `author`, `admin`, domain modules, integrations and `public/brand` are introduced by their owning later units; they are not claimed as present by UNIT-00.
+The S-03/S-17 routes and identity/profile contracts above are complete only within UNIT-01. Guarded `/author/books`, `/author/publish`, `/admin` and `/library` pages are handoff/access-boundary placeholders; their product capabilities remain owned by UNIT-02…UNIT-08 and are not claimed as implemented.
 
 Module imports point inward to domain contracts; UI and provider adapters may depend on domain interfaces, never the reverse. Cross-module mutation happens through commands/events, not direct table writes.
 
@@ -74,12 +84,13 @@ Module imports point inward to domain contracts; UI and provider adapters may de
 
 ### UNIT-01 — Identity, sessions, RBAC and Author profile
 
+- **Execution Status:** `completed` on 2026-07-21 at implementation revision `ab030a00f213d33f62783f0287dd8e5dcfe67101`; canonical passed run `forge/runs/UNIT-01/20260721T221049Z-ab030a00f213/run.json`.
 - **Purpose:** implement Google/Facebook OAuth, role guards, public Author name and protected-data separation; deliver S-03/S-17.
 - **Source References:** FR-AUTH-1..4; US-002; S-03/S-17 states/routes; architecture `identity`/`author-profile` and Security; QA ACC-01, ST-02/06/11, A11Y-02/03.
 - **Depends On:** UNIT-00.
-- **Work Items:** OAuth provider adapters/callbacks; persistent session and provider mapping; Guest/Buyer/Author/Manager guards; first-Author redirect S-03→S-17→S-11; public `author_profile` separate from encrypted/restricted `payout_details`; audit login/role changes; semantic provider controls.
+- **Work Items:** production Google OIDC/Facebook OAuth adapters with code+PKCE; one-time encrypted flows and provider mapping; hashed/revocable sessions; explicit Guest/Buyer/Author/Manager capability guards; first-Author redirect S-03→S-17→S-11 with atomic profile+role grant and session rotation; public `author_profile` separate from encrypted/restricted `author_payout_details`; append-only identity audit; semantic provider controls and controlled mutation errors.
 - **Acceptance Checks:** only named OAuth methods appear; return-to-source works; protected-route matrix passes; Author cannot access Manager routes; public responses never expose payout fields; S-17 saves canonical public name.
-- **Verification:** ACC-01; UJ-01 auth segment; ST-02/06/11; `access_separation`; A11Y-02/03/07; browser smoke.
+- **Verification:** scoped ACC-01; UJ-01 stages 1–2; S-03 portion of ST-02, S-17 portion of ST-06 and identity portion of ST-11; `identity_integration`, `auth_security`, scoped `access_separation`; UX-04/06/07, affected RES-01/04/06 and A11Y-01..05; local provider-protocol/browser smoke. Credentialed live-provider smoke remains an activation gate.
 - **Delivery Layer:** full-stack.
 - **Approved Baseline ID:** `AVB-UKIEBOOK-AURORA-7B-V2`.
 - **Immutable Visual Target Hash:** `c66b23c55e68649e67e029d47c8e69d3bef3791f8c4c6677aa0a6cef2259c51d`.
@@ -89,12 +100,13 @@ Module imports point inward to domain contracts; UI and provider adapters may de
 - **Visual Fidelity Verification:** `approved_visual_baseline_fidelity` via `VIS-AURORA-PUBLIC`, `VIS-AURORA-AUTHOR`, `VIS-TOKENS`, `VIS-GLASS`, affected RES/A11Y.
 - **Prototype Reuse:** none.
 - **Production Capabilities Added Beyond Prototype:** OAuth, sessions, RBAC, persistent profile, validation/errors/audit.
-- **Interfaces Produced:** `AuthSession`, `UserRole`, `AuthorProfile`, route guard policy.
-- **Interfaces Consumed:** UNIT-00 transaction/session storage.
+- **Interfaces Produced:** `OAuthProviderId`, `AuthIntent`, `AuthSession`, `UserRole`, `AuthorProfile`, `RouteAccessDecision`, provider adapter/registry and route guard policy; public profile DTO is exactly `{authorId, publicName}`.
+- **Interfaces Consumed:** UNIT-00 `SqlDatabase`, transaction/migration/runtime/environment contracts and PostgreSQL adapter.
 - **API/Data Contract References:** FR-AUTH; canonical roles/actions; architecture identity boundary.
 - **Interface Owner:** `identity` / `author-profile`.
-- **Compatibility Expectations:** role/session schema additive; public profile DTO excludes restricted fields by construction.
-- **Integration Verification:** OAuth callback→session→role redirect→profile save; negative role matrix.
+- **Compatibility Expectations:** migration IDs/checksums are immutable and additive; provider+subject mapping never auto-links by email; role checks have no hierarchy; public profile DTO excludes restricted fields by construction; payout envelope content remains UNIT-07-owned.
+- **Integration Verification:** Google/Facebook callback→persistent session→trusted redirect; callback replay/concurrent mapping; first-Author S-17→atomic role/profile→session rotation; existing-Author return; negative role/CSRF/unsafe-return/forged-signature/wrong-nonce/userinfo-sub matrix; public/payout data separation.
+- **Completion Evidence:** dependency audit, typecheck/lint/source boundaries, 55 Vitest tests and production build passed; real PostgreSQL rollback/reapply and identity concurrency proof passed; standard E2E/visual 1/1 each, UNIT-01 E2E 3/3 and visual 2/2 passed; 26 HiDPI screenshots, 200% reflow, computed control contrast ≥4.5:1 and every rendered S-03/S-17 link/button target ≥44×44 CSS px recorded; evidence secret scan found no leaks/trace/HAR; zero P0/P1/blocking P2. Live Google/Facebook consent remains blocked only for production provider activation.
 
 ### UNIT-02 — Aurora public catalog and Book Page
 
@@ -337,12 +349,13 @@ flowchart LR
   U09 --> U10[UNIT-10 Release]
 ```
 
-After UNIT-00, UNIT-01 and fixture-backed UNIT-02 can run in parallel. UNIT-03 and UNIT-05 can overlap once their consumed interfaces are frozen. No financial consumer begins against an unversioned `PaidSale`/`RefundApproved` event. UNIT-09 is a convergence unit, not a substitute for per-unit UX evidence.
+UNIT-00 and UNIT-01 are complete. The next executable unit is UNIT-02; after its catalog/read-model interfaces are frozen, UNIT-03 can consume both UNIT-01 and UNIT-02, while UNIT-05 can begin against UNIT-01/02. No financial consumer begins against an unversioned `PaidSale`/`RefundApproved` event. UNIT-09 is a convergence unit, not a substitute for per-unit UX evidence.
 
 ## Verification Plan
 
 - After every unit: `npm run typecheck`, `npm run lint`, `npm test`, `npm run build`; affected integration/e2e/visual commands follow the unit fields.
 - For UNIT-00 foundation changes, `REAL_DATABASE_URL=<ephemeral-postgres-url> npm run verify:unit00` is the canonical bundle-producing rerun and must target real PostgreSQL.
+- For UNIT-01 identity/profile changes, `REAL_DATABASE_URL=postgres://<credentials>@127.0.0.1:<port>/ukiebook_unit01 npm run verify:unit01` is the canonical bundle-producing rerun; the runner rejects a dirty tree, non-loopback host or different database name and includes real PostgreSQL, E2E, responsive/contrast and secret-evidence gates.
 - Persist results in dod-evals format with unit, revision, timestamp, evidence and findings. A missing applicable command/result is `blocked`, never passed by inspection.
 - Money tests use integer fixtures, discount boundaries, duplicate/out-of-order events, Refund compensation, threshold/carry, update fee and Founder cases.
 - Conversion tests use representative DOCX/TXT/Google Docs fixtures with headings, Unicode Ukrainian text and inline Illustrations; EPUB/MOBI validators are external evidence.
@@ -365,6 +378,7 @@ After UNIT-00, UNIT-01 and fixture-backed UNIT-02 can run in parallel. UNIT-03 a
 - **MOBI:** UNIT-03 begins with proof; inability to produce valid MOBI blocks publishing and triggers an upstream product decision, not a silent EPUB-only release.
 - **Financial formula:** implement current exact provisional rule with versioned ledger metadata; legal/accounting change requires upstream SDD regeneration and migration plan.
 - **mono:** provider docs/signature/tariffs must be refreshed just in time; sandbox behavior does not prove production commercial terms.
+- **OAuth activation:** local production adapters, negative OIDC vectors and browser flows are proven, but real registered redirect/consent behavior must be smoked with credentialed Google/Facebook pre-production apps before enabling either provider in production.
 - **Design fidelity vs accessibility:** permitted variance authorizes only measured semantic/contrast/target/reflow fixes; UNIT-09 must prove both fidelity and AA rather than sacrificing either silently.
 - **Logo source format:** the official mark is supplied as an opaque JPEG and a byte-identical raster-backed SVG wrapper. The SVG does not add vector geometry or transparency; any true-vector, transparent or optimized derivative must retain the source silhouette, proportions and internal line structure, with source/derivative hashes and rendered comparison evidence.
 - **Manual operations:** Manager flows ship before automation; background jobs expose dead-letter/retry visibility so one failure does not corrupt payouts or hide moderation work.

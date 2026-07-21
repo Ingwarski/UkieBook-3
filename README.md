@@ -9,9 +9,10 @@ UkieBook — українська платформа самопублікаці�
 - SDD pipeline: `development-plan-validated`
 - Approved Visual Baseline: `AVB-UKIEBOOK-AURORA-7B-V2`
 - `UNIT-00` завершено на revision `f6e503b242d5a5eca59972dece1657f4d207b3e3`: Next.js/TypeScript web foundation, окремі worker/scheduler runtimes, PostgreSQL migrations + transaction/outbox/durable jobs, secret/import boundaries, Aurora tokens/primitives and automated evidence runner.
-- Canonical passed evidence: `forge/runs/UNIT-00/20260721T202102Z-f6e503b242d5/run.json`.
-- Наступні implementation units: `UNIT-01` (identity/RBAC/profile) та fixture-backed `UNIT-02` (Aurora catalog/Book Page) можуть стартувати паралельно.
-- Product journeys and S-01…S-21 production screens ще не реалізовані; release readiness remains blocked by their owning units and external release gates.
+- `UNIT-01` завершено на revision `ab030a00f213d33f62783f0287dd8e5dcfe67101`: Google/Facebook OAuth adapters, one-time flows, hashed/revocable sessions, explicit RBAC, S-03/S-17, atomic first-Author profile+role grant, protected-data separation, real PostgreSQL/browser/visual evidence, AA control contrast and measured 44px touch targets.
+- Canonical passed evidence: UNIT-00 — `forge/runs/UNIT-00/20260721T202102Z-f6e503b242d5/run.json`; UNIT-01 — `forge/runs/UNIT-01/20260721T221049Z-ab030a00f213/run.json`.
+- Наступний executable unit: `UNIT-02` — точний Aurora catalog S-01 та Book Page S-02 з реальними станами/пошуком/фільтрами.
+- Решта product journeys і S-01/S-02/S-04…S-16/S-18…S-21 ще не реалізовані; release readiness remains blocked by their owning units and external release gates. Credentialed Google/Facebook smoke окремо блокує production provider activation, але не завершеність локально доказаного UNIT-01.
 
 ## Основні артефакти
 

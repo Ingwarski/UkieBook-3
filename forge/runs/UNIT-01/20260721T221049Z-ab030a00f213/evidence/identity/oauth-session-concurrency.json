@@ -1,0 +1,22 @@
+{
+  "callback_race": {
+    "fulfilled": 1,
+    "rejected": 1,
+    "rejection_code": "invalid_flow"
+  },
+  "concurrent_mapping": {
+    "users": 1,
+    "accounts": 1,
+    "sessions": 2,
+    "distinct_session_users": 1
+  },
+  "digest_storage": {
+    "digest_count": 2,
+    "digests_well_formed": true,
+    "raw_token_matches": 0
+  },
+  "implementation_revision": "ab030a00f213d33f62783f0287dd8e5dcfe67101",
+  "provider": "google",
+  "provider_subject_sha256": "aa3ba397dfc968e7f169b40e80cc6f5f3d5b16c89b31e73eb1e056a224bb6894",
+  "verified_at": "2026-07-21T22:11:13.465Z"
+}

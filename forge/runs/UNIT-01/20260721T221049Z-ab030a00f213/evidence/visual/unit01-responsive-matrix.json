@@ -1,0 +1,1105 @@
+{
+  "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V2",
+  "receipts": [
+    {
+      "file": "evidence/visual/s03-default-390@2x.png",
+      "contrast": [
+        {
+          "background": "rgb(255, 255, 255)",
+          "foreground": "rgb(31, 31, 31)",
+          "label": "Увійти через Google",
+          "ratio": 16.48
+        },
+        {
+          "background": "rgb(22, 111, 229)",
+          "foreground": "rgb(255, 255, 255)",
+          "label": "Увійти через Facebook",
+          "ratio": 4.73
+        }
+      ],
+      "layout": {
+        "background": "rgb(255, 247, 243)",
+        "clientWidth": 390,
+        "scrollWidth": 390
+      },
+      "screen": "s03",
+      "state": "default",
+      "touchTargets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 93.69
+        },
+        {
+          "height": 48,
+          "label": "Увійти через Google",
+          "width": 308
+        },
+        {
+          "height": 48,
+          "label": "Увійти через Facebook",
+          "width": 308
+        },
+        {
+          "height": 44,
+          "label": "Повернутися назад",
+          "width": 140.5
+        }
+      ],
+      "viewport": {
+        "deviceScaleFactor": 2,
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "file": "evidence/visual/s03-oauth-error-390@2x.png",
+      "contrast": [
+        {
+          "background": "rgb(255, 255, 255)",
+          "foreground": "rgb(31, 31, 31)",
+          "label": "Увійти через Google",
+          "ratio": 16.48
+        },
+        {
+          "background": "rgb(22, 111, 229)",
+          "foreground": "rgb(255, 255, 255)",
+          "label": "Увійти через Facebook",
+          "ratio": 4.73
+        }
+      ],
+      "layout": {
+        "background": "rgb(255, 247, 243)",
+        "clientWidth": 390,
+        "scrollWidth": 390
+      },
+      "screen": "s03",
+      "state": "oauth-error",
+      "touchTargets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 93.69
+        },
+        {
+          "height": 48,
+          "label": "Увійти через Google",
+          "width": 308
+        },
+        {
+          "height": 48,
+          "label": "Увійти через Facebook",
+          "width": 308
+        },
+        {
+          "height": 44,
+          "label": "Повернутися назад",
+          "width": 140.5
+        }
+      ],
+      "viewport": {
+        "deviceScaleFactor": 2,
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "file": "evidence/visual/s03-default-430@2x.png",
+      "contrast": [
+        {
+          "background": "rgb(255, 255, 255)",
+          "foreground": "rgb(31, 31, 31)",
+          "label": "Увійти через Google",
+          "ratio": 16.48
+        },
+        {
+          "background": "rgb(22, 111, 229)",
+          "foreground": "rgb(255, 255, 255)",
+          "label": "Увійти через Facebook",
+          "ratio": 4.73
+        }
+      ],
+      "layout": {
+        "background": "rgb(255, 247, 243)",
+        "clientWidth": 430,
+        "scrollWidth": 430
+      },
+      "screen": "s03",
+      "state": "default",
+      "touchTargets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 93.69
+        },
+        {
+          "height": 48,
+          "label": "Увійти через Google",
+          "width": 348
+        },
+        {
+          "height": 48,
+          "label": "Увійти через Facebook",
+          "width": 348
+        },
+        {
+          "height": 44,
+          "label": "Повернутися назад",
+          "width": 140.5
+        }
+      ],
+      "viewport": {
+        "deviceScaleFactor": 2,
+        "height": 844,
+        "width": 430
+      }
+    },
+    {
+      "file": "evidence/visual/s03-oauth-error-430@2x.png",
+      "contrast": [
+        {
+          "background": "rgb(255, 255, 255)",
+          "foreground": "rgb(31, 31, 31)",
+          "label": "Увійти через Google",
+          "ratio": 16.48
+        },
+        {
+          "background": "rgb(22, 111, 229)",
+          "foreground": "rgb(255, 255, 255)",
+          "label": "Увійти через Facebook",
+          "ratio": 4.73
+        }
+      ],
+      "layout": {
+        "background": "rgb(255, 247, 243)",
+        "clientWidth": 430,
+        "scrollWidth": 430
+      },
+      "screen": "s03",
+      "state": "oauth-error",
+      "touchTargets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 93.69
+        },
+        {
+          "height": 48,
+          "label": "Увійти через Google",
+          "width": 348
+        },
+        {
+          "height": 48,
+          "label": "Увійти через Facebook",
+          "width": 348
+        },
+        {
+          "height": 44,
+          "label": "Повернутися назад",
+          "width": 140.5
+        }
+      ],
+      "viewport": {
+        "deviceScaleFactor": 2,
+        "height": 844,
+        "width": 430
+      }
+    },
+    {
+      "file": "evidence/visual/s03-default-768@2x.png",
+      "contrast": [
+        {
+          "background": "rgb(255, 255, 255)",
+          "foreground": "rgb(31, 31, 31)",
+          "label": "Увійти через Google",
+          "ratio": 16.48
+        },
+        {
+          "background": "rgb(22, 111, 229)",
+          "foreground": "rgb(255, 255, 255)",
+          "label": "Увійти через Facebook",
+          "ratio": 4.73
+        }
+      ],
+      "layout": {
+        "background": "rgb(255, 247, 243)",
+        "clientWidth": 768,
+        "scrollWidth": 768
+      },
+      "screen": "s03",
+      "state": "default",
+      "touchTargets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 93.69
+        },
+        {
+          "height": 48,
+          "label": "Увійти через Google",
+          "width": 442
+        },
+        {
+          "height": 48,
+          "label": "Увійти через Facebook",
+          "width": 442
+        },
+        {
+          "height": 44,
+          "label": "Повернутися назад",
+          "width": 140.5
+        }
+      ],
+      "viewport": {
+        "deviceScaleFactor": 2,
+        "height": 900,
+        "width": 768
+      }
+    },
+    {
+      "file": "evidence/visual/s03-oauth-error-768@2x.png",
+      "contrast": [
+        {
+          "background": "rgb(255, 255, 255)",
+          "foreground": "rgb(31, 31, 31)",
+          "label": "Увійти через Google",
+          "ratio": 16.48
+        },
+        {
+          "background": "rgb(22, 111, 229)",
+          "foreground": "rgb(255, 255, 255)",
+          "label": "Увійти через Facebook",
+          "ratio": 4.73
+        }
+      ],
+      "layout": {
+        "background": "rgb(255, 247, 243)",
+        "clientWidth": 768,
+        "scrollWidth": 768
+      },
+      "screen": "s03",
+      "state": "oauth-error",
+      "touchTargets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 93.69
+        },
+        {
+          "height": 48,
+          "label": "Увійти через Google",
+          "width": 442
+        },
+        {
+          "height": 48,
+          "label": "Увійти через Facebook",
+          "width": 442
+        },
+        {
+          "height": 44,
+          "label": "Повернутися назад",
+          "width": 140.5
+        }
+      ],
+      "viewport": {
+        "deviceScaleFactor": 2,
+        "height": 900,
+        "width": 768
+      }
+    },
+    {
+      "file": "evidence/visual/s03-default-1280@2x.png",
+      "contrast": [
+        {
+          "background": "rgb(255, 255, 255)",
+          "foreground": "rgb(31, 31, 31)",
+          "label": "Увійти через Google",
+          "ratio": 16.48
+        },
+        {
+          "background": "rgb(22, 111, 229)",
+          "foreground": "rgb(255, 255, 255)",
+          "label": "Увійти через Facebook",
+          "ratio": 4.73
+        }
+      ],
+      "layout": {
+        "background": "rgb(255, 247, 243)",
+        "clientWidth": 1280,
+        "scrollWidth": 1280
+      },
+      "screen": "s03",
+      "state": "default",
+      "touchTargets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 93.69
+        },
+        {
+          "height": 48,
+          "label": "Увійти через Google",
+          "width": 442
+        },
+        {
+          "height": 48,
+          "label": "Увійти через Facebook",
+          "width": 442
+        },
+        {
+          "height": 44,
+          "label": "Повернутися назад",
+          "width": 140.5
+        }
+      ],
+      "viewport": {
+        "deviceScaleFactor": 2,
+        "height": 900,
+        "width": 1280
+      }
+    },
+    {
+      "file": "evidence/visual/s03-oauth-error-1280@2x.png",
+      "contrast": [
+        {
+          "background": "rgb(255, 255, 255)",
+          "foreground": "rgb(31, 31, 31)",
+          "label": "Увійти через Google",
+          "ratio": 16.48
+        },
+        {
+          "background": "rgb(22, 111, 229)",
+          "foreground": "rgb(255, 255, 255)",
+          "label": "Увійти через Facebook",
+          "ratio": 4.73
+        }
+      ],
+      "layout": {
+        "background": "rgb(255, 247, 243)",
+        "clientWidth": 1280,
+        "scrollWidth": 1280
+      },
+      "screen": "s03",
+      "state": "oauth-error",
+      "touchTargets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 93.69
+        },
+        {
+          "height": 48,
+          "label": "Увійти через Google",
+          "width": 442
+        },
+        {
+          "height": 48,
+          "label": "Увійти через Facebook",
+          "width": 442
+        },
+        {
+          "height": 44,
+          "label": "Повернутися назад",
+          "width": 140.5
+        }
+      ],
+      "viewport": {
+        "deviceScaleFactor": 2,
+        "height": 900,
+        "width": 1280
+      }
+    },
+    {
+      "file": "evidence/visual/s03-default-1440@2x.png",
+      "contrast": [
+        {
+          "background": "rgb(255, 255, 255)",
+          "foreground": "rgb(31, 31, 31)",
+          "label": "Увійти через Google",
+          "ratio": 16.48
+        },
+        {
+          "background": "rgb(22, 111, 229)",
+          "foreground": "rgb(255, 255, 255)",
+          "label": "Увійти через Facebook",
+          "ratio": 4.73
+        }
+      ],
+      "layout": {
+        "background": "rgb(255, 247, 243)",
+        "clientWidth": 1440,
+        "scrollWidth": 1440
+      },
+      "screen": "s03",
+      "state": "default",
+      "touchTargets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 93.69
+        },
+        {
+          "height": 48,
+          "label": "Увійти через Google",
+          "width": 442
+        },
+        {
+          "height": 48,
+          "label": "Увійти через Facebook",
+          "width": 442
+        },
+        {
+          "height": 44,
+          "label": "Повернутися назад",
+          "width": 140.5
+        }
+      ],
+      "viewport": {
+        "deviceScaleFactor": 2,
+        "height": 900,
+        "width": 1440
+      }
+    },
+    {
+      "file": "evidence/visual/s03-oauth-error-1440@2x.png",
+      "contrast": [
+        {
+          "background": "rgb(255, 255, 255)",
+          "foreground": "rgb(31, 31, 31)",
+          "label": "Увійти через Google",
+          "ratio": 16.48
+        },
+        {
+          "background": "rgb(22, 111, 229)",
+          "foreground": "rgb(255, 255, 255)",
+          "label": "Увійти через Facebook",
+          "ratio": 4.73
+        }
+      ],
+      "layout": {
+        "background": "rgb(255, 247, 243)",
+        "clientWidth": 1440,
+        "scrollWidth": 1440
+      },
+      "screen": "s03",
+      "state": "oauth-error",
+      "touchTargets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 93.69
+        },
+        {
+          "height": 48,
+          "label": "Увійти через Google",
+          "width": 442
+        },
+        {
+          "height": 48,
+          "label": "Увійти через Facebook",
+          "width": 442
+        },
+        {
+          "height": 44,
+          "label": "Повернутися назад",
+          "width": 140.5
+        }
+      ],
+      "viewport": {
+        "deviceScaleFactor": 2,
+        "height": 900,
+        "width": 1440
+      }
+    },
+    {
+      "file": "evidence/visual/s03-focus-1280@2x.png",
+      "contrast": [
+        {
+          "background": "rgb(255, 255, 255)",
+          "foreground": "rgb(31, 31, 31)",
+          "label": "Увійти через Google",
+          "ratio": 16.48
+        },
+        {
+          "background": "rgb(22, 111, 229)",
+          "foreground": "rgb(255, 255, 255)",
+          "label": "Увійти через Facebook",
+          "ratio": 4.73
+        }
+      ],
+      "layout": {
+        "background": "rgb(255, 247, 243)",
+        "clientWidth": 1280,
+        "scrollWidth": 1280
+      },
+      "screen": "s03",
+      "state": "focus",
+      "touchTargets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 93.69
+        },
+        {
+          "height": 48,
+          "label": "Увійти через Google",
+          "width": 442
+        },
+        {
+          "height": 48,
+          "label": "Увійти через Facebook",
+          "width": 442
+        },
+        {
+          "height": 44,
+          "label": "Повернутися назад",
+          "width": 140.5
+        }
+      ],
+      "viewport": {
+        "deviceScaleFactor": 2,
+        "height": 900,
+        "width": 1280
+      }
+    },
+    {
+      "reflow": {
+        "clientWidth": 1280,
+        "scrollWidth": 1280
+      },
+      "screen": "s03",
+      "state": "zoom-200",
+      "viewport": {
+        "width": 1280
+      }
+    },
+    {
+      "file": "evidence/visual/s17-default-390@2x.png",
+      "contrast": [
+        {
+          "background": "rgb(159, 78, 196)",
+          "foreground": "rgb(255, 255, 255)",
+          "label": "Зберегти",
+          "ratio": 4.82
+        }
+      ],
+      "layout": {
+        "background": "rgb(255, 247, 243)",
+        "clientWidth": 390,
+        "scrollWidth": 390
+      },
+      "screen": "s17",
+      "state": "default",
+      "touchTargets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 93.69
+        },
+        {
+          "height": 44,
+          "label": "Зберегти",
+          "width": 308
+        }
+      ],
+      "viewport": {
+        "deviceScaleFactor": 2,
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "file": "evidence/visual/s17-validation-error-390@2x.png",
+      "contrast": [
+        {
+          "background": "rgb(164, 83, 201)",
+          "foreground": "rgb(255, 255, 255)",
+          "label": "Зберегти",
+          "ratio": 4.51
+        }
+      ],
+      "layout": {
+        "background": "rgb(255, 247, 243)",
+        "clientWidth": 390,
+        "scrollWidth": 390
+      },
+      "screen": "s17",
+      "state": "validation-error",
+      "touchTargets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 93.69
+        },
+        {
+          "height": 44,
+          "label": "Зберегти",
+          "width": 308
+        }
+      ],
+      "viewport": {
+        "deviceScaleFactor": 2,
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "file": "evidence/visual/s17-saved-390@2x.png",
+      "contrast": [
+        {
+          "background": "rgb(164, 83, 201)",
+          "foreground": "rgb(255, 255, 255)",
+          "label": "Зберегти",
+          "ratio": 4.51
+        }
+      ],
+      "layout": {
+        "background": "rgb(255, 247, 243)",
+        "clientWidth": 390,
+        "scrollWidth": 390
+      },
+      "screen": "s17",
+      "state": "saved",
+      "touchTargets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 93.69
+        },
+        {
+          "height": 44,
+          "label": "Зберегти",
+          "width": 308
+        }
+      ],
+      "viewport": {
+        "deviceScaleFactor": 2,
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "file": "evidence/visual/s17-default-430@2x.png",
+      "contrast": [
+        {
+          "background": "rgb(164, 83, 201)",
+          "foreground": "rgb(255, 255, 255)",
+          "label": "Зберегти",
+          "ratio": 4.51
+        }
+      ],
+      "layout": {
+        "background": "rgb(255, 247, 243)",
+        "clientWidth": 430,
+        "scrollWidth": 430
+      },
+      "screen": "s17",
+      "state": "default",
+      "touchTargets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 93.69
+        },
+        {
+          "height": 44,
+          "label": "Зберегти",
+          "width": 348
+        }
+      ],
+      "viewport": {
+        "deviceScaleFactor": 2,
+        "height": 844,
+        "width": 430
+      }
+    },
+    {
+      "file": "evidence/visual/s17-validation-error-430@2x.png",
+      "contrast": [
+        {
+          "background": "rgb(164, 83, 201)",
+          "foreground": "rgb(255, 255, 255)",
+          "label": "Зберегти",
+          "ratio": 4.51
+        }
+      ],
+      "layout": {
+        "background": "rgb(255, 247, 243)",
+        "clientWidth": 430,
+        "scrollWidth": 430
+      },
+      "screen": "s17",
+      "state": "validation-error",
+      "touchTargets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 93.69
+        },
+        {
+          "height": 44,
+          "label": "Зберегти",
+          "width": 348
+        }
+      ],
+      "viewport": {
+        "deviceScaleFactor": 2,
+        "height": 844,
+        "width": 430
+      }
+    },
+    {
+      "file": "evidence/visual/s17-saved-430@2x.png",
+      "contrast": [
+        {
+          "background": "rgb(164, 83, 201)",
+          "foreground": "rgb(255, 255, 255)",
+          "label": "Зберегти",
+          "ratio": 4.51
+        }
+      ],
+      "layout": {
+        "background": "rgb(255, 247, 243)",
+        "clientWidth": 430,
+        "scrollWidth": 430
+      },
+      "screen": "s17",
+      "state": "saved",
+      "touchTargets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 93.69
+        },
+        {
+          "height": 44,
+          "label": "Зберегти",
+          "width": 348
+        }
+      ],
+      "viewport": {
+        "deviceScaleFactor": 2,
+        "height": 844,
+        "width": 430
+      }
+    },
+    {
+      "file": "evidence/visual/s17-default-768@2x.png",
+      "contrast": [
+        {
+          "background": "rgb(164, 83, 201)",
+          "foreground": "rgb(255, 255, 255)",
+          "label": "Зберегти",
+          "ratio": 4.51
+        }
+      ],
+      "layout": {
+        "background": "rgb(255, 247, 243)",
+        "clientWidth": 768,
+        "scrollWidth": 768
+      },
+      "screen": "s17",
+      "state": "default",
+      "touchTargets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 93.69
+        },
+        {
+          "height": 44,
+          "label": "Зберегти",
+          "width": 442
+        }
+      ],
+      "viewport": {
+        "deviceScaleFactor": 2,
+        "height": 900,
+        "width": 768
+      }
+    },
+    {
+      "file": "evidence/visual/s17-validation-error-768@2x.png",
+      "contrast": [
+        {
+          "background": "rgb(164, 83, 201)",
+          "foreground": "rgb(255, 255, 255)",
+          "label": "Зберегти",
+          "ratio": 4.51
+        }
+      ],
+      "layout": {
+        "background": "rgb(255, 247, 243)",
+        "clientWidth": 768,
+        "scrollWidth": 768
+      },
+      "screen": "s17",
+      "state": "validation-error",
+      "touchTargets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 93.69
+        },
+        {
+          "height": 44,
+          "label": "Зберегти",
+          "width": 442
+        }
+      ],
+      "viewport": {
+        "deviceScaleFactor": 2,
+        "height": 900,
+        "width": 768
+      }
+    },
+    {
+      "file": "evidence/visual/s17-saved-768@2x.png",
+      "contrast": [
+        {
+          "background": "rgb(164, 83, 201)",
+          "foreground": "rgb(255, 255, 255)",
+          "label": "Зберегти",
+          "ratio": 4.51
+        }
+      ],
+      "layout": {
+        "background": "rgb(255, 247, 243)",
+        "clientWidth": 768,
+        "scrollWidth": 768
+      },
+      "screen": "s17",
+      "state": "saved",
+      "touchTargets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 93.69
+        },
+        {
+          "height": 44,
+          "label": "Зберегти",
+          "width": 442
+        }
+      ],
+      "viewport": {
+        "deviceScaleFactor": 2,
+        "height": 900,
+        "width": 768
+      }
+    },
+    {
+      "file": "evidence/visual/s17-default-1280@2x.png",
+      "contrast": [
+        {
+          "background": "rgb(164, 83, 201)",
+          "foreground": "rgb(255, 255, 255)",
+          "label": "Зберегти",
+          "ratio": 4.51
+        }
+      ],
+      "layout": {
+        "background": "rgb(255, 247, 243)",
+        "clientWidth": 1280,
+        "scrollWidth": 1280
+      },
+      "screen": "s17",
+      "state": "default",
+      "touchTargets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 93.69
+        },
+        {
+          "height": 44,
+          "label": "Зберегти",
+          "width": 442
+        }
+      ],
+      "viewport": {
+        "deviceScaleFactor": 2,
+        "height": 900,
+        "width": 1280
+      }
+    },
+    {
+      "file": "evidence/visual/s17-validation-error-1280@2x.png",
+      "contrast": [
+        {
+          "background": "rgb(164, 83, 201)",
+          "foreground": "rgb(255, 255, 255)",
+          "label": "Зберегти",
+          "ratio": 4.51
+        }
+      ],
+      "layout": {
+        "background": "rgb(255, 247, 243)",
+        "clientWidth": 1280,
+        "scrollWidth": 1280
+      },
+      "screen": "s17",
+      "state": "validation-error",
+      "touchTargets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 93.69
+        },
+        {
+          "height": 44,
+          "label": "Зберегти",
+          "width": 442
+        }
+      ],
+      "viewport": {
+        "deviceScaleFactor": 2,
+        "height": 900,
+        "width": 1280
+      }
+    },
+    {
+      "file": "evidence/visual/s17-saved-1280@2x.png",
+      "contrast": [
+        {
+          "background": "rgb(164, 83, 201)",
+          "foreground": "rgb(255, 255, 255)",
+          "label": "Зберегти",
+          "ratio": 4.51
+        }
+      ],
+      "layout": {
+        "background": "rgb(255, 247, 243)",
+        "clientWidth": 1280,
+        "scrollWidth": 1280
+      },
+      "screen": "s17",
+      "state": "saved",
+      "touchTargets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 93.69
+        },
+        {
+          "height": 44,
+          "label": "Зберегти",
+          "width": 442
+        }
+      ],
+      "viewport": {
+        "deviceScaleFactor": 2,
+        "height": 900,
+        "width": 1280
+      }
+    },
+    {
+      "file": "evidence/visual/s17-default-1440@2x.png",
+      "contrast": [
+        {
+          "background": "rgb(164, 83, 201)",
+          "foreground": "rgb(255, 255, 255)",
+          "label": "Зберегти",
+          "ratio": 4.51
+        }
+      ],
+      "layout": {
+        "background": "rgb(255, 247, 243)",
+        "clientWidth": 1440,
+        "scrollWidth": 1440
+      },
+      "screen": "s17",
+      "state": "default",
+      "touchTargets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 93.69
+        },
+        {
+          "height": 44,
+          "label": "Зберегти",
+          "width": 442
+        }
+      ],
+      "viewport": {
+        "deviceScaleFactor": 2,
+        "height": 900,
+        "width": 1440
+      }
+    },
+    {
+      "file": "evidence/visual/s17-validation-error-1440@2x.png",
+      "contrast": [
+        {
+          "background": "rgb(164, 83, 201)",
+          "foreground": "rgb(255, 255, 255)",
+          "label": "Зберегти",
+          "ratio": 4.51
+        }
+      ],
+      "layout": {
+        "background": "rgb(255, 247, 243)",
+        "clientWidth": 1440,
+        "scrollWidth": 1440
+      },
+      "screen": "s17",
+      "state": "validation-error",
+      "touchTargets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 93.69
+        },
+        {
+          "height": 44,
+          "label": "Зберегти",
+          "width": 442
+        }
+      ],
+      "viewport": {
+        "deviceScaleFactor": 2,
+        "height": 900,
+        "width": 1440
+      }
+    },
+    {
+      "file": "evidence/visual/s17-saved-1440@2x.png",
+      "contrast": [
+        {
+          "background": "rgb(164, 83, 201)",
+          "foreground": "rgb(255, 255, 255)",
+          "label": "Зберегти",
+          "ratio": 4.51
+        }
+      ],
+      "layout": {
+        "background": "rgb(255, 247, 243)",
+        "clientWidth": 1440,
+        "scrollWidth": 1440
+      },
+      "screen": "s17",
+      "state": "saved",
+      "touchTargets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 93.69
+        },
+        {
+          "height": 44,
+          "label": "Зберегти",
+          "width": 442
+        }
+      ],
+      "viewport": {
+        "deviceScaleFactor": 2,
+        "height": 900,
+        "width": 1440
+      }
+    }
+  ],
+  "status": "passed",
+  "target_bundle_hash": "c66b23c55e68649e67e029d47c8e69d3bef3791f8c4c6677aa0a6cef2259c51d",
+  "verified_at": "2026-07-21T22:11:41.674Z"
+}

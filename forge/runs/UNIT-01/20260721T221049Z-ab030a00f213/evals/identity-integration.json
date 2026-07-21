@@ -1,0 +1,24 @@
+{
+  "covered_checks": [
+    "OAuth callback to persistent session",
+    "one-time flow claim and concurrent provider mapping",
+    "role-aware redirect and negative route matrix",
+    "author profile save and session rotation",
+    "additive migration rollback and reapply"
+  ],
+  "evidence": [
+    "forge/runs/UNIT-01/20260721T221049Z-ab030a00f213/evidence/commands/real-postgres-unit01.txt",
+    "forge/runs/UNIT-01/20260721T221049Z-ab030a00f213/evidence/commands/unit01-e2e.txt",
+    "forge/runs/UNIT-01/20260721T221049Z-ab030a00f213/evidence/database/unit01-migration-roundtrip.json",
+    "forge/runs/UNIT-01/20260721T221049Z-ab030a00f213/evidence/identity/oauth-session-concurrency.json",
+    "forge/runs/UNIT-01/20260721T221049Z-ab030a00f213/evidence/identity/author-profile-role.json"
+  ],
+  "gate": "identity_integration",
+  "findings": [],
+  "implementation_revision": "ab030a00f213d33f62783f0287dd8e5dcfe67101",
+  "owner": "Codex / identity and author-profile",
+  "rerun_of": null,
+  "status": "passed",
+  "timestamp": "2026-07-21T22:11:41.722Z",
+  "unit": "UNIT-01"
+}

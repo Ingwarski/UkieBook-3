@@ -1,0 +1,51 @@
+{
+  "append_only_audit": {
+    "delete_rejected": true,
+    "event_count_preserved": 9,
+    "event_types": [
+      "login_succeeded",
+      "role_granted",
+      "login_succeeded",
+      "login_succeeded",
+      "login_succeeded",
+      "login_succeeded",
+      "author_profile_updated",
+      "role_granted",
+      "session_revoked"
+    ],
+    "update_rejected": true
+  },
+  "atomic_failure_rolled_back": {
+    "profiles": 0,
+    "author_roles": 0,
+    "profile_audits": 0
+  },
+  "concurrent_profile_saves": {
+    "fulfilled": 1,
+    "rejected": 1,
+    "stale_session_rejected": true
+  },
+  "final_author_state": {
+    "profiles": 1,
+    "author_roles": 1,
+    "buyer_roles": 1,
+    "active_sessions": 1,
+    "revoked_sessions": 5,
+    "authorization_version": 2
+  },
+  "implementation_revision": "ab030a00f213d33f62783f0287dd8e5dcfe67101",
+  "old_sessions_rejected": 5,
+  "public_profile": {
+    "authorId": "43c33aae-88c2-453c-bd4a-b8ffaede347c",
+    "publicName": "Автор PostgreSQL A"
+  },
+  "replacement_session": {
+    "active": true,
+    "author_onboarding": false,
+    "roles": [
+      "author",
+      "buyer"
+    ]
+  },
+  "verified_at": "2026-07-21T22:11:13.465Z"
+}

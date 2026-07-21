@@ -9,7 +9,8 @@
 - `docs/design-brief.md` — AA-підлога й approved Baseline `AVB-UKIEBOOK-AURORA-7B-V2`, bundle hash `c66b23c55e68…`, mixed exact/extension Visual DoD Scope та інтегрований official-logo override.
 - `docs/screen-map.md`, `docs/wireframes.md`, `docs/user-journey.md` — покриття екранів/станів/потоків для UX-гейтів.
 - `docs/project-context.md` — спожито: розд. 13 (ризики → пріоритети верифікації).
-- `package.json`, lockfile, runtime sources and `forge/runs/UNIT-00/20260721T202102Z-f6e503b242d5/` — UNIT-00 bootstrap implementation and revision-bound evidence. Stable package gates are now executable; this does not mark later product/system/release gates passed.
+- `package.json`, lockfile, runtime sources and `forge/runs/UNIT-00/20260721T202102Z-f6e503b242d5/` — UNIT-00 bootstrap implementation and revision-bound evidence.
+- `forge/runs/UNIT-01/20260721T221049Z-ab030a00f213/` — UNIT-01 revision-bound evidence for S-03/S-17 identity, session/role/profile boundaries, real PostgreSQL concurrency, browser flows and Aurora extension visual checks. Live credentialed Google/Facebook consent is explicitly `blocked` for provider activation and is not represented as passed.
 
 ## Definition Of Done Model
 
@@ -48,9 +49,9 @@
 
 | Gate | Purpose | Source References | Applies To | Required Evidence | Pass Condition | Fail Or Block Condition | Rerun Rule | Automation Status |
 |---|---|---|---|---|---|---|---|---|
-| `build` | Production build збирається | guardrails Verification Rules; AD-6 | кожен юніт після bootstrap | свіжий `npm run build` лог | exit 0 | будь-яка помилка | після кожної зміни | automated; UNIT-00 passed at `f6e503b242d5a5eca59972dece1657f4d207b3e3` |
-| `typecheck_lint` | Статична коректність | guardrails; AD-6 | кожен юніт після bootstrap | свіжі `npm run typecheck` і `npm run lint` логи | 0 помилок | помилки | після кожної зміни | automated; UNIT-00 passed at `f6e503b242d5a5eca59972dece1657f4d207b3e3` |
-| `tests` | Автотести юніта й регресії | guardrails; AD-2/3/4/7 | кожен юніт після bootstrap | свіжий `npm test`; для affected journeys також `npm run test:e2e` | усі застосовні прогони зелені | будь-який failed/blocked застосовний тест | після кожного фіксу | automated; UNIT-00 unit/foundation E2E passed at `f6e503b242d5a5eca59972dece1657f4d207b3e3` |
+| `build` | Production build збирається | guardrails Verification Rules; AD-6 | кожен юніт після bootstrap | свіжий `npm run build` лог | exit 0 | будь-яка помилка | після кожної зміни | automated; UNIT-00 and UNIT-01 passed, latest implementation `ab030a00f213d33f62783f0287dd8e5dcfe67101` |
+| `typecheck_lint` | Статична коректність | guardrails; AD-6 | кожен юніт після bootstrap | свіжі `npm run typecheck` і `npm run lint` логи | 0 помилок | помилки | після кожної зміни | automated; UNIT-00 and UNIT-01 passed, latest implementation `ab030a00f213d33f62783f0287dd8e5dcfe67101` |
+| `tests` | Автотести юніта й регресії | guardrails; AD-2/3/4/7 | кожен юніт після bootstrap | свіжий `npm test`; для affected journeys також `npm run test:e2e` | усі застосовні прогони зелені | будь-який failed/blocked застосовний тест | після кожного фіксу | automated; UNIT-01 passed: 55 Vitest, standard E2E 1/1, UNIT-01 E2E 3/3 at `ab030a00f213d33f62783f0287dd8e5dcfe67101` |
 
 ### Unit Checks
 
@@ -62,7 +63,9 @@
 | `payout_rules` | Поріг 100 грн, перенесення, утримання 250 грн, черга накопичення, засновник 100% | FR-PYT-4, FR-UPD-2, FR-FND-2 | rewards | тест-кейси payout-рядків | правила точні | відхилення | після змін rewards | not available yet |
 | `conversion_pipeline` | DOCX/TXT/GDocs → адаптивне видання → EPUB+MOBI з ілюстраціями в потоці | FR-PUB-1/2/3/7; AD-4 | publishing | прогін на еталонних рукописах | файли валідні, структура збережена | зламаний вихід | після змін конвеєра | not available yet |
 | `moderation_flow` | Ризикове → ручна черга; категорія причини назовні; внутрішні правила не витікають | FR-MOD-2/3; AD-5 | moderation | тести маршрутизації кейсів + перевірка відповідей API/UI | маршрутизація і приховування коректні | витік правил або обхід черги | після змін moderation | not available yet |
-| `access_separation` | Ролеві guard-и; ПД покупців не в авторських звітах; засновник прихований від автора | FR-REW-6, FR-FND-3, NFR-3; architecture Security | identity, rewards | тести доступу за ролями; інспекція відповідей | заборонене недоступне | будь-який витік | після змін доступу | not available yet |
+| `identity_integration` | Google/Facebook code flow, one-time claim, persistent provider mapping, hashed sessions, atomic first-Author profile+role+rotation | FR-AUTH-1..3; AD-10 | identity, author-profile | protocol-simulator integration + real PostgreSQL migration/concurrency evidence + browser S-03→S-17 proof | обидва providers проходять; replay/concurrency інваріанти тримаються; роль виникає лише з профілем | duplicate identity/session, replay success, роль без профілю або stale session accepted | після змін identity/profile/migration | automated; UNIT-01 passed |
+| `auth_security` | PKCE/state/nonce/signature, safe return, CSRF/Origin, expiry/revoke, no provider/browser token persistence, secret hygiene | NFR-3; AD-10; guardrails | identity and protected mutations | negative adapter/unit/browser vectors + schema/bundle/evidence scans | небезпечні вектори fail closed без identity rows чи secret leak | bypass, token/secret leak, unsafe redirect або неконтрольована mutation | після змін auth/config/guards | automated; UNIT-01 passed |
+| `access_separation` | Ролеві guard-и; ПД покупців не в авторських звітах; засновник прихований від автора | FR-REW-6, FR-FND-3, NFR-3; architecture Security | identity, rewards | тести доступу за ролями; інспекція відповідей | заборонене недоступне | будь-який витік | після змін доступу | scoped automation: UNIT-01 identity/public-profile/payout-envelope and Author→Manager denial passed; rewards-report/founder portions not available until owning units |
 | `webhook_idempotency` | Повторний вебхук mono не дублює продаж/нарахування | AD-3 | commerce | тест повторної доставки | одна подія | дубль | після змін інтеграції | not available yet |
 | `foundation_integration` | Real PostgreSQL migration/rollback/reapply, transaction+outbox+job atomicity, competing claims, idempotency conflicts and lease recovery | AD-6/7; UNIT-00 | platform foundation and changes to DB/job primitives | `npm run verify:unit00` + database/worker evidence | all real-PostgreSQL scenarios pass against the implementation revision | substitute database, missing rollback/atomicity/concurrency proof, or blocking finding | after platform migration/job/runtime changes | automated; UNIT-00 passed |
 
@@ -78,9 +81,9 @@
 
 | Gate | Purpose | Source References | Applies To | Required Evidence | Pass Condition | Fail Or Block Condition | Rerun Rule | Automation Status |
 |---|---|---|---|---|---|---|---|---|
-| `screen_states_coverage` | Стани кожного зачепленого екрана відповідають screen-map | screen-map Screen States | фронтенд-юніти | QA-чекліст (посилання на qa-checklist IDs) | всі стани присутні | відсутній обовʼязковий стан | після змін екрана | manual (до появи e2e) |
-| `accessibility_floor` | AA-підлога: контраст, фокус, клавіатура, підписи, цілі ≥44px | design-brief Accessibility Floor | фронтенд-юніти | перевірки контрасту + клавіатурний прохід | відповідає | порушення AA | після змін UI | manual |
-| `responsive_viewports` | 390/430/768/1280/1440 без горизонтального скролу й втрати пріоритетів | design-brief Responsive; wireframes Responsive Notes | фронтенд-юніти | скріншоти вʼюпортів | структура за wireframes | зламаний вʼюпорт | після змін layout | manual |
+| `screen_states_coverage` | Стани кожного зачепленого екрана відповідають screen-map | screen-map Screen States | фронтенд-юніти | QA-чекліст (посилання на qa-checklist IDs) | всі стани присутні | відсутній обовʼязковий стан | після змін екрана | automated for UNIT-01 S-03/S-17 default/error/focus/saved/pending paths; other screens per owning unit |
+| `accessibility_floor` | AA-підлога: контраст, фокус, клавіатура, підписи, цілі ≥44px | design-brief Accessibility Floor | фронтенд-юніти | перевірки контрасту + клавіатурний прохід | відповідає | порушення AA | після змін UI | scoped automation passed for UNIT-01: semantic labels/errors, visible keyboard focus, every rendered S-03/S-17 link/button target ≥44×44 CSS px, 200% reflow and computed button contrast ≥4.5:1; release-wide audit remains per owning screens |
+| `responsive_viewports` | 390/430/768/1280/1440 без горизонтального скролу й втрати пріоритетів | design-brief Responsive; wireframes Responsive Notes | фронтенд-юніти | скріншоти вʼюпортів | структура за wireframes | зламаний вʼюпорт | після змін layout | automated for UNIT-01 S-03/S-17: 26 HiDPI screenshots + 200% reflow receipt passed |
 | `vis_tokens` | Aurora source token export and browser computed styles match active Baseline values | design-brief Approved Baseline; AD-8; QA `VIS-TOKENS` | UNIT-00 foundation fixture and later shared-token changes | `npm run test:visual` capture + structured computed-style evidence | exact source-token values, Baseline ID/hash and no blocking finding | value/hash drift or missing browser proof | after shared token/fixture changes or Baseline replacement | automated for the UNIT-00 fixture; passed |
 
 #### `approved_visual_baseline_fidelity` (параметризований гейт)
@@ -100,7 +103,7 @@
 - Pass Condition: Baseline active/current; the correct exact or extension comparison mode was used; required coverage exists; each deviation is permitted/source-backed; no blocking finding.
 - Fail Or Block Condition: застарілий/заміщений базлайн; відсутній таргет чи покриття; непояснений матеріальний дрейф; відкритий P0/P1/блокувальний P2.
 - Rerun Rule: після кожної зміни UI юніта; після зміни активного базлайна.
-- Automation Status: manual (порівняння + евіденс), до появи візуальної регресії.
+- Automation Status: UNIT-01 Aurora extension mode for S-03/S-17 is automated and passed at `ab030a00f213d33f62783f0287dd8e5dcfe67101` (state/viewport matrix, computed control contrast, measured ≥44×44 CSS px interactive targets, tokens and screenshots); exact S-01 pixel target remains governed by its owning unit.
 
 ### Release Checks
 
@@ -109,6 +112,7 @@
 | `legal_tax_review` | Юрист/бухгалтер підтвердили: 5-річна ліцензія, ФОП/роялті, податкові ставки, порядок виплат і повернень | product-idea «Важливі перевірки»; OQ-1 | публічний реліз | письмове підтвердження | підтверджено | відсутнє/зауваження без розвʼязання | при зміні юр. умов | manual |
 | `mono_terms_confirmed` | Остаточні умови й тарифи mono підтверджені | product-idea; OQ-2 | публічний реліз | зафіксовані умови на дату запуску | підтверджено | не підтверджено | при зміні умов | manual |
 | `release_journeys` | Обидва e2e-шляхи зелені на реліз-кандидаті | journey; System Checks | публічний реліз | свіжі прогони | зелені | червоні | кожен реліз-кандидат | not available yet |
+| `live_oauth_provider_smoke` | Зареєстровані redirect URI, consent і callbacks працюють у credentialed Google/Facebook apps | FR-AUTH-1; AD-10 | активація production OAuth providers / публічний реліз | ручний або автоматизований smoke в credentialed pre-production | обидва provider flows завершуються без scope/redirect drift | credentials/registration відсутні або будь-який provider не проходить | перед першою активацією та після provider config changes | blocked; UNIT-01 local production adapters passed against protocol simulator, але live credentials не надані |
 | `release_findings` | Нуль відкритих P0/P1 і блокувальних P2 | цей файл, Failure Classification | публічний реліз | реєстр знахідок | нуль блокувальних | є блокувальні | кожен реліз-кандидат | manual |
 
 ## Gate Matrix

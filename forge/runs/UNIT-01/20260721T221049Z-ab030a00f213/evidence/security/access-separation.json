@@ -1,0 +1,44 @@
+{
+  "author_has_no_implicit_manager_role": true,
+  "expired_session_rejected": true,
+  "implementation_revision": "ab030a00f213d33f62783f0287dd8e5dcfe67101",
+  "payout_ciphertext": {
+    "absent_from_public_surfaces": true,
+    "persisted_in_restricted_boundary": true,
+    "sentinel_sha256": "e353a58a04e803cf2cd1964fa4a215734ebc7cb02555d1bfc72219f1ef87c8d7"
+  },
+  "pre_author_route_decisions": {
+    "admin": {
+      "outcome": "deny",
+      "requirement": "manager"
+    },
+    "author": {
+      "outcome": "deny",
+      "requirement": "author"
+    },
+    "library": {
+      "outcome": "allow",
+      "requirement": "authenticated"
+    }
+  },
+  "post_author_route_decisions": {
+    "admin": {
+      "outcome": "deny",
+      "requirement": "manager"
+    },
+    "author": {
+      "outcome": "allow",
+      "requirement": "author"
+    },
+    "library": {
+      "outcome": "allow",
+      "requirement": "authenticated"
+    }
+  },
+  "public_profile_fields": [
+    "authorId",
+    "publicName"
+  ],
+  "revoked_session_rejected": true,
+  "verified_at": "2026-07-21T22:11:13.465Z"
+}

@@ -1,0 +1,432 @@
+{
+  "constraints": [
+    {
+      "table_name": "author_payout_details",
+      "constraint_name": "author_payout_details_authentication_tag_check",
+      "constraint_type": "c",
+      "constraint_definition": "CHECK ((octet_length(authentication_tag) = 16))"
+    },
+    {
+      "table_name": "author_payout_details",
+      "constraint_name": "author_payout_details_ciphertext_check",
+      "constraint_type": "c",
+      "constraint_definition": "CHECK ((octet_length(ciphertext) > 0))"
+    },
+    {
+      "table_name": "author_payout_details",
+      "constraint_name": "author_payout_details_key_id_check",
+      "constraint_type": "c",
+      "constraint_definition": "CHECK ((length(btrim(key_id)) > 0))"
+    },
+    {
+      "table_name": "author_payout_details",
+      "constraint_name": "author_payout_details_nonce_check",
+      "constraint_type": "c",
+      "constraint_definition": "CHECK ((octet_length(nonce) = 12))"
+    },
+    {
+      "table_name": "author_payout_details",
+      "constraint_name": "author_payout_details_pkey",
+      "constraint_type": "p",
+      "constraint_definition": "PRIMARY KEY (user_id)"
+    },
+    {
+      "table_name": "author_payout_details",
+      "constraint_name": "author_payout_details_schema_version_check",
+      "constraint_type": "c",
+      "constraint_definition": "CHECK ((schema_version > 0))"
+    },
+    {
+      "table_name": "author_payout_details",
+      "constraint_name": "author_payout_details_user_id_fkey",
+      "constraint_type": "f",
+      "constraint_definition": "FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE"
+    },
+    {
+      "table_name": "author_profiles",
+      "constraint_name": "author_profiles_pkey",
+      "constraint_type": "p",
+      "constraint_definition": "PRIMARY KEY (user_id)"
+    },
+    {
+      "table_name": "author_profiles",
+      "constraint_name": "author_profiles_public_name_check",
+      "constraint_type": "c",
+      "constraint_definition": "CHECK (((length(btrim((public_name)::text)) >= 2) AND (length(btrim((public_name)::text)) <= 120)))"
+    },
+    {
+      "table_name": "author_profiles",
+      "constraint_name": "author_profiles_user_id_fkey",
+      "constraint_type": "f",
+      "constraint_definition": "FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE"
+    },
+    {
+      "table_name": "identity_audit_events",
+      "constraint_name": "identity_audit_events_event_type_check",
+      "constraint_type": "c",
+      "constraint_definition": "CHECK ((event_type = ANY (ARRAY['login_succeeded'::text, 'login_failed'::text, 'role_granted'::text, 'role_revoked'::text, 'session_revoked'::text, 'author_profile_updated'::text])))"
+    },
+    {
+      "table_name": "identity_audit_events",
+      "constraint_name": "identity_audit_events_metadata_check",
+      "constraint_type": "c",
+      "constraint_definition": "CHECK ((jsonb_typeof(metadata) = 'object'::text))"
+    },
+    {
+      "table_name": "identity_audit_events",
+      "constraint_name": "identity_audit_events_pkey",
+      "constraint_type": "p",
+      "constraint_definition": "PRIMARY KEY (id)"
+    },
+    {
+      "table_name": "identity_audit_events",
+      "constraint_name": "identity_audit_events_provider_check",
+      "constraint_type": "c",
+      "constraint_definition": "CHECK (((provider IS NULL) OR (provider = ANY (ARRAY['google'::text, 'facebook'::text]))))"
+    },
+    {
+      "table_name": "identity_audit_events",
+      "constraint_name": "identity_audit_events_user_id_fkey",
+      "constraint_type": "f",
+      "constraint_definition": "FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE SET NULL"
+    },
+    {
+      "table_name": "oauth_accounts",
+      "constraint_name": "oauth_accounts_pkey",
+      "constraint_type": "p",
+      "constraint_definition": "PRIMARY KEY (id)"
+    },
+    {
+      "table_name": "oauth_accounts",
+      "constraint_name": "oauth_accounts_provider_check",
+      "constraint_type": "c",
+      "constraint_definition": "CHECK ((provider = ANY (ARRAY['google'::text, 'facebook'::text])))"
+    },
+    {
+      "table_name": "oauth_accounts",
+      "constraint_name": "oauth_accounts_provider_provider_subject_key",
+      "constraint_type": "u",
+      "constraint_definition": "UNIQUE (provider, provider_subject)"
+    },
+    {
+      "table_name": "oauth_accounts",
+      "constraint_name": "oauth_accounts_provider_subject_check",
+      "constraint_type": "c",
+      "constraint_definition": "CHECK ((length(btrim(provider_subject)) > 0))"
+    },
+    {
+      "table_name": "oauth_accounts",
+      "constraint_name": "oauth_accounts_user_id_fkey",
+      "constraint_type": "f",
+      "constraint_definition": "FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE"
+    },
+    {
+      "table_name": "oauth_accounts",
+      "constraint_name": "oauth_accounts_user_id_provider_key",
+      "constraint_type": "u",
+      "constraint_definition": "UNIQUE (user_id, provider)"
+    },
+    {
+      "table_name": "oauth_flows",
+      "constraint_name": "oauth_flows_browser_binding_digest_check",
+      "constraint_type": "c",
+      "constraint_definition": "CHECK ((browser_binding_digest ~ '^[0-9a-f]{64}$'::text))"
+    },
+    {
+      "table_name": "oauth_flows",
+      "constraint_name": "oauth_flows_check",
+      "constraint_type": "c",
+      "constraint_definition": "CHECK ((expires_at > created_at))"
+    },
+    {
+      "table_name": "oauth_flows",
+      "constraint_name": "oauth_flows_check1",
+      "constraint_type": "c",
+      "constraint_definition": "CHECK (((sealed_nonce IS NOT NULL) OR (provider = 'facebook'::text)))"
+    },
+    {
+      "table_name": "oauth_flows",
+      "constraint_name": "oauth_flows_intent_check",
+      "constraint_type": "c",
+      "constraint_definition": "CHECK ((intent = ANY (ARRAY['default'::text, 'author_onboarding'::text])))"
+    },
+    {
+      "table_name": "oauth_flows",
+      "constraint_name": "oauth_flows_pkey",
+      "constraint_type": "p",
+      "constraint_definition": "PRIMARY KEY (id)"
+    },
+    {
+      "table_name": "oauth_flows",
+      "constraint_name": "oauth_flows_provider_check",
+      "constraint_type": "c",
+      "constraint_definition": "CHECK ((provider = ANY (ARRAY['google'::text, 'facebook'::text])))"
+    },
+    {
+      "table_name": "oauth_flows",
+      "constraint_name": "oauth_flows_state_digest_check",
+      "constraint_type": "c",
+      "constraint_definition": "CHECK ((state_digest ~ '^[0-9a-f]{64}$'::text))"
+    },
+    {
+      "table_name": "oauth_flows",
+      "constraint_name": "oauth_flows_state_digest_key",
+      "constraint_type": "u",
+      "constraint_definition": "UNIQUE (state_digest)"
+    },
+    {
+      "table_name": "oauth_flows",
+      "constraint_name": "oauth_flows_status_check",
+      "constraint_type": "c",
+      "constraint_definition": "CHECK ((status = ANY (ARRAY['pending'::text, 'processing'::text, 'consumed'::text, 'failed'::text])))"
+    },
+    {
+      "table_name": "sessions",
+      "constraint_name": "sessions_authorization_version_check",
+      "constraint_type": "c",
+      "constraint_definition": "CHECK ((authorization_version > 0))"
+    },
+    {
+      "table_name": "sessions",
+      "constraint_name": "sessions_check",
+      "constraint_type": "c",
+      "constraint_definition": "CHECK ((idle_expires_at > created_at))"
+    },
+    {
+      "table_name": "sessions",
+      "constraint_name": "sessions_check1",
+      "constraint_type": "c",
+      "constraint_definition": "CHECK ((absolute_expires_at >= idle_expires_at))"
+    },
+    {
+      "table_name": "sessions",
+      "constraint_name": "sessions_check2",
+      "constraint_type": "c",
+      "constraint_definition": "CHECK ((author_onboarding OR (return_to_after_onboarding IS NULL)))"
+    },
+    {
+      "table_name": "sessions",
+      "constraint_name": "sessions_pkey",
+      "constraint_type": "p",
+      "constraint_definition": "PRIMARY KEY (id)"
+    },
+    {
+      "table_name": "sessions",
+      "constraint_name": "sessions_token_digest_check",
+      "constraint_type": "c",
+      "constraint_definition": "CHECK ((token_digest ~ '^[0-9a-f]{64}$'::text))"
+    },
+    {
+      "table_name": "sessions",
+      "constraint_name": "sessions_token_digest_key",
+      "constraint_type": "u",
+      "constraint_definition": "UNIQUE (token_digest)"
+    },
+    {
+      "table_name": "sessions",
+      "constraint_name": "sessions_user_id_fkey",
+      "constraint_type": "f",
+      "constraint_definition": "FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE"
+    },
+    {
+      "table_name": "user_roles",
+      "constraint_name": "user_roles_pkey",
+      "constraint_type": "p",
+      "constraint_definition": "PRIMARY KEY (user_id, role)"
+    },
+    {
+      "table_name": "user_roles",
+      "constraint_name": "user_roles_role_check",
+      "constraint_type": "c",
+      "constraint_definition": "CHECK ((role = ANY (ARRAY['buyer'::text, 'author'::text, 'manager'::text])))"
+    },
+    {
+      "table_name": "user_roles",
+      "constraint_name": "user_roles_user_id_fkey",
+      "constraint_type": "f",
+      "constraint_definition": "FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE"
+    },
+    {
+      "table_name": "users",
+      "constraint_name": "users_authorization_version_check",
+      "constraint_type": "c",
+      "constraint_definition": "CHECK ((authorization_version > 0))"
+    },
+    {
+      "table_name": "users",
+      "constraint_name": "users_pkey",
+      "constraint_type": "p",
+      "constraint_definition": "PRIMARY KEY (id)"
+    },
+    {
+      "table_name": "users",
+      "constraint_name": "users_status_check",
+      "constraint_type": "c",
+      "constraint_definition": "CHECK ((status = ANY (ARRAY['active'::text, 'disabled'::text])))"
+    }
+  ],
+  "database": {
+    "database_name": "ukiebook_unit01",
+    "server_version": "17.10"
+  },
+  "empty_application_tables_before_apply": [],
+  "first_apply": [
+    {
+      "id": "0001_platform_foundation",
+      "direction": "up"
+    },
+    {
+      "id": "0002_identity_sessions_author_profile",
+      "direction": "up"
+    }
+  ],
+  "history_after_identity_reapply": [
+    {
+      "checksum": "8ef9b5fc77dcab1395e8f1557fb1139bf2c63c16e7d5c38a351756caab98d114",
+      "id": "0001_platform_foundation"
+    },
+    {
+      "checksum": "ba8591a0025e72c634f127d6e5444e4e2ef23a2d817e06f21d4dc537e702ce8c",
+      "id": "0002_identity_sessions_author_profile"
+    }
+  ],
+  "identity_reapply": [
+    {
+      "id": "0002_identity_sessions_author_profile",
+      "direction": "up"
+    }
+  ],
+  "indexes": [
+    {
+      "table_name": "author_payout_details",
+      "index_name": "author_payout_details_pkey",
+      "index_definition": "CREATE UNIQUE INDEX author_payout_details_pkey ON public.author_payout_details USING btree (user_id)"
+    },
+    {
+      "table_name": "author_profiles",
+      "index_name": "author_profiles_pkey",
+      "index_definition": "CREATE UNIQUE INDEX author_profiles_pkey ON public.author_profiles USING btree (user_id)"
+    },
+    {
+      "table_name": "identity_audit_events",
+      "index_name": "identity_audit_events_pkey",
+      "index_definition": "CREATE UNIQUE INDEX identity_audit_events_pkey ON public.identity_audit_events USING btree (id)"
+    },
+    {
+      "table_name": "identity_audit_events",
+      "index_name": "identity_audit_user_created_idx",
+      "index_definition": "CREATE INDEX identity_audit_user_created_idx ON public.identity_audit_events USING btree (user_id, created_at, id)"
+    },
+    {
+      "table_name": "oauth_accounts",
+      "index_name": "oauth_accounts_pkey",
+      "index_definition": "CREATE UNIQUE INDEX oauth_accounts_pkey ON public.oauth_accounts USING btree (id)"
+    },
+    {
+      "table_name": "oauth_accounts",
+      "index_name": "oauth_accounts_provider_provider_subject_key",
+      "index_definition": "CREATE UNIQUE INDEX oauth_accounts_provider_provider_subject_key ON public.oauth_accounts USING btree (provider, provider_subject)"
+    },
+    {
+      "table_name": "oauth_accounts",
+      "index_name": "oauth_accounts_user_id_provider_key",
+      "index_definition": "CREATE UNIQUE INDEX oauth_accounts_user_id_provider_key ON public.oauth_accounts USING btree (user_id, provider)"
+    },
+    {
+      "table_name": "oauth_flows",
+      "index_name": "oauth_flows_expiry_idx",
+      "index_definition": "CREATE INDEX oauth_flows_expiry_idx ON public.oauth_flows USING btree (expires_at, status)"
+    },
+    {
+      "table_name": "oauth_flows",
+      "index_name": "oauth_flows_pkey",
+      "index_definition": "CREATE UNIQUE INDEX oauth_flows_pkey ON public.oauth_flows USING btree (id)"
+    },
+    {
+      "table_name": "oauth_flows",
+      "index_name": "oauth_flows_state_digest_key",
+      "index_definition": "CREATE UNIQUE INDEX oauth_flows_state_digest_key ON public.oauth_flows USING btree (state_digest)"
+    },
+    {
+      "table_name": "sessions",
+      "index_name": "sessions_pkey",
+      "index_definition": "CREATE UNIQUE INDEX sessions_pkey ON public.sessions USING btree (id)"
+    },
+    {
+      "table_name": "sessions",
+      "index_name": "sessions_token_digest_key",
+      "index_definition": "CREATE UNIQUE INDEX sessions_token_digest_key ON public.sessions USING btree (token_digest)"
+    },
+    {
+      "table_name": "sessions",
+      "index_name": "sessions_user_active_idx",
+      "index_definition": "CREATE INDEX sessions_user_active_idx ON public.sessions USING btree (user_id, absolute_expires_at) WHERE (revoked_at IS NULL)"
+    },
+    {
+      "table_name": "user_roles",
+      "index_name": "user_roles_pkey",
+      "index_definition": "CREATE UNIQUE INDEX user_roles_pkey ON public.user_roles USING btree (user_id, role)"
+    },
+    {
+      "table_name": "users",
+      "index_name": "users_pkey",
+      "index_definition": "CREATE UNIQUE INDEX users_pkey ON public.users USING btree (id)"
+    }
+  ],
+  "implementation_revision": "ab030a00f213d33f62783f0287dd8e5dcfe67101",
+  "rollback_identity_only": {
+    "id": "0002_identity_sessions_author_profile",
+    "direction": "down"
+  },
+  "tables_after_apply": [
+    "author_payout_details",
+    "author_profiles",
+    "durable_jobs",
+    "identity_audit_events",
+    "oauth_accounts",
+    "oauth_flows",
+    "outbox_events",
+    "sessions",
+    "user_roles",
+    "users"
+  ],
+  "tables_after_identity_rollback": [
+    "durable_jobs",
+    "outbox_events"
+  ],
+  "verified_at": "2026-07-21T22:11:13.465Z",
+  "final_clean_state": {
+    "applied": [
+      {
+        "id": "0001_platform_foundation",
+        "direction": "up"
+      },
+      {
+        "id": "0002_identity_sessions_author_profile",
+        "direction": "up"
+      }
+    ],
+    "counts": {
+      "users": 0,
+      "accounts": 0,
+      "roles": 0,
+      "flows": 0,
+      "sessions": 0,
+      "profiles": 0,
+      "payout_details": 0,
+      "audit_events": 0
+    },
+    "tables": [
+      "author_payout_details",
+      "author_profiles",
+      "durable_jobs",
+      "identity_audit_events",
+      "oauth_accounts",
+      "oauth_flows",
+      "outbox_events",
+      "sessions",
+      "user_roles",
+      "users"
+    ]
+  }
+}
