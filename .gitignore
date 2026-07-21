@@ -1,21 +1,29 @@
-# macOS
-.DS_Store
+# dependencies
+/node_modules/
 
-# Local browser automation state
-.playwright-cli/
+# Next.js and compiled runtimes
+/.next/
+/out/
+/dist/
 
-# Dependencies and build outputs
-node_modules/
-.next/
-dist/
-coverage/
+# tests and local reports
+/coverage/
+/playwright-report/
+/test-results/
 
-# Local environment and logs
-.env
-.env.*
+# local environment and provider metadata
+.env*
 !.env.example
-*.log
+/.vercel/
 
-# Temporary files
-tmp/
-.tmp/
+# local tooling
+*.tsbuildinfo
+.DS_Store
+npm-debug.log*
+*.log
+/.playwright-cli/
+/.unit00-docker/
+
+# temporary files
+/tmp/
+/.tmp/

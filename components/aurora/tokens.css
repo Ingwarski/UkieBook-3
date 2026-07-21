@@ -1,0 +1,43 @@
+:root {
+  color-scheme: light;
+  --color-bg: #FFF7F3;
+  --color-page-outer: #ECE7E2;
+  --color-text: #2E2621;
+  --color-text-muted: #857468;
+  --color-accent: #B26BD6;
+  --gradient-brand: linear-gradient(90deg, #E08AB0, #B26BD6 55%, #E8A04B);
+  --color-glass: rgba(255,255,255,.70);
+  --color-glass-strong: rgba(255,255,255,.80);
+  --color-hairline: rgba(46,38,33,.06);
+  --color-formula-tax: #F7E7DE;
+  --color-formula-platform: #F6E4D2;
+  --color-formula-platform-text: #9A6438;
+  --mesh-aurora:
+    radial-gradient(560px 360px at 15% 0%, rgba(255,190,160,.60), transparent 68%),
+    radial-gradient(600px 380px at 85% 4%, rgba(197,178,255,.50), transparent 68%),
+    radial-gradient(520px 340px at 52% 42%, rgba(255,214,170,.50), transparent 68%);
+  --font-ui: Golos Text, system-ui, sans-serif;
+  --font-reading: Literata, Georgia, serif;
+  --radius-cover: 16px;
+  --radius-thumbnail: 12px;
+  --radius-tile: 22px;
+  --radius-formula: 26px;
+  --radius-page: 14px;
+  --radius-pill: 999px;
+  --shadow-cover: 0 24px 44px rgba(178,107,214,.24);
+  --shadow-surface: 0 8px 22px rgba(178,107,214,.10);
+  --motion-fast: 180ms ease-out;
+
+  /* AA semantic aliases; approved source tokens above remain immutable. */
+  --color-text-subtle: #75655B;
+  --color-accent-action: #A453C9;
+  --color-accent-action-hover: #9340B7;
+  --color-border-control: #9A887D;
+  --color-focus-ring: #7A359D;
+  /* Golos Text remains a source token; use the documented fallback until provenance is cleared. */
+  --font-ui-active: system-ui, sans-serif;
+  --color-status-success: #216E4E;
+  --color-status-warning: #7A4D10;
+  --color-status-danger: #A3312D;
+  --color-status-info: #385998;
+}

@@ -1,0 +1,1 @@
+export { readServerEnvironment } from "../../../modules/platform/environment/runtime";

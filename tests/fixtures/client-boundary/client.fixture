@@ -1,0 +1,3 @@
+"use client";
+
+export { readServerEnvironment } from "./reexport.fixture";
