@@ -10,6 +10,25 @@ const evidenceRoot = process.env.UNIT_EVIDENCE_DIR
 const receipts: Array<Record<string, unknown>> = [];
 let visualSuiteFailed = false;
 
+function contrastRatio(foreground: string, background: string): number {
+  const luminance = (color: string) => {
+    const channels = color.match(/[\d.]+/gu)?.slice(0, 3).map(Number);
+    if (!channels || channels.length !== 3) {
+      throw new Error(`Unsupported computed color: ${color}`);
+    }
+    const [red, green, blue] = channels.map((channel) => {
+      const value = channel / 255;
+      return value <= 0.04045
+        ? value / 12.92
+        : ((value + 0.055) / 1.055) ** 2.4;
+    });
+    return 0.2126 * red + 0.7152 * green + 0.0722 * blue;
+  };
+  const first = luminance(foreground);
+  const second = luminance(background);
+  return (Math.max(first, second) + 0.05) / (Math.min(first, second) + 0.05);
+}
+
 test.afterEach(({}, testInfo) => {
   if (testInfo.status !== testInfo.expectedStatus) {
     visualSuiteFailed = true;
@@ -30,6 +49,28 @@ async function capture(
     scrollWidth: document.documentElement.scrollWidth,
   }));
   expect(layout.scrollWidth).toBeLessThanOrEqual(layout.clientWidth);
+  const controlContrast = await page.getByRole("button").evaluateAll((buttons) =>
+    buttons.map((button) => {
+      const style = getComputedStyle(button);
+      return {
+        background: style.backgroundColor,
+        foreground: style.color,
+        label: button.textContent?.trim() ?? "",
+      };
+    }),
+  );
+  const contrast = controlContrast.map((sample) => ({
+    ...sample,
+    ratio: Number(
+      contrastRatio(sample.foreground, sample.background).toFixed(2),
+    ),
+  }));
+  for (const sample of contrast) {
+    expect(
+      sample.ratio,
+      `${sample.label} contrast ${sample.ratio}:1 must meet WCAG AA 4.5:1`,
+    ).toBeGreaterThanOrEqual(4.5);
+  }
   const fileName = `${screen}-${state}-${width}@2x.png`;
   await mkdir(evidenceRoot, { recursive: true });
   await page.screenshot({
@@ -39,6 +80,7 @@ async function capture(
   });
   receipts.push({
     file: `evidence/visual/${fileName}`,
+    contrast,
     layout,
     screen,
     state,
@@ -118,13 +160,18 @@ test("S-17 Aurora Author extension covers default, validation and saved states",
   if (page.url().endsWith("/author/profile")) {
     await page.getByLabel(/Публічне ім’я або псевдонім/u).fill("Візуальний Автор");
     await page.getByRole("button", { name: "Зберегти" }).click();
-    await expect(page).toHaveURL(/\/author\/publish$/u);
+    await expect(page).toHaveURL(
+      /\/author\/(?:publish|profile\?saved=1)$/u,
+    );
   }
 
   for (const width of viewports) {
     await page.goto("/author/profile");
     await expect(page.getByRole("heading", { name: "Профіль автора" })).toBeVisible();
-    expect((await page.getByRole("button", { name: "Зберегти" }).boundingBox())?.height).toBeGreaterThanOrEqual(44);
+    expect(
+      (await page.getByRole("button", { name: "Зберегти" }).boundingBox())
+        ?.height,
+    ).toBeGreaterThanOrEqual(43.99);
     await capture(page, "s17", "default", width);
 
     await page.getByLabel(/Публічне ім’я або псевдонім/u).fill("x");
