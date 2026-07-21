@@ -216,11 +216,11 @@
     "design-brief": {
       "path": "docs/design-brief.md",
       "owner_skill": "to-design-brief",
-      "owner_invocation_id": "inv-to-design-brief-20260721-04",
+      "owner_invocation_id": "inv-to-design-brief-20260721-05",
       "declared_output_set": ["docs/design-brief.md"],
       "status": "validated",
       "mission_control_status": "Approved design",
-      "source_version": "approved-AVB-UKIEBOOK-AURORA-7B-V2",
+      "source_version": "approved-AVB-UKIEBOOK-AURORA-7B-V2-logo-assets",
       "source_hashes": {
         "prd": "21992be20f5738740fc27fef54922a38d62292818f887a14b11359848be7cb63",
         "user-journey": "f5a1773a4201988eeda614a7be0bafebeae5d583a015eb3b3b5bfd784e567085",
@@ -230,7 +230,9 @@
         "canonical-terms": "9da0c1cc13a67e5905bdcb186d32c70646d8bf99e158c08bfcf8172402dfa78c",
         "guardrails": "0de4c198fec9f21f3a49fbefaa0e54362717c530f5ec4e9f8665bb09f78affa9",
         "visual-target-bundle": "c66b23c55e68649e67e029d47c8e69d3bef3791f8c4c6677aa0a6cef2259c51d",
-        "official-logo": "5cdd21d3ba038632528fc17a13068e3792d03a029779251cd738aaada4aa0ad3"
+        "official-logo": "5cdd21d3ba038632528fc17a13068e3792d03a029779251cd738aaada4aa0ad3",
+        "official-logo-svg-wrapper": "abb3acf8cfa673161e6547ca725f7b337b29185a7eb6918218f887faadc66d98",
+        "logo-svg-equivalence-evidence": "3f52e89cb86b37e7c7a4dda43753a3fa9d355c5280964b6591b0ca2c55792d18"
       },
       "consumed_source_fragments": {
         "project-context#3": "81eb855f80cc150c7b078d89f1400c6f797e867f65e38550a9b370dbf5a7e926",
@@ -246,10 +248,10 @@
       },
       "dependencies": ["wireframes"],
       "dependency_status": {"wireframes": "validated"},
-      "content_hash": "b36246087e84625bf414fe551bb7faacf119a704908168ea2b983720bbe346eb",
-      "validation": {"owner_boundary": true, "required_structure": true, "validation_pass_1": "passed", "validation_pass_2": "passed_with_resolved_variance", "approved_baseline_complete": true, "dependency_revalidation": "passed-no-content-change after wireframe source reconciliation", "logo_integrated_in_immutable_target": true, "component_invariants_evidenced": ["VIS-TOKENS", "VIS-GLASS", "VIS-COVER", "VIS-FORMULA", "VIS-BRAND-LOGO"], "issues": []},
+      "content_hash": "13c8d324d95e18d559bc97c6077fba5e7a89795ee2d4445ffbc7f50105d2ef8f",
+      "validation": {"owner_boundary": true, "required_structure": true, "validation_pass_1": "passed", "validation_pass_2": "passed_with_resolved_variance", "approved_baseline_complete": true, "dependency_revalidation": "passed-no-content-change after wireframe source reconciliation", "logo_integrated_in_immutable_target": true, "svg_logo_equivalence_verified": true, "svg_logo_classification": "raster-backed-wrapper", "baseline_change": "none", "component_invariants_evidenced": ["VIS-TOKENS", "VIS-GLASS", "VIS-COVER", "VIS-FORMULA", "VIS-BRAND-LOGO"], "issues": []},
       "open_questions": ["OQ-DB1", "OQ-DB2"],
-      "supersedes": "834ba17bebadf74ac8649d97a7f58de78ae60c77107efd5c6e22a01b012207ed"
+      "supersedes": "b36246087e84625bf414fe551bb7faacf119a704908168ea2b983720bbe346eb"
     },
     "architecture": {
       "path": "docs/architecture.md",
@@ -265,7 +267,7 @@
         "user-journey": "f5a1773a4201988eeda614a7be0bafebeae5d583a015eb3b3b5bfd784e567085",
         "screen-map": "11786f18899717c0aaf4b130f381c5a1d56bd8fbbe4a74293efc68e58c4aee14",
         "wireframes": "a900657de6f9c56640887ba7aba6fc2a390d79b39786366ea2f39473bd04a5f7",
-        "design-brief": "b36246087e84625bf414fe551bb7faacf119a704908168ea2b983720bbe346eb",
+        "design-brief": "13c8d324d95e18d559bc97c6077fba5e7a89795ee2d4445ffbc7f50105d2ef8f",
         "project-context": "5f0b8d530e8e279af8e4e5ece1b5fc8288e93d26696f99714432eb3f29f3b3b2",
         "canonical-terms": "9da0c1cc13a67e5905bdcb186d32c70646d8bf99e158c08bfcf8172402dfa78c"
       },
@@ -283,7 +285,7 @@
       "dependencies": ["design-brief"],
       "dependency_status": {"design-brief": "validated"},
       "content_hash": "286b13b50c7b07272859c26ec47e61a55251e855d5b5e08f502180b79c11d70f",
-      "validation": {"owner_boundary": true, "required_structure": true, "stack_and_runtime_owned": true, "diagram_present": true, "issues": []},
+      "validation": {"owner_boundary": true, "required_structure": true, "stack_and_runtime_owned": true, "diagram_present": true, "dependency_revalidation": "passed-no-content-change; equivalent logo container does not alter architecture", "issues": []},
       "open_questions": ["OQ-AR3", "OQ-AR4"],
       "supersedes": "54e68a6c5cc13af175b22088cdaa0b526cba3bf703381ca912f03d8c3774d50e"
     },
@@ -299,7 +301,7 @@
         "prd": "21992be20f5738740fc27fef54922a38d62292818f887a14b11359848be7cb63",
         "guardrails": "0de4c198fec9f21f3a49fbefaa0e54362717c530f5ec4e9f8665bb09f78affa9",
         "architecture": "286b13b50c7b07272859c26ec47e61a55251e855d5b5e08f502180b79c11d70f",
-        "design-brief": "b36246087e84625bf414fe551bb7faacf119a704908168ea2b983720bbe346eb",
+        "design-brief": "13c8d324d95e18d559bc97c6077fba5e7a89795ee2d4445ffbc7f50105d2ef8f",
         "screen-map": "11786f18899717c0aaf4b130f381c5a1d56bd8fbbe4a74293efc68e58c4aee14",
         "wireframes": "a900657de6f9c56640887ba7aba6fc2a390d79b39786366ea2f39473bd04a5f7",
         "user-journey": "f5a1773a4201988eeda614a7be0bafebeae5d583a015eb3b3b5bfd784e567085",
@@ -313,30 +315,32 @@
       "dependencies": ["architecture"],
       "dependency_status": {"architecture": "validated"},
       "content_hash": "3b4d14356cf1cafdc25f278b74534cb61c121f289fd80da7544ec5061ccb3811",
-      "validation": {"owner_boundary": true, "required_structure": true, "approved_visual_gate_bound": true, "dependency_revalidation": "passed-no-content-change after wireframe/architecture reconciliation", "visual_qa_ids_complete": 11, "prototype_promotion_receipt": "not-applicable-by-AD-8", "issues": []},
+      "validation": {"owner_boundary": true, "required_structure": true, "approved_visual_gate_bound": true, "dependency_revalidation": "passed-no-content-change; equivalent logo container leaves Baseline ID/hash and existing gates unchanged", "visual_qa_ids_complete": 11, "prototype_promotion_receipt": "not-applicable-by-AD-8", "issues": []},
       "open_questions": [],
       "supersedes": "008fba93743a517b8e59afe55b7a13ff7bc764ae343de1b1980c444f5060ea01"
     },
     "qa-checklist": {
       "path": "docs/qa-checklist.md",
       "owner_skill": "to-qa-checklist",
-      "owner_invocation_id": "inv-to-qa-checklist-20260721-04",
+      "owner_invocation_id": "inv-to-qa-checklist-20260721-05",
       "declared_output_set": ["docs/qa-checklist.md"],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "2026-07-21-v2-component-checks",
+      "source_version": "2026-07-21-v2-logo-container-equivalence",
       "source_hashes": {
         "prd": "21992be20f5738740fc27fef54922a38d62292818f887a14b11359848be7cb63",
         "user-journey": "f5a1773a4201988eeda614a7be0bafebeae5d583a015eb3b3b5bfd784e567085",
         "screen-map": "11786f18899717c0aaf4b130f381c5a1d56bd8fbbe4a74293efc68e58c4aee14",
         "wireframes": "a900657de6f9c56640887ba7aba6fc2a390d79b39786366ea2f39473bd04a5f7",
-        "design-brief": "b36246087e84625bf414fe551bb7faacf119a704908168ea2b983720bbe346eb",
+        "design-brief": "13c8d324d95e18d559bc97c6077fba5e7a89795ee2d4445ffbc7f50105d2ef8f",
         "architecture": "286b13b50c7b07272859c26ec47e61a55251e855d5b5e08f502180b79c11d70f",
         "dod-evals": "3b4d14356cf1cafdc25f278b74534cb61c121f289fd80da7544ec5061ccb3811",
         "guardrails": "0de4c198fec9f21f3a49fbefaa0e54362717c530f5ec4e9f8665bb09f78affa9",
         "project-context": "5f0b8d530e8e279af8e4e5ece1b5fc8288e93d26696f99714432eb3f29f3b3b2",
         "canonical-terms": "9da0c1cc13a67e5905bdcb186d32c70646d8bf99e158c08bfcf8172402dfa78c",
-        "official-logo": "5cdd21d3ba038632528fc17a13068e3792d03a029779251cd738aaada4aa0ad3"
+        "official-logo": "5cdd21d3ba038632528fc17a13068e3792d03a029779251cd738aaada4aa0ad3",
+        "official-logo-svg-wrapper": "abb3acf8cfa673161e6547ca725f7b337b29185a7eb6918218f887faadc66d98",
+        "logo-svg-equivalence-evidence": "3f52e89cb86b37e7c7a4dda43753a3fa9d355c5280964b6591b0ca2c55792d18"
       },
       "consumed_source_fragments": {
         "project-context#7": "b4cf1e85c40cc17e8efc22d8ebf8b14575167e2f505d7d762200a71dd85ecc5e",
@@ -351,32 +355,34 @@
       },
       "dependencies": ["dod-evals"],
       "dependency_status": {"dod-evals": "validated"},
-      "content_hash": "3fa39ecb1ee23ea6111667c7105aaba0f2e93ab6fd7fb28e29a2aad06eb49037",
-      "validation": {"owner_boundary": true, "required_structure": true, "dependency_revalidation": "passed-no-content-change after upstream pointer reconciliation", "visual_checks_instantiated": true, "visual_check_count": 11, "dedicated_component_checks": ["VIS-TOKENS", "VIS-GLASS", "VIS-COVER", "VIS-FORMULA", "VIS-BRAND-LOGO"], "release_readiness": "blocked", "issues": []},
+      "content_hash": "21b2396a3d17db5b67f83dd5b50a0a4f6d949819834a130bba66155028fc5277",
+      "validation": {"owner_boundary": true, "required_structure": true, "dependency_revalidation": "passed after official-logo container update", "visual_checks_instantiated": true, "visual_check_count": 11, "dedicated_component_checks": ["VIS-TOKENS", "VIS-GLASS", "VIS-COVER", "VIS-FORMULA", "VIS-BRAND-LOGO"], "svg_logo_equivalence_bound_to_vis_brand_logo": true, "baseline_change": "none", "release_readiness": "blocked", "issues": []},
       "open_questions": ["OQ-QA1"],
-      "supersedes": "2be8a1ce4312288ae788af92bb9955843dc97320f77c871f47ede84b12f47649"
+      "supersedes": "3fa39ecb1ee23ea6111667c7105aaba0f2e93ab6fd7fb28e29a2aad06eb49037"
     },
     "development-plan": {
       "path": "docs/development-plan.md",
       "owner_skill": "to-development-plan",
-      "owner_invocation_id": "inv-to-development-plan-20260721-04",
+      "owner_invocation_id": "inv-to-development-plan-20260721-05",
       "declared_output_set": ["docs/development-plan.md"],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "1.2",
+      "source_version": "1.3",
       "source_hashes": {
         "prd": "21992be20f5738740fc27fef54922a38d62292818f887a14b11359848be7cb63",
         "user-journey": "f5a1773a4201988eeda614a7be0bafebeae5d583a015eb3b3b5bfd784e567085",
         "screen-map": "11786f18899717c0aaf4b130f381c5a1d56bd8fbbe4a74293efc68e58c4aee14",
         "wireframes": "a900657de6f9c56640887ba7aba6fc2a390d79b39786366ea2f39473bd04a5f7",
-        "design-brief": "b36246087e84625bf414fe551bb7faacf119a704908168ea2b983720bbe346eb",
+        "design-brief": "13c8d324d95e18d559bc97c6077fba5e7a89795ee2d4445ffbc7f50105d2ef8f",
         "architecture": "286b13b50c7b07272859c26ec47e61a55251e855d5b5e08f502180b79c11d70f",
         "dod-evals": "3b4d14356cf1cafdc25f278b74534cb61c121f289fd80da7544ec5061ccb3811",
         "guardrails": "0de4c198fec9f21f3a49fbefaa0e54362717c530f5ec4e9f8665bb09f78affa9",
-        "qa-checklist": "3fa39ecb1ee23ea6111667c7105aaba0f2e93ab6fd7fb28e29a2aad06eb49037",
+        "qa-checklist": "21b2396a3d17db5b67f83dd5b50a0a4f6d949819834a130bba66155028fc5277",
         "project-context": "5f0b8d530e8e279af8e4e5ece1b5fc8288e93d26696f99714432eb3f29f3b3b2",
         "canonical-terms": "9da0c1cc13a67e5905bdcb186d32c70646d8bf99e158c08bfcf8172402dfa78c",
-        "official-logo": "5cdd21d3ba038632528fc17a13068e3792d03a029779251cd738aaada4aa0ad3"
+        "official-logo": "5cdd21d3ba038632528fc17a13068e3792d03a029779251cd738aaada4aa0ad3",
+        "official-logo-svg-wrapper": "abb3acf8cfa673161e6547ca725f7b337b29185a7eb6918218f887faadc66d98",
+        "logo-svg-equivalence-evidence": "3f52e89cb86b37e7c7a4dda43753a3fa9d355c5280964b6591b0ca2c55792d18"
       },
       "consumed_source_fragments": {
         "project-context#7": "b4cf1e85c40cc17e8efc22d8ebf8b14575167e2f505d7d762200a71dd85ecc5e",
@@ -391,10 +397,10 @@
       },
       "dependencies": ["qa-checklist", "design-brief"],
       "dependency_status": {"qa-checklist": "validated", "design-brief": "validated"},
-      "content_hash": "aab95114afbea378ca89b54e610ffa6878b382bdc5c7ae5561ce9582a456abd3",
-      "validation": {"owner_boundary": true, "required_structure": true, "dependency_revalidation": "passed-no-content-change after upstream pointer reconciliation", "approved_baseline_bound": true, "units": 11, "screens_S01_S21_covered": true, "component_visual_checks_mapped": true, "prototype_reuse": "none", "issues": []},
+      "content_hash": "69ee87ff32e1253196040f293f26c842b9f9df4fa5a6f7e88fd7cf9c2f972c1f",
+      "validation": {"owner_boundary": true, "required_structure": true, "dependency_revalidation": "passed after official-logo container update", "approved_baseline_bound": true, "baseline_change": "none", "units": 11, "screens_S01_S21_covered": true, "component_visual_checks_mapped": true, "svg_logo_handling_mapped_to_units": ["UNIT-02", "UNIT-09"], "prototype_reuse": "none", "issues": []},
       "open_questions": ["OQ-DP1", "OQ-DP2", "OQ-DP3"],
-      "supersedes": "e6bde0a4f7ff32164c8ce250f9206abf133fc359677686415199ec3086dd9623"
+      "supersedes": "aab95114afbea378ca89b54e610ffa6878b382bdc5c7ae5561ce9582a456abd3"
     }
   },
   "prototype_candidates": [
@@ -478,6 +484,26 @@
     "prototype_tree_hash": "8aaddd35645bd9c58c095a7182fbbbd43dd8730c5cf90b489a97597431cc6505",
     "visual_qa_evidence": "forge/design/evidence/AVB-UKIEBOOK-AURORA-7B-V2.visual-qa.json",
     "visual_qa_evidence_sha256": "e26d965e196f98a408c5ce9735acb07350175a9a3befb3f77851094910bec033",
+    "official_logo_assets": {
+      "primary_target_asset": {
+        "path": "UkieBook-logo.jpg",
+        "sha256": "5cdd21d3ba038632528fc17a13068e3792d03a029779251cd738aaada4aa0ad3",
+        "dimensions": "1254x1254",
+        "part_of_immutable_target_bundle": true
+      },
+      "equivalent_svg_container": {
+        "path": "UkieBook-logo-exact.svg",
+        "sha256": "abb3acf8cfa673161e6547ca725f7b337b29185a7eb6918218f887faadc66d98",
+        "dimensions": "1254x1254",
+        "embedded_jpeg_sha256": "5cdd21d3ba038632528fc17a13068e3792d03a029779251cd738aaada4aa0ad3",
+        "byte_identical_to_primary": true,
+        "vector_geometry": false,
+        "part_of_immutable_target_bundle": false
+      },
+      "equivalence_evidence": "forge/design/evidence/UkieBook-logo-svg-equivalence.json",
+      "equivalence_evidence_sha256": "3f52e89cb86b37e7c7a4dda43753a3fa9d355c5280964b6591b0ca2c55792d18",
+      "baseline_change": "none"
+    },
     "visual_check_ids": ["VIS-S01-1280-DEFAULT", "VIS-S01-1280-HOVER", "VIS-S01-RESPONSIVE", "VIS-AURORA-PUBLIC", "VIS-AURORA-AUTHOR", "VIS-AURORA-MANAGER", "VIS-TOKENS", "VIS-GLASS", "VIS-COVER", "VIS-FORMULA", "VIS-BRAND-LOGO"],
     "operator_overrides": [
       {
@@ -492,6 +518,13 @@
         "source": "operator official-logo statement and close-all-gaps direction 2026-07-21",
         "source_hash": "5cdd21d3ba038632528fc17a13068e3792d03a029779251cd738aaada4aa0ad3",
         "permitted_extension": "visually identical optimized or transparent derivatives; no redraw, distortion or identity change"
+      },
+      {
+        "scope": "alternate official logo container",
+        "decision": "accept UkieBook-logo-exact.svg as a byte-identical raster-backed wrapper; do not classify it as a path-based vector master and do not create a new baseline",
+        "source": "operator SVG statement 2026-07-21 plus equivalence evidence",
+        "source_hash": "abb3acf8cfa673161e6547ca725f7b337b29185a7eb6918218f887faadc66d98",
+        "permitted_extension": "production may select either official container while preserving the locked brand geometry and VIS-BRAND-LOGO contract"
       }
     ],
     "approved_at": "2026-07-21T21:26:46+03:00",
@@ -501,10 +534,10 @@
   "input_requests": [],
   "pause_reason": null,
   "last_resume_event": {
-    "type": "operator-close-sdd-gaps",
-    "timestamp": "2026-07-21T21:43:42+03:00",
-    "source_path": "/Users/ingwar/Documents/UkieBook 3/UkieBook-logo.jpg",
-    "decision": "integrate the official logo into immutable Baseline V2, add dedicated component and cover/tile hover evidence, and regenerate every affected SDD owner artifact"
+    "type": "operator-supplied-svg-logo",
+    "timestamp": "2026-07-21T22:13:38+03:00",
+    "source_path": "/Users/ingwar/Documents/UkieBook 3/UkieBook-logo-exact.svg",
+    "decision": "register the byte-identical raster-backed SVG as an equivalent official container, preserve immutable Baseline V2 and refresh only affected SDD asset references and verification mappings"
   },
   "next_ready_nodes": ["phase-3:UNIT-00"]
 }

@@ -22,4 +22,4 @@ UkieBook — українська платформа самопублікаці�
 - [SDD manifest](forge/sdd-manifest.json)
 - [Final design handoff](forge/design/README.md)
 
-Офіційне джерело логотипа: [`UkieBook-logo.jpg`](UkieBook-logo.jpg), SHA-256 `5cdd21d3ba038632528fc17a13068e3792d03a029779251cd738aaada4aa0ad3`.
+Офіційні файли логотипа: [`UkieBook-logo.jpg`](UkieBook-logo.jpg), SHA-256 `5cdd21d3ba038632528fc17a13068e3792d03a029779251cd738aaada4aa0ad3`, і [`UkieBook-logo-exact.svg`](UkieBook-logo-exact.svg), SHA-256 `abb3acf8cfa673161e6547ca725f7b337b29185a7eb6918218f887faadc66d98`. SVG є точним raster-backed контейнером: він містить той самий JPEG байт-у-байт, а не path-based vector artwork.

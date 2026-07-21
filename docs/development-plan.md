@@ -13,6 +13,7 @@
 - `docs/guardrails.md` — authority, evidence and high-risk boundaries.
 - `forge/design/README.md` and `forge/design/candidates/operator-final-7b/v2/` immutable target artifacts — visual reference only, no runtime truth.
 - `UkieBook-logo.jpg` — official logo source, SHA-256 `5cdd21d3ba038632528fc17a13068e3792d03a029779251cd738aaada4aa0ad3`; scoped operator override in the active Baseline.
+- `UkieBook-logo-exact.svg` — official equivalent SVG container, SHA-256 `abb3acf8cfa673161e6547ca725f7b337b29185a7eb6918218f887faadc66d98`; byte-identical embedded JPEG, not path-based vector artwork. Equivalence evidence: `forge/design/evidence/UkieBook-logo-svg-equivalence.json`.
 
 ## Implementation Strategy
 
@@ -100,9 +101,9 @@ Module imports point inward to domain contracts; UI and provider adapters may de
 ### UNIT-02 — Aurora public catalog and Book Page
 
 - **Purpose:** deliver production S-01 and S-02 with exact desktop baseline plus search/filter/read-model behavior and responsive states.
-- **Source References:** FR-CAT-1..4, FR-AUTH-2, US-001/004; S-01/S-02; wireframes S-01/S-02; Approved Baseline and official `UkieBook-logo.jpg` override; architecture AD-8; QA ACC-08, ST-01, WF-02/04, UX-03/04/07, VIS-S01-*, VIS-TOKENS, VIS-GLASS, VIS-COVER, VIS-FORMULA, VIS-BRAND-LOGO.
+- **Source References:** FR-CAT-1..4, FR-AUTH-2, US-001/004; S-01/S-02; wireframes S-01/S-02; Approved Baseline and official JPG/exact-SVG-container override; architecture AD-8; QA ACC-08, ST-01, WF-02/04, UX-03/04/07, VIS-S01-*, VIS-TOKENS, VIS-GLASS, VIS-COVER, VIS-FORMULA, VIS-BRAND-LOGO.
 - **Depends On:** UNIT-00. Can start with source fixtures; authenticated header integration consumes UNIT-01 when ready.
-- **Work Items:** copy the official logo source to `public/brand/` and create only visually identical optimized/transparent derivatives; semantic Aurora header/hero/shelf/tiles/formula; exact 1280 layout/hover; catalog repository/read model, title/Author/Genre/Discount query, pagination; Book Page with sample/reviews slot; real icons; loading/empty/error/unavailable states; deterministic responsive reflow; authenticated Library/profile affordance integration.
+- **Work Items:** copy both official logo files to `public/brand/`, choose either container explicitly, and create only visually identical optimized/transparent derivatives; do not treat the raster-backed SVG as a scalable vector optimization; semantic Aurora header/hero/shelf/tiles/formula; exact 1280 layout/hover; catalog repository/read model, title/Author/Genre/Discount query, pagination; Book Page with sample/reviews slot; real icons; loading/empty/error/unavailable states; deterministic responsive reflow; authenticated Library/profile affordance integration.
 - **Acceptance Checks:** S-01 1280 default/hover matches target within permitted variance; official logo identity is preserved inside the locked header geometry; header labels/copy exact; search/filter URLs/state work; Book Page includes all FR-CAT-3 content; no horizontal overflow at required viewports; semantic keyboard controls replace demo divs without visual drift.
 - **Verification:** ACC-08; ST-01; WF-02/04; UX-03/04/07; VIS-S01-1280-DEFAULT/HOVER/RESPONSIVE; VIS-AURORA-PUBLIC; VIS-TOKENS; VIS-GLASS; VIS-COVER; VIS-FORMULA; VIS-BRAND-LOGO; RES-01/02; A11Y-01/02/04/06/08; INT-04.
 - **Delivery Layer:** full-stack.
@@ -110,7 +111,7 @@ Module imports point inward to domain contracts; UI and provider adapters may de
 - **Immutable Visual Target Hash:** `c66b23c55e68649e67e029d47c8e69d3bef3791f8c4c6677aa0a6cef2259c51d`.
 - **Baseline Screens States And Viewports:** exact S-01 `/` default/cover+tile hover at 1280×900; derived S-01 states at 390/430/768/1440; S-02 all states at 390/768/1280 via extension contract.
 - **Design Contract And Permitted Variance:** all Baseline permitted variance; functional result continuation follows formula or existing controls; no insertion inside locked sequence.
-- **Operator Visual Overrides:** 1:1 S-01, skip candidate generation, and use `UkieBook-logo.jpg` as the official logo without changing locked header geometry.
+- **Operator Visual Overrides:** 1:1 S-01, skip candidate generation, and use the official JPG or its proven byte-identical SVG container without changing locked header geometry.
 - **Visual Fidelity Verification:** `approved_visual_baseline_fidelity` with all `VIS-S01-*`, `VIS-AURORA-PUBLIC`, `VIS-TOKENS`, `VIS-GLASS`, `VIS-COVER`, `VIS-FORMULA` and `VIS-BRAND-LOGO` checks.
 - **Prototype Reuse:** none.
 - **Production Capabilities Added Beyond Prototype:** routing, real data/query, semantic controls, responsive layout, state handling, accessibility, Book Page.
@@ -270,7 +271,7 @@ Module imports point inward to domain contracts; UI and provider adapters may de
 - **Purpose:** close all Baseline, responsive, accessibility, state and browser gates after functional slices exist.
 - **Source References:** Approved Baseline; wireframes Responsive; QA WF/UX/VIS/RES/A11Y/BD; dod-evals UX/UI gates.
 - **Depends On:** UNIT-01…UNIT-08.
-- **Work Items:** full route/state capture matrix; exact S-01 diffs; dedicated token/glass/Cover/formula invariant evidence; official-logo source/derivative hash and shape comparison; measured contrast corrections within variance; semantic/control/focus audit; target-size/zoom/reflow fixes; mobile master-detail/table/form layouts; reduced-motion verification; cross-browser critical journeys; canonical copy sweep; regression snapshot baselines keyed by Baseline ID/hash.
+- **Work Items:** full route/state capture matrix; exact S-01 diffs; dedicated token/glass/Cover/formula invariant evidence; official-logo selected-container/derivative hash and shape comparison, including the SVG equivalence receipt when used; measured contrast corrections within variance; semantic/control/focus audit; target-size/zoom/reflow fixes; mobile master-detail/table/form layouts; reduced-motion verification; cross-browser critical journeys; canonical copy sweep; regression snapshot baselines keyed by Baseline ID/hash.
 - **Acceptance Checks:** every applicable visual/accessibility/responsive check passes; no unsupported viewport overflow; all controls keyboard-operable; S-01 exact scope remains unchanged beyond permitted variance; no blocking P0/P1/P2.
 - **Verification:** `npm run test:visual`, `npm run test:e2e`, VIS-S01-*, VIS-AURORA-*, VIS-TOKENS, VIS-GLASS, VIS-COVER, VIS-FORMULA, VIS-BRAND-LOGO, RES-01..06, A11Y-01..08, BD-01/02, `approved_visual_baseline_fidelity` for every visible unit.
 - **Delivery Layer:** frontend/integration.
@@ -278,7 +279,7 @@ Module imports point inward to domain contracts; UI and provider adapters may de
 - **Immutable Visual Target Hash:** `c66b23c55e68649e67e029d47c8e69d3bef3791f8c4c6677aa0a6cef2259c51d`.
 - **Baseline Screens States And Viewports:** S-01 exact/default/hover 1280; S-01 derived 390/430/768/1440; S-02…S-21 all canonical states at applicable required viewports.
 - **Design Contract And Permitted Variance:** exact Baseline section; no additional variance can be invented here.
-- **Operator Visual Overrides:** imported final 7b, 1:1 covered scope, responsive/a11y extension allowed, official logo source locked to `UkieBook-logo.jpg`.
+- **Operator Visual Overrides:** imported final 7b, 1:1 covered scope, responsive/a11y extension allowed, official logo identity locked to the JPG; the exact raster-backed SVG is an equivalent container, not a new visual target.
 - **Visual Fidelity Verification:** `approved_visual_baseline_fidelity` full affected matrix.
 - **Prototype Reuse:** none.
 - **Production Capabilities Added Beyond Prototype:** complete responsive states, semantics, accessibility, browser evidence and regression tooling.
@@ -356,7 +357,7 @@ After UNIT-00, UNIT-01 and fixture-backed UNIT-02 can run in parallel. UNIT-03 a
 - S-01 responsive: compare against approved reflow contract, not the non-responsive 390px reference squeeze.
 - S-02…S-21: verify Aurora tokens/components/status semantics, wireframe hierarchy, canonical states and viewports; do not claim pixel equality where no target exists.
 - Dedicated invariants: record separate `VIS-TOKENS`, `VIS-GLASS`, `VIS-COVER` and `VIS-FORMULA` results using the V2 component captures/computed styles as reference and fresh production evidence as the pass basis.
-- Official logo: verify every rendered instance against `UkieBook-logo.jpg` and the V2 integrated reference; optimization/background removal may not redraw or distort the mark, and S-01 must preserve the locked 93.703125×26px brand slot.
+- Official logo: verify every rendered instance against `UkieBook-logo.jpg` and the V2 integrated reference. `UkieBook-logo-exact.svg` may be used after its recorded byte-equivalence check; optimization, vectorization or background removal may not redraw or distort the mark, and S-01 must preserve the locked 93.703125×26px brand slot.
 - Every visual result records Baseline ID, target hash, route, state, viewport, fixture, variance, capture and finding release effect.
 - Runtime interactions, data, auth and accessibility need their own evidence even when visual diff is green.
 
@@ -366,7 +367,7 @@ After UNIT-00, UNIT-01 and fixture-backed UNIT-02 can run in parallel. UNIT-03 a
 - **Financial formula:** implement current exact provisional rule with versioned ledger metadata; legal/accounting change requires upstream SDD regeneration and migration plan.
 - **mono:** provider docs/signature/tariffs must be refreshed just in time; sandbox behavior does not prove production commercial terms.
 - **Design fidelity vs accessibility:** permitted variance authorizes only measured semantic/contrast/target/reflow fixes; UNIT-09 must prove both fidelity and AA rather than sacrificing either silently.
-- **Logo source format:** the official source is an opaque JPEG; any transparent/vectorized/optimized derivative must retain the source silhouette, proportions and internal line structure, with source/derivative hashes and rendered comparison evidence.
+- **Logo source format:** the official mark is supplied as an opaque JPEG and a byte-identical raster-backed SVG wrapper. The SVG does not add vector geometry or transparency; any true-vector, transparent or optimized derivative must retain the source silhouette, proportions and internal line structure, with source/derivative hashes and rendered comparison evidence.
 - **Manual operations:** Manager flows ship before automation; background jobs expose dead-letter/retry visibility so one failure does not corrupt payouts or hide moderation work.
 - **Repository bootstrap:** the Git repository and GitHub remote are created before UNIT-00; UNIT-00 still owns application runtime, verification commands and CI-ready project structure.
 

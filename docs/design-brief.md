@@ -14,6 +14,8 @@
 - `forge/design/candidates/operator-final-7b/v2/ukiebook-catalog.html` — active integrated live visual target S-01 with official logo.
 - `forge/design/evidence/AVB-UKIEBOOK-AURORA-7B-V2.visual-qa.json` — active geometry, component and browser evidence.
 - `UkieBook-logo.jpg` — офіційний logo asset, наданий оператором; JPEG 1254×1254, SHA-256 `5cdd21d3ba038632528fc17a13068e3792d03a029779251cd738aaada4aa0ad3`.
+- `UkieBook-logo-exact.svg` — додатково наданий офіційний SVG-контейнер 1254×1254, SHA-256 `abb3acf8cfa673161e6547ca725f7b337b29185a7eb6918218f887faadc66d98`; містить попередній JPEG байт-у-байт і не має vector primitives.
+- `forge/design/evidence/UkieBook-logo-svg-equivalence.json` — XML, byte-equivalence, static-safety та browser-render evidence; рішення `baseline_change: none`.
 - Явне рішення оператора 2026-07-21: цей мокап фінальний, має бути використаний 1:1 з подальшим додаванням потрібної функціональності.
 
 ## Design Brief
@@ -31,6 +33,7 @@ UkieBook виглядає як тепла сучасна українська к
 | HTML — visual reference для reimplementation, не production code і не доказ функціональності | approved | `forge/design/README.md` About the Design Files |
 | Production semantics/a11y/responsive corrections дозволені в чітко названих межах | approved variance | guardrails; measured reference limits |
 | `UkieBook-logo.jpg` є офіційним логотипом; production інтегрує його без зміни locked S-01 geometry | scoped operator override | Пряма команда оператора 2026-07-21 |
+| `UkieBook-logo-exact.svg` приймається як офіційний еквівалентний контейнер, але не як path-based vector master; V2 target/hash не змінюються | approved asset metadata; no baseline change | Пряма команда оператора 2026-07-21 + equivalence evidence |
 | Попередні запропоновані D/E/F і A/B/C не є baseline та більше не керують дизайном | superseded exploration | Явно наданий фінальний 7b |
 | Робоча формула 6/65,8/28,2 показується як у baseline, але не вважається юридично підтвердженою до OQ-1 | provisional product copy | product-idea, PRD OQ-1 |
 
@@ -60,7 +63,7 @@ UkieBook виглядає як тепла сучасна українська к
 
 ### Brand And Style
 
-Напрям: `Aurora Pastel 7b`. Теплий `color-bg`, м'який mesh-gradient у верхній зоні, glass surfaces, мінімальний brand accent, насичені 2:3 Обкладинки як heroes. Офіційний знак — чорно-біле поєднання електронного пристрою й відкритої книжки з `UkieBook-logo.jpg`; його силует, пропорції та внутрішня лінійна структура є авторитетними. Boldness витрачається на hero headline, Обкладинки та formula ribbon; форми, списки, юридичні й Менеджерські екрани утримуються від зайвого декору.
+Напрям: `Aurora Pastel 7b`. Теплий `color-bg`, м'який mesh-gradient у верхній зоні, glass surfaces, мінімальний brand accent, насичені 2:3 Обкладинки як heroes. Офіційний знак — чорно-біле поєднання електронного пристрою й відкритої книжки, надане як `UkieBook-logo.jpg` і byte-identical raster-backed `UkieBook-logo-exact.svg`; його силует, пропорції та внутрішня лінійна структура є авторитетними. Boldness витрачається на hero headline, Обкладинки та formula ribbon; форми, списки, юридичні й Менеджерські екрани утримуються від зайвого декору.
 
 ### Colors
 
@@ -96,7 +99,7 @@ UkieBook виглядає як тепла сучасна українська к
 
 ### Component Appearance
 
-- Public header P-1: official `UkieBook-logo.jpg` mark integrated with the UkieBook wordmark in the measured `93.703125×26px` brand slot; v2 proves unchanged header/nav/hero/shelf/cards/formula desktop boxes; `Каталог · Жанри · Знижки · Авторам`; glass search; circular cart/badge. Production controls use semantic links/buttons/input.
+- Public header P-1: official mark from `UkieBook-logo.jpg` or its byte-identical `UkieBook-logo-exact.svg` container, integrated with the UkieBook wordmark in the measured `93.703125×26px` brand slot; v2 proves unchanged header/nav/hero/shelf/cards/formula desktop boxes; `Каталог · Жанри · Знижки · Авторам`; glass search; circular cart/badge. Production controls use semantic links/buttons/input.
 - Book tile P-2: Obкладинка hero + title + Автор + UAH; real images retain 2:3 and target radii.
 - Formula ribbon: label + three segments 6 / 65,8 / 28,2 with central gradient.
 - Buttons outside S-01: filled `color-accent` primary, glass/outline secondary, semantic danger only for destructive Manager actions.
@@ -186,7 +189,7 @@ WCAG 2.2 AA implementation target: semantic landmarks/controls, 4.5:1 normal tex
 
 ## Design Handoff Prompt
 
-Reimplement `operator-final-7b/v2` in the production component system. Match the active S-01 desktop target exactly for composition, tokens, typography, official-logo brand slot, cover geometry, glass surfaces, formula and hover. Use `UkieBook-logo.jpg` as the official logo source; a transparent or optimized derivative may be produced, but its silhouette, proportions and internal line structure must remain visually identical. Add real routes, semantic controls, states, data and responsive layouts from screen-map/wireframes. Extend Aurora—not a generic design system—to S-02…S-21. Do not copy prototype code as application logic or claim runtime behavior from it.
+Reimplement `operator-final-7b/v2` in the production component system. Match the active S-01 desktop target exactly for composition, tokens, typography, official-logo brand slot, cover geometry, glass surfaces, formula and hover. Use `UkieBook-logo.jpg` or the byte-identical `UkieBook-logo-exact.svg` container as the official logo source; the supplied SVG is raster-backed and does not provide path-based scaling or transparency. Any genuinely transparent, optimized or vectorized derivative must keep the silhouette, proportions and internal line structure visually identical. Add real routes, semantic controls, states, data and responsive layouts from screen-map/wireframes. Extend Aurora—not a generic design system—to S-02…S-21. Do not copy prototype code as application logic or claim runtime behavior from it.
 
 ## Approved Visual Baseline
 
@@ -195,25 +198,25 @@ Reimplement `operator-final-7b/v2` in the production component system. Match the
 - Selected Candidate And Version: operator-scoped correction `operator-final-7b/v2`
 - Immutable Visual Target Reference And Hash: `forge/design/candidates/operator-final-7b/v2/ukiebook-catalog.html` SHA-256 `35df0816497c1b178b9ad37b5f6331aebce4d26712581e3da4ccad73cde78462`; official `UkieBook-logo.jpg` SHA-256 `5cdd21d3ba038632528fc17a13068e3792d03a029779251cd738aaada4aa0ad3`; ordered two-source bundle hash `c66b23c55e68649e67e029d47c8e69d3bef3791f8c4c6677aa0a6cef2259c51d`
 - Frozen Prototype Source Root And Tree Hash: `forge/design/candidates/operator-final-7b/v2` (`README.md`, `ukiebook-catalog.html`); SHA-256 over filename-sorted workspace-relative `shasum -a 256` lines: `8aaddd35645bd9c58c095a7182fbbbd43dd8730c5cf90b489a97597431cc6505`; external official-logo hash is part of the target bundle above.
-- Prototype Artifact References: v2 candidate README/HTML; `forge/design/evidence/AVB-UKIEBOOK-AURORA-7B-V2.visual-qa.json`; versioned full-page and component Playwright captures under `output/playwright/`. V1 artifacts remain immutable historical evidence.
+- Prototype Artifact References: v2 candidate README/HTML; `forge/design/evidence/AVB-UKIEBOOK-AURORA-7B-V2.visual-qa.json`; versioned full-page and component Playwright captures under `output/playwright/`; `forge/design/evidence/UkieBook-logo-svg-equivalence.json` records the later equivalent-container asset without changing the target. V1 artifacts remain immutable historical evidence.
 - Visual Definition Of Done Scope: exact S-01 desktop default/hover including official-logo integration plus shared Aurora system and individually addressable token/glass/cover/formula invariants. S-02…S-21, screen states and mobile are extension scope governed by this Design/Experience Spine + wireframes/screen-map; they are required product UI but do not pretend to have pixel targets.
 - Covered Screens States And Viewports: locked exact — S-01 `/`, default and cover/tile hover, 1280×900; supporting source crop 924×540. Derived coverage — S-01 at 390/430/768/1440 and functional states; S-02…S-21 at required viewports/states through system consistency, not pixel matching.
 - Approval Receipt: original whole-design approval 2026-07-21 plus explicit scoped correction/acceptance: operator identified `UkieBook-logo.jpg` as the official logo and then directed «закрий всі зазначені прогалини». This authorizes the integrated logo target and supersession without another approval prompt.
 - Approved At: 2026-07-21T21:26:46+03:00
-- Permitted Variance: real dynamic data and 2:3 covers; semantic links/buttons/input; production icons replacing ⌕/🛒; invisible 44px hit-area expansion or minimal size correction; visible focus; minimal measured contrast corrections preserving hue hierarchy; responsive reflow; state/error/loading content; authenticated navigation access; full catalog continuation after locked formula; lossless/visually identical logo optimization or transparent-background derivative. No variance may materially change locked desktop composition, copy, token relationships, geometry, shelf/formula motifs, official logo identity or interaction meaning.
-- Operator Overrides: skip the normal three-candidate generation; preserve 7b 1:1 in covered scope; add required functionality without redesign; use `UkieBook-logo.jpg` in the exact measured v2 brand slot. V2 uses the official logo as favicon and has 0 console errors/warnings.
+- Permitted Variance: real dynamic data and 2:3 covers; semantic links/buttons/input; production icons replacing ⌕/🛒; invisible 44px hit-area expansion or minimal size correction; visible focus; minimal measured contrast corrections preserving hue hierarchy; responsive reflow; state/error/loading content; authenticated navigation access; full catalog continuation after locked formula; use of the byte-identical SVG container; lossless/visually identical logo optimization or transparent-background derivative. No variance may materially change locked desktop composition, copy, token relationships, geometry, shelf/formula motifs, official logo identity or interaction meaning.
+- Operator Overrides: skip the normal three-candidate generation; preserve 7b 1:1 in covered scope; add required functionality without redesign; use `UkieBook-logo.jpg` in the exact measured v2 brand slot. The later `UkieBook-logo-exact.svg` is an equivalent raster-backed distribution container, not a new visual target. V2 uses the official logo as favicon and has 0 console errors/warnings.
 - Supersedes: `AVB-UKIEBOOK-AURORA-7B-V1`; prior A/B/C and D/E/F remain unapproved explorations.
 - Superseded By: —
 - Downstream Invalidation: all V1 Baseline references in architecture, DoD, QA and development planning are invalidated and regenerated against V2. Production Feature Units have not started, so no implementation execution is invalidated.
 
 ## Validation Report
 
-- Pass 1 — Mechanical coverage: all V2 target/logo/evidence references resolve; every token resolves; component appearance/behavior pairs exist; geometry comparison proves all measured locked boxes unchanged; component evidence addresses token/glass/cover/formula/logo invariants; key Buyer/Author flows include success/failure. `0 Critical`, `0 High`, `0 Medium` unresolved findings.
+- Pass 1 — Mechanical coverage: all V2 target/logo/evidence references resolve; both official logo files are hash-addressed and their byte equivalence is proven; every token resolves; component appearance/behavior pairs exist; geometry comparison proves all measured locked boxes unchanged; component evidence addresses token/glass/cover/formula/logo invariants; key Buyer/Author flows include success/failure. `0 Critical`, `0 High`, `0 Medium` unresolved findings.
 - Pass 2 — Judgment: no parallel generic design system; S-01 target remains concrete; extension scope is honest; console is 0/0. Remaining reference limitations are intentionally carried into production gates: non-semantic demo controls, visible 40×40 cart, low-contrast values and no media queries. No finding blocks SDD planning.
 
 ## Confirmed Design Decisions
 
-Aurora Pastel 7b v2; integrated official `UkieBook-logo.jpg` brand mark in an exact geometry-matched slot; S-01 1:1 desktop; separately verifiable tokens/glass/covers/formula; warm mesh + glass; Golos Text; quiet operational surfaces; source-backed responsive reflow; AA implementation floor; prototype reimplemented rather than copied.
+Aurora Pastel 7b v2; integrated official `UkieBook-logo.jpg` brand mark in an exact geometry-matched slot; later official `UkieBook-logo-exact.svg` accepted as its byte-identical raster-backed container with no Baseline change; S-01 1:1 desktop; separately verifiable tokens/glass/covers/formula; warm mesh + glass; Golos Text; quiet operational surfaces; source-backed responsive reflow; AA implementation floor; prototype reimplemented rather than copied.
 
 ## Rejected Directions
 

@@ -8,6 +8,8 @@
 - `docs/wireframes.md` — structural deltas and responsive behavior.
 - `docs/design-brief.md` — approved Baseline `AVB-UKIEBOOK-AURORA-7B-V2`; target bundle hash `c66b23c55e68649e67e029d47c8e69d3bef3791f8c4c6677aa0a6cef2259c51d`; permitted variance.
 - `UkieBook-logo.jpg` — official logo operator override; SHA-256 `5cdd21d3ba038632528fc17a13068e3792d03a029779251cd738aaada4aa0ad3`.
+- `UkieBook-logo-exact.svg` — official equivalent SVG container; SHA-256 `abb3acf8cfa673161e6547ca725f7b337b29185a7eb6918218f887faadc66d98`; embeds the official JPEG byte-for-byte and has no vector primitives.
+- `forge/design/evidence/UkieBook-logo-svg-equivalence.json` — XML, byte-equivalence, static-safety and browser-render evidence; Baseline impact `none`.
 - `forge/design/evidence/AVB-UKIEBOOK-AURORA-7B-V2.visual-qa.json` — reference QA for the immutable V2 target, including exact geometry, rendered official logo and component captures; not production implementation evidence.
 - `docs/architecture.md` — AD-2/3/4/6/7/8/9 and security boundaries.
 - `docs/dod-evals.md` — reusable gates, severity and result contract.
@@ -83,7 +85,7 @@ Canonical state source: `docs/screen-map.md`. Each check requires captures at re
 | UX-04 | S-02…S-17 | Aurora extension remains recognizable without inventing pixel targets | P2 / blocking for hierarchy/meaning drift | Design/Experience Spine | component/token/state review | system continuity |
 | UX-05 | S-18…S-21 | Aurora type/color/status semantics with quieter, denser Manager layout | P2 / blocking for supported viewport/meaning | Design Spine | captures | operational usability |
 | UX-06 | S-03/legal/moderation | provider-brand OAuth, readable license/rights, neutral Reason Category | P1 / blocking | design-brief | content/accessibility review | trust boundaries |
-| UX-07 | all branded surfaces | official UkieBook logo silhouette, proportions and internal line structure remain visually identical to `UkieBook-logo.jpg`; no invented redraw | P2 / blocking | operator override; design-brief | asset hash + rendered captures at required sizes | brand identity |
+| UX-07 | all branded surfaces | official UkieBook logo silhouette, proportions and internal line structure remain visually identical to the official JPG; the exact raster-backed SVG container is acceptable, but no invented redraw | P2 / blocking | operator override; design-brief | selected asset hash + equivalence evidence when SVG is used + rendered captures at required sizes | brand identity |
 
 ## Visual Regression Checks
 
@@ -101,7 +103,7 @@ Common Baseline ID: `AVB-UKIEBOOK-AURORA-7B-V2`; Target Hash: `c66b23c55e68649e6
 | VIS-GLASS | `AVB-UKIEBOOK-AURORA-7B-V2` / `c66b23c55e68649e67e029d47c8e69d3bef3791f8c4c6677aa0a6cef2259c51d` | glass cards/panels on applicable public, Author and Manager routes, default/hover/focus, 390/768/1280 | P2 / blocking for hierarchy or system drift | density may change only where the extension contract permits it | computed background/border/blur/radius/shadow + component captures matched to V2 glass evidence | glassmorphism is a named cross-screen invariant | blocked |
 | VIS-COVER | `AVB-UKIEBOOK-AURORA-7B-V2` / `c66b23c55e68649e67e029d47c8e69d3bef3791f8c4c6677aa0a6cef2259c51d` | every Book Cover, default/hover/loading, 390/768/1280/1440 | P2 / blocking where hierarchy or supported viewport breaks | real Covers replace placeholders; aspect ratio, radius and hero depth remain | dimension/aspect assertions + production captures against V2 cover evidence | 2:3 Cover hero treatment is a named invariant | blocked |
 | VIS-FORMULA | `AVB-UKIEBOOK-AURORA-7B-V2` / `c66b23c55e68649e67e029d47c8e69d3bef3791f8c4c6677aa0a6cef2259c51d` | S-01 formula ribbon and applicable S-15 explanation, default/responsive, 390/768/1280/1440 | P2 / blocking for S-01 or financial meaning | responsive stacking may change layout, never labels, color mapping or 6/65.8/28.2 meaning | computed segment proportions/colors/type/radius + captures against V2 formula evidence | formula ribbon is both a visual and financial-comprehension invariant | blocked |
-| VIS-BRAND-LOGO | `AVB-UKIEBOOK-AURORA-7B-V2` / `c66b23c55e68649e67e029d47c8e69d3bef3791f8c4c6677aa0a6cef2259c51d` | all rendered logo instances, default/focus/high-density, 390/768/1280/1440 | P2 / blocking | optimized or transparent derivative allowed only when visually identical; locked S-01 93.703125×26px brand slot preserved | source/derivative hashes + pixel/shape comparison + captures against integrated V2 logo evidence | explicit official-logo override is now rendered in the immutable target | blocked |
+| VIS-BRAND-LOGO | `AVB-UKIEBOOK-AURORA-7B-V2` / `c66b23c55e68649e67e029d47c8e69d3bef3791f8c4c6677aa0a6cef2259c51d` | all rendered logo instances, default/focus/high-density, 390/768/1280/1440 | P2 / blocking | official JPG or proven byte-identical SVG container; any optimized/transparent/true-vector derivative only when visually identical; locked S-01 93.703125×26px brand slot preserved | selected source/derivative hashes + SVG equivalence receipt where applicable + pixel/shape comparison + captures against integrated V2 logo evidence | explicit official-logo override is rendered in the immutable target; container format alone is not a visual change | blocked |
 
 ## Responsive Checks
 
@@ -152,6 +154,7 @@ Every run records Check ID, applicability, implementation revision, timestamp, e
 - This checklist and approved design prove intended truth, not runtime implementation.
 - Reference Playwright captures prove the V2 HTML target, component invariants and integrated official logo render with zero console errors/warnings; they do not pass production VIS, accessibility, responsive or behavior checks.
 - V2 proves the official JPEG renders at 26×26px inside the locked 93.703125×26px S-01 brand slot; it does not prove that a later production transparent/optimized derivative preserves the mark at every required size.
+- The supplied SVG proves an equivalent container option only: it embeds that JPEG byte-for-byte and contains no path-based vector geometry, so it does not prove infinite-scale or transparent-vector quality.
 - Screenshots alone do not prove keyboard, AT, auth, payment, persistence, privacy, conversion or ledger behavior.
 - mono sandbox does not confirm production tariffs; OQ-2 closes only with current provider evidence.
 
@@ -164,7 +167,7 @@ Every run records Check ID, applicability, implementation revision, timestamp, e
 | identity/RBAC change | ACC-01/12/14, ST-11, A11Y-02 |
 | S-01/CSS/token change | VIS-S01-*, VIS-TOKENS, VIS-GLASS, VIS-COVER, VIS-FORMULA, VIS-BRAND-LOGO, RES-01/02, A11Y-01/02/04/08 |
 | shared glass/Cover/formula primitive change | affected VIS-AURORA-*, VIS-GLASS, VIS-COVER or VIS-FORMULA plus affected responsive/accessibility checks |
-| logo source, derivative or placement change | UX-07, VIS-BRAND-LOGO, VIS-S01-1280-DEFAULT, affected responsive captures |
+| either official logo container, derivative or placement change | UX-07, VIS-BRAND-LOGO, VIS-S01-1280-DEFAULT, affected responsive captures |
 | Baseline ID/hash change | all VIS/UX/RES checks and every affected development-plan unit |
 | canonical terms/route-state change | UX-01, affected ST/UJ/WF checks |
 

@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "evidence_id": "LOGO-SVG-EQUIVALENCE-20260721",
+  "verified_at": "2026-07-21T22:13:38+03:00",
+  "adapter": "xmllint + shasum + playwright-cli",
+  "operator_statement": "Logo is now also in svg format.",
+  "assets": {
+    "primary_raster": {
+      "path": "UkieBook-logo.jpg",
+      "sha256": "5cdd21d3ba038632528fc17a13068e3792d03a029779251cd738aaada4aa0ad3",
+      "bytes": 183476,
+      "dimensions": "1254x1254"
+    },
+    "svg_container": {
+      "path": "UkieBook-logo-exact.svg",
+      "sha256": "abb3acf8cfa673161e6547ca725f7b337b29185a7eb6918218f887faadc66d98",
+      "bytes": 489640,
+      "declared_dimensions": "1254x1254",
+      "view_box": "0 0 1254 1254"
+    }
+  },
+  "structure": {
+    "xml_valid": true,
+    "root_element": "svg",
+    "image_elements": 1,
+    "href_attributes": 2,
+    "vector_primitive_elements": 0,
+    "embedded_media_type": "image/jpeg",
+    "embedded_jpeg_sha256": "5cdd21d3ba038632528fc17a13068e3792d03a029779251cd738aaada4aa0ad3",
+    "embedded_jpeg_bytes": 183476,
+    "embedded_jpeg_byte_identical_to_primary": true
+  },
+  "safety": {
+    "script_elements": 0,
+    "foreign_object_elements": 0,
+    "event_handler_attributes": 0,
+    "external_href_attributes": 0,
+    "doctype_or_entity_declarations": 0,
+    "result": "passed-static-asset-scan"
+  },
+  "browser_render": {
+    "transport": "http://127.0.0.1:4173/UkieBook-logo-exact.svg",
+    "http_status": 200,
+    "rendered_dimensions": "1254x1254",
+    "capture_path": "output/playwright/ukiebook-logo-svg-wrapper.png",
+    "capture_sha256": "cf9aae9cf98db70b2a9309e0fa2add317b3b943f5a93e2ad4c2b159f99c3a1d0",
+    "visual_inspection": "passed"
+  },
+  "decision": {
+    "asset_classification": "official-raster-backed-svg-wrapper",
+    "true_path_based_vector_master": false,
+    "eligible_as_equivalent_logo_container": true,
+    "active_baseline_id": "AVB-UKIEBOOK-AURORA-7B-V2",
+    "baseline_change": "none",
+    "immutable_visual_target_hash": "c66b23c55e68649e67e029d47c8e69d3bef3791f8c4c6677aa0a6cef2259c51d",
+    "rationale": "The SVG embeds the existing official JPEG byte-for-byte and introduces no visual geometry, behavior or external dependency."
+  }
+}
