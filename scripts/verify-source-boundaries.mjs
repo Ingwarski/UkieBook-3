@@ -101,6 +101,22 @@ const runtimeEnvironment = path.normalize(
   path.resolve("modules/platform/environment/runtime.ts"),
 );
 const sensitiveEnvironmentFiles = new Set([serverEnvironment, runtimeEnvironment]);
+const sensitiveServerFiles = new Set(
+  files
+    .map(path.normalize)
+    .filter((file) => {
+      const relative = path.relative(repositoryRoot, file);
+      return (
+        relative.startsWith("modules/identity/server/") ||
+        relative.startsWith("modules/author-profile/server/") ||
+        relative.startsWith("modules/payout-details/server/")
+      );
+    }),
+);
+const sensitiveClientBoundaryFiles = new Set([
+  ...sensitiveEnvironmentFiles,
+  ...sensitiveServerFiles,
+]);
 const allowedRuntimeImporters = new Set(
   [
     "modules/platform/environment/server.ts",
@@ -162,12 +178,12 @@ for (const [clientFile, module] of modules) {
       continue;
     }
     visited.add(current.file);
-    if (sensitiveEnvironmentFiles.has(current.file)) {
+    if (sensitiveClientBoundaryFiles.has(current.file)) {
       findings.push({
         file: path.relative(repositoryRoot, clientFile),
         chain: current.chain.map((item) => path.relative(repositoryRoot, item)),
         rule: "transitive-client-secret-boundary",
-        summary: "A Client Component transitively reaches the server environment boundary.",
+        summary: "A Client Component transitively reaches a server-only identity or environment boundary.",
       });
       break;
     }

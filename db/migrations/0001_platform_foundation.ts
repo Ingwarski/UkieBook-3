@@ -2,7 +2,7 @@ import { createHash } from "node:crypto";
 
 import type { Migration } from "./types";
 import { runStatements } from "./types";
-import { PLATFORM_SCHEMA_REVISION } from "../../modules/platform/schema-revision";
+import { PLATFORM_FOUNDATION_MIGRATION_ID } from "../../modules/platform/schema-revision";
 
 const upStatements = [
   `
@@ -69,12 +69,12 @@ export const platformFoundationMigration: Migration = {
     .update(
       JSON.stringify({
         down: downStatements,
-        id: PLATFORM_SCHEMA_REVISION,
+        id: PLATFORM_FOUNDATION_MIGRATION_ID,
         up: upStatements,
       }),
     )
     .digest("hex"),
-  id: PLATFORM_SCHEMA_REVISION,
+  id: PLATFORM_FOUNDATION_MIGRATION_ID,
   up: (connection) => runStatements(connection, upStatements),
   down: (connection) => runStatements(connection, downStatements),
 };

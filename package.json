@@ -26,12 +26,16 @@
     "test:e2e": "playwright test --config playwright.e2e.config.ts",
     "pretest:visual": "npm run build:web",
     "test:visual": "playwright test --config playwright.visual.config.ts",
+    "test:unit01:e2e": "playwright test --config playwright.unit01.e2e.config.ts",
+    "test:unit01:visual": "playwright test --config playwright.unit01.visual.config.ts",
     "verify:repository": "node scripts/verify-repository-hygiene.mjs",
     "verify": "npm run typecheck && npm run lint && npm test && npm run build && npm run test:e2e && npm run test:visual",
-    "verify:unit00": "node scripts/run-unit00-verification.mjs"
+    "verify:unit00": "node scripts/run-unit00-verification.mjs",
+    "verify:unit01": "node scripts/run-unit01-verification.mjs"
   },
   "dependencies": {
     "next": "16.2.11",
+    "oauth4webapi": "3.8.6",
     "pg": "8.22.0",
     "react": "19.2.8",
     "react-dom": "19.2.8",
@@ -51,6 +55,7 @@
     "esbuild": "0.28.1",
     "eslint": "9.39.5",
     "eslint-config-next": "16.2.11",
+    "jose": "6.1.2",
     "jsdom": "29.1.1",
     "tsx": "4.23.1",
     "typescript": "6.0.3",

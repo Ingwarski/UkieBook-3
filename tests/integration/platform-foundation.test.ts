@@ -8,6 +8,7 @@ import {
 } from "../../db/migrate";
 import { DATABASE_SCHEMA_REVISION } from "../../db/migrations";
 import { platformFoundationMigration } from "../../db/migrations/0001_platform_foundation";
+import { identitySessionsAuthorProfileMigration } from "../../db/migrations/0002_identity_sessions_author_profile";
 import { adaptPGlite } from "../../db/pglite";
 import type { SqlDatabase } from "../../db/query";
 import {
@@ -36,9 +37,10 @@ describe("UNIT-00 PostgreSQL foundation", () => {
   it("applies the foundation migration idempotently and rolls it back", async () => {
     await expect(applyMigrations(database)).resolves.toEqual([
       { id: "0001_platform_foundation", direction: "up" },
+      { id: "0002_identity_sessions_author_profile", direction: "up" },
     ]);
     await expect(applyMigrations(database)).resolves.toEqual([]);
-    await expect(listAppliedMigrations(database)).resolves.toHaveLength(1);
+    await expect(listAppliedMigrations(database)).resolves.toHaveLength(2);
 
     const tables = await database.query<{ table_name: string }>(`
       SELECT table_name
@@ -52,6 +54,10 @@ describe("UNIT-00 PostgreSQL foundation", () => {
       "outbox_events",
     ]);
 
+    await expect(rollbackLatestMigration(database)).resolves.toEqual({
+      id: "0002_identity_sessions_author_profile",
+      direction: "down",
+    });
     await expect(rollbackLatestMigration(database)).resolves.toEqual({
       id: "0001_platform_foundation",
       direction: "down",
@@ -67,11 +73,13 @@ describe("UNIT-00 PostgreSQL foundation", () => {
     expect(remaining.rows).toEqual([]);
     await expect(applyMigrations(database)).resolves.toEqual([
       { id: "0001_platform_foundation", direction: "up" },
+      { id: "0002_identity_sessions_author_profile", direction: "up" },
     ]);
 
     await expect(
       applyMigrations(database, [
         { ...platformFoundationMigration, checksum: "edited-history" },
+        identitySessionsAuthorProfileMigration,
       ]),
     ).rejects.toThrow(/checksum does not match/i);
   });
