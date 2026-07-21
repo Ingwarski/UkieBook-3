@@ -6,10 +6,10 @@
 - `docs/product-idea.md` — «Важливі перевірки перед реалізацією» (юрист/бухгалтер, тарифи mono) — джерело release-гейтів.
 - `docs/guardrails.md` — поведінкова політика доказів (Verification Rules, Evidence Requirements) — цей файл застосовує її як контракт завершеності.
 - `docs/architecture.md` — верифікаційні потреби: лідж (AD-2/7), ідемпотентні вебхуки (AD-3), асинхронний конвеєр (AD-4), safe-fail модерації (AD-5), runtime/commands (AD-6), Baseline reimplementation (AD-8), сепарація даних.
-- `docs/design-brief.md` — AA-підлога й approved Baseline `AVB-UKIEBOOK-AURORA-7B-V1`, bundle hash `758b1a6a…`, mixed exact/extension Visual DoD Scope.
+- `docs/design-brief.md` — AA-підлога й approved Baseline `AVB-UKIEBOOK-AURORA-7B-V2`, bundle hash `c66b23c55e68…`, mixed exact/extension Visual DoD Scope та інтегрований official-logo override.
 - `docs/screen-map.md`, `docs/wireframes.md`, `docs/user-journey.md` — покриття екранів/станів/потоків для UX-гейтів.
 - `docs/project-context.md` — спожито: розд. 13 (ризики → пріоритети верифікації).
-- Кодова база: відсутня (git-репозиторій не ініціалізовано; package scripts/CI/tests ще не існують). Architecture визначає command contract, але автоматичні гейти лишаються `not available yet` до bootstrap — це стан доказів, не відкрите рішення стека.
+- Production codebase відсутня (git/GitHub repository вже існує, але package scripts/CI/tests ще не створені). Architecture визначає command contract, але автоматичні гейти лишаються `not available yet` до bootstrap — це стан доказів, не відкрите рішення стека.
 
 ## Definition Of Done Model
 
@@ -87,12 +87,12 @@
 - Purpose: видимий користувачу фронтенд відповідає approved visual contract з чесною exact/extension coverage.
 - Source References: design-brief `Approved Visual Baseline`; guardrails Design Authority Rules; pipeline-контракт.
 - Applies To: кожен frontend/full-stack/integration юніт із visible UI S-01…S-21. Exact pixel target applies only to S-01 1280 default/hover; all other scopes use approved Aurora system + owning screen/wireframe/state contracts.
-- Baseline ID: `AVB-UKIEBOOK-AURORA-7B-V1`.
-- Immutable Target Hash: target bundle `758b1a6a78db1226bf82244698d74b44c90b9b2779b072c1bada0d00abd4f5f7`; prototype tree `950a44c329ebd4b79d088910920d05abb81a683c4e1b53f6eebda820905626f0`.
+- Baseline ID: `AVB-UKIEBOOK-AURORA-7B-V2`.
+- Immutable Target Hash: target bundle `c66b23c55e68649e67e029d47c8e69d3bef3791f8c4c6677aa0a6cef2259c51d`; candidate tree `8aaddd35645bd9c58c095a7182fbbbd43dd8730c5cf90b489a97597431cc6505`.
 - Affected Routes States And Viewports: unit parameter; exact `S-01 / default+hover 1280x900`; derived 390/430/768/1440 and all required states; S-02…S-21 system-consistency coverage at applicable viewports/states.
-- Permitted Variance And Operator Overrides: exact list in design-brief Baseline; imported final design and skip-three-candidates override are active.
-- QA Check IDs: `VIS-S01-1280-DEFAULT`, `VIS-S01-1280-HOVER`, `VIS-S01-RESPONSIVE`, `VIS-AURORA-PUBLIC`, `VIS-AURORA-AUTHOR`, `VIS-AURORA-MANAGER` plus affected RES/A11Y/UX IDs.
-- VisualQAEvidence References: `forge/design/evidence/AVB-UKIEBOOK-AURORA-7B-V1.visual-qa.json` and implementation evidence produced per unit.
+- Permitted Variance And Operator Overrides: exact list in design-brief Baseline; imported final design, skip-three-candidates override and official `UkieBook-logo.jpg` rendered in the locked S-01 brand slot are active.
+- QA Check IDs: `VIS-S01-1280-DEFAULT`, `VIS-S01-1280-HOVER`, `VIS-S01-RESPONSIVE`, `VIS-AURORA-PUBLIC`, `VIS-AURORA-AUTHOR`, `VIS-AURORA-MANAGER`, `VIS-TOKENS`, `VIS-GLASS`, `VIS-COVER`, `VIS-FORMULA`, `VIS-BRAND-LOGO` plus affected RES/A11Y/UX IDs.
+- VisualQAEvidence References: `forge/design/evidence/AVB-UKIEBOOK-AURORA-7B-V2.visual-qa.json` and implementation evidence produced per unit.
 - PrototypePromotionReceipt: not applicable for the approved reference (`Prototype Reuse: none`, AD-8). It becomes required only if a later plan explicitly changes reuse to traced promote/diff.
 - Required Evidence: current Baseline ID/hash; for exact S-01, screenshot comparison to immutable HTML/capture; for extension scope, token/component/state/viewport review; concrete QA IDs; VisualQAEvidence; runtime interaction proof separately.
 - Pass Condition: Baseline active/current; the correct exact or extension comparison mode was used; required coverage exists; each deviation is permitted/source-backed; no blocking finding.

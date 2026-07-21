@@ -8,9 +8,9 @@
 - `docs/project-context.md` — спожито: розд. 7 (адаптивний веб: desktop + mobile browser, українська, UAH).
 - `docs/canonical-terms.md` — найменування зон і CTA.
 - `docs/guardrails.md` — заборона позаскоупних елементів; пріоритет розділення: інтервали/групування → розділювачі → тінт → рамки → тіні.
-- `forge/design/README.md`, `forge/design/ukiebook-catalog.html`, `forge/design/screenshot-catalog.png` — явне рішення оператора: фінальний S-01 і cross-screen visual patterns; використано лише для post-approval reconciliation S-01, не як джерело продуктової поведінки.
+- `forge/design/candidates/operator-final-7b/v2/README.md`, `forge/design/candidates/operator-final-7b/v2/ukiebook-catalog.html`, `forge/design/evidence/AVB-UKIEBOOK-AURORA-7B-V2.visual-qa.json` — активний operator-selected S-01 з інтегрованим official logo і cross-screen structural patterns; використано лише для post-approval reconciliation S-01, не як джерело продуктової поведінки. Top-level V1 HTML/screenshot/README збережені лише як superseded history.
 
-Production-кодової бази й Storybook немає. `forge/design` містить high-fidelity HTML-еталон S-01, який є дизайн-доказом, а не production implementation.
+Production-кодової бази й Storybook немає. Active `operator-final-7b/v2` містить high-fidelity HTML-еталон S-01, який є дизайн-доказом, а не production implementation.
 
 ## Wireframe Principles
 

@@ -7,7 +7,7 @@ UkieBook — українська платформа самопублікаці�
 ## Поточний стан
 
 - SDD pipeline: `development-plan-validated`
-- Approved Visual Baseline: `AVB-UKIEBOOK-AURORA-7B-V1`
+- Approved Visual Baseline: `AVB-UKIEBOOK-AURORA-7B-V2`
 - Наступний implementation unit: `UNIT-00` — runtime, data та verification foundation
 - Production implementation: ще не розпочата
 

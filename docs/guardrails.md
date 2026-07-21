@@ -6,9 +6,9 @@
 - `docs/prd.md` — авторитетне джерело продуктової поведінки (FR/NFR, припущення A-*, відкриті питання OQ-*); прямо називає product-idea своїм джерелом.
 - `docs/project-context.md` — підтверджений контекст: платформи, локалізація, залежності, операційні ризики.
 - `docs/canonical-terms.md` — канонічний словник і аліаси.
-- Явне рішення оператора 2026-07-21 — `forge/design` є фінальним мокапом і має бути використаний 1:1 з додаванням потрібної функціональності.
+- Явні рішення оператора 2026-07-21 — `forge/design` є фінальним мокапом і має бути використаний 1:1 з додаванням потрібної функціональності; `UkieBook-logo.jpg` є офіційним логотипом; усі зафіксовані прогалини треба закрити.
 - `forge/design/README.md` — scope/provenance фінального S-01 та правила поширення його візуальної системи; не джерело продуктової поведінки.
-- Кореневий `README.md` — відсутній.
+- Кореневий `README.md` — індекс поточного SDD-стану; не переозначає PRD чи operator decisions.
 
 Спожиті фрагменти контексту: розділи 7 (платформи), 9–11 (межі/обмеження), 13 (ризики) з project-context; ролі, product states, screen/flow names і terms-to-avoid з canonical-terms.
 
@@ -66,8 +66,8 @@
 
 ## Design Authority Rules
 
-- Operator-supplied `forge/design` — selected imported visual source `operator-final-7b/v1`; генерувати альтернативні естетичні напрями або автообирати інший заборонено, бо це суперечить прямій 1:1 вимозі.
-- Approved Visual Baseline у `docs/design-brief.md` — єдиний канонічний visual DoD. Він чесно розділяє: (a) locked S-01 desktop default/hover 1:1; (b) shared Aurora tokens/patterns; (c) extension scope S-02…S-21, невідображені стани й responsive reflow за screen-map/wireframes.
+- Operator-selected visual source — `operator-final-7b/v2`: scoped immutable correction до imported `operator-final-7b/v1`, що інтегрує official `UkieBook-logo.jpg` у незмінну S-01 geometry; V1 зберігається лише як superseded history. Генерувати альтернативні естетичні напрями або автообирати інший заборонено, бо це суперечить прямій 1:1 вимозі.
+- Approved Visual Baseline у `docs/design-brief.md` — єдиний канонічний visual DoD. Під час його реєстрації downstream-власник зобовʼязаний явно розділити: (a) locked S-01 desktop default/hover 1:1; (b) shared Aurora tokens/patterns; (c) extension scope S-02…S-21, невідображені стани й responsive reflow, структуру яких визначать їхні owner-артефакти.
 - Дозволена варіативність не є редизайном: реальні 2:3 Обкладинки й дані; production-semantic controls замість `div`/emoji/glyph placeholders; видимий focus; 44px touch targets; мінімальні contrast corrections; responsive reflow; functional states. Вона не може змінювати desktop-композицію S-01, тексти, основні кольори, типографічну ієрархію, радіуси, тіні, shelf/formula patterns або interaction meaning.
 - HTML і screenshot є дизайн-доказом, не production-кодом або runtime-доказом. Production UI reimplements reference в обраному стеку; пряме копіювання прототипу не є вимогою.
 - Недоступне початкове джерело `UkieBook Design Options.dc.html` не блокує baseline: фінальний exported HTML/README/screenshot доступні й хешуються; відсутність джерела фіксується як evidence limit.
@@ -84,7 +84,7 @@
 
 Питати оператора лише коли:
 - відповідь неможливо вивести з джерел і вона матеріально змінює продуктовий скоуп чи високоризикову межу;
-- потрібне нове затвердження лише якщо пропонується інший цілісний visual baseline; для `operator-final-7b/v1` затвердження вже надано;
+- потрібне нове затвердження лише якщо пропонується інший цілісний visual baseline; для active `operator-final-7b/v2` затвердження вже надано явною scoped correction командою;
 - потрібна just-in-time авторизація незворотного/фінансового/юридичного/публічного/чутливого ефекту.
 
 Формат: одне питання за раз, з рекомендованою відповіддю, обґрунтуванням, посиланням на джерело (або чесним «джерело не підтверджує») і наслідками альтернатив. Після відповіді — playback рішення. Playback не є затвердженням.
@@ -122,11 +122,11 @@
 
 ## Source Access Failures
 
-- Кореневий `README.md` відсутній — нематеріально: продуктова істина покрита PRD і context bundle. Дизайн-handoff `forge/design/README.md` доступний.
+- Кореневий `README.md` доступний як індекс; продуктова істина лишається в PRD/context bundle. Дизайн-handoff `forge/design/README.md` і active immutable V2 target доступні.
 - Початковий `UkieBook Design Options.dc.html`, на який посилається handoff, відсутній; exported final HTML/screenshot/README доступні, тому це evidence limit, а не blocker.
 - Зовнішні джерела (умови mono, юридичні висновки) недоступні для перевірки з сесії — класифіковано як неблокувальні OQ-1/OQ-2; всі залежні числа позначені в PRD як робочі припущення.
 
 ## Open Questions
 
-- OQ-G1 закрито зворотним stakes-default власника design brief: WCAG 2.2 AA як implementation floor; статичний baseline сам по собі не доводить compliance.
+- OQ-G1 закрито consumer/paid stakes-default цього guardrails-власника: WCAG 2.2 AA як implementation floor; статичний baseline сам по собі не доводить compliance.
 - OQ-1/OQ-2/OQ-3 з PRD успадковуються як неблокувальні зовнішні перевірки.

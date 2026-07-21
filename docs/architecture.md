@@ -7,9 +7,9 @@
 - `docs/project-context.md` — спожито: розд. 7 (platform), 9–11 (межі/обмеження), 13 (ризики).
 - `docs/canonical-terms.md` — ідентифікатори сутностей.
 - `docs/guardrails.md` — заборонені зміни, правила доказовості.
-- `docs/user-journey.md`, `docs/screen-map.md`, `docs/wireframes.md`, `docs/design-brief.md` — поверхні, стани, навігаційна модель та Approved Baseline `AVB-UKIEBOOK-AURORA-7B-V1` (UI-межі).
-- `forge/design/README.md` — React + TypeScript recommendation and visual-reference-not-production-code constraint.
-- Кодова база: порожня (лише `docs/` і `forge/`) — наявних архітектурних фактів немає; всі рішення нижче — пропоновані, не успадковані.
+- `docs/user-journey.md`, `docs/screen-map.md`, `docs/wireframes.md`, `docs/design-brief.md` — поверхні, стани, навігаційна модель та Approved Baseline `AVB-UKIEBOOK-AURORA-7B-V2` (UI-межі).
+- `forge/design/README.md` і `forge/design/candidates/operator-final-7b/v2/README.md` — React + TypeScript recommendation, visual-reference-not-production-code constraint та immutable V2 target з інтегрованим офіційним логотипом.
+- Production-кодова база відсутня; repository містить SDD, дизайн-еталони й evidence, але не application runtime. Успадкованих implementation-архітектурних фактів немає; всі рішення нижче — пропоновані.
 
 ## Architecture Overview
 
@@ -210,11 +210,11 @@ flowchart TB
 
 ### AD-8 Aurora-first frontend primitives, not prototype promotion
 
-- Decision: reimplement approved Baseline in semantic React components and CSS tokens; `forge/design/ukiebook-catalog.html` is not copied as production application code.
-- Source References: Approved Baseline `AVB-UKIEBOOK-AURORA-7B-V1`; handoff About the Design Files; guardrails Evidence Requirements.
+- Decision: reimplement approved Baseline in semantic React components and CSS tokens; `forge/design/candidates/operator-final-7b/v2/ukiebook-catalog.html` is an immutable visual target and is not copied as production application code.
+- Source References: Approved Baseline `AVB-UKIEBOOK-AURORA-7B-V2`, target bundle hash `c66b23c55e68649e67e029d47c8e69d3bef3791f8c4c6677aa0a6cef2259c51d`; handoff About the Design Files; guardrails Evidence Requirements.
 - Alternatives Considered: direct HTML copy; generic component library defaults; image-to-code promotion.
 - Why This Direction: exact visual target and production semantics/states can coexist without inheriting demo-only div/span controls or non-responsive CSS.
-- Consequences: `Prototype Reuse: none`; visual diffs use target hashes, while functionality is implemented independently and proven by runtime gates.
+- Consequences: `Prototype Reuse: none`; visual diffs use the V2 target bundle (HTML + authoritative `UkieBook-logo.jpg`), while functionality is implemented independently and proven by runtime gates.
 
 ### AD-9 Private versioned artifacts and authorized delivery
 

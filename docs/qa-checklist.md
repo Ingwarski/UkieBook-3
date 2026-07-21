@@ -6,9 +6,9 @@
 - `docs/user-journey.md` — primary Buyer/Author and supporting/Manager journeys.
 - `docs/screen-map.md` — canonical S-01…S-21 routes/states.
 - `docs/wireframes.md` — structural deltas and responsive behavior.
-- `docs/design-brief.md` — approved Baseline `AVB-UKIEBOOK-AURORA-7B-V1`; target bundle hash `758b1a6a78db1226bf82244698d74b44c90b9b2779b072c1bada0d00abd4f5f7`; permitted variance.
+- `docs/design-brief.md` — approved Baseline `AVB-UKIEBOOK-AURORA-7B-V2`; target bundle hash `c66b23c55e68649e67e029d47c8e69d3bef3791f8c4c6677aa0a6cef2259c51d`; permitted variance.
 - `UkieBook-logo.jpg` — official logo operator override; SHA-256 `5cdd21d3ba038632528fc17a13068e3792d03a029779251cd738aaada4aa0ad3`.
-- `forge/design/evidence/AVB-UKIEBOOK-AURORA-7B-V1.visual-qa.json` — reference QA/evidence limits; not implementation evidence.
+- `forge/design/evidence/AVB-UKIEBOOK-AURORA-7B-V2.visual-qa.json` — reference QA for the immutable V2 target, including exact geometry, rendered official logo and component captures; not production implementation evidence.
 - `docs/architecture.md` — AD-2/3/4/6/7/8/9 and security boundaries.
 - `docs/dod-evals.md` — reusable gates, severity and result contract.
 - `docs/guardrails.md` — evidence policy.
@@ -87,17 +87,21 @@ Canonical state source: `docs/screen-map.md`. Each check requires captures at re
 
 ## Visual Regression Checks
 
-Common Baseline ID: `AVB-UKIEBOOK-AURORA-7B-V1`; Target Hash: `758b1a6a78db1226bf82244698d74b44c90b9b2779b072c1bada0d00abd4f5f7`. Reference evidence: `forge/design/evidence/AVB-UKIEBOOK-AURORA-7B-V1.visual-qa.json`.
+Common Baseline ID: `AVB-UKIEBOOK-AURORA-7B-V2`; Target Hash: `c66b23c55e68649e67e029d47c8e69d3bef3791f8c4c6677aa0a6cef2259c51d`. Reference evidence: `forge/design/evidence/AVB-UKIEBOOK-AURORA-7B-V2.visual-qa.json`.
 
-| Check ID | Applicability / Route / State / Viewport | Severity / Release Effect | Permitted Variance | Expected Evidence | Rationale | Result |
-|---|---|---|---|---|---|---|
-| VIS-S01-1280-DEFAULT | S-01 `/`, default, 1280×900 | P2 / blocking | real data/covers, semantic controls, allowed a11y corrections only | fresh full-page capture + diff to HTML/reference capture | locked 1:1 scope | blocked |
-| VIS-S01-1280-HOVER | S-01 `/`, cover and tile hover, 1280×900 | P2 / blocking | layered transform implementation, same visual outcome | before/after capture + keyboard focus equivalent | target interaction | blocked |
-| VIS-S01-RESPONSIVE | S-01 default/loading/empty/error/results, 390/430/768/1440 | P2 / blocking | approved reflow: scroll-snap shelf, menu, stacked formula/filter drawer | captures + overflow/interaction checks | reference CSS is not mobile-ready | blocked |
-| VIS-AURORA-PUBLIC | S-02…S-09, applicable states, 390/768/1280 | P2 / blocking | design-spine extension, real content/state structure | token audit + representative state captures | no pixel target; system contract applies | blocked |
-| VIS-AURORA-AUTHOR | S-10…S-17, applicable states, 390/768/1280 | P2 / blocking | calmer forms/tables within Aurora | token/component/state evidence | preserve brand and task clarity | blocked |
-| VIS-AURORA-MANAGER | S-18…S-21, applicable states, 390/768/1280 | P2 / blocking for meaning/viewport; otherwise advisory | denser, quieter operational surfaces | state captures + token/status audit | operational consistency | blocked |
-| VIS-BRAND-LOGO | all rendered logo instances, default/focus/high-density, 390/768/1280/1440 | P2 / blocking | optimized or transparent derivative allowed only when visually identical; locked S-01 header geometry preserved | source/derivative hashes + pixel/shape comparison + captures | explicit official-logo override | blocked |
+| Check ID | Baseline ID / Target Hash | Applicability / Route / State / Viewport | Severity / Release Effect | Permitted Variance | Expected Evidence | Rationale | Result |
+|---|---|---|---|---|---|---|---|
+| VIS-S01-1280-DEFAULT | `AVB-UKIEBOOK-AURORA-7B-V2` / `c66b23c55e68649e67e029d47c8e69d3bef3791f8c4c6677aa0a6cef2259c51d` | S-01 `/`, default, 1280×900 | P2 / blocking | real data/covers, semantic controls, allowed a11y corrections only | fresh full-page capture + diff to V2 HTML/reference capture | locked 1:1 scope | blocked |
+| VIS-S01-1280-HOVER | `AVB-UKIEBOOK-AURORA-7B-V2` / `c66b23c55e68649e67e029d47c8e69d3bef3791f8c4c6677aa0a6cef2259c51d` | S-01 `/`, cover and tile hover, 1280×900 | P2 / blocking | layered transform implementation, same visual outcome | before/after capture + keyboard focus equivalent | target interaction | blocked |
+| VIS-S01-RESPONSIVE | `AVB-UKIEBOOK-AURORA-7B-V2` / `c66b23c55e68649e67e029d47c8e69d3bef3791f8c4c6677aa0a6cef2259c51d` | S-01 default/loading/empty/error/results, 390/430/768/1440 | P2 / blocking | approved reflow: scroll-snap shelf, menu, stacked formula/filter drawer | captures + overflow/interaction checks | reference CSS is not mobile-ready | blocked |
+| VIS-AURORA-PUBLIC | `AVB-UKIEBOOK-AURORA-7B-V2` / `c66b23c55e68649e67e029d47c8e69d3bef3791f8c4c6677aa0a6cef2259c51d` | S-02…S-09, applicable states, 390/768/1280 | P2 / blocking | design-spine extension, real content/state structure | token audit + representative state captures | no pixel target; system contract applies | blocked |
+| VIS-AURORA-AUTHOR | `AVB-UKIEBOOK-AURORA-7B-V2` / `c66b23c55e68649e67e029d47c8e69d3bef3791f8c4c6677aa0a6cef2259c51d` | S-10…S-17, applicable states, 390/768/1280 | P2 / blocking | calmer forms/tables within Aurora | token/component/state evidence | preserve brand and task clarity | blocked |
+| VIS-AURORA-MANAGER | `AVB-UKIEBOOK-AURORA-7B-V2` / `c66b23c55e68649e67e029d47c8e69d3bef3791f8c4c6677aa0a6cef2259c51d` | S-18…S-21, applicable states, 390/768/1280 | P2 / blocking for meaning/viewport; otherwise advisory | denser, quieter operational surfaces | state captures + token/status audit | operational consistency | blocked |
+| VIS-TOKENS | `AVB-UKIEBOOK-AURORA-7B-V2` / `c66b23c55e68649e67e029d47c8e69d3bef3791f8c4c6677aa0a6cef2259c51d` | all visible routes, default and semantic states, 390/768/1280/1440 | P2 / blocking for hierarchy or brand drift | only source-backed contrast corrections and documented state colors | production token export/computed-style matrix + representative captures against V2 values | dedicated proof for Aurora palette, gradients, type, radii, spacing and shadows | blocked |
+| VIS-GLASS | `AVB-UKIEBOOK-AURORA-7B-V2` / `c66b23c55e68649e67e029d47c8e69d3bef3791f8c4c6677aa0a6cef2259c51d` | glass cards/panels on applicable public, Author and Manager routes, default/hover/focus, 390/768/1280 | P2 / blocking for hierarchy or system drift | density may change only where the extension contract permits it | computed background/border/blur/radius/shadow + component captures matched to V2 glass evidence | glassmorphism is a named cross-screen invariant | blocked |
+| VIS-COVER | `AVB-UKIEBOOK-AURORA-7B-V2` / `c66b23c55e68649e67e029d47c8e69d3bef3791f8c4c6677aa0a6cef2259c51d` | every Book Cover, default/hover/loading, 390/768/1280/1440 | P2 / blocking where hierarchy or supported viewport breaks | real Covers replace placeholders; aspect ratio, radius and hero depth remain | dimension/aspect assertions + production captures against V2 cover evidence | 2:3 Cover hero treatment is a named invariant | blocked |
+| VIS-FORMULA | `AVB-UKIEBOOK-AURORA-7B-V2` / `c66b23c55e68649e67e029d47c8e69d3bef3791f8c4c6677aa0a6cef2259c51d` | S-01 formula ribbon and applicable S-15 explanation, default/responsive, 390/768/1280/1440 | P2 / blocking for S-01 or financial meaning | responsive stacking may change layout, never labels, color mapping or 6/65.8/28.2 meaning | computed segment proportions/colors/type/radius + captures against V2 formula evidence | formula ribbon is both a visual and financial-comprehension invariant | blocked |
+| VIS-BRAND-LOGO | `AVB-UKIEBOOK-AURORA-7B-V2` / `c66b23c55e68649e67e029d47c8e69d3bef3791f8c4c6677aa0a6cef2259c51d` | all rendered logo instances, default/focus/high-density, 390/768/1280/1440 | P2 / blocking | optimized or transparent derivative allowed only when visually identical; locked S-01 93.703125×26px brand slot preserved | source/derivative hashes + pixel/shape comparison + captures against integrated V2 logo evidence | explicit official-logo override is now rendered in the immutable target | blocked |
 
 ## Responsive Checks
 
@@ -146,8 +150,8 @@ Every run records Check ID, applicability, implementation revision, timestamp, e
 ## Evidence Limits
 
 - This checklist and approved design prove intended truth, not runtime implementation.
-- Reference Playwright captures prove the HTML target renders; they do not pass production VIS, accessibility, responsive or behavior checks.
-- The official source is a JPEG with an opaque light background; static inspection does not prove that a production transparent/optimized derivative preserves the mark at small sizes.
+- Reference Playwright captures prove the V2 HTML target, component invariants and integrated official logo render with zero console errors/warnings; they do not pass production VIS, accessibility, responsive or behavior checks.
+- V2 proves the official JPEG renders at 26×26px inside the locked 93.703125×26px S-01 brand slot; it does not prove that a later production transparent/optimized derivative preserves the mark at every required size.
 - Screenshots alone do not prove keyboard, AT, auth, payment, persistence, privacy, conversion or ledger behavior.
 - mono sandbox does not confirm production tariffs; OQ-2 closes only with current provider evidence.
 
@@ -158,7 +162,8 @@ Every run records Check ID, applicability, implementation revision, timestamp, e
 | publishing/converter change | ACC-02..04, UJ-01, ST-04, INT-02 |
 | commerce/rewards change | ACC-09/11..14, UJ-02/04/05, ST-08/09, INT-01/03 |
 | identity/RBAC change | ACC-01/12/14, ST-11, A11Y-02 |
-| S-01/CSS/token change | VIS-S01-*, RES-01/02, A11Y-01/02/04/08 |
+| S-01/CSS/token change | VIS-S01-*, VIS-TOKENS, VIS-GLASS, VIS-COVER, VIS-FORMULA, VIS-BRAND-LOGO, RES-01/02, A11Y-01/02/04/08 |
+| shared glass/Cover/formula primitive change | affected VIS-AURORA-*, VIS-GLASS, VIS-COVER or VIS-FORMULA plus affected responsive/accessibility checks |
 | logo source, derivative or placement change | UX-07, VIS-BRAND-LOGO, VIS-S01-1280-DEFAULT, affected responsive captures |
 | Baseline ID/hash change | all VIS/UX/RES checks and every affected development-plan unit |
 | canonical terms/route-state change | UX-01, affected ST/UJ/WF checks |

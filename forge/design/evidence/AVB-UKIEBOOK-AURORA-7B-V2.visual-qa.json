@@ -1,0 +1,192 @@
+{
+  "schema_version": "1.0",
+  "evidence_id": "VQA-AVB-UKIEBOOK-AURORA-7B-V2-20260721",
+  "adapter": "playwright-cli + macOS default-browser open",
+  "environment": {
+    "os": "macOS",
+    "verification_transport": "http://127.0.0.1:4173/forge/design/candidates/operator-final-7b/v2/ukiebook-catalog.html",
+    "canonical_local_target": "file:///Users/ingwar/Documents/UkieBook%203/forge/design/candidates/operator-final-7b/v2/ukiebook-catalog.html"
+  },
+  "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V2",
+  "candidate_id": "operator-final-7b",
+  "candidate_version": "v2",
+  "supersedes_baseline_id": "AVB-UKIEBOOK-AURORA-7B-V1",
+  "target_reference": "forge/design/candidates/operator-final-7b/v2/ukiebook-catalog.html + UkieBook-logo.jpg",
+  "target_hash": "c66b23c55e68649e67e029d47c8e69d3bef3791f8c4c6677aa0a6cef2259c51d",
+  "prototype_source_root": "forge/design/candidates/operator-final-7b/v2",
+  "prototype_tree_hash": "8aaddd35645bd9c58c095a7182fbbbd43dd8730c5cf90b489a97597431cc6505",
+  "route": "/",
+  "states": [
+    "default",
+    "shelf-cover-hover",
+    "tile-hover"
+  ],
+  "viewports": [
+    "1280x900",
+    "390x844"
+  ],
+  "theme": "Aurora Pastel 7b light with official logo correction",
+  "content_fixture": "embedded Ukrainian catalog fixture in candidate v2 HTML",
+  "source_artifact_ids": [
+    {
+      "path": "forge/design/candidates/operator-final-7b/v2/ukiebook-catalog.html",
+      "sha256": "35df0816497c1b178b9ad37b5f6331aebce4d26712581e3da4ccad73cde78462"
+    },
+    {
+      "path": "UkieBook-logo.jpg",
+      "sha256": "5cdd21d3ba038632528fc17a13068e3792d03a029779251cd738aaada4aa0ad3",
+      "dimensions": "1254x1254",
+      "scope": "official logo source"
+    }
+  ],
+  "implementation_capture_ids": [
+    {
+      "path": "output/playwright/baseline-s01-v2-1280.png",
+      "sha256": "752774cd8814d93c2e2b47672a84f6441430c9320f06b1b348130b99b8585c4a",
+      "state": "default",
+      "qa_check_id": "VIS-S01-1280-DEFAULT"
+    },
+    {
+      "path": "output/playwright/baseline-s01-v2-1280-hover.png",
+      "sha256": "7eb6b69b78af1c24cc20d881c5d40c3d93a0075b5cdcafc3f795bacfdcf7f8a8",
+      "state": "shelf-cover-hover",
+      "qa_check_id": "VIS-S01-1280-HOVER"
+    },
+    {
+      "path": "output/playwright/baseline-s01-v2-1280-tile-hover.png",
+      "sha256": "c1a03d92aeda8ec99df77fd08c9c1970e5bc09b67461f085bf7658ef34e1d538",
+      "state": "tile-hover",
+      "qa_check_id": "VIS-S01-1280-HOVER"
+    },
+    {
+      "path": "output/playwright/baseline-s01-v2-390.png",
+      "sha256": "19dc60e6d3565898dd22915d73557ce9c0018bb3e40c87cb4aaae15f6ba8e016",
+      "state": "default",
+      "qa_check_id": "VIS-S01-RESPONSIVE"
+    },
+    {
+      "path": "output/playwright/baseline-s01-v2-logo.png",
+      "sha256": "f0d09fa4479076a70124f8c5657b80cc1fc086623035a3ab0fab007ef08037df",
+      "qa_check_id": "VIS-BRAND-LOGO"
+    },
+    {
+      "path": "output/playwright/baseline-s01-v2-cover.png",
+      "sha256": "944213dae0ff7fc46a2f468731002d77b5bef119e7aa2d316b934ebff4d0f084",
+      "qa_check_id": "VIS-COVER"
+    },
+    {
+      "path": "output/playwright/baseline-s01-v2-glass-card.png",
+      "sha256": "5f469b2cc8f7da2278da8615e87cc139f66f78f568511536f8d7735268925557",
+      "qa_check_id": "VIS-GLASS"
+    },
+    {
+      "path": "output/playwright/baseline-s01-v2-formula.png",
+      "sha256": "4d1393be4f46c03a3c5750e04209892f6d535054e8b70186b862b78f2c9a9a38",
+      "qa_check_id": "VIS-FORMULA"
+    }
+  ],
+  "geometry_comparison": {
+    "source": "Playwright getBoundingClientRect at 1280x900 after font load",
+    "v1": {
+      "header.nav": {"x": 30, "y": 24, "width": 1220, "height": 72},
+      ".logo": {"x": 70, "y": 47, "width": 93.703125, "height": 26},
+      "nav.links": {"x": 189.703125, "y": 51.5, "width": 282.65625, "height": 17},
+      ".hero": {"x": 30, "y": 96, "width": 1220, "height": 212.21875},
+      ".shelf": {"x": 30, "y": 308.21875, "width": 1220, "height": 270},
+      ".cards": {"x": 30, "y": 578.21875, "width": 1220, "height": 172},
+      ".formula": {"x": 70, "y": 776.21875, "width": 1140, "height": 98}
+    },
+    "v2": {
+      "header.nav": {"x": 30, "y": 24, "width": 1220, "height": 72},
+      ".logo": {"x": 70, "y": 47, "width": 93.703125, "height": 26},
+      "nav.links": {"x": 189.703125, "y": 51.5, "width": 282.65625, "height": 17},
+      ".hero": {"x": 30, "y": 96, "width": 1220, "height": 212.21875},
+      ".shelf": {"x": 30, "y": 308.21875, "width": 1220, "height": 270},
+      ".cards": {"x": 30, "y": 578.21875, "width": 1220, "height": 172},
+      ".formula": {"x": 70, "y": 776.21875, "width": 1140, "height": 98}
+    },
+    "result": "exact for all measured locked boxes"
+  },
+  "component_measurements": {
+    "VIS-TOKENS": {
+      "bg": "#FFF7F3",
+      "text": "#2E2621",
+      "muted": "#857468",
+      "accent": "#B26BD6",
+      "gradient": ["#E08AB0", "#B26BD6", "#E8A04B"],
+      "glass": "rgba(255,255,255,.7)",
+      "glass_strong": "rgba(255,255,255,.8)"
+    },
+    "VIS-GLASS": {
+      "card_background": "rgba(255, 255, 255, 0.8)",
+      "border": "rgba(46, 38, 33, 0.05)",
+      "radius": "22px",
+      "shadow": "rgba(178, 107, 214, 0.1) 0px 8px 22px 0px"
+    },
+    "VIS-COVER": {
+      "box": "138x207",
+      "aspect_ratio": "2 / 3",
+      "radius": "16px",
+      "shadow": "rgba(178, 107, 214, 0.24) 0px 24px 44px 0px"
+    },
+    "VIS-FORMULA": {
+      "radius": "26px",
+      "shadow": "rgba(178, 107, 214, 0.1) 0px 8px 22px 0px",
+      "measured_segment_shares": {"tax": 0.0607553, "author": 0.6584565, "platform": 0.2824302}
+    },
+    "VIS-BRAND-LOGO": {
+      "rendered_box": "26x26",
+      "source_loaded": true,
+      "source_natural_width": 1254,
+      "brand_slot": "93.703125x26",
+      "treatment": "mix-blend-mode: multiply; no redraw"
+    }
+  },
+  "interactions_checked": [
+    "page opens and exposes the expected Ukrainian S-01 content",
+    "official logo is rendered in an accessible home link",
+    "central shelf cover hover applies the target lift behavior",
+    "first glass Book tile hover computes to matrix(1, 0, 0, 1, 0, -4) and has a versioned full-page capture",
+    "full-page desktop composition renders through the formula ribbon",
+    "390px reference render was inspected for source limitations",
+    "v1 and v2 locked desktop box geometry match exactly"
+  ],
+  "external_default_browser_open": {
+    "target": "/Users/ingwar/Documents/UkieBook 3/forge/design/candidates/operator-final-7b/v2/ukiebook-catalog.html",
+    "result": "opened",
+    "command_exit_code": 0
+  },
+  "console_result": {
+    "errors": 0,
+    "warnings": 0,
+    "details": "official logo favicon removes the prior temporary favicon.ico 404; no application-script errors"
+  },
+  "qa_result": "approved_scoped_baseline_correction_with_component_evidence",
+  "findings": [
+    {
+      "severity": "P2",
+      "release_effect": "blocking",
+      "blocking_scope": "production implementation",
+      "applicability": "S-01 mobile",
+      "source": "390x844 Playwright capture and absence of @media rules",
+      "evidence": "output/playwright/baseline-s01-v2-390.png",
+      "rationale": "the design-reference CSS clips or compresses header, shelf and formula content; production must use the approved responsive reflow rather than literal squeezing"
+    },
+    {
+      "severity": "P2",
+      "release_effect": "blocking",
+      "blocking_scope": "production implementation",
+      "applicability": "S-01 semantics, touch targets and contrast",
+      "source": "HTML inspection and retained v1 contrast measurements",
+      "evidence": "cart visible size remains 40x40; search/cart/nav demo controls remain non-production; contrast corrections remain required by Baseline variance",
+      "rationale": "production must apply semantic controls, target-size and measured AA corrections and then provide runtime evidence"
+    }
+  ],
+  "evidence_limits": [
+    "the target covers S-01 default desktop presentation, official-logo integration and CSS hover, not runtime catalog behavior",
+    "the reference HTML remains intentionally non-responsive; mobile capture proves the limitation rather than production readiness",
+    "no loading, empty, error, pagination, auth, navigation, backend, persistence, payment or integration behavior is proven",
+    "component captures and computed styles prove reference values, not production implementation fidelity"
+  ],
+  "timestamp": "2026-07-21T21:43:42+03:00"
+}

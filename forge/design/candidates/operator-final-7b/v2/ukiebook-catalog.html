@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UkieBook — Каталог (Аврора · пастельна / 7b · logo v2)</title>
+<link rel="icon" href="../../../../../UkieBook-logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FFF7F3; --text:#2E2621; --muted:#857468;
+    --accent:#B26BD6; --grad-a:#E08AB0; --grad-b:#B26BD6; --grad-c:#E8A04B;
+    --glass:rgba(255,255,255,.7); --glass-strong:rgba(255,255,255,.8);
+    --hairline:rgba(46,38,33,.06);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:#ece7e2;font-family:'Golos Text',system-ui,sans-serif;color:var(--text)}
+  a{color:inherit;text-decoration:none}
+  a:hover{color:var(--accent)}
+  .page{max-width:1220px;margin:24px auto;background:var(--bg);border-radius:14px;overflow:hidden;box-shadow:0 12px 40px rgba(46,38,33,.12)}
+  .aurora{position:relative;overflow:hidden}
+  .aurora::before{content:"";position:absolute;inset:0;background:
+    radial-gradient(560px 360px at 15% 0%, rgba(255,190,160,.60), transparent 68%),
+    radial-gradient(600px 380px at 85% 4%, rgba(197,178,255,.50), transparent 68%),
+    radial-gradient(520px 340px at 52% 42%, rgba(255,214,170,.50), transparent 68%);pointer-events:none}
+  header.nav{position:relative;display:flex;align-items:center;gap:26px;padding:16px 40px}
+  .logo{display:grid;grid-template-columns:26px 1fr;align-items:center;gap:6px;width:93.703125px;height:26px;flex:0 0 93.703125px;font-weight:800;letter-spacing:-0.03em;color:var(--text)}
+  .logo:hover{color:var(--text)}
+  .logo img{display:block;width:26px;height:26px;object-fit:cover;border-radius:2px;mix-blend-mode:multiply}
+  .logo .wordmark{font-size:13.8px;line-height:1;white-space:nowrap}
+  .logo b{color:var(--accent);font-weight:800}
+  nav.links{display:flex;gap:22px;font-size:14px;font-weight:500;color:var(--muted)}
+  nav.links .active{color:var(--text);font-weight:600}
+  .search{display:flex;align-items:center;gap:9px;background:var(--glass);border:1px solid var(--hairline);border-radius:99px;padding:10px 18px;color:#A38F82;font-size:13.5px;width:240px;backdrop-filter:blur(10px)}
+  .cart{position:relative;width:40px;height:40px;border-radius:99px;background:var(--glass);border:1px solid var(--hairline);display:flex;align-items:center;justify-content:center;font-size:16px;backdrop-filter:blur(10px)}
+  .cart .badge{position:absolute;top:-5px;right:-5px;background:var(--accent);color:#fff;border-radius:99px;font-size:10px;font-weight:700;padding:2px 6px}
+  .hero{position:relative;text-align:center;padding:46px 40px 18px}
+  .hero h1{margin:0;font-weight:700;font-size:56px;line-height:1.02;letter-spacing:-0.035em}
+  .hero h1 .grad{background:linear-gradient(90deg,var(--grad-a),var(--grad-b) 55%,var(--grad-c));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero .sub{color:var(--muted);font-size:15.5px;margin-top:16px}
+  .shelf{position:relative;display:flex;justify-content:center;align-items:flex-end;gap:26px;padding:30px 40px 0;height:270px}
+  .cover{display:flex;flex-direction:column;justify-content:space-between;padding:14px 12px;border-radius:16px;box-shadow:0 24px 44px rgba(178,107,214,.24);transition:transform .18s ease-out}
+  .shelf .cover{width:138px;aspect-ratio:2/3}
+  .cover:hover{transform:translateY(-16px)!important}
+  .cover .genre{font-size:9px;letter-spacing:.12em;text-transform:uppercase;opacity:.7}
+  .cover .title{font-weight:800;font-size:15px;line-height:1.15}
+  .cover .author{font-size:9px;letter-spacing:.08em;text-transform:uppercase;opacity:.85}
+  .cards{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:18px;padding:34px 40px 8px}
+  .card{background:var(--glass-strong);border:1px solid rgba(46,38,33,.05);border-radius:22px;padding:16px;display:flex;gap:14px;align-items:center;box-shadow:0 8px 22px rgba(178,107,214,.10);transition:transform .18s ease-out}
+  .card:hover{transform:translateY(-4px)}
+  .card .mini{width:64px;aspect-ratio:2/3;border-radius:12px;display:flex;align-items:flex-end;padding:7px;font-weight:800;font-size:9px;line-height:1.2;flex:none}
+  .card .meta{display:flex;flex-direction:column;gap:3px}
+  .card .meta .t{font-weight:700;font-size:14px;line-height:1.25}
+  .card .meta .a{color:#A38F82;font-size:12px}
+  .card .meta .p{font-weight:800;font-size:14.5px;font-variant-numeric:tabular-nums;margin-top:3px}
+  .formula{position:relative;margin:26px 40px 40px;border-radius:26px;padding:26px 32px;background:var(--glass-strong);border:1px solid rgba(46,38,33,.05);display:flex;align-items:center;gap:30px;box-shadow:0 8px 22px rgba(178,107,214,.10)}
+  .formula .label{font-weight:700;font-size:19px;letter-spacing:-0.02em;flex:1}
+  .bar{display:flex;height:44px;font-variant-numeric:tabular-nums;font-size:12.5px;border-radius:99px;overflow:hidden;flex:1.4}
+  .bar .tax{width:6%;background:#F7E7DE;display:flex;align-items:center;justify-content:center;font-weight:700}
+  .bar .author{width:65.8%;background:linear-gradient(90deg,var(--grad-b),var(--grad-a));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px}
+  .bar .platform{width:28.2%;background:#F6E4D2;display:flex;align-items:center;justify-content:center;font-weight:700;color:#9A6438}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="aurora">
+    <header class="nav">
+      <a class="logo" href="/" aria-label="UkieBook — головна"><img src="../../../../../UkieBook-logo.jpg" alt="" aria-hidden="true"><span class="wordmark">Ukie<b>Book</b></span></a>
+      <nav class="links"><span class="active">Каталог</span><span>Жанри</span><span>Знижки</span><span>Авторам</span></nav>
+      <div style="margin-left:auto;display:flex;align-items:center;gap:14px">
+        <div class="search">⌕ Назва або автор…</div>
+        <div class="cart">🛒<span class="badge">2</span></div>
+      </div>
+    </header>
+
+    <section class="hero">
+      <h1>Затишні вечори<br><span class="grad">з українською книжкою</span></h1>
+      <div class="sub">EPUB і MOBI одразу в бібліотеку. 65,8% — автору.</div>
+    </section>
+
+    <section class="shelf">
+      <div class="cover" style="background:#0E9AA7;color:#E8F8FA;transform:translateY(-6px) rotate(-2deg)"><div class="genre">Історія</div><div class="title">Хроніки степу</div><div class="author">Тарас Білик</div></div>
+      <div class="cover" style="background:#F2B705;color:#3A2E05;transform:translateY(-14px) rotate(-2deg)"><div class="genre">Нонфікшн</div><div class="title">Листи з Полтави</div><div class="author">Андрій Мельник</div></div>
+      <div class="cover" style="background:#2E5BFF;color:#EAF0FF;transform:translateY(-30px) rotate(-3deg)"><div class="genre">Проза</div><div class="title">Місто на воді</div><div class="author">Олег Данилюк</div></div>
+      <div class="cover" style="background:#E8503A;color:#FDEEEA;transform:translateY(10px) rotate(2deg)"><div class="genre">Проза</div><div class="title">Сад камʼяних птахів</div><div class="author">Ірина Верес</div></div>
+      <div class="cover" style="background:#7C3AED;color:#F1EAFE;transform:translateY(18px) rotate(3deg)"><div class="genre">Поезія</div><div class="title">Пізнє літо</div><div class="author">Соломія Гнатюк</div></div>
+    </section>
+  </div>
+
+  <section class="cards">
+    <div class="card"><div class="mini" style="background:#E8503A;color:#FDEEEA">Сад камʼяних птахів</div><div class="meta"><div class="t">Сад камʼяних птахів</div><div class="a">Ірина Верес</div><div class="p">210 грн</div></div></div>
+    <div class="card"><div class="mini" style="background:#7C3AED;color:#F1EAFE">Пізнє літо</div><div class="meta"><div class="t">Пізнє літо</div><div class="a">Соломія Гнатюк</div><div class="p">135 грн</div></div></div>
+    <div class="card"><div class="mini" style="background:#0E9AA7;color:#E8F8FA">Хроніки степу</div><div class="meta"><div class="t">Хроніки степу</div><div class="a">Тарас Білик</div><div class="p">265 грн</div></div></div>
+    <div class="card"><div class="mini" style="background:#3B4CCA;color:#EAEDFC">Крижані маки</div><div class="meta"><div class="t">Крижані маки</div><div class="a">Леся Романюк</div><div class="p">220 грн</div></div></div>
+  </section>
+
+  <section class="formula">
+    <div class="label">Прозора формула: з кожних 100 грн</div>
+    <div class="bar"><div class="tax">6</div><div class="author">65,8 — автору</div><div class="platform">28,2</div></div>
+  </section>
+</div>
+</body>
+</html>

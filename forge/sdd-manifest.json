@@ -97,11 +97,11 @@
     "guardrails": {
       "path": "docs/guardrails.md",
       "owner_skill": "to-guardrails",
-      "owner_invocation_id": "inv-to-guardrails-20260721-01",
+      "owner_invocation_id": "inv-to-guardrails-20260721-03",
       "declared_output_set": ["docs/guardrails.md"],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "2026-07-21",
+      "source_version": "2026-07-21-v2-visual-authority-acyclic",
       "source_hashes": {
         "product-idea": "cf74e9b902bd63f344cc5f95c82df51179aa2e22ef33a967a582f6f8736b329b",
         "prd": "21992be20f5738740fc27fef54922a38d62292818f887a14b11359848be7cb63",
@@ -121,10 +121,10 @@
       },
       "dependencies": ["prd", "project-context", "canonical-terms"],
       "dependency_status": {"prd": "validated", "project-context": "validated", "canonical-terms": "validated"},
-      "content_hash": "8c0da8173d4d23403b66d91e8461ad2d08500ecd2c291035f8d5c200ef95d0c3",
-      "validation": {"owner_boundary": true, "required_structure": true, "authority_reconciled": true, "issues": []},
+      "content_hash": "0de4c198fec9f21f3a49fbefaa0e54362717c530f5ec4e9f8665bb09f78affa9",
+      "validation": {"owner_boundary": true, "required_structure": true, "authority_reconciled": true, "acyclic_pipeline_sources": true, "active_visual_authority": "operator-final-7b/v2", "issues": []},
       "open_questions": ["OQ-1", "OQ-2", "OQ-3"],
-      "supersedes": "1bc0abc8cd4f0efe045d6636b9c624911d9dd912e1f2df76cac48468dd89e276"
+      "supersedes": "82c991b7091745fdd3b794d40a37aeb549bd39aa5a29138778ae0131f1feea68"
     },
     "user-journey": {
       "path": "docs/user-journey.md",
@@ -138,7 +138,7 @@
         "prd": "21992be20f5738740fc27fef54922a38d62292818f887a14b11359848be7cb63",
         "project-context": "5f0b8d530e8e279af8e4e5ece1b5fc8288e93d26696f99714432eb3f29f3b3b2",
         "canonical-terms": "9da0c1cc13a67e5905bdcb186d32c70646d8bf99e158c08bfcf8172402dfa78c",
-        "guardrails": "8c0da8173d4d23403b66d91e8461ad2d08500ecd2c291035f8d5c200ef95d0c3"
+        "guardrails": "0de4c198fec9f21f3a49fbefaa0e54362717c530f5ec4e9f8665bb09f78affa9"
       },
       "consumed_source_fragments": {
         "project-context#3": "81eb855f80cc150c7b078d89f1400c6f797e867f65e38550a9b370dbf5a7e926",
@@ -151,7 +151,7 @@
       "dependencies": ["guardrails"],
       "dependency_status": {"guardrails": "validated"},
       "content_hash": "f5a1773a4201988eeda614a7be0bafebeae5d583a015eb3b3b5bfd784e567085",
-      "validation": {"owner_boundary": true, "required_structure": true, "primary_and_support_journeys_closed": true, "issues": []},
+      "validation": {"owner_boundary": true, "required_structure": true, "primary_and_support_journeys_closed": true, "dependency_revalidation": "passed-no-content-change; scoped logo correction does not alter journeys", "issues": []},
       "open_questions": ["OQ-UJ1", "OQ-UJ2"],
       "supersedes": "6c2f3ec3ffec4ae22c894ebb85ed8534f6b4f64855c448324f6d4da121abb7db"
     },
@@ -168,7 +168,7 @@
         "user-journey": "f5a1773a4201988eeda614a7be0bafebeae5d583a015eb3b3b5bfd784e567085",
         "project-context": "5f0b8d530e8e279af8e4e5ece1b5fc8288e93d26696f99714432eb3f29f3b3b2",
         "canonical-terms": "9da0c1cc13a67e5905bdcb186d32c70646d8bf99e158c08bfcf8172402dfa78c",
-        "guardrails": "8c0da8173d4d23403b66d91e8461ad2d08500ecd2c291035f8d5c200ef95d0c3"
+        "guardrails": "0de4c198fec9f21f3a49fbefaa0e54362717c530f5ec4e9f8665bb09f78affa9"
       },
       "consumed_source_fragments": {
         "project-context#7": "b4cf1e85c40cc17e8efc22d8ebf8b14575167e2f505d7d762200a71dd85ecc5e",
@@ -179,26 +179,26 @@
       "dependencies": ["user-journey"],
       "dependency_status": {"user-journey": "validated"},
       "content_hash": "11786f18899717c0aaf4b130f381c5a1d56bd8fbbe4a74293efc68e58c4aee14",
-      "validation": {"owner_boundary": true, "required_structure": true, "surface_closure": true, "scope_closure": true, "screens_S01_S21_present": true, "issues": []},
+      "validation": {"owner_boundary": true, "required_structure": true, "surface_closure": true, "scope_closure": true, "screens_S01_S21_present": true, "dependency_revalidation": "passed-no-content-change; scoped logo correction creates no route or state", "issues": []},
       "open_questions": ["OQ-SM1", "OQ-SM2"],
       "supersedes": "6322ffe8473a5ec254144feae3cbb8ace6ecaff98f6a48b380266177b7545ee0"
     },
     "wireframes": {
       "path": "docs/wireframes.md",
       "owner_skill": "to-wireframes",
-      "owner_invocation_id": "inv-to-wireframes-20260721-01",
+      "owner_invocation_id": "inv-to-wireframes-20260721-02",
       "declared_output_set": ["docs/wireframes.md"],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "2026-07-21-post-baseline-reconciliation",
+      "source_version": "2026-07-21-v2-source-reconciled",
       "source_hashes": {
         "prd": "21992be20f5738740fc27fef54922a38d62292818f887a14b11359848be7cb63",
         "user-journey": "f5a1773a4201988eeda614a7be0bafebeae5d583a015eb3b3b5bfd784e567085",
         "screen-map": "11786f18899717c0aaf4b130f381c5a1d56bd8fbbe4a74293efc68e58c4aee14",
         "project-context": "5f0b8d530e8e279af8e4e5ece1b5fc8288e93d26696f99714432eb3f29f3b3b2",
         "canonical-terms": "9da0c1cc13a67e5905bdcb186d32c70646d8bf99e158c08bfcf8172402dfa78c",
-        "guardrails": "8c0da8173d4d23403b66d91e8461ad2d08500ecd2c291035f8d5c200ef95d0c3",
-        "operator-final-7b-tree": "950a44c329ebd4b79d088910920d05abb81a683c4e1b53f6eebda820905626f0"
+        "guardrails": "0de4c198fec9f21f3a49fbefaa0e54362717c530f5ec4e9f8665bb09f78affa9",
+        "operator-final-7b-v2-tree": "8aaddd35645bd9c58c095a7182fbbbd43dd8730c5cf90b489a97597431cc6505"
       },
       "consumed_source_fragments": {
         "project-context#7": "b4cf1e85c40cc17e8efc22d8ebf8b14575167e2f505d7d762200a71dd85ecc5e",
@@ -208,28 +208,28 @@
       },
       "dependencies": ["screen-map"],
       "dependency_status": {"screen-map": "validated"},
-      "content_hash": "dde5e9f359a889d12d5a75782ce2b59b8fea9bc96e32268576dff8b16d6e4e37",
-      "validation": {"owner_boundary": true, "required_structure": true, "screens_S01_S21_present": true, "baseline_reconciliation_scoped_to_S01": true, "issues": []},
+      "content_hash": "a900657de6f9c56640887ba7aba6fc2a390d79b39786366ea2f39473bd04a5f7",
+      "validation": {"owner_boundary": true, "required_structure": true, "screens_S01_S21_present": true, "baseline_reconciliation_scoped_to_S01": true, "active_visual_source": "operator-final-7b/v2", "structure_change": "none", "issues": []},
       "open_questions": ["OQ-W1", "OQ-W2"],
-      "supersedes": "a8572a225fd23fbc399d6d254192344a526d19c97ee7d25514065683305760f5"
+      "supersedes": "dde5e9f359a889d12d5a75782ce2b59b8fea9bc96e32268576dff8b16d6e4e37"
     },
     "design-brief": {
       "path": "docs/design-brief.md",
       "owner_skill": "to-design-brief",
-      "owner_invocation_id": "inv-to-design-brief-20260721-02",
+      "owner_invocation_id": "inv-to-design-brief-20260721-04",
       "declared_output_set": ["docs/design-brief.md"],
       "status": "validated",
       "mission_control_status": "Approved design",
-      "source_version": "approved-AVB-UKIEBOOK-AURORA-7B-V1-logo-override",
+      "source_version": "approved-AVB-UKIEBOOK-AURORA-7B-V2",
       "source_hashes": {
         "prd": "21992be20f5738740fc27fef54922a38d62292818f887a14b11359848be7cb63",
         "user-journey": "f5a1773a4201988eeda614a7be0bafebeae5d583a015eb3b3b5bfd784e567085",
         "screen-map": "11786f18899717c0aaf4b130f381c5a1d56bd8fbbe4a74293efc68e58c4aee14",
-        "wireframes": "dde5e9f359a889d12d5a75782ce2b59b8fea9bc96e32268576dff8b16d6e4e37",
+        "wireframes": "a900657de6f9c56640887ba7aba6fc2a390d79b39786366ea2f39473bd04a5f7",
         "project-context": "5f0b8d530e8e279af8e4e5ece1b5fc8288e93d26696f99714432eb3f29f3b3b2",
         "canonical-terms": "9da0c1cc13a67e5905bdcb186d32c70646d8bf99e158c08bfcf8172402dfa78c",
-        "guardrails": "8c0da8173d4d23403b66d91e8461ad2d08500ecd2c291035f8d5c200ef95d0c3",
-        "visual-target-bundle": "758b1a6a78db1226bf82244698d74b44c90b9b2779b072c1bada0d00abd4f5f7",
+        "guardrails": "0de4c198fec9f21f3a49fbefaa0e54362717c530f5ec4e9f8665bb09f78affa9",
+        "visual-target-bundle": "c66b23c55e68649e67e029d47c8e69d3bef3791f8c4c6677aa0a6cef2259c51d",
         "official-logo": "5cdd21d3ba038632528fc17a13068e3792d03a029779251cd738aaada4aa0ad3"
       },
       "consumed_source_fragments": {
@@ -246,26 +246,26 @@
       },
       "dependencies": ["wireframes"],
       "dependency_status": {"wireframes": "validated"},
-      "content_hash": "834ba17bebadf74ac8649d97a7f58de78ae60c77107efd5c6e22a01b012207ed",
-      "validation": {"owner_boundary": true, "required_structure": true, "validation_pass_1": "passed", "validation_pass_2": "passed_with_resolved_variance", "approved_baseline_complete": true, "issues": []},
+      "content_hash": "b36246087e84625bf414fe551bb7faacf119a704908168ea2b983720bbe346eb",
+      "validation": {"owner_boundary": true, "required_structure": true, "validation_pass_1": "passed", "validation_pass_2": "passed_with_resolved_variance", "approved_baseline_complete": true, "dependency_revalidation": "passed-no-content-change after wireframe source reconciliation", "logo_integrated_in_immutable_target": true, "component_invariants_evidenced": ["VIS-TOKENS", "VIS-GLASS", "VIS-COVER", "VIS-FORMULA", "VIS-BRAND-LOGO"], "issues": []},
       "open_questions": ["OQ-DB1", "OQ-DB2"],
-      "supersedes": "8068f4f38923bc353ed749a733ad3ae303dc06d51ce49305bc5085089926b08a"
+      "supersedes": "834ba17bebadf74ac8649d97a7f58de78ae60c77107efd5c6e22a01b012207ed"
     },
     "architecture": {
       "path": "docs/architecture.md",
       "owner_skill": "to-architecture",
-      "owner_invocation_id": "inv-to-architecture-20260721-01",
+      "owner_invocation_id": "inv-to-architecture-20260721-03",
       "declared_output_set": ["docs/architecture.md"],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "2026-07-21-stack-resolved",
+      "source_version": "2026-07-21-v2-baseline-bound-reconciled",
       "source_hashes": {
         "prd": "21992be20f5738740fc27fef54922a38d62292818f887a14b11359848be7cb63",
-        "guardrails": "8c0da8173d4d23403b66d91e8461ad2d08500ecd2c291035f8d5c200ef95d0c3",
+        "guardrails": "0de4c198fec9f21f3a49fbefaa0e54362717c530f5ec4e9f8665bb09f78affa9",
         "user-journey": "f5a1773a4201988eeda614a7be0bafebeae5d583a015eb3b3b5bfd784e567085",
         "screen-map": "11786f18899717c0aaf4b130f381c5a1d56bd8fbbe4a74293efc68e58c4aee14",
-        "wireframes": "dde5e9f359a889d12d5a75782ce2b59b8fea9bc96e32268576dff8b16d6e4e37",
-        "design-brief": "834ba17bebadf74ac8649d97a7f58de78ae60c77107efd5c6e22a01b012207ed",
+        "wireframes": "a900657de6f9c56640887ba7aba6fc2a390d79b39786366ea2f39473bd04a5f7",
+        "design-brief": "b36246087e84625bf414fe551bb7faacf119a704908168ea2b983720bbe346eb",
         "project-context": "5f0b8d530e8e279af8e4e5ece1b5fc8288e93d26696f99714432eb3f29f3b3b2",
         "canonical-terms": "9da0c1cc13a67e5905bdcb186d32c70646d8bf99e158c08bfcf8172402dfa78c"
       },
@@ -282,26 +282,26 @@
       },
       "dependencies": ["design-brief"],
       "dependency_status": {"design-brief": "validated"},
-      "content_hash": "ae666c5a42c395c0146a6a805fc4eae1408b73fa288073d9615dfeba5425f86f",
+      "content_hash": "286b13b50c7b07272859c26ec47e61a55251e855d5b5e08f502180b79c11d70f",
       "validation": {"owner_boundary": true, "required_structure": true, "stack_and_runtime_owned": true, "diagram_present": true, "issues": []},
       "open_questions": ["OQ-AR3", "OQ-AR4"],
-      "supersedes": "f9359aae20830d59cac36984e9cdee4ecc0180d307f6fa34a5e66d0e667df620"
+      "supersedes": "54e68a6c5cc13af175b22088cdaa0b526cba3bf703381ca912f03d8c3774d50e"
     },
     "dod-evals": {
       "path": "docs/dod-evals.md",
       "owner_skill": "to-dod-evals",
-      "owner_invocation_id": "inv-to-dod-evals-20260721-01",
+      "owner_invocation_id": "inv-to-dod-evals-20260721-03",
       "declared_output_set": ["docs/dod-evals.md"],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "2026-07-21-approved-baseline",
+      "source_version": "2026-07-21-approved-baseline-v2",
       "source_hashes": {
         "prd": "21992be20f5738740fc27fef54922a38d62292818f887a14b11359848be7cb63",
-        "guardrails": "8c0da8173d4d23403b66d91e8461ad2d08500ecd2c291035f8d5c200ef95d0c3",
-        "architecture": "ae666c5a42c395c0146a6a805fc4eae1408b73fa288073d9615dfeba5425f86f",
-        "design-brief": "834ba17bebadf74ac8649d97a7f58de78ae60c77107efd5c6e22a01b012207ed",
+        "guardrails": "0de4c198fec9f21f3a49fbefaa0e54362717c530f5ec4e9f8665bb09f78affa9",
+        "architecture": "286b13b50c7b07272859c26ec47e61a55251e855d5b5e08f502180b79c11d70f",
+        "design-brief": "b36246087e84625bf414fe551bb7faacf119a704908168ea2b983720bbe346eb",
         "screen-map": "11786f18899717c0aaf4b130f381c5a1d56bd8fbbe4a74293efc68e58c4aee14",
-        "wireframes": "dde5e9f359a889d12d5a75782ce2b59b8fea9bc96e32268576dff8b16d6e4e37",
+        "wireframes": "a900657de6f9c56640887ba7aba6fc2a390d79b39786366ea2f39473bd04a5f7",
         "user-journey": "f5a1773a4201988eeda614a7be0bafebeae5d583a015eb3b3b5bfd784e567085",
         "project-context": "5f0b8d530e8e279af8e4e5ece1b5fc8288e93d26696f99714432eb3f29f3b3b2",
         "canonical-terms": "9da0c1cc13a67e5905bdcb186d32c70646d8bf99e158c08bfcf8172402dfa78c"
@@ -312,28 +312,28 @@
       },
       "dependencies": ["architecture"],
       "dependency_status": {"architecture": "validated"},
-      "content_hash": "008fba93743a517b8e59afe55b7a13ff7bc764ae343de1b1980c444f5060ea01",
-      "validation": {"owner_boundary": true, "required_structure": true, "approved_visual_gate_bound": true, "issues": []},
+      "content_hash": "3b4d14356cf1cafdc25f278b74534cb61c121f289fd80da7544ec5061ccb3811",
+      "validation": {"owner_boundary": true, "required_structure": true, "approved_visual_gate_bound": true, "dependency_revalidation": "passed-no-content-change after wireframe/architecture reconciliation", "visual_qa_ids_complete": 11, "prototype_promotion_receipt": "not-applicable-by-AD-8", "issues": []},
       "open_questions": [],
-      "supersedes": "e2e4a46c22b2ecc2f446e2660a6d0cc8b60ee37b1c709e74f534362b1286da02"
+      "supersedes": "008fba93743a517b8e59afe55b7a13ff7bc764ae343de1b1980c444f5060ea01"
     },
     "qa-checklist": {
       "path": "docs/qa-checklist.md",
       "owner_skill": "to-qa-checklist",
-      "owner_invocation_id": "inv-to-qa-checklist-20260721-02",
+      "owner_invocation_id": "inv-to-qa-checklist-20260721-04",
       "declared_output_set": ["docs/qa-checklist.md"],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "2026-07-21-approved-baseline-logo-override",
+      "source_version": "2026-07-21-v2-component-checks",
       "source_hashes": {
         "prd": "21992be20f5738740fc27fef54922a38d62292818f887a14b11359848be7cb63",
         "user-journey": "f5a1773a4201988eeda614a7be0bafebeae5d583a015eb3b3b5bfd784e567085",
         "screen-map": "11786f18899717c0aaf4b130f381c5a1d56bd8fbbe4a74293efc68e58c4aee14",
-        "wireframes": "dde5e9f359a889d12d5a75782ce2b59b8fea9bc96e32268576dff8b16d6e4e37",
-        "design-brief": "834ba17bebadf74ac8649d97a7f58de78ae60c77107efd5c6e22a01b012207ed",
-        "architecture": "ae666c5a42c395c0146a6a805fc4eae1408b73fa288073d9615dfeba5425f86f",
-        "dod-evals": "008fba93743a517b8e59afe55b7a13ff7bc764ae343de1b1980c444f5060ea01",
-        "guardrails": "8c0da8173d4d23403b66d91e8461ad2d08500ecd2c291035f8d5c200ef95d0c3",
+        "wireframes": "a900657de6f9c56640887ba7aba6fc2a390d79b39786366ea2f39473bd04a5f7",
+        "design-brief": "b36246087e84625bf414fe551bb7faacf119a704908168ea2b983720bbe346eb",
+        "architecture": "286b13b50c7b07272859c26ec47e61a55251e855d5b5e08f502180b79c11d70f",
+        "dod-evals": "3b4d14356cf1cafdc25f278b74534cb61c121f289fd80da7544ec5061ccb3811",
+        "guardrails": "0de4c198fec9f21f3a49fbefaa0e54362717c530f5ec4e9f8665bb09f78affa9",
         "project-context": "5f0b8d530e8e279af8e4e5ece1b5fc8288e93d26696f99714432eb3f29f3b3b2",
         "canonical-terms": "9da0c1cc13a67e5905bdcb186d32c70646d8bf99e158c08bfcf8172402dfa78c",
         "official-logo": "5cdd21d3ba038632528fc17a13068e3792d03a029779251cd738aaada4aa0ad3"
@@ -351,29 +351,29 @@
       },
       "dependencies": ["dod-evals"],
       "dependency_status": {"dod-evals": "validated"},
-      "content_hash": "2be8a1ce4312288ae788af92bb9955843dc97320f77c871f47ede84b12f47649",
-      "validation": {"owner_boundary": true, "required_structure": true, "visual_checks_instantiated": true, "release_readiness": "blocked", "issues": []},
+      "content_hash": "3fa39ecb1ee23ea6111667c7105aaba0f2e93ab6fd7fb28e29a2aad06eb49037",
+      "validation": {"owner_boundary": true, "required_structure": true, "dependency_revalidation": "passed-no-content-change after upstream pointer reconciliation", "visual_checks_instantiated": true, "visual_check_count": 11, "dedicated_component_checks": ["VIS-TOKENS", "VIS-GLASS", "VIS-COVER", "VIS-FORMULA", "VIS-BRAND-LOGO"], "release_readiness": "blocked", "issues": []},
       "open_questions": ["OQ-QA1"],
-      "supersedes": "d82173f295c14fe044119b8f0a46db5585e6af2d04d16ff691804651257b99fa"
+      "supersedes": "2be8a1ce4312288ae788af92bb9955843dc97320f77c871f47ede84b12f47649"
     },
     "development-plan": {
       "path": "docs/development-plan.md",
       "owner_skill": "to-development-plan",
-      "owner_invocation_id": "inv-to-development-plan-20260721-02",
+      "owner_invocation_id": "inv-to-development-plan-20260721-04",
       "declared_output_set": ["docs/development-plan.md"],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "1.1",
+      "source_version": "1.2",
       "source_hashes": {
         "prd": "21992be20f5738740fc27fef54922a38d62292818f887a14b11359848be7cb63",
         "user-journey": "f5a1773a4201988eeda614a7be0bafebeae5d583a015eb3b3b5bfd784e567085",
         "screen-map": "11786f18899717c0aaf4b130f381c5a1d56bd8fbbe4a74293efc68e58c4aee14",
-        "wireframes": "dde5e9f359a889d12d5a75782ce2b59b8fea9bc96e32268576dff8b16d6e4e37",
-        "design-brief": "834ba17bebadf74ac8649d97a7f58de78ae60c77107efd5c6e22a01b012207ed",
-        "architecture": "ae666c5a42c395c0146a6a805fc4eae1408b73fa288073d9615dfeba5425f86f",
-        "dod-evals": "008fba93743a517b8e59afe55b7a13ff7bc764ae343de1b1980c444f5060ea01",
-        "guardrails": "8c0da8173d4d23403b66d91e8461ad2d08500ecd2c291035f8d5c200ef95d0c3",
-        "qa-checklist": "2be8a1ce4312288ae788af92bb9955843dc97320f77c871f47ede84b12f47649",
+        "wireframes": "a900657de6f9c56640887ba7aba6fc2a390d79b39786366ea2f39473bd04a5f7",
+        "design-brief": "b36246087e84625bf414fe551bb7faacf119a704908168ea2b983720bbe346eb",
+        "architecture": "286b13b50c7b07272859c26ec47e61a55251e855d5b5e08f502180b79c11d70f",
+        "dod-evals": "3b4d14356cf1cafdc25f278b74534cb61c121f289fd80da7544ec5061ccb3811",
+        "guardrails": "0de4c198fec9f21f3a49fbefaa0e54362717c530f5ec4e9f8665bb09f78affa9",
+        "qa-checklist": "3fa39ecb1ee23ea6111667c7105aaba0f2e93ab6fd7fb28e29a2aad06eb49037",
         "project-context": "5f0b8d530e8e279af8e4e5ece1b5fc8288e93d26696f99714432eb3f29f3b3b2",
         "canonical-terms": "9da0c1cc13a67e5905bdcb186d32c70646d8bf99e158c08bfcf8172402dfa78c",
         "official-logo": "5cdd21d3ba038632528fc17a13068e3792d03a029779251cd738aaada4aa0ad3"
@@ -391,10 +391,10 @@
       },
       "dependencies": ["qa-checklist", "design-brief"],
       "dependency_status": {"qa-checklist": "validated", "design-brief": "validated"},
-      "content_hash": "e6bde0a4f7ff32164c8ce250f9206abf133fc359677686415199ec3086dd9623",
-      "validation": {"owner_boundary": true, "required_structure": true, "approved_baseline_bound": true, "units": 11, "screens_S01_S21_covered": true, "prototype_reuse": "none", "issues": []},
+      "content_hash": "aab95114afbea378ca89b54e610ffa6878b382bdc5c7ae5561ce9582a456abd3",
+      "validation": {"owner_boundary": true, "required_structure": true, "dependency_revalidation": "passed-no-content-change after upstream pointer reconciliation", "approved_baseline_bound": true, "units": 11, "screens_S01_S21_covered": true, "component_visual_checks_mapped": true, "prototype_reuse": "none", "issues": []},
       "open_questions": ["OQ-DP1", "OQ-DP2", "OQ-DP3"],
-      "supersedes": "fc8a2782713debb5fae9d8daeee4509d348d1cfb53f8fcdab223ba3d86a6c5d6"
+      "supersedes": "e6bde0a4f7ff32164c8ce250f9206abf133fc359677686415199ec3086dd9623"
     }
   },
   "prototype_candidates": [
@@ -407,6 +407,7 @@
       "visual_target_hash": "758b1a6a78db1226bf82244698d74b44c90b9b2779b072c1bada0d00abd4f5f7",
       "frozen_prototype_source_root": "forge/design",
       "prototype_source_tree_hash": "950a44c329ebd4b79d088910920d05abb81a683c4e1b53f6eebda820905626f0",
+      "prototype_tree_hash_scope": ["forge/design/README.md", "forge/design/ukiebook-catalog.html", "forge/design/screenshot-catalog.png"],
       "source_artifact_ids_and_hashes": {
         "prd-at-design-handoff": "b147c225c1d3fe6b961696cf4380332a55c07dbc9ba2a8d2a0cea3c78c48a06d",
         "screen-map-at-design-handoff": "6322ffe8473a5ec254144feae3cbb8ace6ecaff98f6a48b380266177b7545ee0",
@@ -426,40 +427,84 @@
       },
       "internal_visual_qa_evidence": "forge/design/evidence/AVB-UKIEBOOK-AURORA-7B-V1.visual-qa.json",
       "external_default_browser_open_result": {"result": "opened", "exit_code": 0},
-      "approval_status": "selected-and-approved-by-operator",
-      "three_candidate_contract_override": "operator supplied a final 1:1 design; generating alternatives would contradict explicit instruction"
+      "approval_status": "superseded-by-operator-final-7b/v2",
+      "three_candidate_contract_override": "operator supplied a final 1:1 design; generating alternatives would contradict explicit instruction",
+      "superseded_by": "operator-final-7b/v2"
+    },
+    {
+      "candidate_id": "operator-final-7b",
+      "version": "v2",
+      "source_mode": "operator-scoped-immutable-correction",
+      "adapter": "operator correction + playwright-cli visual QA",
+      "immutable_visual_target_reference": "forge/design/candidates/operator-final-7b/v2/ukiebook-catalog.html + UkieBook-logo.jpg",
+      "visual_target_hash": "c66b23c55e68649e67e029d47c8e69d3bef3791f8c4c6677aa0a6cef2259c51d",
+      "frozen_prototype_source_root": "forge/design/candidates/operator-final-7b/v2",
+      "prototype_source_tree_hash": "8aaddd35645bd9c58c095a7182fbbbd43dd8730c5cf90b489a97597431cc6505",
+      "prototype_tree_hash_scope": ["forge/design/candidates/operator-final-7b/v2/README.md", "forge/design/candidates/operator-final-7b/v2/ukiebook-catalog.html"],
+      "source_artifact_ids_and_hashes": {
+        "operator-final-7b-v1-target-bundle": "758b1a6a78db1226bf82244698d74b44c90b9b2779b072c1bada0d00abd4f5f7",
+        "design-brief-at-correction-handoff": "834ba17bebadf74ac8649d97a7f58de78ae60c77107efd5c6e22a01b012207ed",
+        "guardrails-at-correction-handoff": "8c0da8173d4d23403b66d91e8461ad2d08500ecd2c291035f8d5c200ef95d0c3",
+        "official-logo": "5cdd21d3ba038632528fc17a13068e3792d03a029779251cd738aaada4aa0ad3"
+      },
+      "stable_live_url": "file:///Users/ingwar/Documents/UkieBook%203/forge/design/candidates/operator-final-7b/v2/ukiebook-catalog.html",
+      "route": "/",
+      "coverage": {
+        "journey": "Buyer discovery entry only",
+        "screens": ["S-01"],
+        "states": ["default", "shelf-cover-hover", "tile-hover"],
+        "representative_data": "embedded Ukrainian catalog fixture",
+        "locale": "uk-UA",
+        "viewports": ["1280x900 exact target", "390x844 source-limitation evidence"],
+        "shared_patterns": ["Aurora mesh", "public header with official logo", "2:3 covers", "glass tiles", "formula ribbon"],
+        "component_check_ids": ["VIS-TOKENS", "VIS-GLASS", "VIS-COVER", "VIS-FORMULA", "VIS-BRAND-LOGO"]
+      },
+      "internal_visual_qa_evidence": "forge/design/evidence/AVB-UKIEBOOK-AURORA-7B-V2.visual-qa.json",
+      "internal_visual_qa_evidence_sha256": "e26d965e196f98a408c5ce9735acb07350175a9a3befb3f77851094910bec033",
+      "external_default_browser_open_result": {"result": "opened", "exit_code": 0},
+      "geometry_comparison": "all measured locked S-01 desktop boxes exactly equal to v1",
+      "console_result": {"errors": 0, "warnings": 0},
+      "approval_status": "selected-and-approved-by-operator-scoped-correction",
+      "approval_basis": "operator designated the official logo and directed closure of all recorded gaps",
+      "three_candidate_contract_override": "inherited from operator-final-7b/v1",
+      "supersedes": "operator-final-7b/v1"
     }
   ],
-  "approved_baseline_id": "AVB-UKIEBOOK-AURORA-7B-V1",
+  "approved_baseline_id": "AVB-UKIEBOOK-AURORA-7B-V2",
   "active_baseline": {
-    "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V1",
-    "visual_target_hash": "758b1a6a78db1226bf82244698d74b44c90b9b2779b072c1bada0d00abd4f5f7",
-    "prototype_tree_hash": "950a44c329ebd4b79d088910920d05abb81a683c4e1b53f6eebda820905626f0",
+    "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V2",
+    "visual_target_reference": "forge/design/candidates/operator-final-7b/v2/ukiebook-catalog.html + UkieBook-logo.jpg",
+    "visual_target_hash": "c66b23c55e68649e67e029d47c8e69d3bef3791f8c4c6677aa0a6cef2259c51d",
+    "prototype_tree_hash": "8aaddd35645bd9c58c095a7182fbbbd43dd8730c5cf90b489a97597431cc6505",
+    "visual_qa_evidence": "forge/design/evidence/AVB-UKIEBOOK-AURORA-7B-V2.visual-qa.json",
+    "visual_qa_evidence_sha256": "e26d965e196f98a408c5ce9735acb07350175a9a3befb3f77851094910bec033",
+    "visual_check_ids": ["VIS-S01-1280-DEFAULT", "VIS-S01-1280-HOVER", "VIS-S01-RESPONSIVE", "VIS-AURORA-PUBLIC", "VIS-AURORA-AUTHOR", "VIS-AURORA-MANAGER", "VIS-TOKENS", "VIS-GLASS", "VIS-COVER", "VIS-FORMULA", "VIS-BRAND-LOGO"],
     "operator_overrides": [
       {
         "scope": "prototype candidate generation and S-01 visual authority",
-        "decision": "use operator-final-7b/v1 1:1 and skip new alternatives",
-        "source": "operator message 2026-07-21",
+        "decision": "use operator-final-7b/v2 1:1 and skip new alternatives",
+        "source": "operator messages 2026-07-21",
         "permitted_extension": "required functionality, semantic controls, accessibility and responsive reflow within design-brief variance"
       },
       {
-        "scope": "official UkieBook logo on all branded production surfaces",
-        "decision": "use UkieBook-logo.jpg as the authoritative logo asset while preserving locked S-01 header geometry",
-        "source": "operator message 2026-07-21",
+        "scope": "official UkieBook logo in the immutable S-01 target and all branded production surfaces",
+        "decision": "render UkieBook-logo.jpg in the exact 93.703125x26 brand slot; the source is part of the immutable target bundle",
+        "source": "operator official-logo statement and close-all-gaps direction 2026-07-21",
         "source_hash": "5cdd21d3ba038632528fc17a13068e3792d03a029779251cd738aaada4aa0ad3",
         "permitted_extension": "visually identical optimized or transparent derivatives; no redraw, distortion or identity change"
       }
     ],
-    "supersedes": null
+    "approved_at": "2026-07-21T21:26:46+03:00",
+    "supersedes": "AVB-UKIEBOOK-AURORA-7B-V1"
   },
   "affected_feature_units": [],
   "input_requests": [],
   "pause_reason": null,
   "last_resume_event": {
-    "type": "operator-supplied-official-logo",
-    "timestamp": "2026-07-21T21:08:31+03:00",
+    "type": "operator-close-sdd-gaps",
+    "timestamp": "2026-07-21T21:43:42+03:00",
     "source_path": "/Users/ingwar/Documents/UkieBook 3/UkieBook-logo.jpg",
-    "decision": "treat the supplied image as the official UkieBook logo and regenerate affected design, QA and development-plan artifacts"
+    "decision": "integrate the official logo into immutable Baseline V2, add dedicated component and cover/tile hover evidence, and regenerate every affected SDD owner artifact"
   },
   "next_ready_nodes": ["phase-3:UNIT-00"]
 }
