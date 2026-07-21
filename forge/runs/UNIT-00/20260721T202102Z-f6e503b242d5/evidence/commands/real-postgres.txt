@@ -1,0 +1,11 @@
+name: real-postgres
+command: npx --no-install tsx scripts/verify-real-postgres.ts
+implementation_revision: f6e503b242d5a5eca59972dece1657f4d207b3e3
+started_at: 2026-07-21T20:21:23.150Z
+finished_at: 2026-07-21T20:21:25.675Z
+exit_code: 0
+
+[stdout]
+{"database":{"database_name":"ukiebook_unit00","server_version":"17.10"},"migration_revision":"0001_platform_foundation","status":"passed","transaction":{"afterRollbackCounts":{"outbox_count":1,"job_count":1},"committedCounts":{"outbox_count":1,"job_count":1}},"worker":{"sideEffects":1,"workerResults":[false,true]}}
+
+[stderr]

@@ -16,7 +16,15 @@
 - `docs/guardrails.md` — evidence policy.
 - `docs/project-context.md` — consumed section 7 (platform/viewports) and section 13 (risk applicability).
 
-All implementation-dependent checks below have `Result: blocked` until fresh implementation evidence exists. Baseline approval removes the design-approval blocker; it does not pass runtime checks.
+Product-route, journey and release checks below remain `blocked` until their owning units produce fresh implementation evidence. UNIT-00 platform-foundation checks are the scoped exception recorded next; Baseline approval removes the design-approval blocker but does not pass unimplemented product runtime checks.
+
+### UNIT-00 Foundation Execution
+
+- **Result:** `passed` for UNIT-00 only at implementation revision `f6e503b242d5a5eca59972dece1657f4d207b3e3`.
+- **Canonical Evidence:** `forge/runs/UNIT-00/20260721T202102Z-f6e503b242d5/run.json` plus its `evals/` and `evidence/` tree.
+- **Passed Scope:** pinned dependency/audit checks; typecheck/lint/import-boundary checks; 23 unit/integration tests; production web+worker+scheduler build and shared revision/schema identity; real PostgreSQL migration rollback/reapply, transactional outbox/job, competing claim, semantic idempotency and lease recovery; repository/browser secret boundaries; production foundation E2E; UNIT-00 `VIS-TOKENS` fixture.
+- **Visual Limit:** the fixture proves the Aurora source-token export and computed styles at its recorded route/state/1280 viewport. It does not pass the global `VIS-TOKENS` row for all future routes/viewports and does not implement or visually approve S-01…S-21.
+- **Findings:** zero open P0/P1 or blocking P2 in UNIT-00 scope.
 
 ## Product Acceptance
 
@@ -173,10 +181,10 @@ Every run records Check ID, applicability, implementation revision, timestamp, e
 
 ## Release Readiness
 
-Blockers: no production implementation or runtime evidence exists; build/test scripts are not bootstrapped; MOBI engine is unproven; legal/tax review (OQ-1), mono production terms (OQ-2), and production font license/provenance remain open. Approved Baseline is current and is not a blocker.
+Blockers: product implementation units UNIT-01…UNIT-10 and their S-01…S-21/journey evidence are not complete; the MOBI engine is unproven; legal/tax review (OQ-1), mono production terms (OQ-2), and production font license/provenance remain open. UNIT-00 and the Approved Baseline are current and are not blockers.
 
 blocked
 
 ## Open Questions
 
-- OQ-QA1. Exact browser version numbers are selected at repository bootstrap from the then-current stable releases; the browser families/device classes above are the SDD contract.
+- OQ-QA1 closed for foundation automation: Playwright/browser binaries are pinned by `package-lock.json`. The cross-browser/device release matrix remains owned by UNIT-09/UNIT-10 and must be evidenced there rather than inferred from UNIT-00 Chromium smoke.

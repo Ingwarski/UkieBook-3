@@ -1,0 +1,98 @@
+{
+  "applied_revision": "0001_platform_foundation",
+  "constraints": [
+    {
+      "constraint_name": "durable_jobs_attempts_check",
+      "table_name": "durable_jobs"
+    },
+    {
+      "constraint_name": "durable_jobs_job_version_check",
+      "table_name": "durable_jobs"
+    },
+    {
+      "constraint_name": "durable_jobs_max_attempts_check",
+      "table_name": "durable_jobs"
+    },
+    {
+      "constraint_name": "durable_jobs_pkey",
+      "table_name": "durable_jobs"
+    },
+    {
+      "constraint_name": "durable_jobs_queue_idempotency_key_key",
+      "table_name": "durable_jobs"
+    },
+    {
+      "constraint_name": "durable_jobs_status_check",
+      "table_name": "durable_jobs"
+    },
+    {
+      "constraint_name": "outbox_events_event_version_check",
+      "table_name": "outbox_events"
+    },
+    {
+      "constraint_name": "outbox_events_idempotency_key_key",
+      "table_name": "outbox_events"
+    },
+    {
+      "constraint_name": "outbox_events_pkey",
+      "table_name": "outbox_events"
+    },
+    {
+      "constraint_name": "outbox_events_publish_attempts_check",
+      "table_name": "outbox_events"
+    }
+  ],
+  "database": {
+    "database_name": "ukiebook_unit00",
+    "server_version": "17.10"
+  },
+  "empty_application_tables_before_apply": [],
+  "first_apply": [
+    {
+      "id": "0001_platform_foundation",
+      "direction": "up"
+    }
+  ],
+  "indexes": [
+    {
+      "tablename": "durable_jobs",
+      "indexname": "durable_jobs_claim_idx"
+    },
+    {
+      "tablename": "durable_jobs",
+      "indexname": "durable_jobs_pkey"
+    },
+    {
+      "tablename": "durable_jobs",
+      "indexname": "durable_jobs_queue_idempotency_key_key"
+    },
+    {
+      "tablename": "outbox_events",
+      "indexname": "outbox_events_idempotency_key_key"
+    },
+    {
+      "tablename": "outbox_events",
+      "indexname": "outbox_events_pkey"
+    },
+    {
+      "tablename": "outbox_events",
+      "indexname": "outbox_events_unpublished_idx"
+    }
+  ],
+  "implementation_revision": "f6e503b242d5a5eca59972dece1657f4d207b3e3",
+  "concurrent_reapply": [
+    [
+      {
+        "id": "0001_platform_foundation",
+        "direction": "up"
+      }
+    ],
+    []
+  ],
+  "rollback": {
+    "id": "0001_platform_foundation",
+    "direction": "down"
+  },
+  "tables_after_rollback": [],
+  "verified_at": "2026-07-21T20:21:24.006Z"
+}

@@ -8,8 +8,10 @@ UkieBook — українська платформа самопублікаці�
 
 - SDD pipeline: `development-plan-validated`
 - Approved Visual Baseline: `AVB-UKIEBOOK-AURORA-7B-V2`
-- Наступний implementation unit: `UNIT-00` — runtime, data та verification foundation
-- Production implementation: ще не розпочата
+- `UNIT-00` завершено на revision `f6e503b242d5a5eca59972dece1657f4d207b3e3`: Next.js/TypeScript web foundation, окремі worker/scheduler runtimes, PostgreSQL migrations + transaction/outbox/durable jobs, secret/import boundaries, Aurora tokens/primitives and automated evidence runner.
+- Canonical passed evidence: `forge/runs/UNIT-00/20260721T202102Z-f6e503b242d5/run.json`.
+- Наступні implementation units: `UNIT-01` (identity/RBAC/profile) та fixture-backed `UNIT-02` (Aurora catalog/Book Page) можуть стартувати паралельно.
+- Product journeys and S-01…S-21 production screens ще не реалізовані; release readiness remains blocked by their owning units and external release gates.
 
 ## Основні артефакти
 

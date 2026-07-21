@@ -1,0 +1,103 @@
+{
+  "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V2",
+  "commands": [
+    {
+      "command": "npm ls --depth=0",
+      "exit_code": 0,
+      "finished_at": "2026-07-21T20:21:02.656Z",
+      "name": "dependency-tree",
+      "receipt": "evidence/commands/dependency-tree.txt",
+      "started_at": "2026-07-21T20:21:02.179Z"
+    },
+    {
+      "command": "npm audit --audit-level=high",
+      "exit_code": 0,
+      "finished_at": "2026-07-21T20:21:04.090Z",
+      "name": "dependency-audit",
+      "receipt": "evidence/commands/dependency-audit.txt",
+      "started_at": "2026-07-21T20:21:02.657Z"
+    },
+    {
+      "command": "npm run typecheck",
+      "exit_code": 0,
+      "finished_at": "2026-07-21T20:21:05.140Z",
+      "name": "typecheck",
+      "receipt": "evidence/commands/typecheck.txt",
+      "started_at": "2026-07-21T20:21:04.090Z"
+    },
+    {
+      "command": "npm run lint",
+      "exit_code": 0,
+      "finished_at": "2026-07-21T20:21:07.863Z",
+      "name": "lint",
+      "receipt": "evidence/commands/lint.txt",
+      "started_at": "2026-07-21T20:21:05.141Z"
+    },
+    {
+      "command": "npm test",
+      "exit_code": 0,
+      "finished_at": "2026-07-21T20:21:16.916Z",
+      "name": "unit-tests",
+      "receipt": "evidence/commands/unit-tests.txt",
+      "started_at": "2026-07-21T20:21:07.863Z"
+    },
+    {
+      "command": "npm run verify:repository",
+      "exit_code": 0,
+      "finished_at": "2026-07-21T20:21:17.092Z",
+      "name": "repository-hygiene",
+      "receipt": "evidence/commands/repository-hygiene.txt",
+      "started_at": "2026-07-21T20:21:16.917Z"
+    },
+    {
+      "command": "npm run build",
+      "exit_code": 0,
+      "finished_at": "2026-07-21T20:21:23.150Z",
+      "name": "build",
+      "receipt": "evidence/commands/build.txt",
+      "started_at": "2026-07-21T20:21:17.092Z"
+    },
+    {
+      "command": "npx --no-install tsx scripts/verify-real-postgres.ts",
+      "exit_code": 0,
+      "finished_at": "2026-07-21T20:21:25.675Z",
+      "name": "real-postgres",
+      "receipt": "evidence/commands/real-postgres.txt",
+      "started_at": "2026-07-21T20:21:23.150Z"
+    },
+    {
+      "command": "npm run test:e2e",
+      "exit_code": 0,
+      "finished_at": "2026-07-21T20:21:38.107Z",
+      "name": "e2e",
+      "receipt": "evidence/commands/e2e.txt",
+      "started_at": "2026-07-21T20:21:25.676Z"
+    },
+    {
+      "command": "npm run test:visual",
+      "exit_code": 0,
+      "finished_at": "2026-07-21T20:21:47.967Z",
+      "name": "visual",
+      "receipt": "evidence/commands/visual.txt",
+      "started_at": "2026-07-21T20:21:38.107Z"
+    }
+  ],
+  "finished_at": "2026-07-21T20:21:47.973Z",
+  "findings": [],
+  "implementation_revision": "f6e503b242d5a5eca59972dece1657f4d207b3e3",
+  "prototype_reuse": "none",
+  "run_id": "20260721T202102Z-f6e503b242d5",
+  "source_hashes": {
+    "docs/architecture.md": "286b13b50c7b07272859c26ec47e61a55251e855d5b5e08f502180b79c11d70f",
+    "docs/design-brief.md": "13c8d324d95e18d559bc97c6077fba5e7a89795ee2d4445ffbc7f50105d2ef8f",
+    "docs/dod-evals.md": "3b4d14356cf1cafdc25f278b74534cb61c121f289fd80da7544ec5061ccb3811",
+    "docs/guardrails.md": "0de4c198fec9f21f3a49fbefaa0e54362717c530f5ec4e9f8665bb09f78affa9",
+    "docs/qa-checklist.md": "21b2396a3d17db5b67f83dd5b50a0a4f6d949819834a130bba66155028fc5277",
+    "docs/development-plan.md": "69ee87ff32e1253196040f293f26c842b9f9df4fa5a6f7e88fd7cf9c2f972c1f",
+    "forge/sdd-manifest.json": "9d39a1f56a1dedc25ce98e0f93782718b171b93046f3bc6cafc8c43c07a933c9"
+  },
+  "started_at": "2026-07-21T20:21:02.176Z",
+  "status": "passed",
+  "target_bundle_hash": "c66b23c55e68649e67e029d47c8e69d3bef3791f8c4c6677aa0a6cef2259c51d",
+  "unit": "UNIT-00"
+}

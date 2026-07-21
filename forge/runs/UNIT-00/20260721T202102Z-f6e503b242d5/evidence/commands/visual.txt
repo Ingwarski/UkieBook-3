@@ -1,0 +1,54 @@
+name: visual
+command: npm run test:visual
+implementation_revision: f6e503b242d5a5eca59972dece1657f4d207b3e3
+started_at: 2026-07-21T20:21:38.107Z
+finished_at: 2026-07-21T20:21:47.967Z
+exit_code: 0
+
+[stdout]
+
+> ukiebook-3@0.1.0 pretest:visual
+> npm run build:web
+
+
+> ukiebook-3@0.1.0 build:web
+> next build && node scripts/prepare-standalone.mjs && node scripts/verify-client-boundary.mjs
+
+▲ Next.js 16.2.11 (Turbopack)
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 2.7s
+  Running TypeScript ...
+  Finished TypeScript in 3.0s ...
+  Collecting page data using 5 workers ...
+  Generating static pages using 5 workers (0/3) ...
+✓ Generating static pages using 5 workers (3/3) in 189ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /_not-found
+├ ƒ /api/health
+└ ○ /fixtures/aurora
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+
+Prepared the self-contained Next.js standalone runtime.
+Client secret boundary passed across 11 static files and 23 source files.
+
+> ukiebook-3@0.1.0 test:visual
+> playwright test --config playwright.visual.config.ts
+
+
+Running 1 test using 1 worker
+
+  ✓  1 [chromium] › tests/visual/aurora-tokens.spec.ts:18:1 › VIS-TOKENS matches the immutable Aurora V2 contract (617ms)
+
+  1 passed (1.6s)
+
+[stderr]
+[WebServer] (node:44987) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+(node:44996) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)

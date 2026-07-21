@@ -1,0 +1,15 @@
+{
+  "evidence": [
+    "forge/runs/UNIT-00/20260721T202102Z-f6e503b242d5/evidence/commands/build.txt",
+    "forge/runs/UNIT-00/20260721T202102Z-f6e503b242d5/evidence/architecture/runtime-revisions.json",
+    "forge/runs/UNIT-00/20260721T202102Z-f6e503b242d5/evidence/security/client-secret-boundary.json"
+  ],
+  "gate": "build",
+  "findings": [],
+  "implementation_revision": "f6e503b242d5a5eca59972dece1657f4d207b3e3",
+  "owner": "Codex / platform foundation",
+  "rerun_of": null,
+  "status": "passed",
+  "timestamp": "2026-07-21T20:21:47.971Z",
+  "unit": "UNIT-00"
+}

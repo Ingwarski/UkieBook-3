@@ -1,0 +1,12 @@
+{
+  "identity": {
+    "service": "ukiebook-web",
+    "status": "ok",
+    "unit": "UNIT-00",
+    "appRevision": "f6e503b242d5a5eca59972dece1657f4d207b3e3",
+    "role": "web",
+    "schemaRevision": "0001_platform_foundation"
+  },
+  "status": "passed",
+  "verified_at": "2026-07-21T20:21:34.919Z"
+}

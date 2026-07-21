@@ -1,0 +1,23 @@
+name: unit-tests
+command: npm test
+implementation_revision: f6e503b242d5a5eca59972dece1657f4d207b3e3
+started_at: 2026-07-21T20:21:07.863Z
+finished_at: 2026-07-21T20:21:16.916Z
+exit_code: 0
+
+[stdout]
+
+> ukiebook-3@0.1.0 test
+> vitest run
+
+
+ RUN  v4.1.10 /Users/ingwar/Documents/UkieBook 3
+
+
+ Test Files  5 passed (5)
+      Tests  23 passed (23)
+   Start at  23:21:08
+   Duration  8.67s (transform 340ms, setup 742ms, import 463ms, tests 8.42s, environment 1.05s)
+
+
+[stderr]

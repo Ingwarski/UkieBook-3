@@ -1,0 +1,16 @@
+{
+  "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V2",
+  "evidence": [
+    "forge/runs/UNIT-00/20260721T202102Z-f6e503b242d5/evidence/commands/visual.txt",
+    "forge/runs/UNIT-00/20260721T202102Z-f6e503b242d5/evidence/visual/vis-tokens.json",
+    "forge/runs/UNIT-00/20260721T202102Z-f6e503b242d5/evidence/visual/vis-tokens.png"
+  ],
+  "gate": "vis-tokens",
+  "findings": [],
+  "implementation_revision": "f6e503b242d5a5eca59972dece1657f4d207b3e3",
+  "owner": "Codex / platform foundation",
+  "rerun_of": null,
+  "status": "passed",
+  "timestamp": "2026-07-21T20:21:47.973Z",
+  "unit": "UNIT-00"
+}

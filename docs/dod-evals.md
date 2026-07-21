@@ -9,7 +9,7 @@
 - `docs/design-brief.md` — AA-підлога й approved Baseline `AVB-UKIEBOOK-AURORA-7B-V2`, bundle hash `c66b23c55e68…`, mixed exact/extension Visual DoD Scope та інтегрований official-logo override.
 - `docs/screen-map.md`, `docs/wireframes.md`, `docs/user-journey.md` — покриття екранів/станів/потоків для UX-гейтів.
 - `docs/project-context.md` — спожито: розд. 13 (ризики → пріоритети верифікації).
-- Production codebase відсутня (git/GitHub repository вже існує, але package scripts/CI/tests ще не створені). Architecture визначає command contract, але автоматичні гейти лишаються `not available yet` до bootstrap — це стан доказів, не відкрите рішення стека.
+- `package.json`, lockfile, runtime sources and `forge/runs/UNIT-00/20260721T202102Z-f6e503b242d5/` — UNIT-00 bootstrap implementation and revision-bound evidence. Stable package gates are now executable; this does not mark later product/system/release gates passed.
 
 ## Definition Of Done Model
 
@@ -48,9 +48,9 @@
 
 | Gate | Purpose | Source References | Applies To | Required Evidence | Pass Condition | Fail Or Block Condition | Rerun Rule | Automation Status |
 |---|---|---|---|---|---|---|---|---|
-| `build` | Production build збирається | guardrails Verification Rules; AD-6 | кожен юніт після bootstrap | свіжий `npm run build` лог | exit 0 | будь-яка помилка | після кожної зміни | not available yet (script створює bootstrap unit) |
-| `typecheck_lint` | Статична коректність | guardrails; AD-6 | кожен юніт після bootstrap | свіжі `npm run typecheck` і `npm run lint` логи | 0 помилок | помилки | після кожної зміни | not available yet |
-| `tests` | Автотести юніта й регресії | guardrails; AD-2/3/4/7 | кожен юніт після bootstrap | свіжий `npm test`; для affected journeys також `npm run test:e2e` | усі застосовні прогони зелені | будь-який failed/blocked застосовний тест | після кожного фіксу | not available yet |
+| `build` | Production build збирається | guardrails Verification Rules; AD-6 | кожен юніт після bootstrap | свіжий `npm run build` лог | exit 0 | будь-яка помилка | після кожної зміни | automated; UNIT-00 passed at `f6e503b242d5a5eca59972dece1657f4d207b3e3` |
+| `typecheck_lint` | Статична коректність | guardrails; AD-6 | кожен юніт після bootstrap | свіжі `npm run typecheck` і `npm run lint` логи | 0 помилок | помилки | після кожної зміни | automated; UNIT-00 passed at `f6e503b242d5a5eca59972dece1657f4d207b3e3` |
+| `tests` | Автотести юніта й регресії | guardrails; AD-2/3/4/7 | кожен юніт після bootstrap | свіжий `npm test`; для affected journeys також `npm run test:e2e` | усі застосовні прогони зелені | будь-який failed/blocked застосовний тест | після кожного фіксу | automated; UNIT-00 unit/foundation E2E passed at `f6e503b242d5a5eca59972dece1657f4d207b3e3` |
 
 ### Unit Checks
 
@@ -64,6 +64,7 @@
 | `moderation_flow` | Ризикове → ручна черга; категорія причини назовні; внутрішні правила не витікають | FR-MOD-2/3; AD-5 | moderation | тести маршрутизації кейсів + перевірка відповідей API/UI | маршрутизація і приховування коректні | витік правил або обхід черги | після змін moderation | not available yet |
 | `access_separation` | Ролеві guard-и; ПД покупців не в авторських звітах; засновник прихований від автора | FR-REW-6, FR-FND-3, NFR-3; architecture Security | identity, rewards | тести доступу за ролями; інспекція відповідей | заборонене недоступне | будь-який витік | після змін доступу | not available yet |
 | `webhook_idempotency` | Повторний вебхук mono не дублює продаж/нарахування | AD-3 | commerce | тест повторної доставки | одна подія | дубль | після змін інтеграції | not available yet |
+| `foundation_integration` | Real PostgreSQL migration/rollback/reapply, transaction+outbox+job atomicity, competing claims, idempotency conflicts and lease recovery | AD-6/7; UNIT-00 | platform foundation and changes to DB/job primitives | `npm run verify:unit00` + database/worker evidence | all real-PostgreSQL scenarios pass against the implementation revision | substitute database, missing rollback/atomicity/concurrency proof, or blocking finding | after platform migration/job/runtime changes | automated; UNIT-00 passed |
 
 ### System Checks
 
@@ -80,6 +81,7 @@
 | `screen_states_coverage` | Стани кожного зачепленого екрана відповідають screen-map | screen-map Screen States | фронтенд-юніти | QA-чекліст (посилання на qa-checklist IDs) | всі стани присутні | відсутній обовʼязковий стан | після змін екрана | manual (до появи e2e) |
 | `accessibility_floor` | AA-підлога: контраст, фокус, клавіатура, підписи, цілі ≥44px | design-brief Accessibility Floor | фронтенд-юніти | перевірки контрасту + клавіатурний прохід | відповідає | порушення AA | після змін UI | manual |
 | `responsive_viewports` | 390/430/768/1280/1440 без горизонтального скролу й втрати пріоритетів | design-brief Responsive; wireframes Responsive Notes | фронтенд-юніти | скріншоти вʼюпортів | структура за wireframes | зламаний вʼюпорт | після змін layout | manual |
+| `vis_tokens` | Aurora source token export and browser computed styles match active Baseline values | design-brief Approved Baseline; AD-8; QA `VIS-TOKENS` | UNIT-00 foundation fixture and later shared-token changes | `npm run test:visual` capture + structured computed-style evidence | exact source-token values, Baseline ID/hash and no blocking finding | value/hash drift or missing browser proof | after shared token/fixture changes or Baseline replacement | automated for the UNIT-00 fixture; passed |
 
 #### `approved_visual_baseline_fidelity` (параметризований гейт)
 
@@ -132,6 +134,7 @@
   "evidence": ["шлях/посилання на лог, скріншот, прогін"],
   "owner": "хто запускав",
   "timestamp": "ISO-8601",
+  "implementation_revision": "full Git commit SHA",
   "baseline_id": "для visual-гейтів",
   "findings": [{ "severity": "P0|P1|P2|P3", "release_effect": "blocking|advisory", "summary": "…" }],
   "rerun_of": "попередній запуск|null"
@@ -176,17 +179,17 @@
 
 ## PR Merge And Completion Rules
 
-Git-репозиторій ще не ініціалізовано; джерела не задають PR-політики. Мінімальний source-backed контракт (guardrails Verification Rules) на момент появи репозиторію:
+Git repository and GitHub remote are initialized. Мінімальний source-backed контракт (guardrails Verification Rules):
 - Заява про завершення юніта (у PR чи без нього) вимагає прикладеного eval-результату з `passed` для застосовних гейтів.
 - Мердж у головну гілку заборонений із відкритим P0/P1/блокувальним P2 у скоупі змін.
-- Git/PR mechanics become executable only after repository bootstrap; until then completion evidence is stored locally by the unit runner. No SDD artifact invents a passed Git gate while `.git` is absent.
+- Completion evidence is committed beside the implementation and remains bound to its full revision; a later documentation-only reconciliation must not rewrite the original run's source/revision receipt.
 
 ## Out Of Scope
 
-Конкретна CI provider configuration and implementation of scripts; QA-checklist items (owner: qa-checklist); implementation units (owner: development-plan); product requirements. Architecture has selected the runtime/tooling contract, but this artifact does not create code/config.
+Concrete CI-provider configuration or maintenance of implemented scripts; QA-checklist items (owner: qa-checklist); implementation units (owner: development-plan); product requirements. This artifact defines evidence contracts but does not create code/config.
 
 ## Open Questions
 
-- OQ-DE1 closed at SDD level: architecture selected the stack and stable npm command contract; scripts/CI remain unavailable until bootstrap.
-- OQ-DE2 closed at tooling level: Playwright-backed `npm run test:visual` is the planned visual runner; comparisons remain `blocked` until implementation supplies routes/captures.
+- OQ-DE1 closed: the stack and stable npm command contract are implemented; external hosted CI configuration is deferred to UNIT-10 and is not required for local unit evidence.
+- OQ-DE2 closed: Playwright-backed `npm run test:visual` is operational; UNIT-00 `vis_tokens` is passed, while unimplemented product-route comparisons remain `blocked` by their own applicability.
 - No additional DoD decision blocks development planning. Upstream release gates OQ-1/OQ-2 and conversion engine proof remain explicitly scoped gates.

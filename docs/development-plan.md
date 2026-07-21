@@ -25,32 +25,28 @@ Money is integer kopiykas; ledger/outbox/jobs are transactional PostgreSQL recor
 
 ## Codebase Map
 
-Planned production layout after UNIT-00:
+Current UNIT-00 foundation at revision `f6e503b242d5a5eca59972dece1657f4d207b3e3`:
 
 ```text
 app/
-  (public)/                 S-01…S-09 routes
-  author/                   S-10…S-17 routes
-  admin/                    S-18…S-21 routes
-  api/                      OAuth callbacks, mono webhook, signed actions
+  api/health/               web runtime/revision health
+  fixtures/aurora/          explicit non-product VIS-TOKENS fixture
 components/
   aurora/                   tokens and accessible visual primitives
-  domain/                   Book, money, status and form components
 modules/
-  identity/ author-profile/ publishing/ catalog/ moderation/
-  commerce/ library/ reviews/ rewards/ notifications/
+  platform/                 runtime identity, SQL port, transactions, outbox/jobs, env/evidence
 db/
-  schema/ migrations/ repositories/ transaction-outbox/
+  migrations/               reversible checksummed PostgreSQL migrations
+  postgres.ts               production adapter
+  pglite.ts                 test-only adapter
 workers/
-  jobs/ handlers/ scheduler/
-integrations/
-  mono/ oauth/ google-docs/ email/ ai-moderation/ conversion/ storage/
+  worker.ts scheduler.ts    separate executable roles
+scripts/                    build, boundary, hygiene and UNIT-00 evidence runners
 tests/
-  fixtures/ unit/ integration/ e2e/ visual/
-public/
-  brand/                      official UkieBook logo source/derivatives
-  icons/ fonts/
+  unit/ integration/ e2e/ visual/
 ```
+
+Product route groups `(public)`, `author`, `admin`, domain modules, integrations and `public/brand` are introduced by their owning later units; they are not claimed as present by UNIT-00.
 
 Module imports point inward to domain contracts; UI and provider adapters may depend on domain interfaces, never the reverse. Cross-module mutation happens through commands/events, not direct table writes.
 
@@ -58,6 +54,7 @@ Module imports point inward to domain contracts; UI and provider adapters may de
 
 ### UNIT-00 — Repository, runtime, data and verification foundation
 
+- **Execution Status:** `completed` on 2026-07-21 at implementation revision `f6e503b242d5a5eca59972dece1657f4d207b3e3`; canonical passed run `forge/runs/UNIT-00/20260721T202102Z-f6e503b242d5/run.json`.
 - **Purpose:** bootstrap the executable TypeScript/Next.js/worker runtime and stable evidence commands in the already initialized project repository without implementing product journeys.
 - **Source References:** architecture AD-1/6/7/8/9; dod-evals Hard Gates; design-brief tokens/accessibility floor.
 - **Depends On:** none.
@@ -73,6 +70,7 @@ Module imports point inward to domain contracts; UI and provider adapters may de
 - **Interface Owner:** platform foundation.
 - **Compatibility Expectations:** migrations are forward-safe; event/job envelopes are versioned; npm command names remain stable.
 - **Integration Verification:** web and worker use the same schema/revision; one committed transaction emits one outbox event and one idempotent job.
+- **Completion Evidence:** all six stable commands passed; production web/worker/scheduler identities matched; real PostgreSQL migration/transaction/concurrency/idempotency/lease proofs passed; repository and browser secret-boundary proofs passed; UNIT-00 `VIS-TOKENS` fixture passed; zero open P0/P1 or blocking P2. Prototype reuse remained `none`, so no promotion receipt applies.
 
 ### UNIT-01 — Identity, sessions, RBAC and Author profile
 
@@ -344,6 +342,7 @@ After UNIT-00, UNIT-01 and fixture-backed UNIT-02 can run in parallel. UNIT-03 a
 ## Verification Plan
 
 - After every unit: `npm run typecheck`, `npm run lint`, `npm test`, `npm run build`; affected integration/e2e/visual commands follow the unit fields.
+- For UNIT-00 foundation changes, `REAL_DATABASE_URL=<ephemeral-postgres-url> npm run verify:unit00` is the canonical bundle-producing rerun and must target real PostgreSQL.
 - Persist results in dod-evals format with unit, revision, timestamp, evidence and findings. A missing applicable command/result is `blocked`, never passed by inspection.
 - Money tests use integer fixtures, discount boundaries, duplicate/out-of-order events, Refund compensation, threshold/carry, update fee and Founder cases.
 - Conversion tests use representative DOCX/TXT/Google Docs fixtures with headings, Unicode Ukrainian text and inline Illustrations; EPUB/MOBI validators are external evidence.
@@ -369,7 +368,7 @@ After UNIT-00, UNIT-01 and fixture-backed UNIT-02 can run in parallel. UNIT-03 a
 - **Design fidelity vs accessibility:** permitted variance authorizes only measured semantic/contrast/target/reflow fixes; UNIT-09 must prove both fidelity and AA rather than sacrificing either silently.
 - **Logo source format:** the official mark is supplied as an opaque JPEG and a byte-identical raster-backed SVG wrapper. The SVG does not add vector geometry or transparency; any true-vector, transparent or optimized derivative must retain the source silhouette, proportions and internal line structure, with source/derivative hashes and rendered comparison evidence.
 - **Manual operations:** Manager flows ship before automation; background jobs expose dead-letter/retry visibility so one failure does not corrupt payouts or hide moderation work.
-- **Repository bootstrap:** the Git repository and GitHub remote are created before UNIT-00; UNIT-00 still owns application runtime, verification commands and CI-ready project structure.
+- **Repository bootstrap:** Git/GitHub plus UNIT-00 application runtime, verification commands and CI-ready project structure are complete. Hosted deployment/CI topology remains UNIT-10 scope.
 
 ## Coverage Matrix
 

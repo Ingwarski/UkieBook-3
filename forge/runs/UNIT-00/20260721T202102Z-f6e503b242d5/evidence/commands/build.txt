@@ -1,0 +1,50 @@
+name: build
+command: npm run build
+implementation_revision: f6e503b242d5a5eca59972dece1657f4d207b3e3
+started_at: 2026-07-21T20:21:17.092Z
+finished_at: 2026-07-21T20:21:23.150Z
+exit_code: 0
+
+[stdout]
+
+> ukiebook-3@0.1.0 build
+> npm run build:web && npm run build:runtime && npm run verify:runtime
+
+
+> ukiebook-3@0.1.0 build:web
+> next build && node scripts/prepare-standalone.mjs && node scripts/verify-client-boundary.mjs
+
+▲ Next.js 16.2.11 (Turbopack)
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 2.1s
+  Running TypeScript ...
+  Finished TypeScript in 1560ms ...
+  Collecting page data using 5 workers ...
+  Generating static pages using 5 workers (0/3) ...
+✓ Generating static pages using 5 workers (3/3) in 174ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /_not-found
+├ ƒ /api/health
+└ ○ /fixtures/aurora
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+
+Prepared the self-contained Next.js standalone runtime.
+Client secret boundary passed across 11 static files and 23 source files.
+
+> ukiebook-3@0.1.0 build:runtime
+> node scripts/build-runtime.mjs
+
+Built web-adjacent worker, scheduler, and migration runtimes.
+
+> ukiebook-3@0.1.0 verify:runtime
+> node scripts/verify-runtime-identities.mjs
+
+Runtime identities passed for worker, scheduler, db-migrate.
+
+[stderr]

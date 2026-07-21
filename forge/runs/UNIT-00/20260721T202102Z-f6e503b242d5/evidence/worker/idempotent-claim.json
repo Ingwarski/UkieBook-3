@@ -1,0 +1,17 @@
+{
+  "competing_worker_results": [
+    false,
+    true
+  ],
+  "duplicate_job_id": "8035ccb3-ec13-46d6-a89d-34eb5bb98a06",
+  "first_job_id": "8035ccb3-ec13-46d6-a89d-34eb5bb98a06",
+  "implementation_revision": "f6e503b242d5a5eca59972dece1657f4d207b3e3",
+  "persisted_result": {
+    "count": 1,
+    "attempts": 1,
+    "status": "completed"
+  },
+  "side_effect_count": 1,
+  "mismatched_idempotency_retry_rejected": true,
+  "verified_at": "2026-07-21T20:21:24.032Z"
+}

@@ -1,0 +1,13 @@
+{
+  "after_rollback": {
+    "outbox_count": 1,
+    "job_count": 1
+  },
+  "committed": {
+    "outbox_count": 1,
+    "job_count": 1
+  },
+  "implementation_revision": "f6e503b242d5a5eca59972dece1657f4d207b3e3",
+  "rollback_preserved_counts": true,
+  "verified_at": "2026-07-21T20:21:24.016Z"
+}

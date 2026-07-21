@@ -9,7 +9,7 @@
 - `docs/guardrails.md` — заборонені зміни, правила доказовості.
 - `docs/user-journey.md`, `docs/screen-map.md`, `docs/wireframes.md`, `docs/design-brief.md` — поверхні, стани, навігаційна модель та Approved Baseline `AVB-UKIEBOOK-AURORA-7B-V2` (UI-межі).
 - `forge/design/README.md` і `forge/design/candidates/operator-final-7b/v2/README.md` — React + TypeScript recommendation, visual-reference-not-production-code constraint та immutable V2 target з інтегрованим офіційним логотипом.
-- Production-кодова база відсутня; repository містить SDD, дизайн-еталони й evidence, але не application runtime. Успадкованих implementation-архітектурних фактів немає; всі рішення нижче — пропоновані.
+- `package.json`, `app/`, `components/aurora/`, `modules/platform/`, `db/`, `workers/`, `scripts/` і `tests/` — реалізований UNIT-00 foundation at revision `f6e503b242d5a5eca59972dece1657f4d207b3e3`; canonical verification evidence: `forge/runs/UNIT-00/20260721T202102Z-f6e503b242d5/`. Це implementation evidence для platform foundation, не доказ реалізації продуктових модулів або S-01…S-21.
 
 ## Architecture Overview
 
@@ -84,16 +84,16 @@ UkieBook — адаптивний вебзастосунок із трьома �
 
 Найменший reversible stack, що задовольняє джерела й фінальний handoff:
 
-- **Repository/runtime:** один TypeScript repository; Next.js App Router для SSR public catalog, React UI, server routes/actions for synchronous API, окремий Node.js worker process у тому самому modular-monolith codebase. Framework/package versions pinуються під час bootstrap, не в SDD.
+- **Repository/runtime:** один TypeScript repository; pinned Node `24.16.0` development toolchain with runtime floor `>=20.17.0`, npm `11.13.0`, Next.js `16.2.11`, React `19.2.8` and TypeScript `6.0.3`; Next.js App Router для SSR public catalog, React UI, server routes/actions for synchronous API, окремі Node.js worker/scheduler processes у тому самому modular-monolith codebase. `package.json`, `.node-version` і lockfile є implementation source of truth для точних версій.
 - **Frontend:** CSS custom properties + CSS Modules/vanilla authored CSS; жодна generic UI library не може підмінити Aurora 7b. Shared accessible primitives wrap semantic controls without changing Baseline geometry.
-- **Persistence:** PostgreSQL; schema migrations committed; explicit transactions. Monetary values stored only as integer kopiykas; percentage model stored as exact basis points/rules (`600 + 6580 + 2820 = 10000`), never binary floating point.
-- **Async/durability:** PostgreSQL-backed durable job table/queue + worker, transactional outbox from domain transactions, bounded retries, dead-letter state and idempotent handlers. Monthly payout generation is a scheduled job using the same mechanism.
+- **Persistence:** PostgreSQL; committed reversible migrations with advisory-lock serialization and checksum verification; explicit transactions behind an inward SQL port. PGlite is test-only and never substitutes for the real-PostgreSQL acceptance proof. Monetary values stored only as integer kopiykas; percentage model stored as exact basis points/rules (`600 + 6580 + 2820 = 10000`), never binary floating point.
+- **Async/durability:** PostgreSQL-backed durable job table/queue + worker, transactional outbox from domain transactions, semantic idempotency conflict detection, lease renewal/loss cancellation, bounded retries and dead-letter state. Monthly payout generation is a scheduled job using the same mechanism.
 - **Files:** private S3-compatible object storage; database holds metadata/hashes/version links; short-lived signed/authorized download after `library_item` access check.
 - **Auth:** server-side OAuth sessions through Google/Facebook providers; persistent user/provider mapping; centralized RBAC guards for `/author/*`, `/admin/*`, `/library`; no auth tokens in browser storage.
 - **Payments:** mono redirect checkout; signed/authenticated webhook verification per provider docs current at implementation time; unique provider event/session keys, idempotent transaction + outbox, scheduled reconciliation.
 - **Email/AI:** provider adapters with local fakes; production provider selection does not cross domain interfaces. AI outage safe-fails to `manual_review_pending`.
 - **Conversion:** isolated `EditionConverter` adapter produces normalized intermediate document, EPUB, MOBI and `PreviewArtifact`. A fixture-based enabler must prove the selected MOBI engine before the publishing unit; failure routes to upstream product decision rather than silently dropping MOBI.
-- **Verification tooling:** Vitest-compatible unit/integration runner and Playwright browser/e2e/visual tooling. The repository must expose stable commands `npm run build`, `npm run lint`, `npm run typecheck`, `npm test`, `npm run test:e2e`, `npm run test:visual` after bootstrap.
+- **Verification tooling:** Vitest `4.1.10` and Playwright `1.61.1`; stable commands `npm run build`, `npm run lint`, `npm run typecheck`, `npm test`, `npm run test:e2e`, `npm run test:visual` are executable. `npm run verify:unit00` writes the canonical revision-bound evidence bundle and requires a real PostgreSQL URL for the database proof.
 - **Deployment topology:** three process roles from one revision — web, worker, scheduler — plus managed PostgreSQL and private object storage. Environments use injected secrets/config; secrets never enter Git or client bundles. Hosting vendor remains replaceable.
 - **Card data:** never stored or processed by UkieBook; mono owns payment entry surface.
 
@@ -161,7 +161,7 @@ flowchart TB
 
 - Source References: PRD (MVP із ручними процесами Менеджера), project-context розд. 13.
 - Alternatives Considered: мікросервіси; безсерверні функції на кожен домен.
-- Why This Direction: найменша складність, що задовольняє PRD; порожня кодова база не дає підстав для розподіленості.
+- Why This Direction: найменша складність, що задовольняє PRD; UNIT-00 implementation підтверджує, що web/worker/scheduler and PostgreSQL foundation can share one revision and inward contracts without distributed-service overhead.
 - Consequences: межі модулів — дисципліна коду, не мережі; виділення сервісу в майбутньому — по швах модулів.
 
 ### AD-2 Незмінюваний лідж нарахувань + похідні payout-рядки
