@@ -1,0 +1,21 @@
+# macOS
+.DS_Store
+
+# Local browser automation state
+.playwright-cli/
+
+# Dependencies and build outputs
+node_modules/
+.next/
+dist/
+coverage/
+
+# Local environment and logs
+.env
+.env.*
+!.env.example
+*.log
+
+# Temporary files
+tmp/
+.tmp/

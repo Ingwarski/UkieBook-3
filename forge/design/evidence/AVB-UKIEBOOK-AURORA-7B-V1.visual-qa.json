@@ -1,0 +1,93 @@
+{
+  "schema_version": "1.0",
+  "evidence_id": "VQA-AVB-UKIEBOOK-AURORA-7B-V1-20260721",
+  "adapter": "playwright-cli + macOS default-browser open",
+  "environment": {
+    "os": "macOS",
+    "verification_transport": "http://127.0.0.1:4173/forge/design/ukiebook-catalog.html",
+    "canonical_local_target": "file:///Users/ingwar/Documents/UkieBook%203/forge/design/ukiebook-catalog.html"
+  },
+  "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V1",
+  "candidate_id": "operator-final-7b",
+  "candidate_version": "v1",
+  "target_reference": "forge/design/ukiebook-catalog.html + forge/design/screenshot-catalog.png",
+  "target_hash": "758b1a6a78db1226bf82244698d74b44c90b9b2779b072c1bada0d00abd4f5f7",
+  "prototype_source_root": "forge/design",
+  "prototype_tree_hash": "950a44c329ebd4b79d088910920d05abb81a683c4e1b53f6eebda820905626f0",
+  "route": "/",
+  "states": ["default", "shelf-cover-hover"],
+  "viewports": ["1280x900", "390x844"],
+  "theme": "Aurora Pastel 7b light",
+  "content_fixture": "embedded Ukrainian catalog fixture in ukiebook-catalog.html",
+  "source_capture_ids": [
+    {
+      "path": "forge/design/screenshot-catalog.png",
+      "sha256": "2ae89326b6227c5dabe71f2c0ed2c7a4abfe10b1f0d7c46090ec1639b8df68dd",
+      "scope": "924x540 supporting crop"
+    }
+  ],
+  "implementation_capture_ids": [
+    {
+      "path": "output/playwright/baseline-s01-1280.png",
+      "sha256": "120f37cc003ebfaab6ddde62872542bbcea0f79802b383177889a4d4065621b4"
+    },
+    {
+      "path": "output/playwright/baseline-s01-1280-hover.png",
+      "sha256": "d5758fe43edd4476909d416f050a373fc97ca47c0693a4f333902dd8577b30ee"
+    },
+    {
+      "path": "output/playwright/baseline-s01-390.png",
+      "sha256": "e3568f77db51c231250cbf6f0461f5de0bcea233160ec6b7f0e5287283db2b5e"
+    }
+  ],
+  "interactions_checked": [
+    "page opens and exposes the expected Ukrainian S-01 content",
+    "central shelf cover hover applies the target lift behavior",
+    "full-page desktop composition renders through the formula ribbon",
+    "390px reference render was inspected for source limitations"
+  ],
+  "external_default_browser_open": {
+    "target": "/Users/ingwar/Documents/UkieBook 3/forge/design/ukiebook-catalog.html",
+    "result": "opened",
+    "command_exit_code": 0
+  },
+  "console_result": {
+    "errors": 1,
+    "warnings": 0,
+    "details": "favicon.ico returned 404 on the temporary localhost transport; no application-script error"
+  },
+  "qa_result": "approved_design_with_scoped_implementation_constraints",
+  "findings": [
+    {
+      "severity": "P2",
+      "release_effect": "blocking_for_implementation_if_unresolved",
+      "applicability": "S-01 mobile",
+      "source": "390x844 Playwright capture and absence of @media rules",
+      "evidence": "output/playwright/baseline-s01-390.png",
+      "rationale": "the design-reference CSS clips or compresses header, shelf and formula content; production must use the approved responsive reflow rather than literal squeezing"
+    },
+    {
+      "severity": "P2",
+      "release_effect": "blocking_for_implementation_if_unresolved",
+      "applicability": "S-01 semantics, touch targets and contrast",
+      "source": "HTML inspection and contrast calculation",
+      "evidence": "cart visible size 40x40; nav/search/cart use non-interactive div/span; contrast #857468=4.23:1, #A38F82=2.92:1, gradient endpoints #E08AB0=2.35:1 and #E8A04B=2.08:1 against #FFF7F3",
+      "rationale": "production must apply the baseline permitted accessibility variance and then provide runtime evidence"
+    },
+    {
+      "severity": "P3",
+      "release_effect": "advisory",
+      "applicability": "temporary verification transport",
+      "source": "browser console",
+      "evidence": "favicon.ico 404",
+      "rationale": "does not affect the visual target or SDD planning"
+    }
+  ],
+  "evidence_limits": [
+    "the target covers S-01 default desktop presentation and CSS hover, not runtime catalog behavior",
+    "the 924x540 source screenshot is cropped before cards and formula",
+    "no loading, empty, error, pagination, auth, navigation, mobile, backend, persistence, payment or integration behavior is proven",
+    "the original UkieBook Design Options.dc.html named by the handoff is absent"
+  ],
+  "timestamp": "2026-07-21T20:18:51+03:00"
+}
