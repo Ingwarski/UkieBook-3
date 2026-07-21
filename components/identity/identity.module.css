@@ -27,6 +27,8 @@
 .brand {
   inline-size: 93.703125px;
   block-size: 26px;
+  min-block-size: 44px;
+  margin-block: -9px;
   justify-self: center;
   display: grid;
   grid-template-columns: 26px 1fr;

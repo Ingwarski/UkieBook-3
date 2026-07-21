@@ -49,6 +49,27 @@ async function capture(
     scrollWidth: document.documentElement.scrollWidth,
   }));
   expect(layout.scrollWidth).toBeLessThanOrEqual(layout.clientWidth);
+  const touchTargets = await page.locator("a, button").evaluateAll((elements) =>
+    elements.map((element) => {
+      const rect = element.getBoundingClientRect();
+      return {
+        height: Number(rect.height.toFixed(2)),
+        label:
+          element.getAttribute("aria-label") ?? element.textContent?.trim() ?? "",
+        width: Number(rect.width.toFixed(2)),
+      };
+    }),
+  );
+  for (const target of touchTargets) {
+    expect(
+      target.width,
+      `${target.label} touch-target width ${target.width}px must be at least 44px`,
+    ).toBeGreaterThanOrEqual(43.99);
+    expect(
+      target.height,
+      `${target.label} touch-target height ${target.height}px must be at least 44px`,
+    ).toBeGreaterThanOrEqual(43.99);
+  }
   const controlContrast = await page.getByRole("button").evaluateAll((buttons) =>
     buttons.map((button) => {
       const style = getComputedStyle(button);
@@ -84,6 +105,7 @@ async function capture(
     layout,
     screen,
     state,
+    touchTargets,
     viewport: { deviceScaleFactor: 2, height: width <= 430 ? 844 : 900, width },
   });
 }
