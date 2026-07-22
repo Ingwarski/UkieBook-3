@@ -13,7 +13,8 @@
 - `docs/guardrails.md` — authority, evidence and high-risk boundaries.
 - `forge/design/README.md` and `forge/design/candidates/operator-final-7b/v3/` immutable target artifacts — visual reference only, no runtime truth. V1/V2 remain superseded history.
 - `UkieBook-logo-transparent.svg` / `public/brand/UkieBook-logo-transparent.svg` — active official transparent-background SVG container, SHA-256 `db838dd4ad696f63cccb6aa86ab98e53dc5c6e13c1778ac340f62c5e4514617f`; raster-backed, not path-vector artwork.
-- `forge/runs/UNIT-03/20260722T151115Z-6fb52daf3ff1/run.json` — canonical completed UNIT-03 receipt at revision `6fb52daf3ff11630454c13a76adfd7875c749e8f`; S-10/S-11/S-12 through `BookSubmitted`, real EPUB+legacy MOBI conversion, private artifact boundary and scoped visual/accessibility evidence. UNIT-04 is the next executable unit.
+- `forge/runs/UNIT-03/20260722T151115Z-6fb52daf3ff1/run.json` — canonical completed UNIT-03 receipt at revision `6fb52daf3ff11630454c13a76adfd7875c749e8f`; S-10/S-11/S-12 through `BookSubmitted`, real EPUB+legacy MOBI conversion, private artifact boundary and scoped visual/accessibility evidence.
+- UNIT-04 source/code reconciliation 2026-07-22 — implementation of moderation/publication and S-13/S-18/S-02-unavailable is complete in the working tree; this plan intentionally records `canonical evidence pending` until the clean committed revision passes `npm run verify:unit04`.
 
 ## Implementation Strategy
 
@@ -25,25 +26,30 @@ Money is integer kopiykas; standard percentage rules are exact basis points (`29
 
 ## Codebase Map
 
-Current UNIT-00 foundation, UNIT-01 identity/profile, UNIT-02 catalog/Book Page behavior, UNIT-02-C1 correction and UNIT-03 publishing/conversion slice; latest completed implementation revision `6fb52daf3ff11630454c13a76adfd7875c749e8f`:
+Current UNIT-00 foundation, UNIT-01 identity/profile, UNIT-02 catalog/Book Page behavior, UNIT-02-C1 correction, UNIT-03 publishing/conversion and implemented UNIT-04 moderation/publication slice. The latest canonical completed revision remains UNIT-03 `6fb52daf3ff11630454c13a76adfd7875c749e8f` until the UNIT-04 verifier seals its clean implementation revision:
 
 ```text
 app/
   page.tsx, loading.tsx       S-01 catalog and loading state
   books/[id]/                 S-02 Book Page, loading and not-found boundary
+  books/covers/[bookId]/      publication-gated public Cover bytes
   api/health/               web runtime/revision health
   api/auth/                 Google/Facebook start, callback and logout boundaries
   login/                    S-03
   author/profile/           S-17 page and protected Server Action
   author/books|publish/     S-10/S-11/S-12 Author wizard, preview and submitted state
+  author/books/[id]/        S-13 lifecycle/status/reason/public-link slice
   api/author/publishing/    bounded private uploads/imports and Author-owned object reads
-  admin/ library/           explicit guarded placeholders, not feature completion
+  admin/moderation/         S-18 Manager queue/detail and type-safe decisions
+  api/admin/moderation/     Manager-only case-bound object reads
+  library/                  explicit guarded placeholder, not feature completion
   fixtures/aurora/          explicit non-product VIS-TOKENS fixture
 components/
   aurora/                   tokens and accessible visual primitives
   identity/                 S-03/S-17 Aurora extension components and pending states
   catalog/                  semantic S-01/S-02 Aurora UI, formula, header, covers and pagination
   publishing/               Aurora Author list/wizard/preview, uploads, legal confirmations and recovery
+  moderation/               Aurora S-18 master-detail, filters, decisions and removal dialog
 modules/
   platform/                 runtime identity, SQL port, transactions, outbox/jobs, env/evidence
   identity/                 OAuth adapters, crypto, repository, sessions, guards and policy
@@ -51,20 +57,21 @@ modules/
   payout-details/           restricted encrypted-envelope repository boundary only
   catalog/                  additive public DTO/query/price contracts, PostgreSQL repository and guarded fixtures
   publishing/               drafts, immutable versions/declarations, converter, worker, private-storage port and service
+  moderation/               BookSubmitted relay, screening, cases, decisions, active publication and audit
 db/
-  migrations/               reversible checksummed PostgreSQL migrations 0001 + 0002 + 0003 + 0004
+  migrations/               reversible checksummed PostgreSQL migrations 0001 through 0005
   postgres.ts               production adapter
   pglite.ts                 test-only adapter
 workers/
   worker.ts scheduler.ts    separate executable roles
-scripts/                    build/boundary/hygiene, OAuth simulator, UNIT-00/01/02/03 evidence runners
+scripts/                    build/boundary/hygiene, OAuth simulator, UNIT-00/01/02/03/04 evidence runners
 tests/
-  unit/ integration/ e2e/ visual/ plus UNIT-01/02/03 browser/visual suites
+  unit/ integration/ e2e/ visual/ plus UNIT-01/02/03/04 browser/visual suites
 public/brand/               active transparent-background UkieBook SVG and provider marks with provenance
 public/books/covers/final/  seven distinct realistic 2:3 baked-title production Covers
 ```
 
-The S-03/S-17 routes and identity/profile contracts above are complete only within UNIT-01; S-01/S-02 catalog behavior/read contracts are complete within UNIT-02 and their current V3 presentation within UNIT-02-C1. `/author/books` and `/author/publish` now implement UNIT-03 only through Author submission and `BookSubmitted`; `/admin`, `/library`, S-13/S-18 moderation/publication lifecycle and the public catalog projection remain later owning scopes. UNIT-02 deterministic catalog seed is a production-rejected bootstrap path; UNIT-04 must consume the frozen UNIT-03 event/version boundary to populate the additive catalog-publisher boundary after Manual Review and publication activation.
+The S-03/S-17 routes and identity/profile contracts above are complete only within UNIT-01; S-01/S-02 catalog behavior/read contracts are complete within UNIT-02 and their current V3 presentation within UNIT-02-C1. UNIT-03 ends at immutable `BookVersion` + `BookSubmitted`. UNIT-04 now consumes that boundary, implements safe auto-publication/manual routing, S-13/S-18, one active-publication pointer, atomic Catalog activation/removal and public Cover gating. Update/Review producer/application flows, Discount/250 UAH, rewards/founder and `/library` completion remain in their owning later units. UNIT-02 deterministic catalog seed remains a production-rejected bootstrap path.
 
 Module imports point inward to domain contracts; UI and provider adapters may depend on domain interfaces, never the reverse. Cross-module mutation happens through commands/events, not direct table writes.
 
@@ -185,27 +192,28 @@ Module imports point inward to domain contracts; UI and provider adapters may de
 
 ### UNIT-04 — Manual Review and Book lifecycle
 
+- **Execution Status:** implementation and SDD contract reconciliation complete; canonical evidence pending the first clean committed `npm run verify:unit04` run.
 - **Purpose:** deliver moderation routing, S-13/S-18, type-specific decisions and audited removal under FR-LIC-4.
 - **Source References:** FR-MOD-1..5, FR-LIC-4; US-010; supporting Manager journey; S-13/S-18; architecture AD-5; QA ACC-05/06, ST-05/07, UJ-05.
 - **Depends On:** UNIT-01, UNIT-03; UNIT-02 publication read model.
-- **Work Items:** AI adapter/fake and safe-fail; moderation_case states; Manager queue/detail; Book/Update Author Reason Category; review decision without unsupported buyer reason; publication activation; audited removal of risky published Book; downstream status/read-model events.
-- **Acceptance Checks:** safe item and risky/manual paths work; internal criteria absent from public DTO/logs; each object type produces correct downstream state; removal requires reason/confirmation and makes S-02 unavailable; Author receives only canonical Reason Category.
-- **Verification:** `moderation_flow`, `access_separation`, ACC-05/06, ST-05/07, UJ-05, audit inspection.
+- **Work Items:** relay `BookSubmitted`; replaceable AI adapter with clear auto-publication and flagged/provider-outage safe-fail; moderation-case states; S-18 Manager queue/detail/filter for Book/Update/Review; Book/Update rejection with the closed neutral `ReasonCategory`; Review `Не публікувати` without a category; immutable screening/decision/audit records; separate active-publication pointer; atomic Catalog activation/removal; public Cover route through the publication boundary; audited FR-LIC-4 removal with a separate closed removal ground and explicit confirmation; S-13 lifecycle/status/reason/public-link slice plus S-02 unavailable reuse. Update/Review producers and application remain UNIT-08/06; Discount/250 UAH and rewards/founder remain UNIT-08/07.
+- **Acceptance Checks:** safe item auto-publishes; risky/provider-outage paths enter Manual Review without publication; internal criteria/provider details stay manager-only; each object type exposes only its valid decision contract; Book/Update rejection requires one `ReasonCategory`; Review negative decision has none; removal requires one FR-LIC-4 removal ground plus confirmation, never a `ReasonCategory`, and atomically makes S-02 and the public Cover unavailable; Author receives only lifecycle state and canonical reason.
+- **Verification:** `npm run verify:unit04` on dedicated loopback PostgreSQL `ukiebook_unit04`; `moderation_flow`, `access_separation`, publication/catalog lifecycle, ACC-05/06, ST-05/07, UJ-05 and append-only audit inspection; 4 E2E flows; 50 S-13/S-18/S-02 responsive visual receipts plus 8 interaction/accessibility receipts.
 - **Delivery Layer:** full-stack.
 - **Approved Baseline ID:** `AVB-UKIEBOOK-AURORA-7B-V3`.
 - **Immutable Visual Target Hash:** `e50c9f82c241195d7f5d8876d9dcdcd7fd45b71cdaf6d2eedfe2e327a7182724`.
-- **Baseline Screens States And Viewports:** S-13/S-18 states at 390/768/1280; S-02 unavailable state.
+- **Baseline Screens States And Viewports:** S-13/S-18 and S-02 unavailable states across 390/430/768/1280/1440; every required core state at 390/768/1280.
 - **Design Contract And Permitted Variance:** Aurora Author/Manager extension; status semantics consistent; destructive confirmation explicit.
 - **Operator Visual Overrides:** final 7b system.
 - **Visual Fidelity Verification:** `approved_visual_baseline_fidelity` via `VIS-AURORA-AUTHOR/MANAGER/PUBLIC`, `VIS-TOKENS`, `VIS-GLASS`, `VIS-COVER` and UX-05/06.
 - **Prototype Reuse:** none.
 - **Production Capabilities Added Beyond Prototype:** AI routing, Manual Review, audit, publication lifecycle and removal.
-- **Interfaces Produced:** `ModerationCase`, `ModerationDecision`, `PublicationActivated/Removed`, `ReasonCategory`.
+- **Interfaces Produced:** `ModerationCase`, `ModerationDecision`, `PublicationActivated/Removed`, `ReasonCategory`, `RemovalGround`, active-publication/catalog-projection contract and public-Cover boundary.
 - **Interfaces Consumed:** `BookSubmitted`, UNIT-01 Manager role, UNIT-02 catalog publisher.
 - **API/Data Contract References:** FR-MOD/LIC-4; moderation module boundary.
 - **Interface Owner:** `moderation`.
 - **Compatibility Expectations:** public decision DTO never includes internal signals/rules; decisions idempotent/audited.
-- **Integration Verification:** submitted→AI result→queue→decision→Author/public state.
+- **Integration Verification:** `BookSubmitted`→clear auto-publication or flagged/outage Manual Review→type-safe decision→Author/public state; active-version uniqueness, replay/concurrency safety and removal→S-02/public-Cover unavailability.
 
 ### UNIT-05 — Cart, orders, mono and purchase notification
 
@@ -377,7 +385,7 @@ flowchart LR
   U09 --> U10[UNIT-10 Release]
 ```
 
-UNIT-00, UNIT-01, UNIT-02, correction UNIT-02-C1 and UNIT-03 are complete within their recorded scopes. The next executable unit is UNIT-04: consume `BookSubmitted`, deliver S-13/S-18 Manual Review and Book lifecycle, produce audited moderation decisions, activate publication and update the bounded public catalog projection. UNIT-03 freezes the immutable version/event and Aurora Author contracts that UNIT-04 consumes; UNIT-05 is also dependency-ready against UNIT-01/02-C1 but remains later in the approved value order. No financial consumer begins against an unversioned `PaidSale`/`RefundApproved` event. UNIT-09 is a convergence unit, not a substitute for per-unit UX evidence.
+UNIT-00, UNIT-01, UNIT-02, correction UNIT-02-C1 and UNIT-03 are canonically complete within their recorded scopes. UNIT-04 implementation and owner-document reconciliation are complete but remain `canonical evidence pending` until the clean committed verifier passes; it consumes UNIT-03 `BookSubmitted`, produces audited decisions/publication events, and atomically maintains the bounded public projection. After that receipt is sealed, the next executable unit is UNIT-05: persistent/mergeable Cart, S-04, provider-owned S-05 mono payment, S-06 result/recovery, immutable order-price snapshot, signed/idempotent webhook reconciliation, transactional `PaidSale`, and isolated E-01 purchase notification. No financial consumer begins against an unversioned `PaidSale`/`RefundApproved` event. UNIT-09 is a convergence unit, not a substitute for per-unit UX evidence.
 
 ## Verification Plan
 
@@ -386,6 +394,7 @@ UNIT-00, UNIT-01, UNIT-02, correction UNIT-02-C1 and UNIT-03 are complete within
 - For UNIT-01 identity/profile changes, `REAL_DATABASE_URL=postgres://<credentials>@127.0.0.1:<port>/ukiebook_unit01 npm run verify:unit01` is the canonical bundle-producing rerun; the runner rejects a dirty tree, non-loopback host or different database name and includes real PostgreSQL, E2E, responsive/contrast and secret-evidence gates.
 - For UNIT-02/C1 catalog presentation changes, the UNIT-02 verifier must bind the V3 bundle/tree/VQA hashes, revision and external-browser visual inspection in `forge/runs/UNIT-02-C1/20260722T115720Z-338d4450e107/run.json`; old V2 receipts never satisfy the active gate.
 - For UNIT-03 publishing/converter changes, `REAL_DATABASE_URL=postgres://<credentials>@127.0.0.1:<port>/ukiebook_unit03 npm run verify:unit03` is the canonical bundle-producing rerun. It must keep the dedicated loopback database guard, Calibre `9.11.0`/adapter and both validators, migration `0004`, private-artifact/version/submission/failure-retry proofs, 3/3 Author E2E, and the 30-visual/7-accessibility receipt matrix; canonical completed evidence is `forge/runs/UNIT-03/20260722T151115Z-6fb52daf3ff1/run.json`.
+- For UNIT-04 moderation/publication changes, `UNIT04_DATABASE_URL=postgresql://<dedicated-credentials>@127.0.0.1:<port>/ukiebook_unit04 npm run verify:unit04` is the canonical bundle-producing rerun. It rejects a dirty tree, non-loopback host or different database name; requires migration `0005_moderation_publication`, safe clear/flagged/outage routing, role/CSRF separation, immutable decisions/audit, one active version, atomic Catalog/public-Cover activation/removal, 4/4 E2E, and the 50-visual/8-accessibility receipt matrix across 390/430/768/1280/1440. Until that command passes on the first implementation commit, UNIT-04 stays evidence-pending.
 - Persist results in dod-evals format with unit, revision, timestamp, evidence and findings. A missing applicable command/result is `blocked`, never passed by inspection.
 - Money tests use integer fixtures, discount boundaries, duplicate/out-of-order events, Refund compensation, threshold/carry, update fee and Founder cases.
 - Conversion tests use representative DOCX/TXT/Google Docs fixtures with headings, Unicode Ukrainian text and inline Illustrations; EPUB/MOBI validators are external evidence.

@@ -7,7 +7,8 @@ export type PublishingBookStatus =
   | "submitted"
   | "manual_review"
   | "rejected"
-  | "published";
+  | "published"
+  | "unavailable";
 
 export type PublishingDraftStatus =
   | "draft"

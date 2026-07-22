@@ -33,6 +33,8 @@
     "test:unit02:visual": "playwright test --config playwright.unit02.visual.config.ts",
     "test:unit03:e2e": "playwright test --config playwright.unit03.e2e.config.ts",
     "test:unit03:visual": "playwright test --config playwright.unit03.visual.config.ts",
+    "test:unit04:e2e": "playwright test --config playwright.unit04.e2e.config.ts",
+    "test:unit04:visual": "playwright test --config playwright.unit04.visual.config.ts",
     "verify:repository": "node scripts/verify-repository-hygiene.mjs",
     "verify": "npm run typecheck && npm run lint && npm test && npm run build && npm run test:e2e && npm run test:visual",
     "verify:unit00": "node scripts/run-unit00-verification.mjs",
@@ -40,7 +42,9 @@
     "verify:unit02": "npm run verify:unit02c1",
     "verify:unit02c1": "node scripts/run-unit02-verification.mjs",
     "verify:unit03:postgres": "tsx --conditions=react-server scripts/verify-unit03-postgres.ts",
-    "verify:unit03": "node scripts/run-unit03-verification.mjs"
+    "verify:unit03": "node scripts/run-unit03-verification.mjs",
+    "verify:unit04:postgres": "tsx --conditions=react-server scripts/verify-unit04-postgres.ts",
+    "verify:unit04": "node scripts/run-unit04-verification.mjs"
   },
   "dependencies": {
     "@fontsource-variable/golos-text": "^5.3.0",

@@ -11,5 +11,9 @@ export const CATALOG_READ_MODEL_MIGRATION_ID = "0003_catalog_read_model";
 /** Immutable ID used by the UNIT-03 publishing migration. */
 export const PUBLISHING_PIPELINE_MIGRATION_ID = "0004_publishing_pipeline";
 
+/** Immutable ID used by the UNIT-04 moderation/publication migration. */
+export const MODERATION_PUBLICATION_MIGRATION_ID =
+  "0005_moderation_publication";
+
 /** Latest schema understood by every production runtime. */
-export const PLATFORM_SCHEMA_REVISION = PUBLISHING_PIPELINE_MIGRATION_ID;
+export const PLATFORM_SCHEMA_REVISION = MODERATION_PUBLICATION_MIGRATION_ID;

@@ -17,6 +17,8 @@
 - `UkieBook-logo.jpg`, `UkieBook-logo-exact.svg`, V1/V2 candidates/evidence — immutable superseded history, не активні production assets.
 - Явне рішення оператора 2026-07-21: фінальний мокап використовується 1:1 з подальшим додаванням функціональності; correction-команда 2026-07-22 точно замінює formula/copy/logo/cover/shelf contract без нового циклу дизайн-апруву.
 
+Поточні production surfaces S-13/S-18 і S-02 unavailable були використані лише для reconciliation із уже source-backed screen-map/wireframes. Вони не переозначають продуктову поведінку або Approved Visual Baseline; canonical UNIT-04 evidence у цьому артефакті ще не заявлено.
+
 ## Design Brief
 
 UkieBook виглядає як тепла сучасна українська книгарня: пастельна «аврора», легкі glass-поверхні й яскраві Обкладинки як головне джерело кольору. Сигнатурний мотив довіри — стрічка публічної формули `35% платформі / 65% автору`; внутрішній менеджерський розклад — `29%` чистого заробітку платформи + `6%` податкового компонента платформи + `65%` автору. Фінальний S-01 V3 не є натхненням для редизайну: його desktop-композиція, типографічна ієрархія, токени, квадратнокутні cover artworks, тіні й hover є locked visual target. Решта продукту додає реальну поведінку й нові поверхні в тій самій системі.
@@ -35,6 +37,8 @@ UkieBook виглядає як тепла сучасна українська к
 | Усі Обкладинки мають квадратні кути; S-01 використовує сім різних реалістичних baked-artwork covers із різними назвами без live-text overlay; перший shelf-row не кліпається знизу | scoped operator override | Пряма correction-команда оператора 2026-07-22 |
 | Попередні запропоновані D/E/F і A/B/C не є baseline та більше не керують дизайном | superseded exploration | Явно наданий фінальний 7b |
 | Публічна формула — `35% платформі / 65% автору`; менеджерська декомпозиція — `35 = 29 net platform + 6 platform tax component`; інваріант `29 + 6 + 65 = 100` | approved current product rule; release legality remains separately gated | Пряма correction-команда оператора 2026-07-22; product-idea, PRD |
+| UNIT-04 extension contract: S-13 показує тільки lifecycle/Категорію причини/public link; S-18 має type-specific decisions, safe-fail provider state і окремий audited removal; S-02 unavailable лишається архівною поверхнею | reconciled, canonical UNIT-04 receipt pending | PRD FR-MOD/FR-LIC-4; screen-map/wireframes S-02/S-13/S-18; implementation-alignment inspection без evidence claim |
+| Знижка й Оновлення книжки не додаються до lifecycle slice S-13 у UNIT-04 | deferred to owning slice UNIT-08 | screen-map/wireframes staged capability boundary; development-plan ownership |
 
 ## Audience And Context
 
@@ -56,7 +60,7 @@ UkieBook виглядає як тепла сучасна українська к
 - Motion: лише функціональні 150–200ms hover/lift transitions; meaning не залежить від motion.
 - Dark mode: не визначений baseline і не входить у MVP.
 - Offline: screen-map визначає застосовні error/offline states; baseline не додає offline product scope.
-- AI: ШІ-модерація — signal; Ручна перевірка і Категорія причини лишаються явно відмінними.
+- AI: ШІ-модерація — signal, не остаточне рішення; flagged результат і недоступний провайдер безпечно переходять до Ручної перевірки. Внутрішні сигнали видимі тільки Менеджеру; Автор отримує lifecycle і, лише при відхиленні Книжки/Оновлення книжки, одну нейтральну Категорію причини.
 
 ## Design Spine
 
@@ -106,6 +110,9 @@ UkieBook виглядає як тепла сучасна українська к
 - Forms: visible labels, inline errors, consequence block immediately before financial/legal CTA.
 - Tables: quiet surface, right-aligned tabular numbers; mobile becomes labeled stacks.
 - Status badges: stable meaning across Author/Manager surfaces; color is never the sole cue.
+- S-02 unavailable: зберігає ідентичність архівної Сторінки книжки — квадратнокутну Обкладинку, назву, Автора, опис і відгуки — але замінює commerce controls на спокійний notice `Книжка недоступна`; sticky purchase CTA та Безкоштовний фрагмент відсутні. Notice не виглядає як 404 або технічна помилка.
+- S-13 lifecycle panel: одна спокійна Aurora surface з квадратнокутною Обкладинкою, P-4 badge, коротким поясненням і датою. Категорія причини — окремий нейтральний блок без danger styling; public/archive link зʼявляється тільки після створення публічної адреси. Знижка, Оновлення книжки й sales block не симулюються до UNIT-08.
+- S-18: на desktop — щільний master-detail із фільтром і тихими glass surfaces; на compact/mobile — окремі list/detail стани з видимим `До черги`. Safe-fail provider notice має warning emphasis, але не виглядає як рішення. Book/Update rejection disclosure містить reason select; Review negative action не має такого поля. Removal — окрема остання danger zone та modal із наслідком, FR-LIC-4 ground і підтвердженням, а не ще одна rejection form.
 
 ### Visual Do's And Don'ts
 
@@ -166,6 +173,13 @@ Warm and concise in discovery; precise in payment/legal areas; neutral in modera
 
 The state list belongs to screen-map and structure to wireframes. Default, loading, empty, error, success, long-content, permission, offline and disabled states reuse target geometry. Skeletons mirror the zone; empty/error messages are inline with a constructive action. S-01's locked shell remains recognizable while result content changes.
 
+UNIT-04 state semantics remain distinct in appearance and copy:
+
+- `На модерації` — informational; `На ручній перевірці` — warning/attention; `Відхилено` — negative with neutral Категорія причини; `Опубліковано` — success; `Прибрано з Каталогу` (`unavailable`) — unavailable/removed, never reused for rejection or provider failure.
+- Provider outage is a manager-only safe-fail warning and never leaks into S-13/S-02 as a technical reason.
+- Book/Update rejection validation focuses the missing closed-list Категорія причини. Review `Не публікувати` has no reason control. Removal validation focuses only the missing FR-LIC-4 ground; the modal supplies the separate explicit confirmation.
+- S-18 success removes the resolved item from the active queue and reports the outcome; conflict/error remains inline and asks for a refresh rather than silently replaying a stale decision.
+
 ### Interaction Primitives
 
 150–200ms ease-out for hover/lift/focus feedback; no page transition animation. Motion never carries state meaning alone. `prefers-reduced-motion` may remove nonessential movement while preserving final position and information; this is an accessibility implementation detail, not a redesign.
@@ -178,7 +192,8 @@ WCAG 2.2 AA implementation target: semantic landmarks/controls, 4.5:1 normal tex
 
 - Buyer: discovery → S-02 → cart → OAuth/mono → library, with failure preserving cart.
 - Author: first entry → profile → wizard → Попередній перегляд видання → separate rights/license confirmations → status in Author surface; never routed into Manager UI.
-- Manager: moderation, payouts, refunds and Authors are sibling navigation branches.
+- Moderation: `BookSubmitted` → clear result auto-publishes; flagged result or unavailable provider → S-18 → audited type-safe decision → external lifecycle in S-13/public availability in S-02. Internal signals never appear in Author/public surfaces.
+- Manager: moderation, payouts, refunds and Authors are sibling navigation branches. In S-18 Book/Update/Review decisions never share an invalid one-size-fits-all form; removal is a separate FR-LIC-4 action.
 - Trust motifs: formula ribbon can recur on S-15; financial/legal consequences are placed before CTA.
 
 ## Responsive And Platform Behavior
@@ -186,12 +201,14 @@ WCAG 2.2 AA implementation target: semantic landmarks/controls, 4.5:1 normal tex
 - 1440/1280: S-01 page max 1220 and locked target composition; exact 1280 reference is primary comparison.
 - 768: header condenses; shelf stays horizontal; tiles 2 columns; formula remains horizontal if labels do not collide.
 - 430/390: deterministic scroll-snap shelf with 2–3 visible covers; compact nav menu; search/cart one click away; tiles 2 columns; formula stacks; filters in drawer; no clipped controls or horizontal page overflow.
-- S-02 and forms become one column; tables become labeled stacks; dialogs become accessible full-width/bottom-sheet surfaces where appropriate.
+- S-02 and forms become one column; unavailable notice replaces, rather than leaves an empty gap for, the purchase block. Tables become labeled stacks; dialogs become accessible full-width/bottom-sheet surfaces where appropriate.
+- S-13 places back navigation, title, status/explanation, optional Категорія причини and public/archive link in that order; lifecycle must be understandable before the Обкладинка finishes loading.
+- S-18 switches master-detail to list → detail. Detail begins with `До черги`, preserves the selected type filter, excludes the hidden list from focus order, and keeps the removal danger zone after ordinary decisions.
 - Mobile is a derived approved adaptation, not a request to reproduce the non-responsive reference squeeze.
 
 ## Design Handoff Prompt
 
-Reimplement `operator-final-7b/v3` in the production component system. Match the active S-01 desktop target exactly for composition, tokens, typography, transparent-logo brand slot, square-corner cover geometry, seven unique baked-artwork covers, uncropped shelf, corrected hero copy, `35/65` formula, glass surfaces and hover. Use `UkieBook-logo-transparent.svg` as the active official logo source; it is a transparent-background raster-backed SVG container and must not gain a backing plate or be misrepresented as path-vector artwork. Add real routes, semantic controls, states, data and responsive layouts from screen-map/wireframes. Extend Aurora—not a generic design system—to S-02…S-21. Do not copy prototype code as application logic or claim runtime behavior from it.
+Reimplement `operator-final-7b/v3` in the production component system. Match the active S-01 desktop target exactly for composition, tokens, typography, transparent-logo brand slot, square-corner cover geometry, seven unique baked-artwork covers, uncropped shelf, corrected hero copy, `35/65` formula, glass surfaces and hover. Use `UkieBook-logo-transparent.svg` as the active official logo source; it is a transparent-background raster-backed SVG container and must not gain a backing plate or be misrepresented as path-vector artwork. Add real routes, semantic controls, states, data and responsive layouts from screen-map/wireframes. Extend Aurora—not a generic design system—to S-02…S-21. For UNIT-04, preserve the exact S-13 lifecycle-only boundary, S-18 type-specific decision forms/safe-fail/removal hierarchy, S-02 archival unavailable pattern and mobile list/detail/back behavior; do not add UNIT-08 controls early. Do not copy prototype code as application logic or claim runtime behavior from it.
 
 ## Approved Visual Baseline
 
@@ -209,16 +226,16 @@ Reimplement `operator-final-7b/v3` in the production component system. Match the
 - Operator Overrides: skip the normal three-candidate generation; preserve 7b V3 1:1 in covered scope; add required functionality without redesign; use the transparent-background SVG in the locked brand slot; never round covers, add live title overlays, repeat placeholder cover art, clip the first shelf row or expose `29+6` on the public ribbon.
 - Supersedes: `AVB-UKIEBOOK-AURORA-7B-V2`; V1/V2 and prior A/B/C and D/E/F remain historical/unapproved as applicable.
 - Superseded By: —
-- Downstream Invalidation: the 2026-07-22 correction transitively invalidates every active V2 baseline/formula/cover/logo receipt. All 13 SDD owner artifacts are reconciled to V3; original UNIT-02 visual results are historical and UNIT-02-C1 is the active correction receipt. Next executable feature unit remains UNIT-03.
+- Downstream Invalidation: the 2026-07-22 correction transitively invalidates every active V2 baseline/formula/cover/logo receipt. All 13 SDD owner artifacts are reconciled to V3; original UNIT-02 visual results are historical and UNIT-02-C1 is the active correction receipt. UNIT-03 is completed; the current UNIT-04 extension does not alter the active Baseline, and this design brief does not claim its canonical run before that receipt is registered.
 
 ## Validation Report
 
-- Pass 1 — Mechanical coverage: V3 target, tree, evidence and UNIT-02-C1 receipts are hash-addressed through the freeze placeholders above; exact copy/formula, logo hash, square radii, seven distinct artworks and shelf geometry have explicit independent checks. Final receipt substitution is atomic and must leave no placeholder before commit.
-- Pass 2 — Judgment: no parallel generic design system; S-01 target remains concrete; correction scope is exact and extension scope is honest. Remaining reference limitations are carried into production gates: demo semantics, touch target, measured contrast and responsive derivation. No correction finding changes the next-unit boundary: UNIT-03.
+- Pass 1 — Mechanical coverage: V3 target, tree, evidence and UNIT-02-C1 receipts are hash-addressed; exact copy/formula, logo hash, square radii, seven distinct artworks and shelf geometry have explicit independent checks. S-02 unavailable, S-13 lifecycle and S-18 type/safe-fail/removal/mobile states resolve to screen-map/wireframes and to existing Aurora tokens/components; no unresolved token or fake UNIT-04 receipt was introduced.
+- Pass 2 — Judgment: no parallel generic design system; S-01 target remains concrete; correction scope is exact and extension scope is honest. S-13 withholds unowned UNIT-08 controls; S-18 favors operational hierarchy over decoration; unavailable, rejected and provider-failure meanings remain visibly distinct. Remaining reference limitations are carried into production gates: demo semantics, touch target, measured contrast and responsive derivation.
 
 ## Confirmed Design Decisions
 
-Aurora Pastel 7b V3; official transparent-background `UkieBook-logo-transparent.svg`; exact hero sentence; all square-corner 2:3 covers; seven distinct realistic baked-title artworks; first shelf row fully visible; public `35/65` formula and internal manager-only `29+6+65`; S-01 1:1 desktop; separately verifiable tokens/glass/covers/formula/logo; warm mesh + glass; Golos Text; quiet operational surfaces; source-backed responsive reflow; AA implementation floor; prototype reimplemented rather than copied.
+Aurora Pastel 7b V3; official transparent-background `UkieBook-logo-transparent.svg`; exact hero sentence; all square-corner 2:3 covers; seven distinct realistic baked-title artworks; first shelf row fully visible; public `35/65` formula and internal manager-only `29+6+65`; S-01 1:1 desktop; separately verifiable tokens/glass/covers/formula/logo; warm mesh + glass; Golos Text; quiet operational surfaces; source-backed responsive reflow; AA implementation floor; prototype reimplemented rather than copied. UNIT-04 extensions preserve this system through the lifecycle-only S-13, manager-only S-18 signals/type-safe decisions, FR-LIC-4 removal, archival S-02 unavailable state and mobile list/detail/back pattern; canonical UNIT-04 evidence remains a separate pending receipt.
 
 ## Rejected Directions
 

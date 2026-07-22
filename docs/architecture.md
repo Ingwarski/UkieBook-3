@@ -13,7 +13,8 @@
 - `app/login/`, `app/api/auth/`, `app/author/profile/`, `components/identity/`, `modules/identity/`, `modules/author-profile/`, `modules/payout-details/`, migration `0002_identity_sessions_author_profile`, `scripts/verify-unit01-postgres.ts` і UNIT-01 tests — реалізований identity/profile slice at revision `ab030a00f213d33f62783f0287dd8e5dcfe67101`; canonical evidence: `forge/runs/UNIT-01/20260721T221049Z-ab030a00f213/`. Доказ покриває S-03, S-17 і access guards у межах UNIT-01, включно з виміряними AA control contrast і ≥44px interactive targets; live consent у зареєстрованих production apps Google/Facebook лишається окремим activation gate і не позначений як passed.
 - `app/page.tsx`, `app/books/[id]/`, `components/catalog/`, `modules/catalog/`, migration `0003_catalog_read_model`, production brand/Cover assets, `scripts/verify-unit02-postgres.ts` і UNIT-02 tests — original public catalog/Book Page slice at revision `a441ab415d2818872599f01efae856acebf75b42`; canonical historical evidence: `forge/runs/UNIT-02/20260722T011333Z-a441ab415d28/`. Its V2 visual receipt is superseded, while its catalog behavior remains implementation history.
 - UNIT-02-C1 at revision `3f77594bcb615847bdd71846374184cd2070d305`; canonical correction evidence `forge/runs/UNIT-02-C1/20260722T115720Z-338d4450e107/run.json` — active S-01 visual correction against `AVB-UKIEBOOK-AURORA-7B-V3`: transparent SVG logo, square-corner covers, seven unique baked-artwork assets, uncropped shelf, exact hero copy and `35/65` ribbon. This correction changes presentation/configured percentage truth, not the catalog module boundary.
-- `app/author/books/`, `app/author/publish/`, `app/api/author/publishing/`, `components/publishing/`, `modules/publishing/`, migration `0004_publishing_pipeline`, UNIT-03 verifier and tests — completed publishing/conversion slice at revision `6fb52daf3ff11630454c13a76adfd7875c749e8f`; canonical evidence `forge/runs/UNIT-03/20260722T151115Z-6fb52daf3ff1/run.json`. The evidence covers S-10/S-11/S-12 through immutable `BookVersion` + `BookSubmitted`, real DOCX/TXT/bounded Google Docs conversion to validated EPUB and legacy MOBI, private local-storage proof behind the production object-storage port, retry/draft preservation, and the Aurora Author extension. It does not cover Manual Review, publication activation or the public catalog projection; those begin in UNIT-04, the next executable unit.
+- `app/author/books/`, `app/author/publish/`, `app/api/author/publishing/`, `components/publishing/`, `modules/publishing/`, migration `0004_publishing_pipeline`, UNIT-03 verifier and tests — completed publishing/conversion slice at revision `6fb52daf3ff11630454c13a76adfd7875c749e8f`; canonical evidence `forge/runs/UNIT-03/20260722T151115Z-6fb52daf3ff1/run.json`. The evidence covers S-10/S-11/S-12 through immutable `BookVersion` + `BookSubmitted`, real DOCX/TXT/bounded Google Docs conversion to validated EPUB and legacy MOBI, private local-storage proof behind the production object-storage port, retry/draft preservation, and the Aurora Author extension. It ends before Manual Review, publication activation and the public catalog projection.
+- `db/migrations/0005_moderation_publication.ts`, `modules/moderation/`, `workers/worker.ts`, `app/admin/moderation/`, `app/author/books/[id]/`, `app/books/covers/[bookId]/route.ts`, `scripts/verify-unit04-postgres.ts` and UNIT-04 test/verifier sources — code-confirmed UNIT-04 moderation/publication implementation: `BookSubmitted` relay, safe-fail screening, S-13/S-18, immutable screening/decision/audit records, a separate active-publication pointer, atomic Catalog activation/removal and the publication-gated public Cover route. The canonical `npm run verify:unit04` receipt has not yet been produced; no UNIT-04 pass status or evidence path is claimed here.
 
 ## Architecture Overview
 
@@ -41,24 +42,24 @@ UkieBook — адаптивний вебзастосунок із трьома �
 | `identity` | Користувачі, OAuth-звʼязки й одноразові flows, явні ролі, hashed sessions, append-only identity audit | S-03; guard-и всіх `/author/*`, `/admin/*`, `/library` |
 | `author-profile` | Лише публічне імʼя/псевдонім; public DTO не містить OAuth email чи платіжних полів | S-17 |
 | `payout-details` | Закритий encrypted envelope договірних/платіжних/податкових даних; зміст і UI належать UNIT-07 | S-16 |
-| `publishing` | Рукописи, private-object metadata, конвеєр конвертації, Обкладинки, immutable версії Книжки, артефакти Попереднього перегляду видання, Безкоштовний фрагмент і окремі Декларації прав/ліцензії. UNIT-03 реалізує S-10/S-11/S-12 до `BookSubmitted`; S-13/S-14 lifecycle states лишаються наступним owning scope. | S-10..S-14 |
-| `catalog` | Публічна additive read projection опублікованих книжок: жанри, featured slots, пошук/фільтри/стабільне сортування/пагінація, integer-kopiyka ціни й dated Discount, безкоштовні фрагменти та опубліковані відгуки; DTO не читають приватні publishing/identity поля. Presentation contract renders Book Covers 2:3 with square corners and never synthesizes live title overlays on cover artwork. | S-01, S-02 |
-| `moderation` | Модераційні кейси (книжка/оновлення/відгук), сигнали ШІ, рішення, категорії причин | S-18; статуси в S-08/S-10/S-13 |
+| `publishing` | Рукописи, private-object metadata, конвеєр конвертації, Обкладинки, immutable `publishing_book_versions`, артефакти Попереднього перегляду видання, Безкоштовний фрагмент і окремі Декларації прав/ліцензії. Версія після подання лишається immutable зі статусом `submitted`; публікаційний стан не записується назад у неї. S-13 показує bounded lifecycle/read model; Discount і повний S-14 лишаються окремими owning scopes. | S-10..S-14 |
+| `catalog` | Публічна additive read projection опублікованих книжок: жанри, featured slots, пошук/фільтри/стабільне сортування/пагінація, integer-kopiyka ціни й dated Discount, безкоштовні фрагменти та опубліковані відгуки. Publication activation/removal updates the bounded projection with version/event provenance in the same transaction; DTO не читають приватні publishing/identity поля. Public Cover bytes resolve only through the active `book_publications` boundary. | S-01, S-02 |
+| `moderation` | `BookSubmitted` relay; cases for Book/BookUpdate/review; append-only screening runs and manager decisions; closed, versioned ReasonCategory values; internal AI signals; separate `book_publications` active-version pointer; append-only publication audit. Update/Review support in UNIT-04 is a decision/event contract only and does not mutate their future owning tables. | S-18; lifecycle status in S-10/S-13 and unavailable S-02 |
 | `commerce` | Кошик, замовлення, платіжні сесії mono, вебхуки, повернення | S-04..S-06, S-09, S-20 |
 | `library` | Права доступу покупця до куплених книжок, видача файлів, версійність після оновлень | S-07 |
 | `reviews` | Рейтинги й відгуки з привʼязкою до підтвердженої покупки | S-08, блок відгуків S-02 |
 | `rewards` | Лідж нарахувань, утримання 250 грн, місячні payout-рядки, статуси виплат, перемикач засновника | S-15, S-19, S-21 |
 | `notifications` | Email після покупки (E-01) | — |
 
-Правила меж: `catalog` читає з `publishing` лише опубліковані версії; `rewards` слухає події `commerce` (оплата/повернення) і `publishing` (платне оновлення), але не пише в них; `reviews` перевіряє покупку через інтерфейс `library`; ПД покупців не перетинають межу `rewards`-звітів автора (FR-REW-6).
+Правила меж: `publishing` емітить immutable `BookSubmitted`; `moderation` вибирає активну версію й атомарно записує publication pointer + Catalog projection, а public `catalog` ніколи не читає приватний draft/object graph напряму. `rewards` слухає події `commerce` (оплата/повернення) і `publishing` (платне оновлення), але не пише в них; `reviews` перевіряє покупку через інтерфейс `library`; ПД покупців не перетинають межу `rewards`-звітів автора (FR-REW-6).
 
 ## Runtime And Automation Model
 
 - Веб-процес: синхронні запити UI + API.
-- Воркер асинхронних задач: реалізована UNIT-03 конвертація рукопису (DOCX/TXT/bounded Google Docs export → нормалізація FR-PUB-2 → адаптивне видання → EPUB/legacy MOBI) і збереження `PreviewArtifact`; publishing service окремо зберігає fallback/upload Cover. Наступні юніти додають ШІ-скринінг модерації, email і застосування схваленого оновлення до бібліотек покупців (FR-UPD-3).
+- Воркер асинхронних задач: конвертація UNIT-03 та UNIT-04 moderation relay/handler. Перед poll воркер ідемпотентно перетворює unpublished `BookSubmitted` outbox events на `moderation_cases` + durable `moderation.screen.v1`; clear screening активує публікацію, flagged або provider failure safe-fail-ить у `manual_review_pending`. Налаштований runtime використовує `UnavailableAiModerationAdapter`, доки production provider не підключений, тому відсутність провайдера ніколи не авто-схвалює Книжку. Email і застосування схваленого Оновлення до Бібліотек лишаються наступними scopes.
 - Вебхук-приймач mono: підтвердження оплати → подія `paid_sale`; скасування/повернення → компенсаційна подія (FR-PAY-5, FR-REF-3).
 - Планувальник: щомісячна побудова payout-таблиці (рядок автор×місяць, FR-PYT-2) з ліджа; застосування переносів <100 грн (FR-PYT-4) і утримань 250 грн (FR-UPD-2).
-- Ручні дії менеджера (схвалення модерації, підтвердження виплати, рішення щодо повернення) — синхронні транзакції з аудит-слідом.
+- Ручні рішення S-18 — синхронні revision-checked/idempotent transactions: immutable decision + event, а для Book approval/removal також publication pointer, audit event і Catalog projection змінюються атомарно. Підтвердження виплати й рішення щодо повернення належать пізнішим units.
 
 ## Data And State Model
 
@@ -66,10 +67,12 @@ UkieBook — адаптивний вебзастосунок із трьома �
 
 - `user` → explicit `user_role` assignments + `oauth_account` provider mapping + hashed `session`; `oauth_flow` одноразово тримає зашифровані PKCE/nonce та server-held author-onboarding intent; `identity_audit_event` є append-only. OAuth email не використовується для автоматичного злиття облікових записів.
 - `author_profile` містить лише публічне імʼя; закритий `author_payout_details` уже має окрему encrypted-envelope межу (`schema_version`, `key_id`, nonce, ciphertext, authentication tag), але модель винагороди ФОП/роялті та S-16 реалізує UNIT-07 (FR-AUTH-3/4).
-- `book_draft` володіє revision-guarded editable metadata, current private Manuscript/Cover/Illustration links, conversion status/result, current `PreviewArtifact` і `sample_preview_artifact_id`. Submission requires the sample to reference that same completed preview artifact, freezes one immutable `book_version`, writes separate rights/license declarations and emits one versioned `BookSubmitted` outbox event. UNIT-03 stops there: moderation status, publication activation, public `catalog_book_read_model` mutation and the one-active-published-version rule are UNIT-04 scope; `discount` remains UNIT-08 scope.
-- Публічний `catalog_book_read_model` є окремою projection-моделлю для S-01/S-02, а не джерелом приватного publishing state. Він зберігає лише public Author identity, жанр, опис/sample, Cover reference, availability, рейтинг і integer-kopiyka price presentation; активний Discount має напіввідкритий інтервал `[starts_at, ends_at)`. `catalog_featured_slot` і `catalog_review_read_model` мають детермінований порядок. Cover reference points to finished artwork; accessible title remains semantic data outside the pixels, while the rendered cover image has no live-text overlay. UNIT-02 fixture seed явно підтверджується й заборонений у production; наступні owning units оновлюють projection через versioned catalog-publisher boundary (AD-11).
+- `book_draft` володіє revision-guarded editable metadata, current private Manuscript/Cover/Illustration links, conversion status/result, current `PreviewArtifact` і `sample_preview_artifact_id`. Submission freezes one immutable `publishing_book_version` (його status назавжди `submitted`), writes separate rights/license declarations and emits one versioned `BookSubmitted` outbox event. Aggregate lifecycle lives on `publishing_books`; publish/unavailable state and active version live separately in `book_publications`. `discount` remains UNIT-08 scope.
+- Публічний `catalog_book_read_model` є окремою projection-моделлю для S-01/S-02, а не джерелом приватного publishing state. Він зберігає лише public Author identity, жанр, опис/sample, publication-gated Cover route, availability, рейтинг і integer-kopiyka price presentation; `source_book_version_id`, `source_event_id` і `projection_revision` дають provenance. Activation upserts `published`; FR-LIC-4 removal marks the same row `unavailable` in the transaction that updates `book_publications` and audit. UNIT-02 fixture seed явно підтверджується й заборонений у production.
 - `rights_declaration` — привʼязана до подання версії (FR-PUB-8).
-- `moderation_case` — тип (книжка/оновлення/відгук), сигнал ШІ, рішення, `reason_category` (FR-MOD-*).
+- `moderation_case` — idempotent subject envelope (`book`/`book_update`/`review`), trigger, revision and queue status. `moderation_screening_run`, `moderation_decision`, `publication_audit_event` and versioned `moderation_reason_category` rows are update/delete-protected append-only records. Internal signals stay on screening runs; Book/Update rejection alone requires a closed ReasonCategory; Review `do_not_publish` carries none; FR-LIC-4 removal requires one closed removal ground plus explicit confirmation, not a ReasonCategory.
+- `book_publication` — exactly one row per Book with `active_book_version_id`, state `published|unavailable`, activation case, optional removal decision and monotonically increasing revision. It is the public-version authority; immutable `book_version` history is never rewritten.
+- Related BookUpdate/Review ingress stores their own subject IDs plus immutable Book context and emits typed `ModerationDecisionRecorded`; UNIT-04 deliberately does not apply update files or publish/reject a review in those future modules.
 - `cart` → `order` → `payment_session` (mono) → події `paid_sale` / `refund` (FR-PAY-5, FR-REF-3).
 - `library_item` — покупець×книжка, посилання на актуальну версію файлів (FR-LIB-1/3).
 - `review` — покупець×книжка, рейтинг, текст, статус модерації (FR-REV-1/2).
@@ -85,7 +88,7 @@ UkieBook — адаптивний вебзастосунок із трьома �
 | Google Docs API | вихідний | імпорт документа за наданим автором доступом | помилка формату → dropzone S-11 |
 | mono (plata by mono) | redirect на checkout (дефолт OQ-SM1) + вхідний вебхук | створення платіжної сесії кошика; підтвердження/скасування вебхуком; ідемпотентна обробка | невдача → S-06 failure, кошик збережено |
 | Email-провайдер | вихідний | транзакційний лист E-01 (перелік книжок + лінк бібліотеки) | ретраї воркера; недоставка не блокує доступ до бібліотеки |
-| ШІ-модерація | вихідний | скринінг контенту на категорії FR-MOD-1; результат = сигнал, не вирок | недоступність сервісу → кейс у ручну чергу (safe-fail) |
+| ШІ-модерація | вихідний adapter через durable worker | versioned screening input over immutable BookVersion artifacts; clear → system publication, flagged → S-18; internal signals manager-only | exception/provider outage is persisted as `provider_error` and routed to S-18 (safe-fail); never auto-publish |
 
 ## Technology Stack And Constraints
 
@@ -98,9 +101,9 @@ UkieBook — адаптивний вебзастосунок із трьома �
 - **Files:** domain code depends on `PrivateObjectStorage`; database holds metadata/hashes/version links. UNIT-03 proves private persistence and Author-scoped reads with `LocalPrivateObjectStorage` on the dedicated loopback PostgreSQL/evidence runtime. Production remains private S3-compatible object storage supplied through the same adapter/deployment boundary in UNIT-10; the local receipt is not an S3 deployment claim. Purchased-file delivery later uses short-lived signed/authorized downloads after `library_item` access checks.
 - **Auth:** pinned `oauth4webapi` production adapters для Google/Facebook; authorization code + PKCE S256, Google OIDC nonce/JWKS verification; opaque 256-bit session/flow tokens, у PostgreSQL зберігаються лише SHA-256 digests; AES-GCM для server-held flow values; HMAC-bound CSRF; `HttpOnly`, `SameSite=Lax`, `Secure`/`__Host-` cookies для HTTPS; centralized explicit-capability guards; жодних auth/provider tokens у browser storage або OAuth-token columns.
 - **Payments:** mono redirect checkout; signed/authenticated webhook verification per provider docs current at implementation time; unique provider event/session keys, idempotent transaction + outbox, scheduled reconciliation.
-- **Email/AI:** provider adapters with local fakes; production provider selection does not cross domain interfaces. AI outage safe-fails to `manual_review_pending`.
+- **Email/AI:** provider adapters with deterministic test fake; production worker currently binds the explicit unavailable adapter, so every unconfigured/outage case safe-fails to `manual_review_pending`. Selecting a real provider later does not cross the `AiModerationAdapter` interface.
 - **Conversion:** isolated `EditionConverter` uses the proven `calibre-legacy-mobi-v1` adapter on Calibre `9.11.0` to produce normalized intermediate content, EPUB, legacy MOBI and a persisted `PreviewArtifact`. UNIT-03 validates outputs with `epub-container.v1` and `legacy-mobi-header.v1`, preserves inline Illustrations for DOCX/Google Docs, records meaning hashes, rejects stale jobs and exposes typed failure/retry without silently dropping MOBI.
-- **Verification tooling:** Vitest `4.1.10` and Playwright `1.61.1`; stable commands `npm run build`, `npm run lint`, `npm run typecheck`, `npm test`, `npm run test:e2e`, `npm run test:visual` are executable. `npm run verify:unit00` and `npm run verify:unit01` retain their historical revision-bound evidence contracts. The active catalog verifier is `npm run verify:unit02c1`; `npm run verify:unit02` is a compatibility alias to the same correction command and cannot write into the immutable historical UNIT-02 namespace. UNIT-02-C1 uses the exact dedicated loopback database `ukiebook_unit02`, reproves reversible migration `0003`, guarded deterministic seed and public-read invariants, then runs S-01/S-02 behavior plus the V3 visual matrix and review-bound target comparison. It adds exact assertions for logo transparency, square radii, seven unique artwork sources, shelf no-clipping, hero copy and `35/65`; its frozen run is `forge/runs/UNIT-02-C1/20260722T115720Z-338d4450e107/run.json`. `npm run verify:unit03` is the revision-bound publishing bundle: it guards dedicated loopback database `ukiebook_unit03`, reproves migration `0004`, real conversion/private-artifact/domain invariants, 3/3 Author E2E scenarios, 30 visual screenshots and 7 accessibility receipts; canonical run `forge/runs/UNIT-03/20260722T151115Z-6fb52daf3ff1/run.json` records 105 passed/2 skipped tests and `npm audit --audit-level=high` with zero vulnerabilities.
+- **Verification tooling:** Vitest `4.1.10` and Playwright `1.61.1`; stable commands `npm run build`, `npm run lint`, `npm run typecheck`, `npm test`, `npm run test:e2e`, `npm run test:visual` are executable. Historical UNIT-00…UNIT-03 receipts retain their revision-bound contracts. `npm run verify:unit04` is implemented as a clean-revision verifier over dedicated loopback PostgreSQL database `ukiebook_unit04`, reversible schema revision `0005_moderation_publication`, moderation/publication proofs, S-13/S-18/S-02 E2E, 50 visual receipts and 8 accessibility checks. This describes the executable contract only; its canonical receipt/status remains pending until the command completes on the committed implementation revision.
 - **Deployment topology:** three process roles from one revision — web, worker, scheduler — plus managed PostgreSQL and private object storage. Environments use injected secrets/config; secrets never enter Git or client bundles. Hosting vendor remains replaceable.
 - **Card data:** never stored or processed by UkieBook; mono owns payment entry surface.
 
@@ -111,10 +114,11 @@ UkieBook — адаптивний вебзастосунок із трьома �
 - Сепарація даних: `author_payout_details` — закритий encrypted-envelope піддомен; public `AuthorProfile` повертає лише `authorId` і `publicName`; ПД покупців ніколи не потрапляють у авторські звіти (FR-REW-6); статус засновника невидимий у авторських поверхнях (FR-FND-3).
 - Платежі: платформа тримає лише ідентифікатори сесій mono і результати; карткові дані — ні (FR-PAY-3).
 - Файли книжок: видача лише автентифікованому власнику `library_item`; посилання — короткоживучі/авторизовані.
-- Внутрішні правила модерації — лише в закритому контурі `moderation`; назовні — `reason_category` (FR-MOD-3).
+- Внутрішні сигнали/правила модерації — лише у manager-gated case detail та append-only screening record. Author S-13 receives only the closed, versioned `reason_category` for own rejected Book; public/Author DTOs and emitted public lifecycle events exclude internal signals.
+- Private case artifacts use a manager-role and case/object-membership boundary. Public `/books/covers/{bookId}` resolves bytes only through `book_publications.active_book_version_id`; guests never receive an Author-private object URL.
 - Аудит-слід: рішення менеджера (модерація, виплати, повернення, перемикач засновника) фіксуються з часом і актором.
 - Webhook secrets, OAuth secrets, database/object-storage credentials and email/AI keys are server-only injected secrets; logs redact tokens and personal fields.
-- Same-origin + CSRF перевірки захищають mutation boundaries; недійсна S-17 мутація повертає privacy-safe form error, тоді як auth/RBAC/persistence failures не маскуються як validation success.
+- Same-origin + session-bound CSRF перевірки захищають mutation boundaries, including every S-18 decision/removal action; invalid Origin/CSRF changes no moderation state. Auth/RBAC/persistence failures не маскуються як validation success.
 - UNIT-03 upload endpoints stream bounded multipart bodies with declared-size overhead and actual file-size enforcement; the Google Docs JSON endpoint is also body-bounded before parsing. Private objects are resolved through Author ownership, never exposed by a public object URL.
 - Enabling a new Автор-засновник is one transaction that clears any prior singleton assignment, writes the new assignment and audit event, or changes nothing on failure.
 
@@ -126,6 +130,7 @@ UkieBook — адаптивний вебзастосунок із трьома �
 - Базова спостережуваність: логи конвеєра конвертації, платіжних подій і модераційних рішень — мінімум для ручних процесів менеджера.
 - Every job and webhook carries correlation/idempotency IDs; dead-letter jobs and reconciliation mismatches are visible to operations before payout generation.
 - Каталог SSR виконує лише bounded public projection queries із deterministic tie-breaker, fixed page size та additive DTO contract; unavailable Book виключається із browse/search, але зберігає стабільну S-02 unavailable response без ціни чи sample.
+- `BookSubmitted` relay, screening jobs and manager decisions use semantic idempotency keys; case revision + row lock + one-decision-per-case uniqueness reject stale/concurrent second decisions. Activation/removal, outbox event, audit row and Catalog projection share one database transaction, preventing half-published states.
 
 ## Architecture Diagram
 
@@ -150,12 +155,13 @@ flowchart TB
   S[(Транзакційне сховище)]
   F[(Приватне файлове сховище)]
   UI --> ID & CT & CM & LB & RV & PB & RW
-  PB --> W
+  PB -->|BookSubmitted| MD
   MD --> W
+  MD -->|active publication + atomic projection| CT
   CM -->|події paid_sale/refund| RW
   PB -->|update fee| RW
   RV --> LB
-  CT --> PB
+  CT -.->|public read model only| UI
   W --> F
   Ядро --> S
   ID -.-> G[Google OAuth]
@@ -246,11 +252,19 @@ flowchart TB
 
 ### AD-11 Public catalog projection isolates browse reads from private publishing state
 
-- Decision: S-01/S-02 читають із PostgreSQL projection tables owned by `catalog`; `BookCatalogReadModel`, `BookPageReadModel`, `CatalogQuery` and `PricePresentation` are additive public contracts. The projection stores integer-kopiyka prices, half-open Discount windows and only public Author fields. UNIT-02 bootstrap data enters only through an explicitly acknowledged, production-rejected deterministic seed; later publication/moderation units update the same boundary rather than writing catalog tables ad hoc.
-- Source References: FR-CAT-1..4; NFR-3; UNIT-02 `CatalogQuery`/repository/migration contracts and canonical evidence at `a441ab415d2818872599f01efae856acebf75b42`.
+- Decision: S-01/S-02 читають із PostgreSQL projection tables owned by `catalog`; `BookCatalogReadModel`, `BookPageReadModel`, `CatalogQuery` and `PricePresentation` are additive public contracts. The projection stores integer-kopiyka prices, half-open Discount windows and only public Author fields. UNIT-02 bootstrap data enters only through an explicitly acknowledged, production-rejected deterministic seed; UNIT-04 publication transactions update the same boundary with `source_book_version_id`, `source_event_id` and `projection_revision`.
+- Source References: FR-CAT-1..4; NFR-3; UNIT-02 catalog contracts; migration `0005_moderation_publication`; `modules/moderation/server/service.ts`.
 - Alternatives Considered: query private publishing/identity tables directly from SSR; client-side fixture catalog; expose one broad Book aggregate to every surface.
 - Why This Direction: public discovery needs stable, indexable, privacy-minimized reads while publishing versions and moderation state evolve independently. The bounded projection keeps unavailable/private fields out by construction and makes search/filter/sort/pagination behavior reproducible.
-- Consequences: catalog publication is eventually driven by an explicit versioned publisher/event boundary; projection lag must be observable; read DTO changes are additive; fixture seed is never a production publication path.
+- Consequences: activation and FR-LIC-4 removal update publication state and the Catalog row atomically; unavailable Books disappear from browse/search while their stable S-02 response remains; read DTO changes are additive; fixture seed is never a production publication path.
+
+### AD-12 Separate active publication pointer with append-only moderation evidence
+
+- Decision: immutable `publishing_book_versions` remain submitted artifacts; `book_publications` alone names the active public version and availability. Screening runs, ReasonCategory copy versions, Manager decisions and publication audit events are append-only; only case/aggregate lifecycle projections advance.
+- Source References: FR-MOD-1..5, FR-LIC-4, FR-CAT-3; migration `0004_publishing_pipeline`; migration `0005_moderation_publication`; `modules/moderation/server/service.ts`.
+- Alternatives Considered: mutate `book_version.status`; infer the active version from the latest row; store only the current screening/decision; update Catalog in a later best-effort job.
+- Why This Direction: immutable submitted artifacts preserve exact reviewed bytes, while one explicit pointer prevents two active versions. Append-only evidence keeps AI/Manager actions auditable, and one transaction prevents publication/Catalog divergence.
+- Consequences: Book approval/rejection/removal is revision-checked and idempotent; public Cover delivery follows the pointer; internal signals stay manager-only. UNIT-04 BookUpdate/Review handling proves decision/event contracts only—their producers and downstream application remain with the owning later units.
 
 ## Risks And Mitigations
 
@@ -262,6 +276,8 @@ flowchart TB
 | Помилки в ручних виплатах | FR-PYT | Лідж як єдине джерело сум; payout-рядки — похідні; аудит-слід підтверджень |
 | Витік ПД через звіти | FR-REW-6, NFR-3 | Сепарація доменів даних; звіти автора будуються без полів покупця |
 | Розбіжність локально перевіреного OAuth adapter contract із production app/redirect registration | FR-AUTH-1, NFR-3 | Loopback protocol simulator + негативні OIDC-вектори в CI; credentialed Google/Facebook consent smoke є обовʼязковим activation gate |
+| Недоступність ШІ або накопичення Ризикових випадків | FR-MOD-1/2; project-context розд. 13 | provider errors persist as safe-fail screening runs; queue remains actionable in S-18; no outage path auto-publishes |
+| Подвійне/застаріле рішення або розбіжність publication/Catalog | FR-MOD-2/3, FR-LIC-4 | case revision + row lock + unique decision/idempotency keys; active pointer, audit and Catalog projection change in one transaction |
 
 ## Out Of Scope
 
@@ -272,5 +288,5 @@ flowchart TB
 - OQ-AR1 closed: TypeScript + Next.js/React web + separate Node worker in one modular-monolith repository (AD-6).
 - OQ-AR2 closed: PostgreSQL with transactional ledger/outbox/jobs and integer-kopiyka money (AD-7).
 - OQ-AR3 closed by UNIT-03: Calibre `9.11.0` through `calibre-legacy-mobi-v1` produced validated EPUB (`epub-container.v1`) and legacy MOBI (`legacy-mobi-header.v1`) from representative DOCX/TXT/bounded Google Docs fixtures, including inline Illustrations where applicable; canonical proof is `forge/runs/UNIT-03/20260722T151115Z-6fb52daf3ff1/run.json`.
-- OQ-AR4. Production email and ШІ-модерація providers remain adapter selections; local fake contracts are mandatory, provider choice is not an architecture blocker.
+- OQ-AR4. Production email and ШІ-модерація providers remain adapter selections. The explicit unavailable adapter safely routes to S-18 until configured; deterministic fakes are test-only, and provider choice is not an architecture blocker.
 - OQ-AR5 closed at topology level: web + worker + scheduler + managed PostgreSQL + private object storage; vendor choice remains operational and replaceable.

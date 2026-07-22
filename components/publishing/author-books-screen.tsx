@@ -2,11 +2,12 @@ import { BookOpenText, Plus } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
 import Link from "next/link";
 
-import { AuroraStatusBadge, type AuroraStatusTone } from "../aurora";
+import { AuroraStatusBadge } from "../aurora";
 import type { AuthorBookListItem } from "../../modules/publishing/types";
 import { createDraftAction } from "../../app/author/publish/actions";
 
 import { AuthorShell } from "./author-shell";
+import { authorBookStatusPresentation } from "./book-status";
 import { PublishingSubmitButton } from "./publishing-submit-button";
 import { publishingDraftResumeHref } from "./resume-href";
 import styles from "./publishing.module.css";
@@ -16,18 +17,6 @@ interface AuthorBooksScreenProps {
   readonly csrfToken: string;
   readonly error?: string;
   readonly submitted?: boolean;
-}
-
-function effectiveStatus(book: AuthorBookListItem): { readonly label: string; readonly tone: AuroraStatusTone } {
-  if (book.status === "draft") {
-    if (book.draftStatus === "converting") return { label: "Конвертується", tone: "info" };
-    if (book.draftStatus === "conversion_failed") return { label: "Потрібна увага", tone: "error" };
-    return { label: "Чернетка", tone: "info" };
-  }
-  if (book.status === "submitted") return { label: "На модерації", tone: "info" };
-  if (book.status === "manual_review") return { label: "На ручній перевірці", tone: "warning" };
-  if (book.status === "rejected") return { label: "Відхилено", tone: "error" };
-  return { label: "Опубліковано", tone: "success" };
 }
 
 function NewBookForm({ csrfToken }: { readonly csrfToken: string }) {
@@ -64,7 +53,7 @@ export function AuthorBooksScreen({ books, csrfToken, error, submitted }: Author
       ) : (
         <section aria-label="Книжки автора" className={[styles.panel, styles.bookList].join(" ")}>
           {books.map((book) => {
-            const status = effectiveStatus(book);
+            const status = authorBookStatusPresentation(book.status, book.draftStatus);
             const resumeHref = publishingDraftResumeHref(book);
             return (
               <article className={styles.bookRow} key={book.id}>
@@ -83,7 +72,7 @@ export function AuthorBooksScreen({ books, csrfToken, error, submitted }: Author
                   {resumeHref ? (
                     <Link className={styles.secondaryLink} href={resumeHref}>Продовжити</Link>
                   ) : (
-                    <span className={styles.salesMeta}>{book.salesCount === null ? "Очікує наступного етапу" : `${book.salesCount} продажів`}</span>
+                    <Link className={styles.secondaryLink} href={`/author/books/${encodeURIComponent(book.id)}`}>Керувати</Link>
                   )}
                 </div>
               </article>

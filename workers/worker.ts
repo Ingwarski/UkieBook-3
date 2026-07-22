@@ -13,6 +13,10 @@ import { readServerEnvironment } from "../modules/platform/environment/runtime";
 import { readRuntimeIdentity } from "../modules/platform/runtime-identity";
 import { PLATFORM_SCHEMA_REVISION } from "../modules/platform/schema-revision";
 import type { SqlDatabase } from "../modules/platform/sql-port";
+import { UnavailableAiModerationAdapter } from "../modules/moderation/adapter";
+import { MODERATION_JOB_TYPE } from "../modules/moderation/types";
+import { relayBookSubmittedEvents } from "../modules/moderation/server/service";
+import { createModerationScreeningHandler } from "../modules/moderation/server/worker";
 import { createPublishingConversionHandler } from "../modules/publishing/server/conversion-worker";
 import { LocalPrivateObjectStorage } from "../modules/publishing/storage/private-object-storage";
 import path from "node:path";
@@ -39,6 +43,7 @@ export interface WorkerOptions {
   readonly leaseSeconds?: number;
   readonly retryDelayMs?: number;
   readonly signal?: AbortSignal;
+  readonly beforePoll?: () => Promise<void>;
 }
 
 function wait(milliseconds: number, signal?: AbortSignal): Promise<void> {
@@ -174,6 +179,7 @@ export async function runWorkerOnce(
 
 export async function runWorker(options: WorkerOptions): Promise<void> {
   while (!options.signal?.aborted) {
+    await options.beforePoll?.();
     const handled = await runWorkerOnce(options);
     if (!handled) {
       await wait(options.pollIntervalMs ?? 500, options.signal);
@@ -189,6 +195,11 @@ async function main(): Promise<void> {
 
   const environment = readServerEnvironment();
   const database = openPostgresDatabase(environment.DATABASE_URL);
+  const storage = new LocalPrivateObjectStorage(
+    path.isAbsolute(environment.PRIVATE_OBJECT_ROOT)
+      ? environment.PRIVATE_OBJECT_ROOT
+      : path.resolve(process.cwd(), environment.PRIVATE_OBJECT_ROOT),
+  );
   const abortController = new AbortController();
   const stop = (): void => abortController.abort();
   process.once("SIGINT", stop);
@@ -205,12 +216,16 @@ async function main(): Promise<void> {
           ebookConvertPath:
             environment.CALIBRE_EBOOK_CONVERT_PATH ??
             "/opt/calibre/ebook-convert-not-configured",
-          storage: new LocalPrivateObjectStorage(
-            path.isAbsolute(environment.PRIVATE_OBJECT_ROOT)
-              ? environment.PRIVATE_OBJECT_ROOT
-              : path.resolve(process.cwd(), environment.PRIVATE_OBJECT_ROOT),
-          ),
+          storage,
         }),
+        [MODERATION_JOB_TYPE]: createModerationScreeningHandler({
+          adapter: new UnavailableAiModerationAdapter(),
+          database,
+          storage,
+        }),
+      },
+      beforePoll: async () => {
+        await relayBookSubmittedEvents(database, { limit: 25 });
       },
       leaseSeconds: environment.JOB_LEASE_SECONDS,
       signal: abortController.signal,

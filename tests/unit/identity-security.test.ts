@@ -16,6 +16,7 @@ import {
   verifyCsrfToken,
 } from "../../modules/identity/server/crypto";
 import {
+  assertSameOriginMutation,
   flowCookieName,
   readSessionCookie,
   sessionCookieName,
@@ -98,6 +99,27 @@ describe("UNIT-01 identity security contracts", () => {
     const csrf = csrfTokenForSession(token, secret);
     expect(verifyCsrfToken(csrf, token, secret)).toBe(true);
     expect(verifyCsrfToken(csrf, `${token}x`, secret)).toBe(false);
+  });
+
+  it("rejects cross-origin mutation headers and accepts only the configured origin", () => {
+    expect(() =>
+      assertSameOriginMutation(new Headers({ origin: appOrigin }), appOrigin),
+    ).not.toThrow();
+    expect(() =>
+      assertSameOriginMutation(
+        new Headers({ referer: `${appOrigin}/admin/moderation` }),
+        appOrigin,
+      ),
+    ).not.toThrow();
+    expect(() =>
+      assertSameOriginMutation(
+        new Headers({ origin: "https://attacker.invalid" }),
+        appOrigin,
+      ),
+    ).toThrow(/Cross-origin mutation rejected/u);
+    expect(() =>
+      assertSameOriginMutation(new Headers(), appOrigin),
+    ).toThrow(/origin is missing or invalid/u);
   });
 
   it("uses host-prefixed cookies whenever HTTPS makes the prefix enforceable", () => {

@@ -11,6 +11,7 @@ import { platformFoundationMigration } from "../../db/migrations/0001_platform_f
 import { identitySessionsAuthorProfileMigration } from "../../db/migrations/0002_identity_sessions_author_profile";
 import { catalogReadModelMigration } from "../../db/migrations/0003_catalog_read_model";
 import { publishingPipelineMigration } from "../../db/migrations/0004_publishing_pipeline";
+import { moderationPublicationMigration } from "../../db/migrations/0005_moderation_publication";
 import { adaptPGlite } from "../../db/pglite";
 import type { SqlDatabase } from "../../db/query";
 import {
@@ -42,9 +43,10 @@ describe("UNIT-00 PostgreSQL foundation", () => {
       { id: "0002_identity_sessions_author_profile", direction: "up" },
       { id: "0003_catalog_read_model", direction: "up" },
       { id: "0004_publishing_pipeline", direction: "up" },
+      { id: "0005_moderation_publication", direction: "up" },
     ]);
     await expect(applyMigrations(database)).resolves.toEqual([]);
-    await expect(listAppliedMigrations(database)).resolves.toHaveLength(4);
+    await expect(listAppliedMigrations(database)).resolves.toHaveLength(5);
 
     const tables = await database.query<{ table_name: string }>(`
       SELECT table_name
@@ -58,6 +60,10 @@ describe("UNIT-00 PostgreSQL foundation", () => {
       "outbox_events",
     ]);
 
+    await expect(rollbackLatestMigration(database)).resolves.toEqual({
+      id: "0005_moderation_publication",
+      direction: "down",
+    });
     await expect(rollbackLatestMigration(database)).resolves.toEqual({
       id: "0004_publishing_pipeline",
       direction: "down",
@@ -88,6 +94,7 @@ describe("UNIT-00 PostgreSQL foundation", () => {
       { id: "0002_identity_sessions_author_profile", direction: "up" },
       { id: "0003_catalog_read_model", direction: "up" },
       { id: "0004_publishing_pipeline", direction: "up" },
+      { id: "0005_moderation_publication", direction: "up" },
     ]);
 
     await expect(
@@ -96,6 +103,7 @@ describe("UNIT-00 PostgreSQL foundation", () => {
         identitySessionsAuthorProfileMigration,
         catalogReadModelMigration,
         publishingPipelineMigration,
+        moderationPublicationMigration,
       ]),
     ).rejects.toThrow(/checksum does not match/i);
   });

@@ -1,10 +1,11 @@
 # Project Context: UkieBook
 
 - Статус: `validated`
-- Версія: 1.2
+- Версія: 1.3
 - Власник: `to-project-context`
 - Coupled output set: `docs/project-context.md`, `docs/canonical-terms.md`
 - Джерела pipeline mode: `docs/product-idea.md`, `docs/prd.md`, явні рішення оператора про фінальний дизайн і scoped correction 2026-07-22, незалежні факти файлової системи. Низхідні SDD-артефакти не використовувалися як upstream truth.
+- Standalone reconciliation 2026-07-22: coupled bundle повторно валідовано після явного UNIT-04 contract оператора; продуктову поведінку тут не переозначено, а нову закриту лексику модерації внесено лише до `docs/canonical-terms.md`.
 
 ## 1. Product Summary
 
@@ -103,3 +104,4 @@ UkieBook — українська платформа самопублікаці�
 - `docs/prd.md` v1.2, SHA-256 `e8a3fad29c1d7b485ec55bd95f92764048de64fda4a08c5275fb349e9b079671`, створений власником `to-prd` із того самого product-intent source set.
 - Явне рішення оператора від 2026-07-21: `/Users/ingwar/Documents/UkieBook 3/forge/design` — фінальний мокап, який має бути використаний 1:1 з додаванням потрібної функціональності.
 - Явна scoped correction оператора від 2026-07-22: формула 35/65 і manager-only 29+6, точний новий hero-підпис, квадратні Обкладинки, сім унікальних baked-artwork covers, повністю видимий shelf і прозорий SVG-логотип.
+- Явний UNIT-04 contract оператора від 2026-07-22: закриті `ReasonCategory` і підстави дострокового прибирання, manager-only внутрішні сигнали ШІ, safe auto-publication лише для clear-висновку, provider-outage safe-fail до Ручної перевірки та публічна Обкладинка лише через активну публікацію.
