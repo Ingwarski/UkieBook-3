@@ -1,0 +1,33 @@
+name: unit03-e2e
+command: npm run test:unit03:e2e -- --trace=off
+implementation_revision: 6fb52daf3ff11630454c13a76adfd7875c749e8f
+started_at: 2026-07-22T15:12:02.283Z
+finished_at: 2026-07-22T15:12:38.150Z
+exit_code: 0
+signal: none
+
+[stdout]
+
+> ukiebook-3@0.1.0 test:unit03:e2e
+> playwright test --config playwright.unit03.e2e.config.ts --trace=off
+
+
+Running 3 tests using 1 worker
+
+  ✓  1 [chromium] › tests/e2e-unit03/publishing-flow.spec.ts:33:1 › Author completes S-10 → S-11 → S-12 → separate confirmations → submitted (14.0s)
+  ✓  2 [chromium] › tests/e2e-unit03/publishing-flow.spec.ts:168:1 › unsupported and broken uploads recover inline without losing the draft (1.3s)
+  ✓  3 [chromium] › tests/e2e-unit03/publishing-flow.spec.ts:221:1 › S-12 conversion failure is announced, retries, and preserves the same draft (17.9s)
+
+  3 passed (35.4s)
+
+[stderr]
+[WebServer] (node:53309) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:53337) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:53338) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:53352) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+(node:53360) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)

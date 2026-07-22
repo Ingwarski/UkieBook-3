@@ -1,0 +1,16 @@
+name: real-postgres-unit03
+command: npm run verify:unit03:postgres
+implementation_revision: 6fb52daf3ff11630454c13a76adfd7875c749e8f
+started_at: 2026-07-22T15:11:50.576Z
+finished_at: 2026-07-22T15:12:01.677Z
+exit_code: 0
+signal: none
+
+[stdout]
+
+> ukiebook-3@0.1.0 verify:unit03:postgres
+> tsx --conditions=react-server scripts/verify-unit03-postgres.ts
+
+{"conversion_error_recovery":"passed","conversion_error_retry":"passed","conversion_sources":[{"epub_validator":"epub-container.v1","expected_inline_illustrations":1,"meaning_hash":"1c3a40f6f8e4bc9c19dab20e27e97d5eb2e028f453b0aa84191103ffb35fffd1","mobi_validator":"legacy-mobi-header.v1","source":"docx","source_content_hash":"2bee5b7d829ab72a2bade614b662e233724dae6e1d9ea0009d2c472a6809d816","source_kind":"docx"},{"epub_validator":"epub-container.v1","expected_inline_illustrations":0,"meaning_hash":"86feea25a4c71b8fc5829e5e43dbdf404274a730c041940e73bc2265ad646858","mobi_validator":"legacy-mobi-header.v1","source":"txt","source_content_hash":"cdfeeb01790dc5170cc0e04fbaa8d4b7e95e1797ab6cb614bfbbbd46aca98607","source_kind":"txt"},{"epub_validator":"epub-container.v1","expected_inline_illustrations":1,"meaning_hash":"1c3a40f6f8e4bc9c19dab20e27e97d5eb2e028f453b0aa84191103ffb35fffd1","mobi_validator":"legacy-mobi-header.v1","source":"google_docs","source_content_hash":"2bee5b7d829ab72a2bade614b662e233724dae6e1d9ea0009d2c472a6809d816","source_kind":"google-docs-export"}],"epub_validator":"epub-container.v1","immutable_book_version":"passed","inline_illustration":"passed","mobi_validator":"legacy-mobi-header.v1","private_catalog_boundary":"passed","stale_job":"passed","status":"passed"}
+
+[stderr]

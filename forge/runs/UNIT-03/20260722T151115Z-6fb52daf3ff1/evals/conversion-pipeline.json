@@ -1,0 +1,21 @@
+{
+  "covered_checks": [
+    "real DOCX, TXT, and bounded Google Docs export to valid EPUB and legacy MOBI",
+    "normalization meaning hashes and inline-illustration preservation",
+    "immutable BookVersion and declarations",
+    "stale-job, conversion failure, and successful retry with preserved manuscript",
+    "private catalog boundary"
+  ],
+  "evidence": [
+    "forge/runs/UNIT-03/20260722T151115Z-6fb52daf3ff1/evidence/commands/real-postgres-unit03.txt",
+    "forge/runs/UNIT-03/20260722T151115Z-6fb52daf3ff1/evidence/database/unit03-postgres-proof.json",
+    "forge/runs/UNIT-03/20260722T151115Z-6fb52daf3ff1/evidence/conversion/calibre-runtime.json"
+  ],
+  "gate": "conversion_pipeline",
+  "findings": [],
+  "implementation_revision": "6fb52daf3ff11630454c13a76adfd7875c749e8f",
+  "owner": "Codex / publishing and conversion",
+  "status": "passed",
+  "timestamp": "2026-07-22T15:13:09.042Z",
+  "unit": "UNIT-03"
+}

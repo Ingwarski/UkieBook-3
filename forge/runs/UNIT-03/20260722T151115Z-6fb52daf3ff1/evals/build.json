@@ -1,0 +1,15 @@
+{
+  "evidence": [
+    "forge/runs/UNIT-03/20260722T151115Z-6fb52daf3ff1/evidence/commands/dependency-tree.txt",
+    "forge/runs/UNIT-03/20260722T151115Z-6fb52daf3ff1/evidence/commands/dependency-audit.txt",
+    "forge/runs/UNIT-03/20260722T151115Z-6fb52daf3ff1/evidence/commands/build.txt",
+    "forge/runs/UNIT-03/20260722T151115Z-6fb52daf3ff1/evidence/architecture/process-runtime-identities.json"
+  ],
+  "gate": "build",
+  "findings": [],
+  "implementation_revision": "6fb52daf3ff11630454c13a76adfd7875c749e8f",
+  "owner": "Codex / publishing and conversion",
+  "status": "passed",
+  "timestamp": "2026-07-22T15:13:09.041Z",
+  "unit": "UNIT-03"
+}

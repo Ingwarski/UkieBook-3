@@ -13,6 +13,7 @@
 - `docs/guardrails.md` — authority, evidence and high-risk boundaries.
 - `forge/design/README.md` and `forge/design/candidates/operator-final-7b/v3/` immutable target artifacts — visual reference only, no runtime truth. V1/V2 remain superseded history.
 - `UkieBook-logo-transparent.svg` / `public/brand/UkieBook-logo-transparent.svg` — active official transparent-background SVG container, SHA-256 `db838dd4ad696f63cccb6aa86ab98e53dc5c6e13c1778ac340f62c5e4514617f`; raster-backed, not path-vector artwork.
+- `forge/runs/UNIT-03/20260722T151115Z-6fb52daf3ff1/run.json` — canonical completed UNIT-03 receipt at revision `6fb52daf3ff11630454c13a76adfd7875c749e8f`; S-10/S-11/S-12 through `BookSubmitted`, real EPUB+legacy MOBI conversion, private artifact boundary and scoped visual/accessibility evidence. UNIT-04 is the next executable unit.
 
 ## Implementation Strategy
 
@@ -24,7 +25,7 @@ Money is integer kopiykas; standard percentage rules are exact basis points (`29
 
 ## Codebase Map
 
-Current UNIT-00 foundation, UNIT-01 identity/profile, UNIT-02 catalog/Book Page behavior and UNIT-02-C1 correction; latest correction revision `3f77594bcb615847bdd71846374184cd2070d305`:
+Current UNIT-00 foundation, UNIT-01 identity/profile, UNIT-02 catalog/Book Page behavior, UNIT-02-C1 correction and UNIT-03 publishing/conversion slice; latest completed implementation revision `6fb52daf3ff11630454c13a76adfd7875c749e8f`:
 
 ```text
 app/
@@ -34,33 +35,36 @@ app/
   api/auth/                 Google/Facebook start, callback and logout boundaries
   login/                    S-03
   author/profile/           S-17 page and protected Server Action
-  author/books|publish/     guarded handoff routes for later owning units
+  author/books|publish/     S-10/S-11/S-12 Author wizard, preview and submitted state
+  api/author/publishing/    bounded private uploads/imports and Author-owned object reads
   admin/ library/           explicit guarded placeholders, not feature completion
   fixtures/aurora/          explicit non-product VIS-TOKENS fixture
 components/
   aurora/                   tokens and accessible visual primitives
   identity/                 S-03/S-17 Aurora extension components and pending states
   catalog/                  semantic S-01/S-02 Aurora UI, formula, header, covers and pagination
+  publishing/               Aurora Author list/wizard/preview, uploads, legal confirmations and recovery
 modules/
   platform/                 runtime identity, SQL port, transactions, outbox/jobs, env/evidence
   identity/                 OAuth adapters, crypto, repository, sessions, guards and policy
   author-profile/           public profile validation/repository/service
   payout-details/           restricted encrypted-envelope repository boundary only
   catalog/                  additive public DTO/query/price contracts, PostgreSQL repository and guarded fixtures
+  publishing/               drafts, immutable versions/declarations, converter, worker, private-storage port and service
 db/
-  migrations/               reversible checksummed PostgreSQL migrations 0001 + 0002 + 0003
+  migrations/               reversible checksummed PostgreSQL migrations 0001 + 0002 + 0003 + 0004
   postgres.ts               production adapter
   pglite.ts                 test-only adapter
 workers/
   worker.ts scheduler.ts    separate executable roles
-scripts/                    build/boundary/hygiene, OAuth simulator, UNIT-00/01/02 evidence runners
+scripts/                    build/boundary/hygiene, OAuth simulator, UNIT-00/01/02/03 evidence runners
 tests/
-  unit/ integration/ e2e/ visual/ plus UNIT-01/02 browser/visual suites
+  unit/ integration/ e2e/ visual/ plus UNIT-01/02/03 browser/visual suites
 public/brand/               active transparent-background UkieBook SVG and provider marks with provenance
 public/books/covers/final/  seven distinct realistic 2:3 baked-title production Covers
 ```
 
-The S-03/S-17 routes and identity/profile contracts above are complete only within UNIT-01; S-01/S-02 catalog behavior/read contracts are complete within UNIT-02 and their current V3 presentation within UNIT-02-C1. Guarded `/author/books`, `/author/publish`, `/admin` and `/library` pages are handoff/access-boundary placeholders; their product capabilities remain owned by UNIT-03…UNIT-08 and are not claimed as implemented. UNIT-02 deterministic catalog seed is a production-rejected bootstrap path; UNIT-03/UNIT-04 must populate the additive catalog-publisher boundary from real Book lifecycle state.
+The S-03/S-17 routes and identity/profile contracts above are complete only within UNIT-01; S-01/S-02 catalog behavior/read contracts are complete within UNIT-02 and their current V3 presentation within UNIT-02-C1. `/author/books` and `/author/publish` now implement UNIT-03 only through Author submission and `BookSubmitted`; `/admin`, `/library`, S-13/S-18 moderation/publication lifecycle and the public catalog projection remain later owning scopes. UNIT-02 deterministic catalog seed is a production-rejected bootstrap path; UNIT-04 must consume the frozen UNIT-03 event/version boundary to populate the additive catalog-publisher boundary after Manual Review and publication activation.
 
 Module imports point inward to domain contracts; UI and provider adapters may depend on domain interfaces, never the reverse. Cross-module mutation happens through commands/events, not direct table writes.
 
@@ -155,10 +159,11 @@ Module imports point inward to domain contracts; UI and provider adapters may de
 
 ### UNIT-03 — Publishing, conversion proof and Author wizard
 
+- **Execution Status:** `completed` on 2026-07-22 at implementation revision `6fb52daf3ff11630454c13a76adfd7875c749e8f`; canonical passed run `forge/runs/UNIT-03/20260722T151115Z-6fb52daf3ff1/run.json`.
 - **Purpose:** prove EPUB/MOBI engine and deliver S-10/S-11/S-12 from draft to submitted Book version.
-- **Source References:** FR-PUB-1..9, FR-LIC-1..3, US-002/003; journey Author 1–8; S-10…S-12; architecture AD-4/9 and OQ-AR3; QA ACC-02..04, UJ-01/03, ST-04, INT-02.
+- **Source References:** FR-PUB-1..9, FR-LIC-1..3, US-002/003; journey Author 1–8; S-10…S-12; architecture AD-4/9 and closed OQ-AR3; QA ACC-02..04, UJ-01/03, ST-04, INT-02.
 - **Depends On:** UNIT-00, UNIT-01; UNIT-02 read-model interface for the Сторінка книжки inside Попередній перегляд видання.
-- **Work Items:** first run a bounded converter enabler on representative DOCX/TXT/Google Docs fixtures with inline Illustrations; select/prove concrete EPUB/MOBI adapter or emit typed blocker; implement private uploads/version hashes, technical normalization, fallback Cover, free-sample selection, background conversion, draft persistence, Попередній перегляд видання/Сторінки книжки; separate rights and license confirmations; submit event returns Author to S-10/S-13.
+- **Work Items:** run the bounded converter enabler on representative DOCX/TXT/Google Docs fixtures with inline Illustrations; prove `calibre-legacy-mobi-v1` on Calibre `9.11.0`; implement bounded private uploads/imports, version hashes, technical normalization, fallback/upload Cover, sample selection bound to the completed current `PreviewArtifact`, background conversion, draft persistence, Попередній перегляд видання/Сторінки книжки; separate rights and license confirmations; emit immutable `BookVersion` and `BookSubmitted`, then return the Author to the submitted S-10 state. S-13/moderation/publication remains UNIT-04.
 - **Acceptance Checks:** both formats validate on fixtures; technical cleanup never rewrites meaning; conversion failure preserves draft and reports recovery; Попередній перегляд видання covers all FR-PUB-6 zones; submission blocked unless both confirmations are true; Author never enters S-18.
 - **Verification:** `conversion_pipeline`, `journey_author_e2e` through submission, ACC-02..04, ST-04, WF-03/04, INT-02, storage authorization tests.
 - **Delivery Layer:** full-stack.
@@ -176,6 +181,7 @@ Module imports point inward to domain contracts; UI and provider adapters may de
 - **Interface Owner:** `publishing`.
 - **Compatibility Expectations:** converter input/output adapters are replaceable; BookVersion immutable; events schema-versioned.
 - **Integration Verification:** upload→job→artifacts→Попередній перегляд видання→two confirmations→submitted state.
+- **Completion Evidence:** Calibre `9.11.0` with `epub-container.v1` and `legacy-mobi-header.v1` validators produced real EPUB and legacy MOBI from DOCX/TXT/bounded Google Docs; DOCX/Google Docs inline Illustrations and meaning hashes were preserved. Dedicated PostgreSQL `ukiebook_unit03` proved migration `0004`, private local storage through `PrivateObjectStorage`, immutable `BookVersion`, separate declarations, one `BookSubmitted`, stale-job protection and conversion failure/retry without draft loss. All bounded-body, repository, build/typecheck/lint and audit gates passed; Vitest recorded 105 passed/2 skipped, E2E 3/3, and the Aurora Author extension recorded 30 screenshots plus 7 accessibility receipts with no blocking findings. The receipt does not claim production S3 deployment, Manual Review, moderation decisions, publication activation or public catalog projection.
 
 ### UNIT-04 — Manual Review and Book lifecycle
 
@@ -371,7 +377,7 @@ flowchart LR
   U09 --> U10[UNIT-10 Release]
 ```
 
-UNIT-00, UNIT-01, UNIT-02 and correction UNIT-02-C1 are complete. The next executable unit is UNIT-03: S-10/S-11/S-12 publishing wizard, bounded DOCX/TXT/Google Docs conversion proof, EPUB/MOBI artifacts, draft/Cover/sample/preview, separate rights/license confirmations and submission. UNIT-03 consumes the frozen UNIT-01 identity, additive UNIT-02 `BookPageReadModel` shape and V3 shared visual contract; UNIT-05 is also dependency-ready against UNIT-01/02-C1 but remains later in the approved value order. No financial consumer begins against an unversioned `PaidSale`/`RefundApproved` event. UNIT-09 is a convergence unit, not a substitute for per-unit UX evidence.
+UNIT-00, UNIT-01, UNIT-02, correction UNIT-02-C1 and UNIT-03 are complete within their recorded scopes. The next executable unit is UNIT-04: consume `BookSubmitted`, deliver S-13/S-18 Manual Review and Book lifecycle, produce audited moderation decisions, activate publication and update the bounded public catalog projection. UNIT-03 freezes the immutable version/event and Aurora Author contracts that UNIT-04 consumes; UNIT-05 is also dependency-ready against UNIT-01/02-C1 but remains later in the approved value order. No financial consumer begins against an unversioned `PaidSale`/`RefundApproved` event. UNIT-09 is a convergence unit, not a substitute for per-unit UX evidence.
 
 ## Verification Plan
 
@@ -379,6 +385,7 @@ UNIT-00, UNIT-01, UNIT-02 and correction UNIT-02-C1 are complete. The next execu
 - For UNIT-00 foundation changes, `REAL_DATABASE_URL=<ephemeral-postgres-url> npm run verify:unit00` is the canonical bundle-producing rerun and must target real PostgreSQL.
 - For UNIT-01 identity/profile changes, `REAL_DATABASE_URL=postgres://<credentials>@127.0.0.1:<port>/ukiebook_unit01 npm run verify:unit01` is the canonical bundle-producing rerun; the runner rejects a dirty tree, non-loopback host or different database name and includes real PostgreSQL, E2E, responsive/contrast and secret-evidence gates.
 - For UNIT-02/C1 catalog presentation changes, the UNIT-02 verifier must bind the V3 bundle/tree/VQA hashes, revision and external-browser visual inspection in `forge/runs/UNIT-02-C1/20260722T115720Z-338d4450e107/run.json`; old V2 receipts never satisfy the active gate.
+- For UNIT-03 publishing/converter changes, `REAL_DATABASE_URL=postgres://<credentials>@127.0.0.1:<port>/ukiebook_unit03 npm run verify:unit03` is the canonical bundle-producing rerun. It must keep the dedicated loopback database guard, Calibre `9.11.0`/adapter and both validators, migration `0004`, private-artifact/version/submission/failure-retry proofs, 3/3 Author E2E, and the 30-visual/7-accessibility receipt matrix; canonical completed evidence is `forge/runs/UNIT-03/20260722T151115Z-6fb52daf3ff1/run.json`.
 - Persist results in dod-evals format with unit, revision, timestamp, evidence and findings. A missing applicable command/result is `blocked`, never passed by inspection.
 - Money tests use integer fixtures, discount boundaries, duplicate/out-of-order events, Refund compensation, threshold/carry, update fee and Founder cases.
 - Conversion tests use representative DOCX/TXT/Google Docs fixtures with headings, Unicode Ukrainian text and inline Illustrations; EPUB/MOBI validators are external evidence.
@@ -398,7 +405,7 @@ UNIT-00, UNIT-01, UNIT-02 and correction UNIT-02-C1 are complete. The next execu
 
 ## Risks And Sequencing Notes
 
-- **MOBI:** UNIT-03 begins with proof; inability to produce valid MOBI blocks publishing and triggers an upstream product decision, not a silent EPUB-only release.
+- **MOBI:** UNIT-03 closed the engine enabler with pinned Calibre `9.11.0`, `calibre-legacy-mobi-v1` and `legacy-mobi-header.v1` proof. Any converter/runtime change must rerun the representative fixtures; inability to reproduce valid legacy MOBI blocks the affected publishing change and never silently degrades to EPUB-only.
 - **Financial formula:** implement operator-confirmed exact-bps rule `2900+600+6500=10000`, expose `3500/6500` publicly and `2900/600/6500` only to managers; legal/accounting change requires upstream SDD regeneration and migration plan.
 - **mono:** provider docs/signature/tariffs must be refreshed just in time; sandbox behavior does not prove production commercial terms.
 - **OAuth activation:** local production adapters, negative OIDC vectors and browser flows are proven, but real registered redirect/consent behavior must be smoked with credentialed Google/Facebook pre-production apps before enabling either provider in production.
@@ -430,7 +437,7 @@ Internal reader, fixed-layout books, native apps, subscriptions/bundles/promocod
 
 ## Open Questions
 
-- OQ-DP1. Concrete MOBI engine is resolved by UNIT-03 proof evidence; this is a typed implementation blocker only if all candidate adapters fail the required fixtures.
+- OQ-DP1 closed: UNIT-03 selected and proved Calibre `9.11.0` via `calibre-legacy-mobi-v1`, with `epub-container.v1` and `legacy-mobi-header.v1` receipts in `forge/runs/UNIT-03/20260722T151115Z-6fb52daf3ff1/run.json`; future adapter/runtime changes reopen only the affected regression gate, not the completed unit retroactively.
 - OQ-DP2. Production email and AI-moderation providers are selected behind existing adapters before deployment; local fakes make earlier units executable without inventing vendor commitments.
 - OQ-DP3. Hosting vendor is selected when executing UNIT-10 within the fixed web/worker/scheduler/PostgreSQL/object-storage topology.
 - Release-only external blockers remain: legal/tax review, mono current terms/tariffs and font license/provenance.

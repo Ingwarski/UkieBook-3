@@ -1,0 +1,70 @@
+name: build
+command: npm run build
+implementation_revision: 6fb52daf3ff11630454c13a76adfd7875c749e8f
+started_at: 2026-07-22T15:11:39.951Z
+finished_at: 2026-07-22T15:11:50.576Z
+exit_code: 0
+signal: none
+
+[stdout]
+
+> ukiebook-3@0.1.0 build
+> npm run build:web && npm run build:runtime && npm run verify:runtime
+
+
+> ukiebook-3@0.1.0 build:web
+> next build && node scripts/prepare-standalone.mjs && node scripts/verify-client-boundary.mjs
+
+▲ Next.js 16.2.11 (Turbopack)
+- Experiments (use with caution):
+  ✓ authInterrupts
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 2.1s
+  Running TypeScript ...
+  Finished TypeScript in 3.6s ...
+  Collecting page data using 7 workers ...
+  Generating static pages using 7 workers (0/3) ...
+✓ Generating static pages using 7 workers (3/3) in 80ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ƒ /
+├ ○ /_not-found
+├ ƒ /admin
+├ ƒ /api/auth/[provider]/callback
+├ ƒ /api/auth/[provider]/start
+├ ƒ /api/auth/logout
+├ ƒ /api/author/publishing/drafts/[draftId]/cover
+├ ƒ /api/author/publishing/drafts/[draftId]/google-docs
+├ ƒ /api/author/publishing/drafts/[draftId]/illustrations
+├ ƒ /api/author/publishing/drafts/[draftId]/manuscript
+├ ƒ /api/author/publishing/objects/[objectId]
+├ ƒ /api/health
+├ ƒ /author/books
+├ ƒ /author/profile
+├ ƒ /author/publish
+├ ƒ /author/publish/preview
+├ ƒ /books/[id]
+├ ○ /fixtures/aurora
+├ ƒ /library
+└ ƒ /login
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+
+Prepared the self-contained Next.js standalone runtime.
+Client secret boundary passed across 32 static files and 120 source files.
+
+> ukiebook-3@0.1.0 build:runtime
+> node scripts/build-runtime.mjs
+
+Built web-adjacent worker, scheduler, and migration runtimes.
+
+> ukiebook-3@0.1.0 verify:runtime
+> node scripts/verify-runtime-identities.mjs
+
+Runtime identities passed for worker, scheduler, db-migrate.
+
+[stderr]

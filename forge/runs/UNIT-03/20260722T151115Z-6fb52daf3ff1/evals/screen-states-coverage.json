@@ -1,0 +1,71 @@
+{
+  "captured_states": [
+    "s10:books-default",
+    "s10:books-submitted",
+    "s11:legal-unchecked",
+    "s11:manuscript",
+    "s12:book-desktop",
+    "s12:book-mobile",
+    "s12:book-page-mobile"
+  ],
+  "covered_functional_states": [
+    "S-11 unsupported and malformed source errors with inline recovery",
+    "S-11 Google Docs validation error with draft preservation",
+    "S-12 conversion_failed, same-draft retry, and ready preview",
+    "S-12 separate rights and five-year-license confirmations",
+    "S-12 submitted confirmation after BookSubmitted"
+  ],
+  "evidence": [
+    "forge/runs/UNIT-03/20260722T151115Z-6fb52daf3ff1/evidence/commands/unit03-e2e.txt",
+    "forge/runs/UNIT-03/20260722T151115Z-6fb52daf3ff1/evidence/commands/unit03-visual.txt",
+    "forge/runs/UNIT-03/20260722T151115Z-6fb52daf3ff1/evidence/visual/unit03-responsive-matrix.json",
+    "forge/runs/UNIT-03/20260722T151115Z-6fb52daf3ff1/evidence/visual/s10-books-default-390@2x.png",
+    "forge/runs/UNIT-03/20260722T151115Z-6fb52daf3ff1/evidence/visual/s10-books-default-430@2x.png",
+    "forge/runs/UNIT-03/20260722T151115Z-6fb52daf3ff1/evidence/visual/s10-books-default-768@2x.png",
+    "forge/runs/UNIT-03/20260722T151115Z-6fb52daf3ff1/evidence/visual/s10-books-default-1280@2x.png",
+    "forge/runs/UNIT-03/20260722T151115Z-6fb52daf3ff1/evidence/visual/s10-books-default-1440@2x.png",
+    "forge/runs/UNIT-03/20260722T151115Z-6fb52daf3ff1/evidence/visual/s11-manuscript-390@2x.png",
+    "forge/runs/UNIT-03/20260722T151115Z-6fb52daf3ff1/evidence/visual/s11-manuscript-430@2x.png",
+    "forge/runs/UNIT-03/20260722T151115Z-6fb52daf3ff1/evidence/visual/s11-manuscript-768@2x.png",
+    "forge/runs/UNIT-03/20260722T151115Z-6fb52daf3ff1/evidence/visual/s11-manuscript-1280@2x.png",
+    "forge/runs/UNIT-03/20260722T151115Z-6fb52daf3ff1/evidence/visual/s11-manuscript-1440@2x.png",
+    "forge/runs/UNIT-03/20260722T151115Z-6fb52daf3ff1/evidence/visual/s12-book-mobile-390@2x.png",
+    "forge/runs/UNIT-03/20260722T151115Z-6fb52daf3ff1/evidence/visual/s12-book-mobile-430@2x.png",
+    "forge/runs/UNIT-03/20260722T151115Z-6fb52daf3ff1/evidence/visual/s12-book-desktop-768@2x.png",
+    "forge/runs/UNIT-03/20260722T151115Z-6fb52daf3ff1/evidence/visual/s12-book-desktop-1280@2x.png",
+    "forge/runs/UNIT-03/20260722T151115Z-6fb52daf3ff1/evidence/visual/s12-book-desktop-1440@2x.png",
+    "forge/runs/UNIT-03/20260722T151115Z-6fb52daf3ff1/evidence/visual/s12-book-page-mobile-390@2x.png",
+    "forge/runs/UNIT-03/20260722T151115Z-6fb52daf3ff1/evidence/visual/s12-book-page-mobile-430@2x.png",
+    "forge/runs/UNIT-03/20260722T151115Z-6fb52daf3ff1/evidence/visual/s12-book-page-mobile-768@2x.png",
+    "forge/runs/UNIT-03/20260722T151115Z-6fb52daf3ff1/evidence/visual/s12-book-page-mobile-1280@2x.png",
+    "forge/runs/UNIT-03/20260722T151115Z-6fb52daf3ff1/evidence/visual/s12-book-page-mobile-1440@2x.png",
+    "forge/runs/UNIT-03/20260722T151115Z-6fb52daf3ff1/evidence/visual/s11-legal-unchecked-390@2x.png",
+    "forge/runs/UNIT-03/20260722T151115Z-6fb52daf3ff1/evidence/visual/s11-legal-unchecked-430@2x.png",
+    "forge/runs/UNIT-03/20260722T151115Z-6fb52daf3ff1/evidence/visual/s11-legal-unchecked-768@2x.png",
+    "forge/runs/UNIT-03/20260722T151115Z-6fb52daf3ff1/evidence/visual/s11-legal-unchecked-1280@2x.png",
+    "forge/runs/UNIT-03/20260722T151115Z-6fb52daf3ff1/evidence/visual/s11-legal-unchecked-1440@2x.png",
+    "forge/runs/UNIT-03/20260722T151115Z-6fb52daf3ff1/evidence/visual/s10-books-submitted-390@2x.png",
+    "forge/runs/UNIT-03/20260722T151115Z-6fb52daf3ff1/evidence/visual/s10-books-submitted-430@2x.png",
+    "forge/runs/UNIT-03/20260722T151115Z-6fb52daf3ff1/evidence/visual/s10-books-submitted-768@2x.png",
+    "forge/runs/UNIT-03/20260722T151115Z-6fb52daf3ff1/evidence/visual/s10-books-submitted-1280@2x.png",
+    "forge/runs/UNIT-03/20260722T151115Z-6fb52daf3ff1/evidence/visual/s10-books-submitted-1440@2x.png"
+  ],
+  "expected_receipts": 30,
+  "gate": "screen_states_coverage",
+  "not_claimed": [
+    "UNIT-04 Manager moderation and rejected states",
+    "UNIT-04 published catalog state"
+  ],
+  "receipt_count": 30,
+  "screens": [
+    "S-10",
+    "S-11",
+    "S-12"
+  ],
+  "findings": [],
+  "implementation_revision": "6fb52daf3ff11630454c13a76adfd7875c749e8f",
+  "owner": "Codex / publishing and conversion",
+  "status": "passed",
+  "timestamp": "2026-07-22T15:13:09.042Z",
+  "unit": "UNIT-03"
+}

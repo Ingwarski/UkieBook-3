@@ -1,0 +1,25 @@
+{
+  "covered_checks": [
+    "Author moves from S-10 through the six-step S-11 wizard and S-12 preview",
+    "S-12 announces conversion failure, retries the same draft to ready, preserves manuscript, cover, title, description, genre, and price, then requires sample reselection against the new preview artifact",
+    "separate rights and five-year-license confirmations gate submission",
+    "BookSubmitted persists one immutable BookVersion, two declarations, and one outbox event",
+    "Author remains denied from the Manager route"
+  ],
+  "evidence": [
+    "forge/runs/UNIT-03/20260722T151115Z-6fb52daf3ff1/evidence/commands/unit03-e2e.txt",
+    "forge/runs/UNIT-03/20260722T151115Z-6fb52daf3ff1/evidence/database/unit03-postgres-proof.json"
+  ],
+  "gate": "journey_author_e2e",
+  "not_claimed": [
+    "Manager moderation or review decisions",
+    "catalog publication or a public catalog projection"
+  ],
+  "scope_end": "author submission and BookSubmitted",
+  "findings": [],
+  "implementation_revision": "6fb52daf3ff11630454c13a76adfd7875c749e8f",
+  "owner": "Codex / publishing and conversion",
+  "status": "passed",
+  "timestamp": "2026-07-22T15:13:09.042Z",
+  "unit": "UNIT-03"
+}

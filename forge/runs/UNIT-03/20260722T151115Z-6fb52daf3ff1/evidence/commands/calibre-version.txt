@@ -1,0 +1,13 @@
+name: calibre-version
+command: [REDACTED:calibre-path] --version
+implementation_revision: 6fb52daf3ff11630454c13a76adfd7875c749e8f
+started_at: 2026-07-22T15:11:15.745Z
+finished_at: 2026-07-22T15:11:15.825Z
+exit_code: 0
+signal: none
+
+[stdout]
+ebook-convert (calibre 9.11.0)
+Created by: Kovid Goyal <kovid@kovidgoyal.net>
+
+[stderr]

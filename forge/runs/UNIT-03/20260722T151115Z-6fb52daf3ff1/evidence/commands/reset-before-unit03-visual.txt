@@ -1,0 +1,12 @@
+name: reset-before-unit03-visual
+command: npx --no-install tsx --conditions=react-server scripts/reset-unit03-test-state.ts
+implementation_revision: 6fb52daf3ff11630454c13a76adfd7875c749e8f
+started_at: 2026-07-22T15:12:38.151Z
+finished_at: 2026-07-22T15:12:38.820Z
+exit_code: 0
+signal: none
+
+[stdout]
+{"database":"ukiebook_unit03","private_object_root":"unit03-e2e-private","schema":"reset-and-migrated","status":"passed"}
+
+[stderr]

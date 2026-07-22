@@ -1,0 +1,14 @@
+{
+  "evidence": [
+    "forge/runs/UNIT-03/20260722T151115Z-6fb52daf3ff1/evidence/commands/unit-tests.txt",
+    "forge/runs/UNIT-03/20260722T151115Z-6fb52daf3ff1/evidence/commands/unit03-e2e.txt",
+    "forge/runs/UNIT-03/20260722T151115Z-6fb52daf3ff1/evidence/commands/unit03-visual.txt"
+  ],
+  "gate": "tests",
+  "findings": [],
+  "implementation_revision": "6fb52daf3ff11630454c13a76adfd7875c749e8f",
+  "owner": "Codex / publishing and conversion",
+  "status": "passed",
+  "timestamp": "2026-07-22T15:13:09.042Z",
+  "unit": "UNIT-03"
+}

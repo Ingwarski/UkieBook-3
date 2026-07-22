@@ -1,0 +1,15 @@
+name: typecheck
+command: npm run typecheck
+implementation_revision: 6fb52daf3ff11630454c13a76adfd7875c749e8f
+started_at: 2026-07-22T15:11:16.811Z
+finished_at: 2026-07-22T15:11:18.595Z
+exit_code: 0
+signal: none
+
+[stdout]
+
+> ukiebook-3@0.1.0 typecheck
+> tsc --noEmit
+
+
+[stderr]
