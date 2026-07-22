@@ -10,9 +10,10 @@ UkieBook — українська платформа самопублікаці�
 - Approved Visual Baseline: `AVB-UKIEBOOK-AURORA-7B-V2`
 - `UNIT-00` завершено на revision `f6e503b242d5a5eca59972dece1657f4d207b3e3`: Next.js/TypeScript web foundation, окремі worker/scheduler runtimes, PostgreSQL migrations + transaction/outbox/durable jobs, secret/import boundaries, Aurora tokens/primitives and automated evidence runner.
 - `UNIT-01` завершено на revision `ab030a00f213d33f62783f0287dd8e5dcfe67101`: Google/Facebook OAuth adapters, one-time flows, hashed/revocable sessions, explicit RBAC, S-03/S-17, atomic first-Author profile+role grant, protected-data separation, real PostgreSQL/browser/visual evidence, AA control contrast and measured 44px touch targets.
-- Canonical passed evidence: UNIT-00 — `forge/runs/UNIT-00/20260721T202102Z-f6e503b242d5/run.json`; UNIT-01 — `forge/runs/UNIT-01/20260721T221049Z-ab030a00f213/run.json`.
-- Наступний executable unit: `UNIT-02` — точний Aurora catalog S-01 та Book Page S-02 з реальними станами/пошуком/фільтрами.
-- Решта product journeys і S-01/S-02/S-04…S-16/S-18…S-21 ще не реалізовані; release readiness remains blocked by their owning units and external release gates. Credentialed Google/Facebook smoke окремо блокує production provider activation, але не завершеність локально доказаного UNIT-01.
+- `UNIT-02` завершено на revision `a441ab415d2818872599f01efae856acebf75b42`: exact Aurora S-01, Aurora-extension S-02, реальні Covers, PostgreSQL catalog projection, пошук/фільтри/сортування/пагінація, Discount/sample/reviews/unavailable/responsive states і 53 review-bound visual receipts.
+- Canonical passed evidence: UNIT-00 — `forge/runs/UNIT-00/20260721T202102Z-f6e503b242d5/run.json`; UNIT-01 — `forge/runs/UNIT-01/20260721T221049Z-ab030a00f213/run.json`; UNIT-02 — `forge/runs/UNIT-02/20260722T011333Z-a441ab415d28/run.json`.
+- Наступний executable unit: `UNIT-03` — S-10/S-11/S-12 publishing wizard, draft, DOCX/TXT/Google Docs import, adaptive conversion, EPUB/MOBI proof, Cover/sample/preview, rights/license confirmations and submission.
+- Решта product journeys і S-04…S-16/S-18…S-21 ще не реалізовані; release readiness remains blocked by their owning units and external release gates. Credentialed Google/Facebook smoke окремо блокує production provider activation, але не завершеність локально доказаного UNIT-01.
 
 ## Основні артефакти
 

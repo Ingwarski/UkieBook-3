@@ -1,0 +1,54 @@
+{
+  "covers": [
+    {
+      "file": "public/books/covers/khroniky-stepu.png",
+      "height": 1536,
+      "sha256": "12f01d9c69eab6346d1c5bf749563c5b40b24e1d95338e3e7f8fd3d85bb7ea73",
+      "width": 1024
+    },
+    {
+      "file": "public/books/covers/kryzhani-maky.png",
+      "height": 1536,
+      "sha256": "a6c8dbdb6901cc4f8892968884cbe27b731519ddc2e56df549faf9b12beaf4b0",
+      "width": 1024
+    },
+    {
+      "file": "public/books/covers/lysty-z-poltavy.png",
+      "height": 1536,
+      "sha256": "5a7bf8006afe5e19b00577d304d35d6bfdafcd1aae1d181b8413208661c080b0",
+      "width": 1024
+    },
+    {
+      "file": "public/books/covers/misto-na-vodi.png",
+      "height": 1536,
+      "sha256": "958f3036a9f76185395928bd2d2689b9fdc80f813b8b3a3c4ffb3580695a6233",
+      "width": 1024
+    },
+    {
+      "file": "public/books/covers/piznie-lito.png",
+      "height": 1536,
+      "sha256": "cc2edf2450bdb3c5bde270f1f046f128eaa15a1ecacab87067c7d419db3077b5",
+      "width": 1024
+    },
+    {
+      "file": "public/books/covers/sad-kamianykh-ptakhiv.png",
+      "height": 1536,
+      "sha256": "3d6ca65e05862485f17cc2560f209ce38552fd00979d077baaefdd8d8feb00dc",
+      "width": 1024
+    }
+  ],
+  "logos": [
+    {
+      "file": "public/brand/UkieBook-logo-exact.svg",
+      "sha256": "abb3acf8cfa673161e6547ca725f7b337b29185a7eb6918218f887faadc66d98",
+      "status": "passed"
+    },
+    {
+      "file": "public/brand/UkieBook-logo.jpg",
+      "sha256": "5cdd21d3ba038632528fc17a13068e3792d03a029779251cd738aaada4aa0ad3",
+      "status": "passed"
+    }
+  ],
+  "status": "passed",
+  "verified_at": "2026-07-22T01:15:36.494Z"
+}

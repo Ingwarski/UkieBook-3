@@ -1,0 +1,69 @@
+{
+  "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V2",
+  "approved_target": {
+    "baselineId": "AVB-UKIEBOOK-AURORA-7B-V2",
+    "canonicalScreenshotHash": "752774cd8814d93c2e2b47672a84f6441430c9320f06b1b348130b99b8585c4a",
+    "htmlHash": "35df0816497c1b178b9ad37b5f6331aebce4d26712581e3da4ccad73cde78462",
+    "logoHash": "5cdd21d3ba038632528fc17a13068e3792d03a029779251cd738aaada4aa0ad3",
+    "receiptHash": "e26d965e196f98a408c5ce9735acb07350175a9a3befb3f77851094910bec033",
+    "targetBundleHash": "c66b23c55e68649e67e029d47c8e69d3bef3791f8c4c6677aa0a6cef2259c51d",
+    "artifacts": {
+      "canonicalScreenshot": "output/playwright/baseline-s01-v2-1280.png",
+      "html": "forge/design/candidates/operator-final-7b/v2/ukiebook-catalog.html",
+      "logo": "UkieBook-logo.jpg",
+      "receipt": "forge/design/evidence/AVB-UKIEBOOK-AURORA-7B-V2.visual-qa.json"
+    }
+  },
+  "files": [
+    {
+      "file": "evidence/visual/comparison/unit02-design-compare-final.png",
+      "sha256": "8574b19e9cdcffa5f59a005e9b6aa4b91ab0873446892e557c6b3d0881e1c48b"
+    },
+    {
+      "file": "evidence/visual/comparison/unit02-target-final-1280.png",
+      "sha256": "c857567eeb65774a2bd5ce1cfe2f93505e5ec6c8dd0ee3dcf8ef3f4c98118e70"
+    },
+    {
+      "file": "evidence/visual/comparison/unit02-s01-final-1280.png",
+      "sha256": "85791f7a95d945868b8d14b573423338c8ba0ef53f697b9f3f74f495911c2f17"
+    },
+    {
+      "file": "evidence/visual/comparison/unit02-s02-final-1280.png",
+      "sha256": "3d0de1c5464bfabf3193c4366acb1281cf4b0ff75da344ffbbd1709c9c85fa03"
+    },
+    {
+      "file": "evidence/visual/comparison/unit02-s02-final-390.png",
+      "sha256": "4e712083d99e1a100c65479fbb78a7e00b1efb047396a7eff747d2cc18eedaad"
+    }
+  ],
+  "generated_from": {
+    "s01": {
+      "file": "forge/runs/UNIT-02/20260722T011333Z-a441ab415d28/evidence/visual/s01-default-1280@2x.png",
+      "sha256": "fa0552c8c50c9bd9a89035858eeff7d30f064680c9bc32d949d11a07f83c060a"
+    },
+    "s02Desktop": {
+      "file": "forge/runs/UNIT-02/20260722T011333Z-a441ab415d28/evidence/visual/s02-discount-1280@2x.png",
+      "sha256": "3a2079c8cdd6d10dad647d7c2168323919364615f3ec645832c40108ae1ece45"
+    },
+    "s02Mobile": {
+      "file": "forge/runs/UNIT-02/20260722T011333Z-a441ab415d28/evidence/visual/s02-discount-390@2x.png",
+      "sha256": "6fa6bb561c9e196a581e87ad3c035cd7ccbf301170ce5bf571052748bb99e094"
+    },
+    "target": {
+      "file": "output/playwright/baseline-s01-v2-1280.png",
+      "sha256": "752774cd8814d93c2e2b47672a84f6441430c9320f06b1b348130b99b8585c4a"
+    }
+  },
+  "implementation_revision": "a441ab415d2818872599f01efae856acebf75b42",
+  "review": {
+    "comparison_sha256": "8574b19e9cdcffa5f59a005e9b6aa4b91ab0873446892e557c6b3d0881e1c48b",
+    "implementation_revision": "e6b5b8f0092cf82faa2c672aa87966fb4f223f56",
+    "receipt_count": 53,
+    "receipt_digest_sha256": "265f74b3efa0cb1b01f5abd70d6f176ebdf264b4764540989bb5148b85ed65c6",
+    "design_qa": "design-qa.md",
+    "design_qa_sha256": "09c78943f1c6f3948ef6acedc7bd25032be8d79fc283173594d045e4022af332"
+  },
+  "status": "passed",
+  "target_bundle_hash": "c66b23c55e68649e67e029d47c8e69d3bef3791f8c4c6677aa0a6cef2259c51d",
+  "verified_at": "2026-07-22T01:15:36.852Z"
+}

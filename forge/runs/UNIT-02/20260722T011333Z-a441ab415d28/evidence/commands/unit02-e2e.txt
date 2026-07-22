@@ -1,0 +1,29 @@
+name: unit02-e2e
+command: npm run test:unit02:e2e -- --trace=off
+implementation_revision: a441ab415d2818872599f01efae856acebf75b42
+started_at: 2026-07-22T01:14:27.029Z
+finished_at: 2026-07-22T01:14:37.004Z
+exit_code: 0
+signal: none
+
+[stdout]
+
+> ukiebook-3@0.1.0 test:unit02:e2e
+> playwright test --config playwright.unit02.e2e.config.ts --trace=off
+
+
+Running 5 tests using 1 worker
+
+  ✓  1 [chromium] › tests/e2e-unit02/catalog-flow.spec.ts:3:1 › S-01 searches title/Author, composes filters and paginates through URL state (3.3s)
+  ✓  2 [chromium] › tests/e2e-unit02/catalog-flow.spec.ts:37:1 › S-01 links into S-02 and S-02 exposes Discount, sample and paged reviews (2.5s)
+  ✓  3 [chromium] › tests/e2e-unit02/catalog-flow.spec.ts:75:1 › S-02 distinguishes a known unavailable Book from an unknown ID (523ms)
+  ✓  4 [chromium] › tests/e2e-unit02/catalog-flow.spec.ts:86:1 › S-01 renders a constructive empty result without losing the locked shell (595ms)
+  ✓  5 [chromium] › tests/e2e-unit02/catalog-flow.spec.ts:93:1 › S-01 mobile search preserves active filters and S-02 announces no false current page (982ms)
+
+  5 passed (9.3s)
+
+[stderr]
+[WebServer] (node:16317) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+(node:16570) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)

@@ -1,0 +1,919 @@
+{
+  "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V2",
+  "console_errors": [],
+  "implementation_revision": "a441ab415d2818872599f01efae856acebf75b42",
+  "receipts": [
+    {
+      "accessibility": {
+        "coverContrasts": {
+          "result": [
+            6.838,
+            9.917,
+            10.739,
+            7.131
+          ],
+          "shelf": [
+            10.404,
+            5.864,
+            7.031,
+            6.899,
+            9.819
+          ],
+          "tile": [
+            14.826,
+            17.587,
+            16.678,
+            15.394
+          ]
+        },
+        "formulaAuthorContrast": 4.751,
+        "heroGradientContrast": 4.604,
+        "navigationContrasts": {
+          "Жанри": 4.689,
+          "Знижки": 4.862,
+          "Авторам": 5.114
+        },
+        "semanticContrast": {
+          "accentOnCanvas": 5.699035452922529,
+          "formulaPlatform": 4.821570637216124
+        },
+        "targetCount": 30
+      },
+      "geometry": {
+        "formula": {
+          "x": 70,
+          "y": 776.219,
+          "width": 1140,
+          "height": 98
+        },
+        "header": {
+          "x": 30,
+          "y": 24,
+          "width": 1220,
+          "height": 72
+        },
+        "hero": {
+          "x": 30,
+          "y": 96,
+          "width": 1220,
+          "height": 212.219
+        },
+        "shelf": {
+          "x": 30,
+          "y": 308.219,
+          "width": 1220,
+          "height": 270
+        },
+        "tiles": {
+          "x": 30,
+          "y": 578.219,
+          "width": 1220,
+          "height": 172
+        }
+      },
+      "layout": {
+        "clientWidth": 1280,
+        "scrollWidth": 1280
+      },
+      "screen": "S-01",
+      "state": "default",
+      "viewport": {
+        "height": 900,
+        "width": 1280
+      },
+      "file": "evidence/visual/s01-default-1280@2x.png",
+      "sha256": "fa0552c8c50c9bd9a89035858eeff7d30f064680c9bc32d949d11a07f83c060a"
+    },
+    {
+      "interaction": {
+        "shelfLift": -16
+      },
+      "screen": "S-01",
+      "state": "shelf-hover",
+      "viewport": {
+        "height": 900,
+        "width": 1280
+      },
+      "file": "evidence/visual/s01-shelf-hover-1280@2x.png",
+      "sha256": "6949106cdad62df118696280639b17ffb77bb6c514b9318eec38fc6837f3f764"
+    },
+    {
+      "interaction": {
+        "tileLift": -4
+      },
+      "screen": "S-01",
+      "state": "tile-hover",
+      "viewport": {
+        "height": 900,
+        "width": 1280
+      },
+      "file": "evidence/visual/s01-tile-hover-1280@2x.png",
+      "sha256": "e80ccc795c6a170eced8ea47a81a23f5d974d2c35cd776cd87790330b3a1baa7"
+    },
+    {
+      "accessibility": {
+        "focus": {
+          "color": "rgb(122, 53, 157)",
+          "style": "solid",
+          "width": 3
+        }
+      },
+      "screen": "S-01",
+      "state": "shelf-keyboard-focus",
+      "viewport": {
+        "height": 900,
+        "width": 1280
+      },
+      "file": "evidence/visual/s01-shelf-focus-1280@2x.png",
+      "sha256": "7777a59d9b4a6ae170fa605c3ff521e862e8a69f3d2370b3336d48609da0c268"
+    },
+    {
+      "accessibility": {
+        "focus": {
+          "color": "rgb(122, 53, 157)",
+          "style": "solid",
+          "width": 3
+        }
+      },
+      "screen": "S-01",
+      "state": "tile-keyboard-focus",
+      "viewport": {
+        "height": 900,
+        "width": 1280
+      },
+      "file": "evidence/visual/s01-tile-focus-1280@2x.png",
+      "sha256": "f9daf4ed4c74264db2c80ea61a5fcf5796d1fd5a2a96ee93c6b0f386c9e34422"
+    },
+    {
+      "accessibility": {
+        "disclosureFocus": {
+          "color": "rgb(122, 53, 157)",
+          "style": "solid",
+          "width": 3
+        },
+        "mobileTargetCount": 13,
+        "targetCount": 22
+      },
+      "layout": {
+        "clientWidth": 390,
+        "scrollWidth": 390
+      },
+      "screen": "S-01",
+      "state": "responsive-default",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      },
+      "file": "evidence/visual/s01-default-390@2x.png",
+      "sha256": "5d1aab1254c1bdb5b1ce8f1964a0a19fe8e62a55c785e3f318f50bb37b3220b4"
+    },
+    {
+      "accessibility": {
+        "disclosureFocus": {
+          "color": "rgb(122, 53, 157)",
+          "style": "solid",
+          "width": 3
+        },
+        "mobileTargetCount": 13,
+        "targetCount": 22
+      },
+      "layout": {
+        "clientWidth": 430,
+        "scrollWidth": 430
+      },
+      "screen": "S-01",
+      "state": "responsive-default",
+      "viewport": {
+        "height": 844,
+        "width": 430
+      },
+      "file": "evidence/visual/s01-default-430@2x.png",
+      "sha256": "e0ab4d6441357d25cb6cde0a8767f652f0719c8b0dd32666a84a0248de9b368a"
+    },
+    {
+      "accessibility": {
+        "targetCount": 22
+      },
+      "layout": {
+        "clientWidth": 768,
+        "scrollWidth": 768
+      },
+      "screen": "S-01",
+      "state": "responsive-default",
+      "viewport": {
+        "height": 900,
+        "width": 768
+      },
+      "file": "evidence/visual/s01-default-768@2x.png",
+      "sha256": "3d7d95ae0f7638e1ba0afcdd10f74206e2702a59b685596e6f47dbcaa757f13d"
+    },
+    {
+      "accessibility": {
+        "targetCount": 30
+      },
+      "layout": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440
+      },
+      "screen": "S-01",
+      "state": "responsive-default",
+      "viewport": {
+        "height": 900,
+        "width": 1440
+      },
+      "file": "evidence/visual/s01-default-1440@2x.png",
+      "sha256": "55a9aef1fc2f55fa3cd0e142368103b9628f4273aa737d44e9201aa217c9f543"
+    },
+    {
+      "accessibility": {
+        "motion": {
+          "animationDuration": "1e-05s",
+          "transitionDuration": "1e-05s"
+        }
+      },
+      "screen": "S-01",
+      "state": "prefers-reduced-motion",
+      "viewport": {
+        "height": 900,
+        "width": 1280
+      },
+      "file": "evidence/visual/s01-reduced-motion-1280@2x.png",
+      "sha256": "fa0552c8c50c9bd9a89035858eeff7d30f064680c9bc32d949d11a07f83c060a"
+    },
+    {
+      "accessibility": {
+        "resetContrast": 6.029
+      },
+      "layout": {
+        "clientWidth": 390,
+        "scrollWidth": 390
+      },
+      "screen": "S-01",
+      "state": "empty",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      },
+      "file": "evidence/visual/s01-empty-390@2x.png",
+      "sha256": "933a3e8e7003e834fd78336526145765228510b87cfa90db0f9bf3e159d322a7"
+    },
+    {
+      "accessibility": {
+        "resetContrast": 5.699
+      },
+      "layout": {
+        "clientWidth": 390,
+        "scrollWidth": 390
+      },
+      "screen": "S-01",
+      "state": "discount",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      },
+      "file": "evidence/visual/s01-discount-390@2x.png",
+      "sha256": "b985c122a70f9a3b99d00bd30d4c890439dd9c97cc94d3aa0335816297ab3f11"
+    },
+    {
+      "accessibility": {
+        "resetContrast": 5.699
+      },
+      "layout": {
+        "clientWidth": 390,
+        "scrollWidth": 390
+      },
+      "screen": "S-01",
+      "state": "query",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      },
+      "file": "evidence/visual/s01-query-390@2x.png",
+      "sha256": "1af73cbbaa41abe90a8990c28226f163f4c7807dcffceaf3f8608e42b4445845"
+    },
+    {
+      "accessibility": {},
+      "layout": {
+        "clientWidth": 390,
+        "scrollWidth": 390
+      },
+      "screen": "S-01",
+      "state": "long-results",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      },
+      "file": "evidence/visual/s01-long-results-390@2x.png",
+      "sha256": "1752bfb802245d7ddd57b73a82a68122be5e1c1c45dc7af09133b1fb4763ac15"
+    },
+    {
+      "accessibility": {},
+      "layout": {
+        "clientWidth": 430,
+        "scrollWidth": 430
+      },
+      "screen": "S-01",
+      "state": "empty",
+      "viewport": {
+        "height": 844,
+        "width": 430
+      },
+      "file": "evidence/visual/s01-empty-430@2x.png",
+      "sha256": "6eafafd7e295d34a0774cd49cf1f11f1fbc5cc5017aecefc72cb5a01f6aeff43"
+    },
+    {
+      "accessibility": {},
+      "layout": {
+        "clientWidth": 430,
+        "scrollWidth": 430
+      },
+      "screen": "S-01",
+      "state": "discount",
+      "viewport": {
+        "height": 844,
+        "width": 430
+      },
+      "file": "evidence/visual/s01-discount-430@2x.png",
+      "sha256": "5d0afa97fda58e372f1f803337f66722c666b37c1d98adb75bf403a976610bf6"
+    },
+    {
+      "accessibility": {},
+      "layout": {
+        "clientWidth": 430,
+        "scrollWidth": 430
+      },
+      "screen": "S-01",
+      "state": "query",
+      "viewport": {
+        "height": 844,
+        "width": 430
+      },
+      "file": "evidence/visual/s01-query-430@2x.png",
+      "sha256": "c0594bb26be2e10ccc5ed784a38054ba1acd36183c80315a7f3c63ba7d7b2f11"
+    },
+    {
+      "accessibility": {},
+      "layout": {
+        "clientWidth": 430,
+        "scrollWidth": 430
+      },
+      "screen": "S-01",
+      "state": "long-results",
+      "viewport": {
+        "height": 844,
+        "width": 430
+      },
+      "file": "evidence/visual/s01-long-results-430@2x.png",
+      "sha256": "3d00591b1d9bdd8b60995aa475c2452bd4f31e24e4a3f6aa762db3eba5b3f56e"
+    },
+    {
+      "accessibility": {},
+      "layout": {
+        "clientWidth": 768,
+        "scrollWidth": 768
+      },
+      "screen": "S-01",
+      "state": "empty",
+      "viewport": {
+        "height": 900,
+        "width": 768
+      },
+      "file": "evidence/visual/s01-empty-768@2x.png",
+      "sha256": "7c61924e660ca3672d40ec8ee4e71f15909c7f4d959d379ec06b387674d7081b"
+    },
+    {
+      "accessibility": {},
+      "layout": {
+        "clientWidth": 768,
+        "scrollWidth": 768
+      },
+      "screen": "S-01",
+      "state": "discount",
+      "viewport": {
+        "height": 900,
+        "width": 768
+      },
+      "file": "evidence/visual/s01-discount-768@2x.png",
+      "sha256": "c1283b3318f5971acf480bc8609c3574bbda40186d4daceae728cc48db944935"
+    },
+    {
+      "accessibility": {},
+      "layout": {
+        "clientWidth": 768,
+        "scrollWidth": 768
+      },
+      "screen": "S-01",
+      "state": "query",
+      "viewport": {
+        "height": 900,
+        "width": 768
+      },
+      "file": "evidence/visual/s01-query-768@2x.png",
+      "sha256": "b2b5d060fe8aa2227497aef68e332211ab587ada5f3f19f9455b6b6ea2b43746"
+    },
+    {
+      "accessibility": {},
+      "layout": {
+        "clientWidth": 768,
+        "scrollWidth": 768
+      },
+      "screen": "S-01",
+      "state": "long-results",
+      "viewport": {
+        "height": 900,
+        "width": 768
+      },
+      "file": "evidence/visual/s01-long-results-768@2x.png",
+      "sha256": "e2708d7a7df33c438eeaa582e90098e969331f8c3afb6523edbda94aa085bc7e"
+    },
+    {
+      "accessibility": {},
+      "layout": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440
+      },
+      "screen": "S-01",
+      "state": "empty",
+      "viewport": {
+        "height": 900,
+        "width": 1440
+      },
+      "file": "evidence/visual/s01-empty-1440@2x.png",
+      "sha256": "d5f7cc30abf60bfd37cc6b8046c2e59f3fef64c66ad6172edb0089484f6f76cc"
+    },
+    {
+      "accessibility": {
+        "resetContrast": 5.427
+      },
+      "layout": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440
+      },
+      "screen": "S-01",
+      "state": "discount",
+      "viewport": {
+        "height": 900,
+        "width": 1440
+      },
+      "file": "evidence/visual/s01-discount-1440@2x.png",
+      "sha256": "00d33f820956ea344365284b910b1000773255e2daa54d5d850af2d876e86cce"
+    },
+    {
+      "accessibility": {},
+      "layout": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440
+      },
+      "screen": "S-01",
+      "state": "query",
+      "viewport": {
+        "height": 900,
+        "width": 1440
+      },
+      "file": "evidence/visual/s01-query-1440@2x.png",
+      "sha256": "188b8e2f64709394b64e0dbb9d24be2bd23170c9db7978b99e0646844d742896"
+    },
+    {
+      "accessibility": {},
+      "layout": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440
+      },
+      "screen": "S-01",
+      "state": "long-results",
+      "viewport": {
+        "height": 900,
+        "width": 1440
+      },
+      "file": "evidence/visual/s01-long-results-1440@2x.png",
+      "sha256": "5967a2ab204b8fcb27b68e0c2119b6ed24ae4edc0f36d6ec2c787778b6b5e41e"
+    },
+    {
+      "screen": "S-01",
+      "state": "loading",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      },
+      "file": "evidence/visual/s01-loading-390@2x.png",
+      "sha256": "bc69a1f75050cc8d705111eec2bc1d79c2d031af53befd1f8dc2020c8ff834f5"
+    },
+    {
+      "screen": "S-01",
+      "state": "loading",
+      "viewport": {
+        "height": 844,
+        "width": 430
+      },
+      "file": "evidence/visual/s01-loading-430@2x.png",
+      "sha256": "7ed320d9e518be3d20bdec0a9c6eada961618820553ebf2e4df9a1d3ddb8a74c"
+    },
+    {
+      "screen": "S-01",
+      "state": "loading",
+      "viewport": {
+        "height": 900,
+        "width": 768
+      },
+      "file": "evidence/visual/s01-loading-768@2x.png",
+      "sha256": "3f13203a8fd93caa9bd17354b217d0ed5c0fddc5be48b45c8c375b8bc2c5fddf"
+    },
+    {
+      "screen": "S-01",
+      "state": "loading",
+      "viewport": {
+        "height": 900,
+        "width": 1440
+      },
+      "file": "evidence/visual/s01-loading-1440@2x.png",
+      "sha256": "21b153ac0e2e41b9acfb1939b7f09ae00f9706482b229fdd5f6710565fe22663"
+    },
+    {
+      "layout": {
+        "clientWidth": 390,
+        "scrollWidth": 390
+      },
+      "screen": "S-01",
+      "state": "repository-error",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      },
+      "file": "evidence/visual/s01-error-390@2x.png",
+      "sha256": "f8064037e54d9f245aaec1968b95bccc94ad90a8180d6bc98a065879b781e5f4"
+    },
+    {
+      "layout": {
+        "clientWidth": 430,
+        "scrollWidth": 430
+      },
+      "screen": "S-01",
+      "state": "repository-error",
+      "viewport": {
+        "height": 844,
+        "width": 430
+      },
+      "file": "evidence/visual/s01-error-430@2x.png",
+      "sha256": "099ac454899f0bd6e4daed7942ed146cce82fd7c3ac38e13733de042a9925c93"
+    },
+    {
+      "layout": {
+        "clientWidth": 768,
+        "scrollWidth": 768
+      },
+      "screen": "S-01",
+      "state": "repository-error",
+      "viewport": {
+        "height": 900,
+        "width": 768
+      },
+      "file": "evidence/visual/s01-error-768@2x.png",
+      "sha256": "21215caf7a0dc9e5ce1e718d83ae8b5da60fe6ec579bfd62b228fec8ebb12d8f"
+    },
+    {
+      "layout": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440
+      },
+      "screen": "S-01",
+      "state": "repository-error",
+      "viewport": {
+        "height": 900,
+        "width": 1440
+      },
+      "file": "evidence/visual/s01-error-1440@2x.png",
+      "sha256": "e9e045dc3147efd1c838b1a3337f3f205212985619e5199d0bb5f26d5a6a41a7"
+    },
+    {
+      "accessibility": {
+        "backContrast": 5.018,
+        "detailCoverContrast": 7.11,
+        "targetCount": 9
+      },
+      "layout": {
+        "clientWidth": 390,
+        "scrollWidth": 390
+      },
+      "screen": "S-02",
+      "state": "discount",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      },
+      "file": "evidence/visual/s02-discount-390@2x.png",
+      "sha256": "6fa6bb561c9e196a581e87ad3c035cd7ccbf301170ce5bf571052748bb99e094"
+    },
+    {
+      "accessibility": {
+        "targetCount": 8
+      },
+      "layout": {
+        "clientWidth": 390,
+        "scrollWidth": 390
+      },
+      "screen": "S-02",
+      "state": "discount-inactive",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      },
+      "file": "evidence/visual/s02-discount-inactive-390@2x.png",
+      "sha256": "de6abe2074569355386c68a9ff3383e8934a6fdf608b45784c53b873da07f49f"
+    },
+    {
+      "accessibility": {
+        "disclosureFocus": {
+          "color": "rgb(122, 53, 157)",
+          "style": "solid",
+          "width": 3
+        },
+        "targetCount": 9
+      },
+      "layout": {
+        "clientWidth": 390,
+        "scrollWidth": 390
+      },
+      "screen": "S-02",
+      "state": "sample-open",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      },
+      "file": "evidence/visual/s02-sample-open-390@2x.png",
+      "sha256": "43bd214651b621aed2a2d47ba5ce29b40f8f3c0c8dab19d948dc239c7c6edb05"
+    },
+    {
+      "accessibility": {
+        "targetCount": 9
+      },
+      "layout": {
+        "clientWidth": 390,
+        "scrollWidth": 390
+      },
+      "screen": "S-02",
+      "state": "reviews-page-2",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      },
+      "file": "evidence/visual/s02-reviews-page-2-390@2x.png",
+      "sha256": "a51952bbfe283a2a2205a735276440934e555ad2c95a99dbc0b1b40163a705d3"
+    },
+    {
+      "accessibility": {
+        "targetCount": 5
+      },
+      "layout": {
+        "clientWidth": 390,
+        "scrollWidth": 390
+      },
+      "screen": "S-02",
+      "state": "unavailable",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      },
+      "file": "evidence/visual/s02-unavailable-390@2x.png",
+      "sha256": "4a3e1240b1b848fd8aec255fda00025936ae32dcffc26e74b6ce59a6ca99747e"
+    },
+    {
+      "accessibility": {
+        "backContrast": 5.564,
+        "detailCoverContrast": 7.177,
+        "targetCount": 9
+      },
+      "layout": {
+        "clientWidth": 768,
+        "scrollWidth": 768
+      },
+      "screen": "S-02",
+      "state": "discount",
+      "viewport": {
+        "height": 900,
+        "width": 768
+      },
+      "file": "evidence/visual/s02-discount-768@2x.png",
+      "sha256": "a50eeb157c727a7ac1e0404ab2a11dfd310fa6e07123da606674edc3c371dc32"
+    },
+    {
+      "accessibility": {
+        "targetCount": 8
+      },
+      "layout": {
+        "clientWidth": 768,
+        "scrollWidth": 768
+      },
+      "screen": "S-02",
+      "state": "discount-inactive",
+      "viewport": {
+        "height": 900,
+        "width": 768
+      },
+      "file": "evidence/visual/s02-discount-inactive-768@2x.png",
+      "sha256": "9a57c9739bae219eae5fef1cf1b6226cbfe89442c665d56535f40b36f366d4bb"
+    },
+    {
+      "accessibility": {
+        "disclosureFocus": {
+          "color": "rgb(122, 53, 157)",
+          "style": "solid",
+          "width": 3
+        },
+        "targetCount": 9
+      },
+      "layout": {
+        "clientWidth": 768,
+        "scrollWidth": 768
+      },
+      "screen": "S-02",
+      "state": "sample-open",
+      "viewport": {
+        "height": 900,
+        "width": 768
+      },
+      "file": "evidence/visual/s02-sample-open-768@2x.png",
+      "sha256": "ce2f5fb85e0656d8027c763bdb16c209fa8f1f4255c885c0eeaf6a32b7b34fe6"
+    },
+    {
+      "accessibility": {
+        "targetCount": 9
+      },
+      "layout": {
+        "clientWidth": 768,
+        "scrollWidth": 768
+      },
+      "screen": "S-02",
+      "state": "reviews-page-2",
+      "viewport": {
+        "height": 900,
+        "width": 768
+      },
+      "file": "evidence/visual/s02-reviews-page-2-768@2x.png",
+      "sha256": "687211031bd8ae994970ca4579b4fa7c607b2d764bdd963652d7fafbc4302fd1"
+    },
+    {
+      "accessibility": {
+        "targetCount": 5
+      },
+      "layout": {
+        "clientWidth": 768,
+        "scrollWidth": 768
+      },
+      "screen": "S-02",
+      "state": "unavailable",
+      "viewport": {
+        "height": 900,
+        "width": 768
+      },
+      "file": "evidence/visual/s02-unavailable-768@2x.png",
+      "sha256": "d521ffcda2d0038d121c945bc6fcc9d8431d203b24c4d895a5939be28e46b491"
+    },
+    {
+      "accessibility": {
+        "backContrast": 5.738,
+        "detailCoverContrast": 7.327,
+        "targetCount": 14
+      },
+      "layout": {
+        "clientWidth": 1280,
+        "scrollWidth": 1280
+      },
+      "screen": "S-02",
+      "state": "discount",
+      "viewport": {
+        "height": 900,
+        "width": 1280
+      },
+      "file": "evidence/visual/s02-discount-1280@2x.png",
+      "sha256": "3a2079c8cdd6d10dad647d7c2168323919364615f3ec645832c40108ae1ece45"
+    },
+    {
+      "accessibility": {
+        "targetCount": 13
+      },
+      "layout": {
+        "clientWidth": 1280,
+        "scrollWidth": 1280
+      },
+      "screen": "S-02",
+      "state": "discount-inactive",
+      "viewport": {
+        "height": 900,
+        "width": 1280
+      },
+      "file": "evidence/visual/s02-discount-inactive-1280@2x.png",
+      "sha256": "21a65db49de2a67aa8dbb444dc8c7c09c8df077b5008d3bb77fb7685c1fa6fc9"
+    },
+    {
+      "accessibility": {
+        "disclosureFocus": {
+          "color": "rgb(122, 53, 157)",
+          "style": "solid",
+          "width": 3
+        },
+        "targetCount": 14
+      },
+      "layout": {
+        "clientWidth": 1280,
+        "scrollWidth": 1280
+      },
+      "screen": "S-02",
+      "state": "sample-open",
+      "viewport": {
+        "height": 900,
+        "width": 1280
+      },
+      "file": "evidence/visual/s02-sample-open-1280@2x.png",
+      "sha256": "5d041bfa0ec2c49274d1f1c94b2f2d79071077050bd2ed744e141fd28f65cb3a"
+    },
+    {
+      "accessibility": {
+        "targetCount": 14
+      },
+      "layout": {
+        "clientWidth": 1280,
+        "scrollWidth": 1280
+      },
+      "screen": "S-02",
+      "state": "reviews-page-2",
+      "viewport": {
+        "height": 900,
+        "width": 1280
+      },
+      "file": "evidence/visual/s02-reviews-page-2-1280@2x.png",
+      "sha256": "4a3c240f2dc512914b8d9d3db363455e288aa684d488562560502251d233ed82"
+    },
+    {
+      "accessibility": {
+        "targetCount": 10
+      },
+      "layout": {
+        "clientWidth": 1280,
+        "scrollWidth": 1280
+      },
+      "screen": "S-02",
+      "state": "unavailable",
+      "viewport": {
+        "height": 900,
+        "width": 1280
+      },
+      "file": "evidence/visual/s02-unavailable-1280@2x.png",
+      "sha256": "a6bf98c8b5745ba2be0b1db22d085be9ce4d03a401775a2c3a6e9b7d14b9d0f9"
+    },
+    {
+      "screen": "S-02",
+      "state": "loading",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      },
+      "file": "evidence/visual/s02-loading-390@2x.png",
+      "sha256": "a4c757e22aa3c0d2fe71bc56a3ff349c792f272acadc615cfb65911904b75788"
+    },
+    {
+      "screen": "S-02",
+      "state": "loading",
+      "viewport": {
+        "height": 900,
+        "width": 768
+      },
+      "file": "evidence/visual/s02-loading-768@2x.png",
+      "sha256": "3a6d8d2abf8d91a31e5ccdc37883046766eeff12069ecbab492591d96004cc92"
+    },
+    {
+      "screen": "S-02",
+      "state": "loading",
+      "viewport": {
+        "height": 900,
+        "width": 1280
+      },
+      "file": "evidence/visual/s02-loading-1280@2x.png",
+      "sha256": "4ba79781608a3223fc260d25c2c064c5a6673870a089d37e3f0f011a66fe9a41"
+    },
+    {
+      "accessibility": {
+        "focus": {
+          "color": "rgb(122, 53, 157)",
+          "style": "solid",
+          "width": 3
+        },
+        "targetCount": 8
+      },
+      "layout": {
+        "clientWidth": 390,
+        "scrollWidth": 390
+      },
+      "screen": "S-02",
+      "state": "mobile-menu-open",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      },
+      "file": "evidence/visual/s02-menu-open-390@2x.png",
+      "sha256": "58d511ff841a76c8c18a577617b4fc406e57061d8f5d5c9897bfaf90c9768c22"
+    }
+  ],
+  "status": "passed",
+  "target_bundle_hash": "c66b23c55e68649e67e029d47c8e69d3bef3791f8c4c6677aa0a6cef2259c51d",
+  "verified_at": "2026-07-22T01:15:36.237Z"
+}

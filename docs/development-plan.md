@@ -7,7 +7,7 @@
 - `docs/canonical-terms.md` — applied roles, domain objects/actions/states, Screen/Flow Names and Terms to Avoid.
 - `docs/user-journey.md`, `docs/screen-map.md`, `docs/wireframes.md` — journey, S-01…S-21, routes/states/structure.
 - `docs/design-brief.md` — Approved Baseline `AVB-UKIEBOOK-AURORA-7B-V2`; target bundle hash `c66b23c55e68649e67e029d47c8e69d3bef3791f8c4c6677aa0a6cef2259c51d`; tree hash `8aaddd35645bd9c58c095a7182fbbbd43dd8730c5cf90b489a97597431cc6505`; permitted variance.
-- `docs/architecture.md` — AD-1…AD-10, module/data/integration/security/runtime contracts.
+- `docs/architecture.md` — AD-1…AD-11, module/data/integration/security/runtime contracts.
 - `docs/dod-evals.md` — standing DoD and reusable gates.
 - `docs/qa-checklist.md` — concrete ACC/UJ/ST/WF/UX/VIS/RES/A11Y/INT/BD checks.
 - `docs/guardrails.md` — authority, evidence and high-risk boundaries.
@@ -25,10 +25,12 @@ Money is integer kopiykas; ledger/outbox/jobs are transactional PostgreSQL recor
 
 ## Codebase Map
 
-Current UNIT-00 foundation plus UNIT-01 identity/profile slice at revision `ab030a00f213d33f62783f0287dd8e5dcfe67101`:
+Current UNIT-00 foundation, UNIT-01 identity/profile and UNIT-02 catalog/Book Page slices; latest implementation revision `a441ab415d2818872599f01efae856acebf75b42`:
 
 ```text
 app/
+  page.tsx, loading.tsx       S-01 catalog and loading state
+  books/[id]/                 S-02 Book Page, loading and not-found boundary
   api/health/               web runtime/revision health
   api/auth/                 Google/Facebook start, callback and logout boundaries
   login/                    S-03
@@ -39,24 +41,27 @@ app/
 components/
   aurora/                   tokens and accessible visual primitives
   identity/                 S-03/S-17 Aurora extension components and pending states
+  catalog/                  semantic S-01/S-02 Aurora UI, formula, header, covers and pagination
 modules/
   platform/                 runtime identity, SQL port, transactions, outbox/jobs, env/evidence
   identity/                 OAuth adapters, crypto, repository, sessions, guards and policy
   author-profile/           public profile validation/repository/service
   payout-details/           restricted encrypted-envelope repository boundary only
+  catalog/                  additive public DTO/query/price contracts, PostgreSQL repository and guarded fixtures
 db/
-  migrations/               reversible checksummed PostgreSQL migrations 0001 + 0002
+  migrations/               reversible checksummed PostgreSQL migrations 0001 + 0002 + 0003
   postgres.ts               production adapter
   pglite.ts                 test-only adapter
 workers/
   worker.ts scheduler.ts    separate executable roles
-scripts/                    build/boundary/hygiene, OAuth simulator, UNIT-00/01 evidence runners
+scripts/                    build/boundary/hygiene, OAuth simulator, UNIT-00/01/02 evidence runners
 tests/
-  unit/ integration/ e2e/ visual/ plus UNIT-01 browser/visual suites
-public/brand/               official Google sign-in mark with provenance
+  unit/ integration/ e2e/ visual/ plus UNIT-01/02 browser/visual suites
+public/brand/               official UkieBook JPG/exact SVG and Google sign-in mark with provenance
+public/books/covers/        six real 1024×1536 production catalog Covers
 ```
 
-The S-03/S-17 routes and identity/profile contracts above are complete only within UNIT-01. Guarded `/author/books`, `/author/publish`, `/admin` and `/library` pages are handoff/access-boundary placeholders; their product capabilities remain owned by UNIT-02…UNIT-08 and are not claimed as implemented.
+The S-03/S-17 routes and identity/profile contracts above are complete only within UNIT-01; S-01/S-02 and catalog read contracts are complete only within UNIT-02. Guarded `/author/books`, `/author/publish`, `/admin` and `/library` pages are handoff/access-boundary placeholders; their product capabilities remain owned by UNIT-03…UNIT-08 and are not claimed as implemented. UNIT-02 deterministic catalog seed is a production-rejected bootstrap path; UNIT-03/UNIT-04 must populate the additive catalog-publisher boundary from real Book lifecycle state.
 
 Module imports point inward to domain contracts; UI and provider adapters may depend on domain interfaces, never the reverse. Cross-module mutation happens through commands/events, not direct table writes.
 
@@ -110,12 +115,13 @@ Module imports point inward to domain contracts; UI and provider adapters may de
 
 ### UNIT-02 — Aurora public catalog and Book Page
 
+- **Execution Status:** `completed` on 2026-07-22 at implementation revision `a441ab415d2818872599f01efae856acebf75b42`; canonical passed run `forge/runs/UNIT-02/20260722T011333Z-a441ab415d28/run.json`.
 - **Purpose:** deliver production S-01 and S-02 with exact desktop baseline plus search/filter/read-model behavior and responsive states.
-- **Source References:** FR-CAT-1..4, FR-AUTH-2, US-001/004; S-01/S-02; wireframes S-01/S-02; Approved Baseline and official JPG/exact-SVG-container override; architecture AD-8; QA ACC-08, ST-01, WF-02/04, UX-03/04/07, VIS-S01-*, VIS-TOKENS, VIS-GLASS, VIS-COVER, VIS-FORMULA, VIS-BRAND-LOGO.
+- **Source References:** FR-CAT-1..4, FR-AUTH-2, US-001/004; S-01/S-02; wireframes S-01/S-02; Approved Baseline and official JPG/exact-SVG-container override; architecture AD-8/11; QA ACC-08, ST-01, WF-02/04, UX-03/04/07, VIS-S01-*, VIS-TOKENS, VIS-GLASS, VIS-COVER, VIS-FORMULA, VIS-BRAND-LOGO.
 - **Depends On:** UNIT-00. Can start with source fixtures; authenticated header integration consumes UNIT-01 when ready.
 - **Work Items:** copy both official logo files to `public/brand/`, choose either container explicitly, and create only visually identical optimized/transparent derivatives; do not treat the raster-backed SVG as a scalable vector optimization; semantic Aurora header/hero/shelf/tiles/formula; exact 1280 layout/hover; catalog repository/read model, title/Author/Genre/Discount query, pagination; Book Page with sample/reviews slot; real icons; loading/empty/error/unavailable states; deterministic responsive reflow; authenticated Library/profile affordance integration.
 - **Acceptance Checks:** S-01 1280 default/hover matches target within permitted variance; official logo identity is preserved inside the locked header geometry; header labels/copy exact; search/filter URLs/state work; Book Page includes all FR-CAT-3 content; no horizontal overflow at required viewports; semantic keyboard controls replace demo divs without visual drift.
-- **Verification:** ACC-08; ST-01; WF-02/04; UX-03/04/07; VIS-S01-1280-DEFAULT/HOVER/RESPONSIVE; VIS-AURORA-PUBLIC; VIS-TOKENS; VIS-GLASS; VIS-COVER; VIS-FORMULA; VIS-BRAND-LOGO; RES-01/02; A11Y-01/02/04/06/08; INT-04.
+- **Verification:** ACC-08; ST-01; WF-02/04; UX-03/04/07; VIS-S01-1280-DEFAULT/HOVER/RESPONSIVE; VIS-AURORA-PUBLIC; VIS-TOKENS; VIS-GLASS; VIS-COVER; VIS-FORMULA; VIS-BRAND-LOGO; RES-01/02; A11Y-01/02/04/06/08; catalog-owned cover/tile/search/Genre/Discount portion of INT-04. The Cart destination/behavior portion of INT-04 remains UNIT-05-owned and is not claimed by UNIT-02.
 - **Delivery Layer:** full-stack.
 - **Approved Baseline ID:** `AVB-UKIEBOOK-AURORA-7B-V2`.
 - **Immutable Visual Target Hash:** `c66b23c55e68649e67e029d47c8e69d3bef3791f8c4c6677aa0a6cef2259c51d`.
@@ -131,6 +137,7 @@ Module imports point inward to domain contracts; UI and provider adapters may de
 - **Interface Owner:** `catalog`.
 - **Compatibility Expectations:** read DTOs are versioned/additive; price always integer kopiykas + formatted UAH.
 - **Integration Verification:** fixture→query/filter→S-01/S-02; auth-state header; visual target comparisons.
+- **Completion Evidence:** dependency audit, typecheck/lint/source boundaries, npm audit with 0 vulnerabilities, 70 Vitest tests and production build passed; real PostgreSQL migration 0003 rollback/reapply, guarded deterministic seed, public projection/privacy/Discount invariants passed; standard E2E/visual 1/1 each, UNIT-02 E2E 5/5 and visual 10/10 passed. The 53 distinct visual receipt files have validated hashes and cover S-01 exact default/hover/focus plus responsive/states and S-02 Aurora extension states, with zero console errors and review binding to the immutable V2 target, implementation ancestor, matrix digest and `design-qa.md`. Six real 2:3 Covers and both official logo containers passed asset receipts; zero P0/P1/blocking P2 in the scoped UNIT-02 contract. Cart destination/behavior is explicitly unpassed and UNIT-05-owned; Baseline change `none`; Prototype Reuse remains `none`.
 
 ### UNIT-03 — Publishing, conversion proof and Author wizard
 
@@ -349,7 +356,7 @@ flowchart LR
   U09 --> U10[UNIT-10 Release]
 ```
 
-UNIT-00 and UNIT-01 are complete. The next executable unit is UNIT-02; after its catalog/read-model interfaces are frozen, UNIT-03 can consume both UNIT-01 and UNIT-02, while UNIT-05 can begin against UNIT-01/02. No financial consumer begins against an unversioned `PaidSale`/`RefundApproved` event. UNIT-09 is a convergence unit, not a substitute for per-unit UX evidence.
+UNIT-00, UNIT-01 and UNIT-02 are complete. The next executable unit is UNIT-03: S-10/S-11/S-12 publishing wizard, bounded DOCX/TXT/Google Docs conversion proof, EPUB/MOBI artifacts, draft/Cover/sample/preview, separate rights/license confirmations and submission. UNIT-03 consumes the frozen UNIT-01 identity and additive UNIT-02 `BookPageReadModel` shape; UNIT-05 is also dependency-ready against UNIT-01/02 but remains later in the approved value order. No financial consumer begins against an unversioned `PaidSale`/`RefundApproved` event. UNIT-09 is a convergence unit, not a substitute for per-unit UX evidence.
 
 ## Verification Plan
 
