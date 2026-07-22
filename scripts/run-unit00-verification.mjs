@@ -12,12 +12,38 @@ import { execFile } from "node:child_process";
 
 const execFileAsync = promisify(execFile);
 const repositoryRoot = process.cwd();
+const expectedDatabaseName = "ukiebook_unit00";
 const realDatabaseUrl = process.env.REAL_DATABASE_URL;
 if (!realDatabaseUrl) {
   throw new Error(
     "REAL_DATABASE_URL is required; UNIT-00 cannot pass on an emulated database",
   );
 }
+
+function requireDedicatedDatabase(databaseUrl) {
+  let parsed;
+  try {
+    parsed = new URL(databaseUrl);
+  } catch {
+    throw new Error("REAL_DATABASE_URL must be a valid PostgreSQL URL");
+  }
+  const databaseName = decodeURIComponent(parsed.pathname.replace(/^\//u, ""));
+  if (
+    parsed.search ||
+    parsed.hash ||
+    (parsed.protocol !== "postgres:" && parsed.protocol !== "postgresql:") ||
+    !new Set(["127.0.0.1", "localhost", "::1", "[::1]"]).has(parsed.hostname) ||
+    databaseName !== expectedDatabaseName ||
+    !parsed.username ||
+    !parsed.password
+  ) {
+    throw new Error(
+      `REAL_DATABASE_URL must use dedicated credentials without overrides for the exact loopback database ${expectedDatabaseName}`,
+    );
+  }
+}
+
+requireDedicatedDatabase(realDatabaseUrl);
 
 const { stdout: revisionOutput } = await execFileAsync(
   "git",

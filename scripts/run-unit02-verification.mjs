@@ -44,6 +44,9 @@ function requireDedicatedDatabase(databaseUrl) {
   } catch {
     throw new Error("REAL_DATABASE_URL must be a valid PostgreSQL URL");
   }
+  if (parsed.search || parsed.hash) {
+    throw new Error("REAL_DATABASE_URL must not contain connection override parameters");
+  }
   if (parsed.protocol !== "postgres:" && parsed.protocol !== "postgresql:") {
     throw new Error("REAL_DATABASE_URL must use postgres: or postgresql:");
   }

@@ -19,5 +19,18 @@ describe("UNIT-02 dedicated database guard", () => {
     expect(() =>
       requireDedicatedUnit02DatabaseUrl("postgresql://127.0.0.1:55435/ukiebook_unit02"),
     ).toThrow(/credentials/u);
+    for (const override of [
+      "?host=evil.example",
+      "?host=%2Fvar%2Frun%2Fpostgresql",
+      "?host=localhost&host=evil.example",
+      "?database=ukiebook_unit00",
+      "#host=evil.example",
+    ]) {
+      expect(() =>
+        requireDedicatedUnit02DatabaseUrl(
+          `postgresql://unit02:secret@127.0.0.1:55435/ukiebook_unit02${override}`,
+        ),
+      ).toThrow(/override parameters/u);
+    }
   });
 });

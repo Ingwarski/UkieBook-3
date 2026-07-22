@@ -46,6 +46,8 @@ const databaseName = decodeURIComponent(
   parsedDatabaseUrl.pathname.replace(/^\//u, ""),
 );
 if (
+  parsedDatabaseUrl.search ||
+  parsedDatabaseUrl.hash ||
   !["postgres:", "postgresql:"].includes(parsedDatabaseUrl.protocol) ||
   !LOOPBACK_HOSTS.has(parsedDatabaseUrl.hostname) ||
   databaseName !== EXPECTED_DATABASE_NAME ||

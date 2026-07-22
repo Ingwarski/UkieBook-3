@@ -8,6 +8,9 @@ export function requireDedicatedUnit02DatabaseUrl(value: string | undefined): st
   } catch {
     throw new Error("UNIT02_DATABASE_URL must be a valid PostgreSQL URL");
   }
+  if (parsed.search || parsed.hash) {
+    throw new Error("UNIT02_DATABASE_URL must not contain connection override parameters");
+  }
   if (!new Set(["postgres:", "postgresql:"]).has(parsed.protocol)) {
     throw new Error("UNIT02_DATABASE_URL must use postgres: or postgresql:");
   }

@@ -57,6 +57,8 @@ const databaseName = decodeURIComponent(
   parsedDatabaseUrl.pathname.replace(/^\//u, ""),
 );
 if (
+  parsedDatabaseUrl.search ||
+  parsedDatabaseUrl.hash ||
   !["postgres:", "postgresql:"].includes(parsedDatabaseUrl.protocol) ||
   !new Set(["127.0.0.1", "localhost", "::1", "[::1]"]).has(
     parsedDatabaseUrl.hostname,

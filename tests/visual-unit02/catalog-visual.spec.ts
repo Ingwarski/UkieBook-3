@@ -59,6 +59,42 @@ async function scrollInstantly(
     .toEqual(position);
 }
 
+async function waitForImages(
+  images: import("@playwright/test").Locator,
+  options: { readonly intersectingOnly?: boolean } = {},
+): Promise<void> {
+  const intersectingOnly = options.intersectingOnly ?? true;
+  const loaded = () =>
+    images.evaluateAll(
+      (elements, onlyIntersecting) => {
+        const relevant = elements.filter((element) => {
+          if (!onlyIntersecting) return true;
+          const box = element.getBoundingClientRect();
+          return box.right > 0 && box.left < innerWidth && box.bottom > 0 && box.top < innerHeight;
+        });
+        return relevant.every(
+          (element) => (element as HTMLImageElement).complete && (element as HTMLImageElement).naturalWidth > 0,
+        );
+      },
+      intersectingOnly,
+    );
+  await expect.poll(loaded, { timeout: 15_000 }).toBe(true);
+  await images.evaluateAll(
+    async (elements, onlyIntersecting) => {
+      const relevant = elements.filter((element) => {
+        if (!onlyIntersecting) return true;
+        const box = element.getBoundingClientRect();
+        return box.right > 0 && box.left < innerWidth && box.bottom > 0 && box.top < innerHeight;
+      });
+      await Promise.all(relevant.map((element) => (element as HTMLImageElement).decode()));
+      await new Promise<void>((resolve) => {
+        requestAnimationFrame(() => requestAnimationFrame(() => resolve()));
+      });
+    },
+    intersectingOnly,
+  );
+}
+
 async function minimumCoverCopyContrast(
   page: import("@playwright/test").Page,
   coverLink: import("@playwright/test").Locator,
@@ -427,6 +463,7 @@ async function capture(
   const outputPath = path.join(evidenceRoot, fileName);
   const fullPage = options.fullPage ?? true;
   if (fullPage) await scrollInstantly(page, { x: 0, y: 0 });
+  await waitForImages(page.locator("img"));
   await page.screenshot({
     animations: "disabled",
     fullPage,
@@ -626,6 +663,12 @@ test("S-01 keeps the locked 1280 geometry, official logo and additive hovers", a
   await expect
     .poll(() => page.evaluate(() => ({ x: window.scrollX, y: window.scrollY })))
     .toEqual({ x: 0, y: 0 });
+  await waitForImages(
+    activeMain.locator(
+      'section[aria-label="Вибір редакції"] img, section[aria-label="Популярні книжки"] img',
+    ),
+    { intersectingOnly: false },
+  );
   expect(await logo.boundingBox()).toMatchObject({ height: 26, width: 26, x: 70, y: 47 });
   await capture(
     page,

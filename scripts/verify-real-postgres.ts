@@ -25,6 +25,25 @@ const evidenceRoot = process.env.UNIT_EVIDENCE_DIR
 const implementationRevision =
   process.env.APP_REVISION ?? process.env.IMPLEMENTATION_REVISION ?? "working-tree";
 const expectedDatabaseName = "ukiebook_unit00";
+const parsedDatabaseUrl = new URL(databaseUrl);
+const databaseName = decodeURIComponent(
+  parsedDatabaseUrl.pathname.replace(/^\//u, ""),
+);
+if (
+  parsedDatabaseUrl.search ||
+  parsedDatabaseUrl.hash ||
+  !["postgres:", "postgresql:"].includes(parsedDatabaseUrl.protocol) ||
+  !new Set(["127.0.0.1", "localhost", "::1", "[::1]"]).has(
+    parsedDatabaseUrl.hostname,
+  ) ||
+  databaseName !== expectedDatabaseName ||
+  !parsedDatabaseUrl.username ||
+  !parsedDatabaseUrl.password
+) {
+  throw new Error(
+    `REAL_DATABASE_URL must use dedicated credentials without overrides for the exact loopback database ${expectedDatabaseName}`,
+  );
+}
 const database = openPostgresDatabase(databaseUrl);
 
 interface CountRow extends Record<string, unknown> {
