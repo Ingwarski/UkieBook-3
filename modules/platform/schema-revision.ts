@@ -8,5 +8,8 @@ export const IDENTITY_SESSIONS_AUTHOR_PROFILE_MIGRATION_ID =
 /** Immutable ID used by the UNIT-02 catalog read-model migration. */
 export const CATALOG_READ_MODEL_MIGRATION_ID = "0003_catalog_read_model";
 
+/** Immutable ID used by the UNIT-03 publishing migration. */
+export const PUBLISHING_PIPELINE_MIGRATION_ID = "0004_publishing_pipeline";
+
 /** Latest schema understood by every production runtime. */
-export const PLATFORM_SCHEMA_REVISION = CATALOG_READ_MODEL_MIGRATION_ID;
+export const PLATFORM_SCHEMA_REVISION = PUBLISHING_PIPELINE_MIGRATION_ID;

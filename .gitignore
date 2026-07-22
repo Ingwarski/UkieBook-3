@@ -23,6 +23,7 @@ npm-debug.log*
 *.log
 /.playwright-cli/
 /.unit00-docker/
+/.data/
 
 # temporary files
 /tmp/

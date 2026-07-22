@@ -32,10 +32,48 @@ const serverEnvironmentSchema = z.object({
   FACEBOOK_OAUTH_CLIENT_SECRET: optionalNonEmptyString(z.string().trim().min(1)),
   GOOGLE_OAUTH_CLIENT_ID: optionalNonEmptyString(z.string().trim().min(1)),
   GOOGLE_OAUTH_CLIENT_SECRET: optionalNonEmptyString(z.string().trim().min(1)),
+  GOOGLE_DOCS_EXPORT_ORIGIN: z
+    .string()
+    .trim()
+    .url()
+    .default("https://docs.google.com"),
   JOB_LEASE_SECONDS: z.coerce.number().int().positive().default(60),
   JOB_MAX_ATTEMPTS: z.coerce.number().int().min(1).max(100).default(5),
+  CALIBRE_EBOOK_CONVERT_PATH: optionalNonEmptyString(z.string().trim().min(1)),
+  PRIVATE_OBJECT_ROOT: z
+    .string()
+    .trim()
+    .min(1)
+    .default(".data/private-objects"),
+  PUBLISHING_MAX_UPLOAD_BYTES: z.coerce
+    .number()
+    .int()
+    .min(1_024)
+    .max(104_857_600)
+    .default(52_428_800),
+  PUBLISHING_PRICE_HINT_MIN_KOPIYKAS: z.coerce
+    .number()
+    .int()
+    .min(0)
+    .default(9_900),
+  PUBLISHING_PRICE_HINT_MAX_KOPIYKAS: z.coerce
+    .number()
+    .int()
+    .min(0)
+    .default(39_900),
   SCHEDULER_TICK_MS: z.coerce.number().int().min(1_000).default(60_000),
   WORKER_ID: z.string().trim().min(1).default("local-worker"),
+}).superRefine((environment, context) => {
+  if (
+    environment.PUBLISHING_PRICE_HINT_MAX_KOPIYKAS <
+    environment.PUBLISHING_PRICE_HINT_MIN_KOPIYKAS
+  ) {
+    context.addIssue({
+      code: "custom",
+      message: "PUBLISHING_PRICE_HINT_MAX_KOPIYKAS must be at least the minimum",
+      path: ["PUBLISHING_PRICE_HINT_MAX_KOPIYKAS"],
+    });
+  }
 });
 
 export type ServerEnvironment = z.infer<typeof serverEnvironmentSchema>;

@@ -17,8 +17,13 @@ describe("environment contracts", () => {
       APP_ORIGIN: "http://localhost:3000",
       APP_REVISION: "development",
       DATABASE_URL: "postgres://ukiebook:ukiebook@localhost:5432/ukiebook",
+      GOOGLE_DOCS_EXPORT_ORIGIN: "https://docs.google.com",
       JOB_LEASE_SECONDS: 60,
       JOB_MAX_ATTEMPTS: 5,
+      PRIVATE_OBJECT_ROOT: ".data/private-objects",
+      PUBLISHING_MAX_UPLOAD_BYTES: 52_428_800,
+      PUBLISHING_PRICE_HINT_MAX_KOPIYKAS: 39_900,
+      PUBLISHING_PRICE_HINT_MIN_KOPIYKAS: 9_900,
       SCHEDULER_TICK_MS: 60_000,
       WORKER_ID: "local-worker"
     });
@@ -27,6 +32,16 @@ describe("environment contracts", () => {
 
   it("rejects missing database configuration", () => {
     expect(() => readServerEnvironment({})).toThrow();
+  });
+
+  it("rejects a publishing price hint range whose maximum is below its minimum", () => {
+    expect(() =>
+      readServerEnvironment({
+        DATABASE_URL: "postgres://ukiebook:ukiebook@localhost:5432/ukiebook",
+        PUBLISHING_PRICE_HINT_MAX_KOPIYKAS: "9900",
+        PUBLISHING_PRICE_HINT_MIN_KOPIYKAS: "39900",
+      }),
+    ).toThrow(/PUBLISHING_PRICE_HINT_MAX_KOPIYKAS/u);
   });
 
   it("rejects copied AUTH_SECRET placeholders and accepts canonical random bytes", () => {

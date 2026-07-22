@@ -111,6 +111,9 @@ const sensitiveServerFiles = new Set(
         relative.startsWith("modules/author-profile/server/") ||
         relative.startsWith("modules/payout-details/server/") ||
         relative.startsWith("modules/catalog/server/") ||
+        relative.startsWith("modules/publishing/conversion/") ||
+        relative.startsWith("modules/publishing/server/") ||
+        relative.startsWith("modules/publishing/storage/") ||
         relative.startsWith("modules/platform/server/")
       );
     }),

@@ -17,6 +17,21 @@ await build({
   outdir: outputDirectory,
   packages: "external",
   platform: "node",
+  plugins: [
+    {
+      name: "server-only-node-runtime",
+      setup(runtimeBuild) {
+        runtimeBuild.onResolve({ filter: /^server-only$/ }, () => ({
+          namespace: "server-only-node-runtime",
+          path: "server-only",
+        }));
+        runtimeBuild.onLoad(
+          { filter: /.*/, namespace: "server-only-node-runtime" },
+          () => ({ contents: "export {};", loader: "js" }),
+        );
+      },
+    },
+  ],
   sourcemap: "external",
   sourcesContent: false,
   target: "node20"

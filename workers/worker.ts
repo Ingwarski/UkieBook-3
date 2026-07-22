@@ -13,6 +13,9 @@ import { readServerEnvironment } from "../modules/platform/environment/runtime";
 import { readRuntimeIdentity } from "../modules/platform/runtime-identity";
 import { PLATFORM_SCHEMA_REVISION } from "../modules/platform/schema-revision";
 import type { SqlDatabase } from "../modules/platform/sql-port";
+import { createPublishingConversionHandler } from "../modules/publishing/server/conversion-worker";
+import { LocalPrivateObjectStorage } from "../modules/publishing/storage/private-object-storage";
+import path from "node:path";
 
 export interface DurableJobHandlerContext {
   /** Aborts if the worker loses its database lease. Handlers must check it
@@ -61,8 +64,19 @@ function startLeaseHeartbeat(
   job: DurableJob,
   workerId: string,
   leaseSeconds: number,
+  parentSignal?: AbortSignal,
 ): { readonly signal: AbortSignal; stop(): Promise<void> } {
   const controller = new AbortController();
+  const abortFromParent = (): void => {
+    if (!controller.signal.aborted) {
+      controller.abort(parentSignal?.reason ?? new Error("Worker is stopping"));
+    }
+  };
+  if (parentSignal?.aborted) {
+    abortFromParent();
+  } else {
+    parentSignal?.addEventListener("abort", abortFromParent, { once: true });
+  }
   const intervalMilliseconds = Math.max(250, Math.floor((leaseSeconds * 1_000) / 3));
   let renewal = Promise.resolve();
   const timer = setInterval(() => {
@@ -84,13 +98,14 @@ function startLeaseHeartbeat(
     signal: controller.signal,
     async stop() {
       clearInterval(timer);
+      parentSignal?.removeEventListener("abort", abortFromParent);
       await renewal;
     },
   };
 }
 
 export async function runWorkerOnce(
-  options: Omit<WorkerOptions, "pollIntervalMs" | "signal">,
+  options: Omit<WorkerOptions, "pollIntervalMs">,
 ): Promise<boolean> {
   await recoverExpiredJobs(options.database, {
     queue: options.queue,
@@ -125,6 +140,7 @@ export async function runWorkerOnce(
     job,
     options.workerId,
     options.leaseSeconds ?? 60,
+    options.signal,
   );
   try {
     await handler(job, { signal: leaseHeartbeat.signal });
@@ -181,9 +197,21 @@ async function main(): Promise<void> {
   try {
     await runWorker({
       database,
-      queue: process.env.WORKER_QUEUE ?? "default",
+      queue: process.env.WORKER_QUEUE ?? "publishing",
       workerId: environment.WORKER_ID,
-      handlers: {},
+      handlers: {
+        "publishing.convert.v1": createPublishingConversionHandler({
+          database,
+          ebookConvertPath:
+            environment.CALIBRE_EBOOK_CONVERT_PATH ??
+            "/opt/calibre/ebook-convert-not-configured",
+          storage: new LocalPrivateObjectStorage(
+            path.isAbsolute(environment.PRIVATE_OBJECT_ROOT)
+              ? environment.PRIVATE_OBJECT_ROOT
+              : path.resolve(process.cwd(), environment.PRIVATE_OBJECT_ROOT),
+          ),
+        }),
+      },
       leaseSeconds: environment.JOB_LEASE_SECONDS,
       signal: abortController.signal,
     });
