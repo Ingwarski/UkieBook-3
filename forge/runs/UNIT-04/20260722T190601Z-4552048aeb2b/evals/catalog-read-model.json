@@ -1,0 +1,14 @@
+{
+  "evidence": [
+    "forge/runs/UNIT-04/20260722T190601Z-4552048aeb2b/evidence/database/unit04-postgres-proof.json",
+    "forge/runs/UNIT-04/20260722T190601Z-4552048aeb2b/evidence/commands/unit04-e2e.txt"
+  ],
+  "gate": "catalog_read_model",
+  "scope": "publication activation and unavailable projection only",
+  "findings": [],
+  "implementation_revision": "4552048aeb2ba6da16b47ac289058b14d5641869",
+  "owner": "Codex / moderation and publication",
+  "status": "passed",
+  "timestamp": "2026-07-22T19:07:25.281Z",
+  "unit": "UNIT-04"
+}

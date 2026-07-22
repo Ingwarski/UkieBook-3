@@ -1,0 +1,16 @@
+name: real-postgres-unit04
+command: npm run verify:unit04:postgres
+implementation_revision: 4552048aeb2ba6da16b47ac289058b14d5641869
+started_at: 2026-07-22T19:06:34.928Z
+finished_at: 2026-07-22T19:06:35.590Z
+exit_code: 0
+signal: none
+
+[stdout]
+
+> ukiebook-3@0.1.0 verify:unit04:postgres
+> tsx --conditions=react-server scripts/verify-unit04-postgres.ts
+
+{"active_version_invariant":"passed","ai_outage_safe_fail":"passed","append_only_audit":"passed","author_decision_denied":"passed","book_approval":"passed","book_rejection_reason_only":"passed","book_submitted_idempotency":"passed","catalog_activation":"passed","decision_concurrency":"passed","internal_signal_non_disclosure":"passed","migration_roundtrip":"passed","removal_unavailable":"passed","review_decision_contract":"passed","risky_manual_routing":"passed","safe_auto_publication":"passed","schema_revision":"0005_moderation_publication","status":"passed","update_decision_contract":"passed"}
+
+[stderr]

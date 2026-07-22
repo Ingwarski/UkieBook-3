@@ -1,0 +1,81 @@
+name: build
+command: npm run build
+implementation_revision: 4552048aeb2ba6da16b47ac289058b14d5641869
+started_at: 2026-07-22T19:06:26.578Z
+finished_at: 2026-07-22T19:06:34.927Z
+exit_code: 0
+signal: none
+
+[stdout]
+
+> ukiebook-3@0.1.0 build
+> npm run build:web && npm run build:runtime && npm run verify:runtime
+
+
+> ukiebook-3@0.1.0 build:web
+> next build && node scripts/prepare-standalone.mjs && node scripts/verify-client-boundary.mjs
+
+⚠ No build cache found. Please configure build caching for faster rebuilds. Read more: https://nextjs.org/docs/messages/no-cache
+Attention: Next.js now collects completely anonymous telemetry regarding usage.
+This information is used to shape Next.js' roadmap and prioritize features.
+You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+https://nextjs.org/telemetry
+
+▲ Next.js 16.2.11 (Turbopack)
+- Experiments (use with caution):
+  ✓ authInterrupts
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 2.3s
+  Running TypeScript ...
+  Finished TypeScript in 3.6s ...
+  Collecting page data using 7 workers ...
+  Generating static pages using 7 workers (0/3) ...
+✓ Generating static pages using 7 workers (3/3) in 71ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ƒ /
+├ ○ /_not-found
+├ ƒ /admin
+├ ƒ /admin/moderation
+├ ƒ /admin/moderation/decision
+├ ƒ /api/admin/moderation/cases/[caseId]/objects/[objectId]
+├ ƒ /api/auth/[provider]/callback
+├ ƒ /api/auth/[provider]/start
+├ ƒ /api/auth/logout
+├ ƒ /api/author/publishing/drafts/[draftId]/cover
+├ ƒ /api/author/publishing/drafts/[draftId]/google-docs
+├ ƒ /api/author/publishing/drafts/[draftId]/illustrations
+├ ƒ /api/author/publishing/drafts/[draftId]/manuscript
+├ ƒ /api/author/publishing/objects/[objectId]
+├ ƒ /api/health
+├ ƒ /author/books
+├ ƒ /author/books/[id]
+├ ƒ /author/profile
+├ ƒ /author/publish
+├ ƒ /author/publish/preview
+├ ƒ /books/[id]
+├ ƒ /books/covers/[bookId]
+├ ○ /fixtures/aurora
+├ ƒ /library
+└ ƒ /login
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+
+Prepared the self-contained Next.js standalone runtime.
+Client secret boundary passed across 34 static files and 142 source files.
+
+> ukiebook-3@0.1.0 build:runtime
+> node scripts/build-runtime.mjs
+
+Built web-adjacent worker, scheduler, and migration runtimes.
+
+> ukiebook-3@0.1.0 verify:runtime
+> node scripts/verify-runtime-identities.mjs
+
+Runtime identities passed for worker, scheduler, db-migrate.
+
+[stderr]

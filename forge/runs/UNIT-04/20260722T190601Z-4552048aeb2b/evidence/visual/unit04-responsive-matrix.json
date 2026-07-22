@@ -1,0 +1,4360 @@
+{
+  "accessibility_receipts": [
+    {
+      "activation": "enter",
+      "check": "s13-keyboard-order-focus-activation",
+      "focus": {
+        "height": 44,
+        "outlineStyle": "solid",
+        "outlineWidth": 3,
+        "width": 296
+      },
+      "implementation_revision": "4552048aeb2ba6da16b47ac289058b14d5641869",
+      "sequence": [
+        "a:UkieBook — головна",
+        "a:Мої книжки",
+        "a:Профіль",
+        "a:До каталогу",
+        "button:Вийти",
+        "a:До моїх книжок",
+        "a:Переглянути сторінку книжки"
+      ]
+    },
+    {
+      "check": "s13-reflow-200",
+      "controls": [
+        {
+          "height": 99.828,
+          "label": "Сад після дощу",
+          "left": 112,
+          "width": 1056
+        },
+        {
+          "height": 88,
+          "label": "Переглянути сторінку книжки",
+          "left": 490,
+          "width": 591.984
+        }
+      ],
+      "implementation_revision": "4552048aeb2ba6da16b47ac289058b14d5641869",
+      "layout": {
+        "clientWidth": 1280,
+        "scrollWidth": 1280,
+        "viewportWidth": 1280
+      },
+      "zoom": 2
+    },
+    {
+      "activation": "enter",
+      "check": "s18-queue-keyboard-list-detail",
+      "focus": {
+        "height": 132.875,
+        "outlineStyle": "solid",
+        "outlineWidth": 3,
+        "width": 358
+      },
+      "implementation_revision": "4552048aeb2ba6da16b47ac289058b14d5641869",
+      "sequence": [
+        "a:UkieBook — головна",
+        "a:Ручна перевірка",
+        "a:До каталогу",
+        "button:Вийти",
+        "select:Усі (5)Книжки (3)Оновлення (1)Відгуки (1)",
+        "button:Застосувати",
+        "a:Книжка2 лип. 2026 р.Тіні над водоюОлена ВітроваПотрібна уважна ручна перевірка",
+        "a:Оновлення книжки6 лип. 2026 р.Оновлення: Сад після дощуОлена ВітроваПотрібна уважна ручна перевірка"
+      ]
+    },
+    {
+      "check": "s18-reason-validation-focus",
+      "entry_state": "server-validated reason_required",
+      "focused_label": "Категорія причини",
+      "implementation_revision": "4552048aeb2ba6da16b47ac289058b14d5641869",
+      "invalid": true
+    },
+    {
+      "check": "s18-removal-dialog-focus-trap-return",
+      "focus_returned": true,
+      "implementation_revision": "4552048aeb2ba6da16b47ac289058b14d5641869",
+      "initial_focus": "Підстава",
+      "trapped": true
+    },
+    {
+      "back_control": "До черги",
+      "check": "s18-mobile-list-detail-back",
+      "detail_visible": true,
+      "implementation_revision": "4552048aeb2ba6da16b47ac289058b14d5641869",
+      "list_restored": true,
+      "viewport": 390
+    },
+    {
+      "check": "s18-reflow-200",
+      "controls": [
+        {
+          "height": 95.672,
+          "label": "Ручна перевірка",
+          "left": 112,
+          "width": 813.422
+        },
+        {
+          "height": 88,
+          "label": "Усі (5)Книжки (3)Оновлення (1)Відгуки (1)",
+          "left": 146,
+          "width": 388.266
+        },
+        {
+          "height": 120,
+          "label": "Схвалити й опублікувати",
+          "left": 922,
+          "width": 321.859
+        }
+      ],
+      "implementation_revision": "4552048aeb2ba6da16b47ac289058b14d5641869",
+      "layout": {
+        "clientWidth": 1280,
+        "scrollWidth": 1280,
+        "viewportWidth": 1280
+      },
+      "zoom": 2
+    },
+    {
+      "check": "s02-unavailable-reflow-200",
+      "controls": [
+        {
+          "height": 250.875,
+          "label": "Заборонена течія",
+          "left": 956,
+          "width": 152
+        },
+        {
+          "height": 90,
+          "label": "Книжка недоступна",
+          "left": 998,
+          "width": 224.969
+        }
+      ],
+      "implementation_revision": "4552048aeb2ba6da16b47ac289058b14d5641869",
+      "layout": {
+        "clientWidth": 1280,
+        "scrollWidth": 1280,
+        "viewportWidth": 1280
+      },
+      "zoom": 2
+    }
+  ],
+  "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+  "console_errors": [],
+  "expected_accessibility_checks": [
+    "s13-keyboard-order-focus-activation",
+    "s13-reflow-200",
+    "s18-queue-keyboard-list-detail",
+    "s18-reason-validation-focus",
+    "s18-removal-dialog-focus-trap-return",
+    "s18-mobile-list-detail-back",
+    "s18-reflow-200",
+    "s02-unavailable-reflow-200"
+  ],
+  "expected_receipts": 50,
+  "implementation_revision": "4552048aeb2ba6da16b47ac289058b14d5641869",
+  "page_errors": [],
+  "receipts": [
+    {
+      "accessibility": {
+        "alerts": [],
+        "controlContrast": [],
+        "formControls": [],
+        "mobileInputs": [],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Листи до світанку",
+            "logoTextExemption": false,
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/unit04-s13-submitted-390.png",
+      "implementation_revision": "4552048aeb2ba6da16b47ac289058b14d5641869",
+      "layout": {
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "viewportWidth": 390
+      },
+      "screen": "s13",
+      "sha256": "b983902a10b4f5c4f60f28ea3ba3115994321b38e1cb454891e5188beea56f86",
+      "state": "submitted",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Відкрити меню автора",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "До моїх книжок",
+          "width": 156.156
+        }
+      ],
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [],
+        "controlContrast": [],
+        "formControls": [],
+        "mobileInputs": [],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Листи до світанку",
+            "logoTextExemption": false,
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/unit04-s13-submitted-768.png",
+      "implementation_revision": "4552048aeb2ba6da16b47ac289058b14d5641869",
+      "layout": {
+        "clientWidth": 768,
+        "scrollWidth": 768,
+        "viewportWidth": 768
+      },
+      "screen": "s13",
+      "sha256": "be0d611be2449ad78879b7bc897ceb29703f3a2be913d352919bb2f7517b4c59",
+      "state": "submitted",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Відкрити меню автора",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "До моїх книжок",
+          "width": 156.156
+        }
+      ],
+      "viewport": {
+        "height": 1024,
+        "width": 768
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [],
+        "controlContrast": [],
+        "formControls": [],
+        "mobileInputs": [],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Листи до світанку",
+            "logoTextExemption": false,
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/unit04-s13-submitted-1280.png",
+      "implementation_revision": "4552048aeb2ba6da16b47ac289058b14d5641869",
+      "layout": {
+        "clientWidth": 1280,
+        "scrollWidth": 1280,
+        "viewportWidth": 1280
+      },
+      "screen": "s13",
+      "sha256": "6e5b09bf59a4ce64b119808e40fdd2e6f6580a41cc1bc5d530ba2503b92f06ea",
+      "state": "submitted",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Мої книжки",
+          "width": 107.203
+        },
+        {
+          "height": 44,
+          "label": "Профіль",
+          "width": 83.766
+        },
+        {
+          "height": 44,
+          "label": "До каталогу",
+          "width": 110.75
+        },
+        {
+          "height": 44,
+          "label": "Вийти",
+          "width": 80.281
+        },
+        {
+          "height": 44,
+          "label": "До моїх книжок",
+          "width": 156.156
+        }
+      ],
+      "viewport": {
+        "height": 900,
+        "width": 1280
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [],
+        "controlContrast": [],
+        "formControls": [],
+        "mobileInputs": [],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Тіні над водою",
+            "logoTextExemption": false,
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/unit04-s13-manual-review-390.png",
+      "implementation_revision": "4552048aeb2ba6da16b47ac289058b14d5641869",
+      "layout": {
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "viewportWidth": 390
+      },
+      "screen": "s13",
+      "sha256": "c49ec9ee0b534473936a5dc38e3855feb2b868d6ff91c6538b7fae1c5444d72e",
+      "state": "manual-review",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Відкрити меню автора",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "До моїх книжок",
+          "width": 156.156
+        }
+      ],
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [],
+        "controlContrast": [],
+        "formControls": [],
+        "mobileInputs": [],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Тіні над водою",
+            "logoTextExemption": false,
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/unit04-s13-manual-review-768.png",
+      "implementation_revision": "4552048aeb2ba6da16b47ac289058b14d5641869",
+      "layout": {
+        "clientWidth": 768,
+        "scrollWidth": 768,
+        "viewportWidth": 768
+      },
+      "screen": "s13",
+      "sha256": "41b15395ae1030e9ecc4427f094dd7a8fbb01ed0c7a5b8ae34821d7b27f4091d",
+      "state": "manual-review",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Відкрити меню автора",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "До моїх книжок",
+          "width": 156.156
+        }
+      ],
+      "viewport": {
+        "height": 1024,
+        "width": 768
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [],
+        "controlContrast": [],
+        "formControls": [],
+        "mobileInputs": [],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Тіні над водою",
+            "logoTextExemption": false,
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/unit04-s13-manual-review-1280.png",
+      "implementation_revision": "4552048aeb2ba6da16b47ac289058b14d5641869",
+      "layout": {
+        "clientWidth": 1280,
+        "scrollWidth": 1280,
+        "viewportWidth": 1280
+      },
+      "screen": "s13",
+      "sha256": "cfbf290e96a83b452d2cb24ba9a76c938a9bb999cc7c8980ed27f0c0503aae19",
+      "state": "manual-review",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Мої книжки",
+          "width": 107.203
+        },
+        {
+          "height": 44,
+          "label": "Профіль",
+          "width": 83.766
+        },
+        {
+          "height": 44,
+          "label": "До каталогу",
+          "width": 110.75
+        },
+        {
+          "height": 44,
+          "label": "Вийти",
+          "width": 80.281
+        },
+        {
+          "height": 44,
+          "label": "До моїх книжок",
+          "width": 156.156
+        }
+      ],
+      "viewport": {
+        "height": 900,
+        "width": 1280
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [],
+        "controlContrast": [],
+        "formControls": [],
+        "mobileInputs": [],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Крихка памʼять",
+            "logoTextExemption": false,
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/unit04-s13-rejected-390.png",
+      "implementation_revision": "4552048aeb2ba6da16b47ac289058b14d5641869",
+      "layout": {
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "viewportWidth": 390
+      },
+      "screen": "s13",
+      "sha256": "92d126fb39e69d8e6c5b2e3db638345b030ab174cc0fe7449494364bb1f233a0",
+      "state": "rejected",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Відкрити меню автора",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "До моїх книжок",
+          "width": 156.156
+        }
+      ],
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [],
+        "controlContrast": [],
+        "formControls": [],
+        "mobileInputs": [],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Крихка памʼять",
+            "logoTextExemption": false,
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/unit04-s13-rejected-768.png",
+      "implementation_revision": "4552048aeb2ba6da16b47ac289058b14d5641869",
+      "layout": {
+        "clientWidth": 768,
+        "scrollWidth": 768,
+        "viewportWidth": 768
+      },
+      "screen": "s13",
+      "sha256": "d2fdc6dd5a2f0e59e14db4152affbe6a5f16d70138d7db457a4ecc8627173c12",
+      "state": "rejected",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Відкрити меню автора",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "До моїх книжок",
+          "width": 156.156
+        }
+      ],
+      "viewport": {
+        "height": 1024,
+        "width": 768
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [],
+        "controlContrast": [],
+        "formControls": [],
+        "mobileInputs": [],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Крихка памʼять",
+            "logoTextExemption": false,
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/unit04-s13-rejected-1280.png",
+      "implementation_revision": "4552048aeb2ba6da16b47ac289058b14d5641869",
+      "layout": {
+        "clientWidth": 1280,
+        "scrollWidth": 1280,
+        "viewportWidth": 1280
+      },
+      "screen": "s13",
+      "sha256": "df2131d2d88c6f5764b7f33bcb1bf41b47677116c2248e31cbc3798f709a2da2",
+      "state": "rejected",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Мої книжки",
+          "width": 107.203
+        },
+        {
+          "height": 44,
+          "label": "Профіль",
+          "width": 83.766
+        },
+        {
+          "height": 44,
+          "label": "До каталогу",
+          "width": 110.75
+        },
+        {
+          "height": 44,
+          "label": "Вийти",
+          "width": 80.281
+        },
+        {
+          "height": 44,
+          "label": "До моїх книжок",
+          "width": 156.156
+        }
+      ],
+      "viewport": {
+        "height": 900,
+        "width": 1280
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [],
+        "controlContrast": [],
+        "formControls": [],
+        "mobileInputs": [],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Сад після дощу",
+            "logoTextExemption": false,
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/unit04-s13-published-390.png",
+      "implementation_revision": "4552048aeb2ba6da16b47ac289058b14d5641869",
+      "layout": {
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "viewportWidth": 390
+      },
+      "screen": "s13",
+      "sha256": "8a43fe1c9e5b5f777cb5444bb4b5bd076de99b9e50a1f7e8989e8306a1c1bc73",
+      "state": "published",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Відкрити меню автора",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "До моїх книжок",
+          "width": 156.156
+        },
+        {
+          "height": 44,
+          "label": "Переглянути сторінку книжки",
+          "width": 308
+        }
+      ],
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [],
+        "controlContrast": [],
+        "formControls": [],
+        "mobileInputs": [],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Сад після дощу",
+            "logoTextExemption": false,
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/unit04-s13-published-768.png",
+      "implementation_revision": "4552048aeb2ba6da16b47ac289058b14d5641869",
+      "layout": {
+        "clientWidth": 768,
+        "scrollWidth": 768,
+        "viewportWidth": 768
+      },
+      "screen": "s13",
+      "sha256": "20722a842626af284c7d5b141bdc316c54d2b071f64506e9334802b567ea7c04",
+      "state": "published",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Відкрити меню автора",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "До моїх книжок",
+          "width": 156.156
+        },
+        {
+          "height": 44,
+          "label": "Переглянути сторінку книжки",
+          "width": 296
+        }
+      ],
+      "viewport": {
+        "height": 1024,
+        "width": 768
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [],
+        "controlContrast": [],
+        "formControls": [],
+        "mobileInputs": [],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Сад після дощу",
+            "logoTextExemption": false,
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/unit04-s13-published-1280.png",
+      "implementation_revision": "4552048aeb2ba6da16b47ac289058b14d5641869",
+      "layout": {
+        "clientWidth": 1280,
+        "scrollWidth": 1280,
+        "viewportWidth": 1280
+      },
+      "screen": "s13",
+      "sha256": "14d538e62b265f37af318741161f3c15e35f83a4990b3247f15756c271771e37",
+      "state": "published",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Мої книжки",
+          "width": 107.203
+        },
+        {
+          "height": 44,
+          "label": "Профіль",
+          "width": 83.766
+        },
+        {
+          "height": 44,
+          "label": "До каталогу",
+          "width": 110.75
+        },
+        {
+          "height": 44,
+          "label": "Вийти",
+          "width": 80.281
+        },
+        {
+          "height": 44,
+          "label": "До моїх книжок",
+          "width": 156.156
+        },
+        {
+          "height": 44,
+          "label": "Переглянути сторінку книжки",
+          "width": 296
+        }
+      ],
+      "viewport": {
+        "height": 900,
+        "width": 1280
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [],
+        "controlContrast": [],
+        "formControls": [],
+        "mobileInputs": [],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Сад після дощу",
+            "logoTextExemption": false,
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/unit04-s13-published-430.png",
+      "implementation_revision": "4552048aeb2ba6da16b47ac289058b14d5641869",
+      "layout": {
+        "clientWidth": 430,
+        "scrollWidth": 430,
+        "viewportWidth": 430
+      },
+      "screen": "s13",
+      "sha256": "ae3d2e144fa7d921333017a5908dba1b9010264398dc810b8b005a5965e7cd70",
+      "state": "published",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Відкрити меню автора",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "До моїх книжок",
+          "width": 156.156
+        },
+        {
+          "height": 44,
+          "label": "Переглянути сторінку книжки",
+          "width": 348
+        }
+      ],
+      "viewport": {
+        "height": 932,
+        "width": 430
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [],
+        "controlContrast": [],
+        "formControls": [],
+        "mobileInputs": [],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Сад після дощу",
+            "logoTextExemption": false,
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/unit04-s13-published-1440.png",
+      "implementation_revision": "4552048aeb2ba6da16b47ac289058b14d5641869",
+      "layout": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "viewportWidth": 1440
+      },
+      "screen": "s13",
+      "sha256": "2483483b7a210f6e6a2fa67a65eaf02bd7e67db49b3480d97b9b35a1aedd520c",
+      "state": "published",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Мої книжки",
+          "width": 107.203
+        },
+        {
+          "height": 44,
+          "label": "Профіль",
+          "width": 83.766
+        },
+        {
+          "height": 44,
+          "label": "До каталогу",
+          "width": 110.75
+        },
+        {
+          "height": 44,
+          "label": "Вийти",
+          "width": 80.281
+        },
+        {
+          "height": 44,
+          "label": "До моїх книжок",
+          "width": 156.156
+        },
+        {
+          "height": 44,
+          "label": "Переглянути сторінку книжки",
+          "width": 296
+        }
+      ],
+      "viewport": {
+        "height": 1000,
+        "width": 1440
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [],
+        "controlContrast": [],
+        "formControls": [],
+        "mobileInputs": [],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Заборонена течія",
+            "logoTextExemption": false,
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/unit04-s13-removed-390.png",
+      "implementation_revision": "4552048aeb2ba6da16b47ac289058b14d5641869",
+      "layout": {
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "viewportWidth": 390
+      },
+      "screen": "s13",
+      "sha256": "e0c6b3b4663d895f4e0430b1bf01e487e76ba26f51c3433f7a6afaacd2b44be9",
+      "state": "removed",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Відкрити меню автора",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "До моїх книжок",
+          "width": 156.156
+        },
+        {
+          "height": 44,
+          "label": "Переглянути сторінку книжки",
+          "width": 308
+        }
+      ],
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [],
+        "controlContrast": [],
+        "formControls": [],
+        "mobileInputs": [],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Заборонена течія",
+            "logoTextExemption": false,
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/unit04-s13-removed-768.png",
+      "implementation_revision": "4552048aeb2ba6da16b47ac289058b14d5641869",
+      "layout": {
+        "clientWidth": 768,
+        "scrollWidth": 768,
+        "viewportWidth": 768
+      },
+      "screen": "s13",
+      "sha256": "bb1d3839254f850cce1da81702108657f3ad5e98e4ba693bce9d5f9602233f3a",
+      "state": "removed",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Відкрити меню автора",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "До моїх книжок",
+          "width": 156.156
+        },
+        {
+          "height": 44,
+          "label": "Переглянути сторінку книжки",
+          "width": 296
+        }
+      ],
+      "viewport": {
+        "height": 1024,
+        "width": 768
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [],
+        "controlContrast": [],
+        "formControls": [],
+        "mobileInputs": [],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Заборонена течія",
+            "logoTextExemption": false,
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/unit04-s13-removed-1280.png",
+      "implementation_revision": "4552048aeb2ba6da16b47ac289058b14d5641869",
+      "layout": {
+        "clientWidth": 1280,
+        "scrollWidth": 1280,
+        "viewportWidth": 1280
+      },
+      "screen": "s13",
+      "sha256": "723ebad008c205abf621dec83ad232e164aa7ba160a8b2eafd7ea1462073e74d",
+      "state": "removed",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Мої книжки",
+          "width": 107.203
+        },
+        {
+          "height": 44,
+          "label": "Профіль",
+          "width": 83.766
+        },
+        {
+          "height": 44,
+          "label": "До каталогу",
+          "width": 110.75
+        },
+        {
+          "height": 44,
+          "label": "Вийти",
+          "width": 80.281
+        },
+        {
+          "height": 44,
+          "label": "До моїх книжок",
+          "width": 156.156
+        },
+        {
+          "height": 44,
+          "label": "Переглянути сторінку книжки",
+          "width": 296
+        }
+      ],
+      "viewport": {
+        "height": 900,
+        "width": 1280
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [],
+        "controlContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(154, 136, 125)",
+            "label": "Тип випадку",
+            "threshold": 3,
+            "ratio": 3.206
+          }
+        ],
+        "formControls": [
+          {
+            "describedBy": [],
+            "describedByExists": true,
+            "label": "Тип випадку",
+            "labelCount": 1,
+            "type": "select"
+          }
+        ],
+        "mobileInputs": [
+          {
+            "fontSize": 16,
+            "label": "Тип випадку"
+          }
+        ],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Ручна перевірка",
+            "logoTextExemption": false,
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/unit04-s18-mixed-queue-390.png",
+      "implementation_revision": "4552048aeb2ba6da16b47ac289058b14d5641869",
+      "layout": {
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "viewportWidth": 390
+      },
+      "screen": "s18",
+      "sha256": "8e36bcb1aab6f8fc1d964c0d7842d9314bc47084a82774e57bb032c3490d74b3",
+      "state": "mixed-queue",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Відкрити меню менеджера",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Тип випадку",
+          "width": 184.125
+        },
+        {
+          "height": 44,
+          "label": "Застосувати",
+          "width": 123.875
+        },
+        {
+          "height": 132.875,
+          "label": "Книжка2 лип. 2026 р.Тіні над водоюОлена ВітроваПотрібна уважна ручна перевірка",
+          "width": 348
+        },
+        {
+          "height": 132.875,
+          "label": "Оновлення книжки6 лип. 2026 р.Оновлення: Сад після дощуОлена ВітроваПотрібна уважна ручна перевірка",
+          "width": 348
+        },
+        {
+          "height": 132.875,
+          "label": "Відгук7 лип. 2026 р.Відгук про Сад після дощуОлена ВітроваПотрібна уважна ручна перевірка",
+          "width": 348
+        },
+        {
+          "height": 132.875,
+          "label": "Книжка8 лип. 2026 р.Місто без сигналуОлена ВітроваШІ-скринінг недоступний",
+          "width": 348
+        },
+        {
+          "height": 151.063,
+          "label": "Книжка4 лип. 2026 р.Сад після дощуОлена ВітроваНадійшов структурований сигнал після публікації",
+          "width": 348
+        }
+      ],
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [],
+        "controlContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(154, 136, 125)",
+            "label": "Тип випадку",
+            "threshold": 3,
+            "ratio": 3.206
+          }
+        ],
+        "formControls": [
+          {
+            "describedBy": [],
+            "describedByExists": true,
+            "label": "Тип випадку",
+            "labelCount": 1,
+            "type": "select"
+          }
+        ],
+        "mobileInputs": [
+          {
+            "fontSize": 16,
+            "label": "Тип випадку"
+          }
+        ],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Ручна перевірка",
+            "logoTextExemption": false,
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/unit04-s18-mixed-queue-430.png",
+      "implementation_revision": "4552048aeb2ba6da16b47ac289058b14d5641869",
+      "layout": {
+        "clientWidth": 430,
+        "scrollWidth": 430,
+        "viewportWidth": 430
+      },
+      "screen": "s18",
+      "sha256": "98f5983d7792912e54dc4206ebed6045caa26acc2e1a79a7f3196a7f1a431a40",
+      "state": "mixed-queue",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Відкрити меню менеджера",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Тип випадку",
+          "width": 224.125
+        },
+        {
+          "height": 44,
+          "label": "Застосувати",
+          "width": 123.875
+        },
+        {
+          "height": 132.875,
+          "label": "Книжка2 лип. 2026 р.Тіні над водоюОлена ВітроваПотрібна уважна ручна перевірка",
+          "width": 388
+        },
+        {
+          "height": 132.875,
+          "label": "Оновлення книжки6 лип. 2026 р.Оновлення: Сад після дощуОлена ВітроваПотрібна уважна ручна перевірка",
+          "width": 388
+        },
+        {
+          "height": 132.875,
+          "label": "Відгук7 лип. 2026 р.Відгук про Сад після дощуОлена ВітроваПотрібна уважна ручна перевірка",
+          "width": 388
+        },
+        {
+          "height": 132.875,
+          "label": "Книжка8 лип. 2026 р.Місто без сигналуОлена ВітроваШІ-скринінг недоступний",
+          "width": 388
+        },
+        {
+          "height": 132.875,
+          "label": "Книжка4 лип. 2026 р.Сад після дощуОлена ВітроваНадійшов структурований сигнал після публікації",
+          "width": 388
+        }
+      ],
+      "viewport": {
+        "height": 932,
+        "width": 430
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [],
+        "controlContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(154, 136, 125)",
+            "label": "Тип випадку",
+            "threshold": 3,
+            "ratio": 3.206
+          }
+        ],
+        "formControls": [
+          {
+            "describedBy": [],
+            "describedByExists": true,
+            "label": "Тип випадку",
+            "labelCount": 1,
+            "type": "select"
+          }
+        ],
+        "mobileInputs": [],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Ручна перевірка",
+            "logoTextExemption": false,
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/unit04-s18-mixed-queue-768.png",
+      "implementation_revision": "4552048aeb2ba6da16b47ac289058b14d5641869",
+      "layout": {
+        "clientWidth": 768,
+        "scrollWidth": 768,
+        "viewportWidth": 768
+      },
+      "screen": "s18",
+      "sha256": "af803b7a33c5f1a9a700b40cc240a5013d1b54af5e6dafbe8436da13a445d407",
+      "state": "mixed-queue",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Відкрити меню менеджера",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Тип випадку",
+          "width": 562.125
+        },
+        {
+          "height": 44,
+          "label": "Застосувати",
+          "width": 123.875
+        },
+        {
+          "height": 132.875,
+          "label": "Книжка2 лип. 2026 р.Тіні над водоюОлена ВітроваПотрібна уважна ручна перевірка",
+          "width": 726
+        },
+        {
+          "height": 132.875,
+          "label": "Оновлення книжки6 лип. 2026 р.Оновлення: Сад після дощуОлена ВітроваПотрібна уважна ручна перевірка",
+          "width": 726
+        },
+        {
+          "height": 132.875,
+          "label": "Відгук7 лип. 2026 р.Відгук про Сад після дощуОлена ВітроваПотрібна уважна ручна перевірка",
+          "width": 726
+        },
+        {
+          "height": 132.875,
+          "label": "Книжка8 лип. 2026 р.Місто без сигналуОлена ВітроваШІ-скринінг недоступний",
+          "width": 726
+        },
+        {
+          "height": 132.875,
+          "label": "Книжка4 лип. 2026 р.Сад після дощуОлена ВітроваНадійшов структурований сигнал після публікації",
+          "width": 726
+        }
+      ],
+      "viewport": {
+        "height": 1024,
+        "width": 768
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [],
+        "controlContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(154, 136, 125)",
+            "label": "Тип випадку",
+            "threshold": 3,
+            "ratio": 3.206
+          }
+        ],
+        "formControls": [
+          {
+            "describedBy": [],
+            "describedByExists": true,
+            "label": "Тип випадку",
+            "labelCount": 1,
+            "type": "select"
+          },
+          {
+            "describedBy": [
+              "reason-help-40404040-4040-4040-8040-404040404201"
+            ],
+            "describedByExists": true,
+            "label": "Категорія причини",
+            "labelCount": 1,
+            "type": "select"
+          }
+        ],
+        "mobileInputs": [],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Ручна перевірка",
+            "logoTextExemption": false,
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/unit04-s18-mixed-queue-1280.png",
+      "implementation_revision": "4552048aeb2ba6da16b47ac289058b14d5641869",
+      "layout": {
+        "clientWidth": 1280,
+        "scrollWidth": 1280,
+        "viewportWidth": 1280
+      },
+      "screen": "s18",
+      "sha256": "d8e3b396e452dd037097a90f2f3739c25d59b9fe18d8023b877497217752228f",
+      "state": "mixed-queue",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Ручна перевірка",
+          "width": 142.063
+        },
+        {
+          "height": 44,
+          "label": "До каталогу",
+          "width": 111
+        },
+        {
+          "height": 44,
+          "label": "Вийти",
+          "width": 80.531
+        },
+        {
+          "height": 44,
+          "label": "Тип випадку",
+          "width": 194.125
+        },
+        {
+          "height": 44,
+          "label": "Застосувати",
+          "width": 123.875
+        },
+        {
+          "height": 132.875,
+          "label": "Книжка2 лип. 2026 р.Тіні над водоюОлена ВітроваПотрібна уважна ручна перевірка",
+          "width": 358
+        },
+        {
+          "height": 132.875,
+          "label": "Оновлення книжки6 лип. 2026 р.Оновлення: Сад після дощуОлена ВітроваПотрібна уважна ручна перевірка",
+          "width": 358
+        },
+        {
+          "height": 132.875,
+          "label": "Відгук7 лип. 2026 р.Відгук про Сад після дощуОлена ВітроваПотрібна уважна ручна перевірка",
+          "width": 358
+        },
+        {
+          "height": 132.875,
+          "label": "Книжка8 лип. 2026 р.Місто без сигналуОлена ВітроваШІ-скринінг недоступний",
+          "width": 358
+        },
+        {
+          "height": 132.875,
+          "label": "Книжка4 лип. 2026 р.Сад після дощуОлена ВітроваНадійшов структурований сигнал після публікації",
+          "width": 358
+        },
+        {
+          "height": 44,
+          "label": "Схвалити й опублікувати",
+          "width": 249.203
+        },
+        {
+          "height": 44,
+          "label": "Відхилити книжку",
+          "width": 696
+        }
+      ],
+      "viewport": {
+        "height": 900,
+        "width": 1280
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [],
+        "controlContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(154, 136, 125)",
+            "label": "Тип випадку",
+            "threshold": 3,
+            "ratio": 3.206
+          }
+        ],
+        "formControls": [
+          {
+            "describedBy": [],
+            "describedByExists": true,
+            "label": "Тип випадку",
+            "labelCount": 1,
+            "type": "select"
+          },
+          {
+            "describedBy": [
+              "reason-help-40404040-4040-4040-8040-404040404201"
+            ],
+            "describedByExists": true,
+            "label": "Категорія причини",
+            "labelCount": 1,
+            "type": "select"
+          }
+        ],
+        "mobileInputs": [],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Ручна перевірка",
+            "logoTextExemption": false,
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/unit04-s18-mixed-queue-1440.png",
+      "implementation_revision": "4552048aeb2ba6da16b47ac289058b14d5641869",
+      "layout": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "viewportWidth": 1440
+      },
+      "screen": "s18",
+      "sha256": "4f50d240d64c005d36404035b4dd95e236525ecfd3d53dc82b0d8cd75a9b6b4c",
+      "state": "mixed-queue",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Ручна перевірка",
+          "width": 142.063
+        },
+        {
+          "height": 44,
+          "label": "До каталогу",
+          "width": 111
+        },
+        {
+          "height": 44,
+          "label": "Вийти",
+          "width": 80.531
+        },
+        {
+          "height": 44,
+          "label": "Тип випадку",
+          "width": 194.125
+        },
+        {
+          "height": 44,
+          "label": "Застосувати",
+          "width": 123.875
+        },
+        {
+          "height": 132.875,
+          "label": "Книжка2 лип. 2026 р.Тіні над водоюОлена ВітроваПотрібна уважна ручна перевірка",
+          "width": 358
+        },
+        {
+          "height": 132.875,
+          "label": "Оновлення книжки6 лип. 2026 р.Оновлення: Сад після дощуОлена ВітроваПотрібна уважна ручна перевірка",
+          "width": 358
+        },
+        {
+          "height": 132.875,
+          "label": "Відгук7 лип. 2026 р.Відгук про Сад після дощуОлена ВітроваПотрібна уважна ручна перевірка",
+          "width": 358
+        },
+        {
+          "height": 132.875,
+          "label": "Книжка8 лип. 2026 р.Місто без сигналуОлена ВітроваШІ-скринінг недоступний",
+          "width": 358
+        },
+        {
+          "height": 132.875,
+          "label": "Книжка4 лип. 2026 р.Сад після дощуОлена ВітроваНадійшов структурований сигнал після публікації",
+          "width": 358
+        },
+        {
+          "height": 44,
+          "label": "Схвалити й опублікувати",
+          "width": 249.203
+        },
+        {
+          "height": 44,
+          "label": "Відхилити книжку",
+          "width": 696
+        }
+      ],
+      "viewport": {
+        "height": 1000,
+        "width": 1440
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [],
+        "controlContrast": [],
+        "formControls": [
+          {
+            "describedBy": [
+              "reason-help-40404040-4040-4040-8040-404040404201"
+            ],
+            "describedByExists": true,
+            "label": "Категорія причини",
+            "labelCount": 1,
+            "type": "select"
+          }
+        ],
+        "mobileInputs": [
+          {
+            "fontSize": 16,
+            "label": "Категорія причини"
+          }
+        ],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Ручна перевірка",
+            "logoTextExemption": false,
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/unit04-s18-book-selected-390.png",
+      "implementation_revision": "4552048aeb2ba6da16b47ac289058b14d5641869",
+      "layout": {
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "viewportWidth": 390
+      },
+      "screen": "s18",
+      "sha256": "3075bcb6b0b67f196660b3512ebb569719af90ca327ca102602324381df243b3",
+      "state": "book-selected",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Відкрити меню менеджера",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "До черги",
+          "width": 108.578
+        },
+        {
+          "height": 44,
+          "label": "Схвалити й опублікувати",
+          "width": 308
+        },
+        {
+          "height": 44,
+          "label": "Відхилити книжку",
+          "width": 294
+        }
+      ],
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [],
+        "controlContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(154, 136, 125)",
+            "label": "Категорія причини",
+            "threshold": 3,
+            "ratio": 3.206
+          }
+        ],
+        "formControls": [
+          {
+            "describedBy": [
+              "reason-help-40404040-4040-4040-8040-404040404201"
+            ],
+            "describedByExists": true,
+            "label": "Категорія причини",
+            "labelCount": 1,
+            "type": "select"
+          }
+        ],
+        "mobileInputs": [],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Ручна перевірка",
+            "logoTextExemption": false,
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/unit04-s18-book-selected-768.png",
+      "implementation_revision": "4552048aeb2ba6da16b47ac289058b14d5641869",
+      "layout": {
+        "clientWidth": 768,
+        "scrollWidth": 768,
+        "viewportWidth": 768
+      },
+      "screen": "s18",
+      "sha256": "acd070b2f41e101d5f5511153409710c7b5b581debbe40742e46e750cd052216",
+      "state": "book-selected",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Відкрити меню менеджера",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "До черги",
+          "width": 108.578
+        },
+        {
+          "height": 44,
+          "label": "Схвалити й опублікувати",
+          "width": 249.203
+        },
+        {
+          "height": 44,
+          "label": "Відхилити книжку",
+          "width": 672
+        }
+      ],
+      "viewport": {
+        "height": 1024,
+        "width": 768
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [],
+        "controlContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(154, 136, 125)",
+            "label": "Тип випадку",
+            "threshold": 3,
+            "ratio": 3.206
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(154, 136, 125)",
+            "label": "Категорія причини",
+            "threshold": 3,
+            "ratio": 3.206
+          }
+        ],
+        "formControls": [
+          {
+            "describedBy": [],
+            "describedByExists": true,
+            "label": "Тип випадку",
+            "labelCount": 1,
+            "type": "select"
+          },
+          {
+            "describedBy": [
+              "reason-help-40404040-4040-4040-8040-404040404201"
+            ],
+            "describedByExists": true,
+            "label": "Категорія причини",
+            "labelCount": 1,
+            "type": "select"
+          }
+        ],
+        "mobileInputs": [],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Ручна перевірка",
+            "logoTextExemption": false,
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/unit04-s18-book-selected-1280.png",
+      "implementation_revision": "4552048aeb2ba6da16b47ac289058b14d5641869",
+      "layout": {
+        "clientWidth": 1280,
+        "scrollWidth": 1280,
+        "viewportWidth": 1280
+      },
+      "screen": "s18",
+      "sha256": "d32889d5038c328bfe25bccdbb77b8d653d82cde809a845d167be06286e18b20",
+      "state": "book-selected",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Ручна перевірка",
+          "width": 142.063
+        },
+        {
+          "height": 44,
+          "label": "До каталогу",
+          "width": 111
+        },
+        {
+          "height": 44,
+          "label": "Вийти",
+          "width": 80.531
+        },
+        {
+          "height": 44,
+          "label": "Тип випадку",
+          "width": 194.125
+        },
+        {
+          "height": 44,
+          "label": "Застосувати",
+          "width": 123.875
+        },
+        {
+          "height": 132.875,
+          "label": "Книжка2 лип. 2026 р.Тіні над водоюОлена ВітроваПотрібна уважна ручна перевірка",
+          "width": 358
+        },
+        {
+          "height": 132.875,
+          "label": "Оновлення книжки6 лип. 2026 р.Оновлення: Сад після дощуОлена ВітроваПотрібна уважна ручна перевірка",
+          "width": 358
+        },
+        {
+          "height": 132.875,
+          "label": "Відгук7 лип. 2026 р.Відгук про Сад після дощуОлена ВітроваПотрібна уважна ручна перевірка",
+          "width": 358
+        },
+        {
+          "height": 132.875,
+          "label": "Книжка8 лип. 2026 р.Місто без сигналуОлена ВітроваШІ-скринінг недоступний",
+          "width": 358
+        },
+        {
+          "height": 132.875,
+          "label": "Книжка4 лип. 2026 р.Сад після дощуОлена ВітроваНадійшов структурований сигнал після публікації",
+          "width": 358
+        },
+        {
+          "height": 44,
+          "label": "Схвалити й опублікувати",
+          "width": 249.203
+        },
+        {
+          "height": 44,
+          "label": "Відхилити книжку",
+          "width": 696
+        }
+      ],
+      "viewport": {
+        "height": 900,
+        "width": 1280
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [],
+        "controlContrast": [],
+        "formControls": [
+          {
+            "describedBy": [
+              "reason-help-40404040-4040-4040-8040-404040404203"
+            ],
+            "describedByExists": true,
+            "label": "Категорія причини",
+            "labelCount": 1,
+            "type": "select"
+          }
+        ],
+        "mobileInputs": [
+          {
+            "fontSize": 16,
+            "label": "Категорія причини"
+          }
+        ],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Ручна перевірка",
+            "logoTextExemption": false,
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/unit04-s18-book-update-selected-390.png",
+      "implementation_revision": "4552048aeb2ba6da16b47ac289058b14d5641869",
+      "layout": {
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "viewportWidth": 390
+      },
+      "screen": "s18",
+      "sha256": "1909daf798e13e27e52b211858baca1aa3703c62097c99736df9c0f3782a6247",
+      "state": "book-update-selected",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Відкрити меню менеджера",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "До черги",
+          "width": 108.578
+        },
+        {
+          "height": 44,
+          "label": "Схвалити оновлення",
+          "width": 308
+        },
+        {
+          "height": 44,
+          "label": "Відхилити оновлення",
+          "width": 294
+        }
+      ],
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [],
+        "controlContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(154, 136, 125)",
+            "label": "Категорія причини",
+            "threshold": 3,
+            "ratio": 3.206
+          }
+        ],
+        "formControls": [
+          {
+            "describedBy": [
+              "reason-help-40404040-4040-4040-8040-404040404203"
+            ],
+            "describedByExists": true,
+            "label": "Категорія причини",
+            "labelCount": 1,
+            "type": "select"
+          }
+        ],
+        "mobileInputs": [],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Ручна перевірка",
+            "logoTextExemption": false,
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/unit04-s18-book-update-selected-768.png",
+      "implementation_revision": "4552048aeb2ba6da16b47ac289058b14d5641869",
+      "layout": {
+        "clientWidth": 768,
+        "scrollWidth": 768,
+        "viewportWidth": 768
+      },
+      "screen": "s18",
+      "sha256": "b0bcb647802302d8c923491717ce4014f485509a961018be7e8c448126061476",
+      "state": "book-update-selected",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Відкрити меню менеджера",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "До черги",
+          "width": 108.578
+        },
+        {
+          "height": 44,
+          "label": "Схвалити оновлення",
+          "width": 216.063
+        },
+        {
+          "height": 44,
+          "label": "Відхилити оновлення",
+          "width": 672
+        }
+      ],
+      "viewport": {
+        "height": 1024,
+        "width": 768
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [],
+        "controlContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(154, 136, 125)",
+            "label": "Тип випадку",
+            "threshold": 3,
+            "ratio": 3.206
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(154, 136, 125)",
+            "label": "Категорія причини",
+            "threshold": 3,
+            "ratio": 3.206
+          }
+        ],
+        "formControls": [
+          {
+            "describedBy": [],
+            "describedByExists": true,
+            "label": "Тип випадку",
+            "labelCount": 1,
+            "type": "select"
+          },
+          {
+            "describedBy": [
+              "reason-help-40404040-4040-4040-8040-404040404203"
+            ],
+            "describedByExists": true,
+            "label": "Категорія причини",
+            "labelCount": 1,
+            "type": "select"
+          }
+        ],
+        "mobileInputs": [],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Ручна перевірка",
+            "logoTextExemption": false,
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/unit04-s18-book-update-selected-1280.png",
+      "implementation_revision": "4552048aeb2ba6da16b47ac289058b14d5641869",
+      "layout": {
+        "clientWidth": 1280,
+        "scrollWidth": 1280,
+        "viewportWidth": 1280
+      },
+      "screen": "s18",
+      "sha256": "a5892e6361f8f7ac4689000216d6e75ff135dd2b342f5a6a6f0cb7eec24dfa2a",
+      "state": "book-update-selected",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Ручна перевірка",
+          "width": 142.063
+        },
+        {
+          "height": 44,
+          "label": "До каталогу",
+          "width": 111
+        },
+        {
+          "height": 44,
+          "label": "Вийти",
+          "width": 80.531
+        },
+        {
+          "height": 44,
+          "label": "Тип випадку",
+          "width": 194.125
+        },
+        {
+          "height": 44,
+          "label": "Застосувати",
+          "width": 123.875
+        },
+        {
+          "height": 132.875,
+          "label": "Книжка2 лип. 2026 р.Тіні над водоюОлена ВітроваПотрібна уважна ручна перевірка",
+          "width": 358
+        },
+        {
+          "height": 132.875,
+          "label": "Оновлення книжки6 лип. 2026 р.Оновлення: Сад після дощуОлена ВітроваПотрібна уважна ручна перевірка",
+          "width": 358
+        },
+        {
+          "height": 132.875,
+          "label": "Відгук7 лип. 2026 р.Відгук про Сад після дощуОлена ВітроваПотрібна уважна ручна перевірка",
+          "width": 358
+        },
+        {
+          "height": 132.875,
+          "label": "Книжка8 лип. 2026 р.Місто без сигналуОлена ВітроваШІ-скринінг недоступний",
+          "width": 358
+        },
+        {
+          "height": 132.875,
+          "label": "Книжка4 лип. 2026 р.Сад після дощуОлена ВітроваНадійшов структурований сигнал після публікації",
+          "width": 358
+        },
+        {
+          "height": 44,
+          "label": "Схвалити оновлення",
+          "width": 216.063
+        },
+        {
+          "height": 44,
+          "label": "Відхилити оновлення",
+          "width": 696
+        }
+      ],
+      "viewport": {
+        "height": 900,
+        "width": 1280
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [],
+        "controlContrast": [],
+        "formControls": [],
+        "mobileInputs": [],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Ручна перевірка",
+            "logoTextExemption": false,
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/unit04-s18-review-selected-390.png",
+      "implementation_revision": "4552048aeb2ba6da16b47ac289058b14d5641869",
+      "layout": {
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "viewportWidth": 390
+      },
+      "screen": "s18",
+      "sha256": "62676c40fbc74bb21bb59d82abd79a86a0cd0376c18eec1b54101c59404869f1",
+      "state": "review-selected",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Відкрити меню менеджера",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "До черги",
+          "width": 108.578
+        },
+        {
+          "height": 44,
+          "label": "Опублікувати відгук",
+          "width": 308
+        },
+        {
+          "height": 44,
+          "label": "Не публікувати",
+          "width": 308
+        }
+      ],
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [],
+        "controlContrast": [],
+        "formControls": [],
+        "mobileInputs": [],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Ручна перевірка",
+            "logoTextExemption": false,
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/unit04-s18-review-selected-768.png",
+      "implementation_revision": "4552048aeb2ba6da16b47ac289058b14d5641869",
+      "layout": {
+        "clientWidth": 768,
+        "scrollWidth": 768,
+        "viewportWidth": 768
+      },
+      "screen": "s18",
+      "sha256": "86085a79ecda68727786c9c7fc6a0f075fbfa3c5a9f29dcf78d7e0b2241a58dd",
+      "state": "review-selected",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Відкрити меню менеджера",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "До черги",
+          "width": 108.578
+        },
+        {
+          "height": 44,
+          "label": "Опублікувати відгук",
+          "width": 214.328
+        },
+        {
+          "height": 44,
+          "label": "Не публікувати",
+          "width": 157.938
+        }
+      ],
+      "viewport": {
+        "height": 1024,
+        "width": 768
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [],
+        "controlContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(154, 136, 125)",
+            "label": "Тип випадку",
+            "threshold": 3,
+            "ratio": 3.206
+          }
+        ],
+        "formControls": [
+          {
+            "describedBy": [],
+            "describedByExists": true,
+            "label": "Тип випадку",
+            "labelCount": 1,
+            "type": "select"
+          }
+        ],
+        "mobileInputs": [],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Ручна перевірка",
+            "logoTextExemption": false,
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/unit04-s18-review-selected-1280.png",
+      "implementation_revision": "4552048aeb2ba6da16b47ac289058b14d5641869",
+      "layout": {
+        "clientWidth": 1280,
+        "scrollWidth": 1280,
+        "viewportWidth": 1280
+      },
+      "screen": "s18",
+      "sha256": "cf7457be7df5ed3f553fc37fe8b83aba4e54cba3d26e1b60c7936bc0b7bbddc5",
+      "state": "review-selected",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Ручна перевірка",
+          "width": 142.063
+        },
+        {
+          "height": 44,
+          "label": "До каталогу",
+          "width": 111
+        },
+        {
+          "height": 44,
+          "label": "Вийти",
+          "width": 80.531
+        },
+        {
+          "height": 44,
+          "label": "Тип випадку",
+          "width": 194.125
+        },
+        {
+          "height": 44,
+          "label": "Застосувати",
+          "width": 123.875
+        },
+        {
+          "height": 132.875,
+          "label": "Книжка2 лип. 2026 р.Тіні над водоюОлена ВітроваПотрібна уважна ручна перевірка",
+          "width": 358
+        },
+        {
+          "height": 132.875,
+          "label": "Оновлення книжки6 лип. 2026 р.Оновлення: Сад після дощуОлена ВітроваПотрібна уважна ручна перевірка",
+          "width": 358
+        },
+        {
+          "height": 132.875,
+          "label": "Відгук7 лип. 2026 р.Відгук про Сад після дощуОлена ВітроваПотрібна уважна ручна перевірка",
+          "width": 358
+        },
+        {
+          "height": 132.875,
+          "label": "Книжка8 лип. 2026 р.Місто без сигналуОлена ВітроваШІ-скринінг недоступний",
+          "width": 358
+        },
+        {
+          "height": 132.875,
+          "label": "Книжка4 лип. 2026 р.Сад після дощуОлена ВітроваНадійшов структурований сигнал після публікації",
+          "width": 358
+        },
+        {
+          "height": 44,
+          "label": "Опублікувати відгук",
+          "width": 214.328
+        },
+        {
+          "height": 44,
+          "label": "Не публікувати",
+          "width": 157.938
+        }
+      ],
+      "viewport": {
+        "height": 900,
+        "width": 1280
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [],
+        "controlContrast": [],
+        "formControls": [
+          {
+            "describedBy": [
+              "reason-help-40404040-4040-4040-8040-404040404205"
+            ],
+            "describedByExists": true,
+            "label": "Категорія причини",
+            "labelCount": 1,
+            "type": "select"
+          }
+        ],
+        "mobileInputs": [
+          {
+            "fontSize": 16,
+            "label": "Категорія причини"
+          }
+        ],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Ручна перевірка",
+            "logoTextExemption": false,
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/unit04-s18-ai-unavailable-390.png",
+      "implementation_revision": "4552048aeb2ba6da16b47ac289058b14d5641869",
+      "layout": {
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "viewportWidth": 390
+      },
+      "screen": "s18",
+      "sha256": "a72cf8a4262b2adbad3d84bfef303abb77be0fe91bf0858fc81b7e7213fb2584",
+      "state": "ai-unavailable",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Відкрити меню менеджера",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "До черги",
+          "width": 108.578
+        },
+        {
+          "height": 44,
+          "label": "Схвалити й опублікувати",
+          "width": 308
+        },
+        {
+          "height": 44,
+          "label": "Відхилити книжку",
+          "width": 294
+        }
+      ],
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [],
+        "controlContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(154, 136, 125)",
+            "label": "Категорія причини",
+            "threshold": 3,
+            "ratio": 3.206
+          }
+        ],
+        "formControls": [
+          {
+            "describedBy": [
+              "reason-help-40404040-4040-4040-8040-404040404205"
+            ],
+            "describedByExists": true,
+            "label": "Категорія причини",
+            "labelCount": 1,
+            "type": "select"
+          }
+        ],
+        "mobileInputs": [],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Ручна перевірка",
+            "logoTextExemption": false,
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/unit04-s18-ai-unavailable-768.png",
+      "implementation_revision": "4552048aeb2ba6da16b47ac289058b14d5641869",
+      "layout": {
+        "clientWidth": 768,
+        "scrollWidth": 768,
+        "viewportWidth": 768
+      },
+      "screen": "s18",
+      "sha256": "172a1ea102210b73aa1a6fef9d818464304558b6eff98e8547478a938fd44b3e",
+      "state": "ai-unavailable",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Відкрити меню менеджера",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "До черги",
+          "width": 108.578
+        },
+        {
+          "height": 44,
+          "label": "Схвалити й опублікувати",
+          "width": 249.203
+        },
+        {
+          "height": 44,
+          "label": "Відхилити книжку",
+          "width": 672
+        }
+      ],
+      "viewport": {
+        "height": 1024,
+        "width": 768
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [],
+        "controlContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(154, 136, 125)",
+            "label": "Тип випадку",
+            "threshold": 3,
+            "ratio": 3.206
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(154, 136, 125)",
+            "label": "Категорія причини",
+            "threshold": 3,
+            "ratio": 3.206
+          }
+        ],
+        "formControls": [
+          {
+            "describedBy": [],
+            "describedByExists": true,
+            "label": "Тип випадку",
+            "labelCount": 1,
+            "type": "select"
+          },
+          {
+            "describedBy": [
+              "reason-help-40404040-4040-4040-8040-404040404205"
+            ],
+            "describedByExists": true,
+            "label": "Категорія причини",
+            "labelCount": 1,
+            "type": "select"
+          }
+        ],
+        "mobileInputs": [],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Ручна перевірка",
+            "logoTextExemption": false,
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/unit04-s18-ai-unavailable-1280.png",
+      "implementation_revision": "4552048aeb2ba6da16b47ac289058b14d5641869",
+      "layout": {
+        "clientWidth": 1280,
+        "scrollWidth": 1280,
+        "viewportWidth": 1280
+      },
+      "screen": "s18",
+      "sha256": "1f2e60ee348bd1ce083cbdff7a875e0c87532984759902143d42d0788affbd73",
+      "state": "ai-unavailable",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Ручна перевірка",
+          "width": 142.063
+        },
+        {
+          "height": 44,
+          "label": "До каталогу",
+          "width": 111
+        },
+        {
+          "height": 44,
+          "label": "Вийти",
+          "width": 80.531
+        },
+        {
+          "height": 44,
+          "label": "Тип випадку",
+          "width": 194.125
+        },
+        {
+          "height": 44,
+          "label": "Застосувати",
+          "width": 123.875
+        },
+        {
+          "height": 132.875,
+          "label": "Книжка2 лип. 2026 р.Тіні над водоюОлена ВітроваПотрібна уважна ручна перевірка",
+          "width": 358
+        },
+        {
+          "height": 132.875,
+          "label": "Оновлення книжки6 лип. 2026 р.Оновлення: Сад після дощуОлена ВітроваПотрібна уважна ручна перевірка",
+          "width": 358
+        },
+        {
+          "height": 132.875,
+          "label": "Відгук7 лип. 2026 р.Відгук про Сад після дощуОлена ВітроваПотрібна уважна ручна перевірка",
+          "width": 358
+        },
+        {
+          "height": 132.875,
+          "label": "Книжка8 лип. 2026 р.Місто без сигналуОлена ВітроваШІ-скринінг недоступний",
+          "width": 358
+        },
+        {
+          "height": 132.875,
+          "label": "Книжка4 лип. 2026 р.Сад після дощуОлена ВітроваНадійшов структурований сигнал після публікації",
+          "width": 358
+        },
+        {
+          "height": 44,
+          "label": "Схвалити й опублікувати",
+          "width": 249.203
+        },
+        {
+          "height": 44,
+          "label": "Відхилити книжку",
+          "width": 696
+        }
+      ],
+      "viewport": {
+        "height": 900,
+        "width": 1280
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [
+          {
+            "label": "",
+            "text": "Оберіть Категорію причини."
+          }
+        ],
+        "controlContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(154, 136, 125)",
+            "label": "Категорія причини",
+            "threshold": 3,
+            "ratio": 3.206
+          }
+        ],
+        "formControls": [
+          {
+            "describedBy": [
+              "reason-error-40404040-4040-4040-8040-404040404201"
+            ],
+            "describedByExists": true,
+            "label": "Категорія причини",
+            "labelCount": 1,
+            "type": "select"
+          }
+        ],
+        "mobileInputs": [
+          {
+            "fontSize": 16,
+            "label": "Категорія причини"
+          }
+        ],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Ручна перевірка",
+            "logoTextExemption": false,
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/unit04-s18-category-error-390.png",
+      "implementation_revision": "4552048aeb2ba6da16b47ac289058b14d5641869",
+      "layout": {
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "viewportWidth": 390
+      },
+      "screen": "s18",
+      "sha256": "bc778dc53e5099ad29f8747a599c959db0e1e6278b1dcf006701e049acbf1479",
+      "state": "category-error",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Відкрити меню менеджера",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "До черги",
+          "width": 108.578
+        },
+        {
+          "height": 44,
+          "label": "Схвалити й опублікувати",
+          "width": 308
+        },
+        {
+          "height": 44,
+          "label": "Відхилити книжку",
+          "width": 294
+        },
+        {
+          "height": 44,
+          "label": "Категорія причини",
+          "width": 270
+        },
+        {
+          "height": 44,
+          "label": "Відхилити книжку",
+          "width": 270
+        }
+      ],
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [
+          {
+            "label": "",
+            "text": "Оберіть Категорію причини."
+          }
+        ],
+        "controlContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(154, 136, 125)",
+            "label": "Категорія причини",
+            "threshold": 3,
+            "ratio": 3.206
+          }
+        ],
+        "formControls": [
+          {
+            "describedBy": [
+              "reason-error-40404040-4040-4040-8040-404040404201"
+            ],
+            "describedByExists": true,
+            "label": "Категорія причини",
+            "labelCount": 1,
+            "type": "select"
+          }
+        ],
+        "mobileInputs": [],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Ручна перевірка",
+            "logoTextExemption": false,
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/unit04-s18-category-error-768.png",
+      "implementation_revision": "4552048aeb2ba6da16b47ac289058b14d5641869",
+      "layout": {
+        "clientWidth": 768,
+        "scrollWidth": 768,
+        "viewportWidth": 768
+      },
+      "screen": "s18",
+      "sha256": "9e4b66f9189558647cc9a14edb0cc1de1257f50b55fbb472a97f6704f4ba8ab3",
+      "state": "category-error",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Відкрити меню менеджера",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "До черги",
+          "width": 108.578
+        },
+        {
+          "height": 44,
+          "label": "Схвалити й опублікувати",
+          "width": 249.203
+        },
+        {
+          "height": 44,
+          "label": "Відхилити книжку",
+          "width": 672
+        },
+        {
+          "height": 44,
+          "label": "Категорія причини",
+          "width": 648
+        },
+        {
+          "height": 44,
+          "label": "Відхилити книжку",
+          "width": 648
+        }
+      ],
+      "viewport": {
+        "height": 1024,
+        "width": 768
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [
+          {
+            "label": "",
+            "text": "Оберіть Категорію причини."
+          }
+        ],
+        "controlContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(154, 136, 125)",
+            "label": "Тип випадку",
+            "threshold": 3,
+            "ratio": 3.206
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(154, 136, 125)",
+            "label": "Категорія причини",
+            "threshold": 3,
+            "ratio": 3.206
+          }
+        ],
+        "formControls": [
+          {
+            "describedBy": [],
+            "describedByExists": true,
+            "label": "Тип випадку",
+            "labelCount": 1,
+            "type": "select"
+          },
+          {
+            "describedBy": [
+              "reason-error-40404040-4040-4040-8040-404040404201"
+            ],
+            "describedByExists": true,
+            "label": "Категорія причини",
+            "labelCount": 1,
+            "type": "select"
+          }
+        ],
+        "mobileInputs": [],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Ручна перевірка",
+            "logoTextExemption": false,
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/unit04-s18-category-error-1280.png",
+      "implementation_revision": "4552048aeb2ba6da16b47ac289058b14d5641869",
+      "layout": {
+        "clientWidth": 1280,
+        "scrollWidth": 1280,
+        "viewportWidth": 1280
+      },
+      "screen": "s18",
+      "sha256": "0a67e214bec9aa6c09bf00cf9c860d00c3669a727bff24972aea27b667ecb25a",
+      "state": "category-error",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Ручна перевірка",
+          "width": 142.063
+        },
+        {
+          "height": 44,
+          "label": "До каталогу",
+          "width": 111
+        },
+        {
+          "height": 44,
+          "label": "Вийти",
+          "width": 80.531
+        },
+        {
+          "height": 44,
+          "label": "Тип випадку",
+          "width": 194.125
+        },
+        {
+          "height": 44,
+          "label": "Застосувати",
+          "width": 123.875
+        },
+        {
+          "height": 132.875,
+          "label": "Книжка2 лип. 2026 р.Тіні над водоюОлена ВітроваПотрібна уважна ручна перевірка",
+          "width": 358
+        },
+        {
+          "height": 132.875,
+          "label": "Оновлення книжки6 лип. 2026 р.Оновлення: Сад після дощуОлена ВітроваПотрібна уважна ручна перевірка",
+          "width": 358
+        },
+        {
+          "height": 132.875,
+          "label": "Відгук7 лип. 2026 р.Відгук про Сад після дощуОлена ВітроваПотрібна уважна ручна перевірка",
+          "width": 358
+        },
+        {
+          "height": 132.875,
+          "label": "Книжка8 лип. 2026 р.Місто без сигналуОлена ВітроваШІ-скринінг недоступний",
+          "width": 358
+        },
+        {
+          "height": 132.875,
+          "label": "Книжка4 лип. 2026 р.Сад після дощуОлена ВітроваНадійшов структурований сигнал після публікації",
+          "width": 358
+        },
+        {
+          "height": 44,
+          "label": "Схвалити й опублікувати",
+          "width": 249.203
+        },
+        {
+          "height": 44,
+          "label": "Відхилити книжку",
+          "width": 696
+        },
+        {
+          "height": 44,
+          "label": "Категорія причини",
+          "width": 672
+        },
+        {
+          "height": 44,
+          "label": "Відхилити книжку",
+          "width": 672
+        }
+      ],
+      "viewport": {
+        "height": 900,
+        "width": 1280
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [],
+        "controlContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(154, 136, 125)",
+            "label": "Підстава",
+            "threshold": 3,
+            "ratio": 3.206
+          }
+        ],
+        "formControls": [
+          {
+            "describedBy": [],
+            "describedByExists": true,
+            "label": "Підстава",
+            "labelCount": 1,
+            "type": "select"
+          }
+        ],
+        "mobileInputs": [
+          {
+            "fontSize": 16,
+            "label": "Підстава"
+          }
+        ],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Ручна перевірка",
+            "logoTextExemption": false,
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/unit04-s18-removal-dialog-390.png",
+      "implementation_revision": "4552048aeb2ba6da16b47ac289058b14d5641869",
+      "layout": {
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "viewportWidth": 390
+      },
+      "screen": "s18",
+      "sha256": "a0bc6a955d0aca65e51cd35813a220fd1f2cfd0fe1ab0da01ea806be4d4aace0",
+      "state": "removal-dialog",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Відкрити меню менеджера",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "До черги",
+          "width": 108.578
+        },
+        {
+          "height": 44,
+          "label": "Залишити в Каталозі",
+          "width": 308
+        },
+        {
+          "height": 44,
+          "label": "Прибрати з Каталогу",
+          "width": 218.906
+        },
+        {
+          "height": 44,
+          "label": "Підстава",
+          "width": 286
+        },
+        {
+          "height": 44,
+          "label": "Скасувати",
+          "width": 286
+        },
+        {
+          "height": 44,
+          "label": "Прибрати з Каталогу",
+          "width": 286
+        }
+      ],
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [],
+        "controlContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(154, 136, 125)",
+            "label": "Підстава",
+            "threshold": 3,
+            "ratio": 3.206
+          }
+        ],
+        "formControls": [
+          {
+            "describedBy": [],
+            "describedByExists": true,
+            "label": "Підстава",
+            "labelCount": 1,
+            "type": "select"
+          }
+        ],
+        "mobileInputs": [
+          {
+            "fontSize": 16,
+            "label": "Підстава"
+          }
+        ],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Ручна перевірка",
+            "logoTextExemption": false,
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/unit04-s18-removal-dialog-430.png",
+      "implementation_revision": "4552048aeb2ba6da16b47ac289058b14d5641869",
+      "layout": {
+        "clientWidth": 430,
+        "scrollWidth": 430,
+        "viewportWidth": 430
+      },
+      "screen": "s18",
+      "sha256": "8be96708565aac66d2e6645a6b2365bdb9dc3770fe66729b828314f219c8ec73",
+      "state": "removal-dialog",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Відкрити меню менеджера",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "До черги",
+          "width": 108.578
+        },
+        {
+          "height": 44,
+          "label": "Залишити в Каталозі",
+          "width": 348
+        },
+        {
+          "height": 44,
+          "label": "Прибрати з Каталогу",
+          "width": 218.906
+        },
+        {
+          "height": 44,
+          "label": "Підстава",
+          "width": 326
+        },
+        {
+          "height": 44,
+          "label": "Скасувати",
+          "width": 326
+        },
+        {
+          "height": 44,
+          "label": "Прибрати з Каталогу",
+          "width": 326
+        }
+      ],
+      "viewport": {
+        "height": 932,
+        "width": 430
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [],
+        "controlContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(154, 136, 125)",
+            "label": "Підстава",
+            "threshold": 3,
+            "ratio": 3.206
+          }
+        ],
+        "formControls": [
+          {
+            "describedBy": [],
+            "describedByExists": true,
+            "label": "Підстава",
+            "labelCount": 1,
+            "type": "select"
+          }
+        ],
+        "mobileInputs": [],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Ручна перевірка",
+            "logoTextExemption": false,
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/unit04-s18-removal-dialog-768.png",
+      "implementation_revision": "4552048aeb2ba6da16b47ac289058b14d5641869",
+      "layout": {
+        "clientWidth": 768,
+        "scrollWidth": 768,
+        "viewportWidth": 768
+      },
+      "screen": "s18",
+      "sha256": "bab998e56cb0f95dbad910912ec792ca294157de4f4492c38c34fd0c0c93de92",
+      "state": "removal-dialog",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Відкрити меню менеджера",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "До черги",
+          "width": 108.578
+        },
+        {
+          "height": 44,
+          "label": "Залишити в Каталозі",
+          "width": 217.594
+        },
+        {
+          "height": 44,
+          "label": "Прибрати з Каталогу",
+          "width": 218.906
+        },
+        {
+          "height": 44,
+          "label": "Підстава",
+          "width": 486
+        },
+        {
+          "height": 44,
+          "label": "Скасувати",
+          "width": 121.453
+        },
+        {
+          "height": 44,
+          "label": "Прибрати з Каталогу",
+          "width": 200.906
+        }
+      ],
+      "viewport": {
+        "height": 1024,
+        "width": 768
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [],
+        "controlContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(154, 136, 125)",
+            "label": "Тип випадку",
+            "threshold": 3,
+            "ratio": 3.206
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(154, 136, 125)",
+            "label": "Підстава",
+            "threshold": 3,
+            "ratio": 3.206
+          }
+        ],
+        "formControls": [
+          {
+            "describedBy": [],
+            "describedByExists": true,
+            "label": "Тип випадку",
+            "labelCount": 1,
+            "type": "select"
+          },
+          {
+            "describedBy": [],
+            "describedByExists": true,
+            "label": "Підстава",
+            "labelCount": 1,
+            "type": "select"
+          }
+        ],
+        "mobileInputs": [],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Ручна перевірка",
+            "logoTextExemption": false,
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/unit04-s18-removal-dialog-1280.png",
+      "implementation_revision": "4552048aeb2ba6da16b47ac289058b14d5641869",
+      "layout": {
+        "clientWidth": 1280,
+        "scrollWidth": 1280,
+        "viewportWidth": 1280
+      },
+      "screen": "s18",
+      "sha256": "1e0eb22ddb4a8d135c2a5f04c15276e2faab56013f09dc142dfa982d7254bf26",
+      "state": "removal-dialog",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Ручна перевірка",
+          "width": 142.063
+        },
+        {
+          "height": 44,
+          "label": "До каталогу",
+          "width": 111
+        },
+        {
+          "height": 44,
+          "label": "Вийти",
+          "width": 80.531
+        },
+        {
+          "height": 44,
+          "label": "Тип випадку",
+          "width": 194.125
+        },
+        {
+          "height": 44,
+          "label": "Застосувати",
+          "width": 123.875
+        },
+        {
+          "height": 132.875,
+          "label": "Книжка2 лип. 2026 р.Тіні над водоюОлена ВітроваПотрібна уважна ручна перевірка",
+          "width": 358
+        },
+        {
+          "height": 132.875,
+          "label": "Оновлення книжки6 лип. 2026 р.Оновлення: Сад після дощуОлена ВітроваПотрібна уважна ручна перевірка",
+          "width": 358
+        },
+        {
+          "height": 132.875,
+          "label": "Відгук7 лип. 2026 р.Відгук про Сад після дощуОлена ВітроваПотрібна уважна ручна перевірка",
+          "width": 358
+        },
+        {
+          "height": 132.875,
+          "label": "Книжка8 лип. 2026 р.Місто без сигналуОлена ВітроваШІ-скринінг недоступний",
+          "width": 358
+        },
+        {
+          "height": 132.875,
+          "label": "Книжка4 лип. 2026 р.Сад після дощуОлена ВітроваНадійшов структурований сигнал після публікації",
+          "width": 358
+        },
+        {
+          "height": 44,
+          "label": "Залишити в Каталозі",
+          "width": 217.594
+        },
+        {
+          "height": 44,
+          "label": "Прибрати з Каталогу",
+          "width": 218.906
+        },
+        {
+          "height": 44,
+          "label": "Підстава",
+          "width": 486
+        },
+        {
+          "height": 44,
+          "label": "Скасувати",
+          "width": 121.453
+        },
+        {
+          "height": 44,
+          "label": "Прибрати з Каталогу",
+          "width": 200.906
+        }
+      ],
+      "viewport": {
+        "height": 900,
+        "width": 1280
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [],
+        "controlContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(154, 136, 125)",
+            "label": "Тип випадку",
+            "threshold": 3,
+            "ratio": 3.206
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(154, 136, 125)",
+            "label": "Підстава",
+            "threshold": 3,
+            "ratio": 3.206
+          }
+        ],
+        "formControls": [
+          {
+            "describedBy": [],
+            "describedByExists": true,
+            "label": "Тип випадку",
+            "labelCount": 1,
+            "type": "select"
+          },
+          {
+            "describedBy": [],
+            "describedByExists": true,
+            "label": "Підстава",
+            "labelCount": 1,
+            "type": "select"
+          }
+        ],
+        "mobileInputs": [],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Ручна перевірка",
+            "logoTextExemption": false,
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/unit04-s18-removal-dialog-1440.png",
+      "implementation_revision": "4552048aeb2ba6da16b47ac289058b14d5641869",
+      "layout": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "viewportWidth": 1440
+      },
+      "screen": "s18",
+      "sha256": "ec26f023307abae7f800e034f7eaaba07a8d25e65d4f89f26164dc2ba35b0ffd",
+      "state": "removal-dialog",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Ручна перевірка",
+          "width": 142.063
+        },
+        {
+          "height": 44,
+          "label": "До каталогу",
+          "width": 111
+        },
+        {
+          "height": 44,
+          "label": "Вийти",
+          "width": 80.531
+        },
+        {
+          "height": 44,
+          "label": "Тип випадку",
+          "width": 194.125
+        },
+        {
+          "height": 44,
+          "label": "Застосувати",
+          "width": 123.875
+        },
+        {
+          "height": 132.875,
+          "label": "Книжка2 лип. 2026 р.Тіні над водоюОлена ВітроваПотрібна уважна ручна перевірка",
+          "width": 358
+        },
+        {
+          "height": 132.875,
+          "label": "Оновлення книжки6 лип. 2026 р.Оновлення: Сад після дощуОлена ВітроваПотрібна уважна ручна перевірка",
+          "width": 358
+        },
+        {
+          "height": 132.875,
+          "label": "Відгук7 лип. 2026 р.Відгук про Сад після дощуОлена ВітроваПотрібна уважна ручна перевірка",
+          "width": 358
+        },
+        {
+          "height": 132.875,
+          "label": "Книжка8 лип. 2026 р.Місто без сигналуОлена ВітроваШІ-скринінг недоступний",
+          "width": 358
+        },
+        {
+          "height": 132.875,
+          "label": "Книжка4 лип. 2026 р.Сад після дощуОлена ВітроваНадійшов структурований сигнал після публікації",
+          "width": 358
+        },
+        {
+          "height": 44,
+          "label": "Залишити в Каталозі",
+          "width": 217.594
+        },
+        {
+          "height": 44,
+          "label": "Прибрати з Каталогу",
+          "width": 218.906
+        },
+        {
+          "height": 44,
+          "label": "Підстава",
+          "width": 486
+        },
+        {
+          "height": 44,
+          "label": "Скасувати",
+          "width": 121.453
+        },
+        {
+          "height": 44,
+          "label": "Прибрати з Каталогу",
+          "width": 200.906
+        }
+      ],
+      "viewport": {
+        "height": 1000,
+        "width": 1440
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [],
+        "controlContrast": [],
+        "formControls": [],
+        "mobileInputs": [],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Ручна перевірка",
+            "logoTextExemption": false,
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/unit04-s18-empty-390.png",
+      "implementation_revision": "4552048aeb2ba6da16b47ac289058b14d5641869",
+      "layout": {
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "viewportWidth": 390
+      },
+      "screen": "s18",
+      "sha256": "22c929cf88999c603adb2f94a4aec5c2ec4d9c8a64b545f32253769c2b497181",
+      "state": "empty",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Відкрити меню менеджера",
+          "width": 44
+        }
+      ],
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [],
+        "controlContrast": [],
+        "formControls": [],
+        "mobileInputs": [],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Ручна перевірка",
+            "logoTextExemption": false,
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/unit04-s18-empty-768.png",
+      "implementation_revision": "4552048aeb2ba6da16b47ac289058b14d5641869",
+      "layout": {
+        "clientWidth": 768,
+        "scrollWidth": 768,
+        "viewportWidth": 768
+      },
+      "screen": "s18",
+      "sha256": "5e5ed5a56578527337b9be290b542c35d903a84f7d4d368c111228679fed4b95",
+      "state": "empty",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Відкрити меню менеджера",
+          "width": 44
+        }
+      ],
+      "viewport": {
+        "height": 1024,
+        "width": 768
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [],
+        "controlContrast": [],
+        "formControls": [],
+        "mobileInputs": [],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Ручна перевірка",
+            "logoTextExemption": false,
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/unit04-s18-empty-1280.png",
+      "implementation_revision": "4552048aeb2ba6da16b47ac289058b14d5641869",
+      "layout": {
+        "clientWidth": 1280,
+        "scrollWidth": 1280,
+        "viewportWidth": 1280
+      },
+      "screen": "s18",
+      "sha256": "8a2e5be19e5653810bfc114d73193814b790bfab0380eff29c59a8bea6c74525",
+      "state": "empty",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Ручна перевірка",
+          "width": 142.063
+        },
+        {
+          "height": 44,
+          "label": "До каталогу",
+          "width": 111
+        },
+        {
+          "height": 44,
+          "label": "Вийти",
+          "width": 80.531
+        }
+      ],
+      "viewport": {
+        "height": 900,
+        "width": 1280
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [],
+        "controlContrast": [],
+        "formControls": [
+          {
+            "describedBy": [],
+            "describedByExists": true,
+            "label": "Пошук за назвою або автором",
+            "labelCount": 1,
+            "type": "search"
+          }
+        ],
+        "mobileInputs": [
+          {
+            "fontSize": 16,
+            "label": "Пошук за назвою або автором"
+          }
+        ],
+        "placeholderContrast": [
+          {
+            "background": "rgb(255, 255, 255)",
+            "foreground": "rgb(117, 117, 117)",
+            "label": "Пошук за назвою або автором placeholder",
+            "threshold": 4.5,
+            "ratio": 4.608
+          }
+        ],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Заборонена течія",
+            "logoTextExemption": false,
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/unit04-s02-unavailable-after-removal-390.png",
+      "implementation_revision": "4552048aeb2ba6da16b47ac289058b14d5641869",
+      "layout": {
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "viewportWidth": 390
+      },
+      "screen": "s02",
+      "sha256": "2585a66ae9ae01c4050926905b53b55b10b83336bd87d7569e7b42b1871ea262",
+      "state": "unavailable-after-removal",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 93.688
+        },
+        {
+          "height": 44,
+          "label": "Кошик, 2 книжки",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Відкрити меню",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "До каталогу",
+          "width": 155.422
+        },
+        {
+          "height": 44,
+          "label": "Повний опис книжки",
+          "width": 195.281
+        }
+      ],
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [],
+        "controlContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(154, 136, 125)",
+            "label": "Пошук за назвою або автором",
+            "threshold": 3,
+            "ratio": 3.206
+          }
+        ],
+        "formControls": [
+          {
+            "describedBy": [],
+            "describedByExists": true,
+            "label": "Пошук за назвою або автором",
+            "labelCount": 1,
+            "type": "search"
+          }
+        ],
+        "mobileInputs": [
+          {
+            "fontSize": 16,
+            "label": "Пошук за назвою або автором"
+          }
+        ],
+        "placeholderContrast": [
+          {
+            "background": "rgb(255, 255, 255)",
+            "foreground": "rgb(117, 117, 117)",
+            "label": "Пошук за назвою або автором placeholder",
+            "threshold": 4.5,
+            "ratio": 4.608
+          }
+        ],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Заборонена течія",
+            "logoTextExemption": false,
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/unit04-s02-unavailable-after-removal-430.png",
+      "implementation_revision": "4552048aeb2ba6da16b47ac289058b14d5641869",
+      "layout": {
+        "clientWidth": 430,
+        "scrollWidth": 430,
+        "viewportWidth": 430
+      },
+      "screen": "s02",
+      "sha256": "1fbb2333fc8c3c9202ca48175a2201a8c5ed32d98228d3e81829ec218e68a051",
+      "state": "unavailable-after-removal",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 93.688
+        },
+        {
+          "height": 44,
+          "label": "Кошик, 2 книжки",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Відкрити меню",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "До каталогу",
+          "width": 155.422
+        },
+        {
+          "height": 44,
+          "label": "Повний опис книжки",
+          "width": 195.281
+        }
+      ],
+      "viewport": {
+        "height": 932,
+        "width": 430
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [],
+        "controlContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(154, 136, 125)",
+            "label": "Пошук за назвою або автором",
+            "threshold": 3,
+            "ratio": 3.206
+          }
+        ],
+        "formControls": [
+          {
+            "describedBy": [],
+            "describedByExists": true,
+            "label": "Пошук за назвою або автором",
+            "labelCount": 1,
+            "type": "search"
+          }
+        ],
+        "mobileInputs": [],
+        "placeholderContrast": [
+          {
+            "background": "rgb(255, 255, 255)",
+            "foreground": "rgb(117, 117, 117)",
+            "label": "Пошук за назвою або автором placeholder",
+            "threshold": 4.5,
+            "ratio": 4.608
+          }
+        ],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Заборонена течія",
+            "logoTextExemption": false,
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/unit04-s02-unavailable-after-removal-768.png",
+      "implementation_revision": "4552048aeb2ba6da16b47ac289058b14d5641869",
+      "layout": {
+        "clientWidth": 768,
+        "scrollWidth": 768,
+        "viewportWidth": 768
+      },
+      "screen": "s02",
+      "sha256": "6612ef256d5ca8860cee124b83a5ec7d4090a814cf2b6bb5844d6df6b5567f06",
+      "state": "unavailable-after-removal",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 93.688
+        },
+        {
+          "height": 44,
+          "label": "Кошик, 2 книжки",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Відкрити меню",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "До каталогу",
+          "width": 155.422
+        },
+        {
+          "height": 44,
+          "label": "Повний опис книжки",
+          "width": 195.281
+        }
+      ],
+      "viewport": {
+        "height": 1024,
+        "width": 768
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [],
+        "controlContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Пошук за назвою або автором",
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ],
+        "formControls": [
+          {
+            "describedBy": [],
+            "describedByExists": true,
+            "label": "Пошук за назвою або автором",
+            "labelCount": 1,
+            "type": "search"
+          }
+        ],
+        "mobileInputs": [],
+        "placeholderContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(112, 95, 85)",
+            "label": "Пошук за назвою або автором placeholder",
+            "threshold": 4.5,
+            "ratio": 5.742
+          }
+        ],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Заборонена течія",
+            "logoTextExemption": false,
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/unit04-s02-unavailable-after-removal-1280.png",
+      "implementation_revision": "4552048aeb2ba6da16b47ac289058b14d5641869",
+      "layout": {
+        "clientWidth": 1280,
+        "scrollWidth": 1280,
+        "viewportWidth": 1280
+      },
+      "screen": "s02",
+      "sha256": "5e0bbf4fe53f47a384c3739d6662b145d2dafc31fb0d763e6f2336e1b86dd155",
+      "state": "unavailable-after-removal",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 93.688
+        },
+        {
+          "height": 44,
+          "label": "Каталог",
+          "width": 55.234
+        },
+        {
+          "height": 44,
+          "label": "Жанри",
+          "width": 47.25
+        },
+        {
+          "height": 44,
+          "label": "Знижки",
+          "width": 54.188
+        },
+        {
+          "height": 44,
+          "label": "Авторам",
+          "width": 59.297
+        },
+        {
+          "height": 44,
+          "label": "Пошук за назвою або автором",
+          "width": 240
+        },
+        {
+          "height": 44,
+          "label": "Знайти",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Кошик, 2 книжки",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "До каталогу",
+          "width": 155.422
+        },
+        {
+          "height": 44,
+          "label": "Повний опис книжки",
+          "width": 195.281
+        }
+      ],
+      "viewport": {
+        "height": 900,
+        "width": 1280
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [],
+        "controlContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Пошук за назвою або автором",
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ],
+        "formControls": [
+          {
+            "describedBy": [],
+            "describedByExists": true,
+            "label": "Пошук за назвою або автором",
+            "labelCount": 1,
+            "type": "search"
+          }
+        ],
+        "mobileInputs": [],
+        "placeholderContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(112, 95, 85)",
+            "label": "Пошук за назвою або автором placeholder",
+            "threshold": 4.5,
+            "ratio": 5.742
+          }
+        ],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Заборонена течія",
+            "logoTextExemption": false,
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/unit04-s02-unavailable-after-removal-1440.png",
+      "implementation_revision": "4552048aeb2ba6da16b47ac289058b14d5641869",
+      "layout": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "viewportWidth": 1440
+      },
+      "screen": "s02",
+      "sha256": "5aa4e3200176925bd3a22f0f14ab013364bc736c945dbcfedeb9b2501754e790",
+      "state": "unavailable-after-removal",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 93.688
+        },
+        {
+          "height": 44,
+          "label": "Каталог",
+          "width": 55.234
+        },
+        {
+          "height": 44,
+          "label": "Жанри",
+          "width": 47.25
+        },
+        {
+          "height": 44,
+          "label": "Знижки",
+          "width": 54.188
+        },
+        {
+          "height": 44,
+          "label": "Авторам",
+          "width": 59.297
+        },
+        {
+          "height": 44,
+          "label": "Пошук за назвою або автором",
+          "width": 240
+        },
+        {
+          "height": 44,
+          "label": "Знайти",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Кошик, 2 книжки",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "До каталогу",
+          "width": 155.422
+        },
+        {
+          "height": 44,
+          "label": "Повний опис книжки",
+          "width": 195.281
+        }
+      ],
+      "viewport": {
+        "height": 1000,
+        "width": 1440
+      }
+    }
+  ],
+  "status": "passed"
+}

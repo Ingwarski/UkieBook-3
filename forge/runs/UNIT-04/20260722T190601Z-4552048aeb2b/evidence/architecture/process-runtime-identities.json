@@ -1,0 +1,23 @@
+{
+  "identities": [
+    {
+      "appRevision": "4552048aeb2ba6da16b47ac289058b14d5641869",
+      "role": "worker",
+      "schemaRevision": "0005_moderation_publication"
+    },
+    {
+      "appRevision": "4552048aeb2ba6da16b47ac289058b14d5641869",
+      "role": "scheduler",
+      "schemaRevision": "0005_moderation_publication"
+    },
+    {
+      "appRevision": "4552048aeb2ba6da16b47ac289058b14d5641869",
+      "role": "db-migrate",
+      "schemaRevision": "0005_moderation_publication"
+    }
+  ],
+  "shared_app_revision": "4552048aeb2ba6da16b47ac289058b14d5641869",
+  "shared_schema_revision": "0005_moderation_publication",
+  "status": "passed",
+  "verified_at": "2026-07-22T19:06:34.919Z"
+}

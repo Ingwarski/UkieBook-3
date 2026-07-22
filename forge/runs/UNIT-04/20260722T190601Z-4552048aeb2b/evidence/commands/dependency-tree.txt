@@ -1,0 +1,44 @@
+name: dependency-tree
+command: npm ls --depth=0
+implementation_revision: 4552048aeb2ba6da16b47ac289058b14d5641869
+started_at: 2026-07-22T19:06:01.611Z
+finished_at: 2026-07-22T19:06:02.054Z
+exit_code: 0
+signal: none
+
+[stdout]
+ukiebook-3@0.1.0 /Users/ingwar/Documents/UkieBook 3
+├── @electric-sql/pglite@0.5.4
+├── @embedded-postgres/darwin-arm64@18.4.0-beta.17 extraneous
+├── @fontsource-variable/golos-text@5.3.0
+├── @fontsource-variable/literata@5.3.0
+├── @phosphor-icons/react@2.1.10
+├── @playwright/test@1.61.1
+├── @testing-library/dom@10.4.1
+├── @testing-library/jest-dom@7.0.0
+├── @testing-library/react@16.3.2
+├── @types/node@24.13.3
+├── @types/pg@8.20.0
+├── @types/react-dom@19.2.3
+├── @types/react@19.2.17
+├── async-exit-hook@2.0.1 extraneous
+├── embedded-postgres@18.4.0-beta.17 extraneous
+├── esbuild@0.28.1
+├── eslint-config-next@16.2.11
+├── eslint@9.39.5
+├── jose@6.1.2
+├── jsdom@29.1.1
+├── next@16.2.11
+├── oauth4webapi@3.8.6
+├── pg@8.22.0
+├── react-dom@19.2.8
+├── react@19.2.8
+├── server-only@0.0.1
+├── sharp@0.35.3 overridden
+├── tsx@4.23.1
+├── typescript@6.0.3
+├── vitest@4.1.10
+└── zod@4.4.3
+
+
+[stderr]

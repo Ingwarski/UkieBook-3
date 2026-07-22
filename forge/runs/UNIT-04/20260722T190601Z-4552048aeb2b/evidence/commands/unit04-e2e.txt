@@ -1,0 +1,42 @@
+name: unit04-e2e
+command: npm run test:unit04:e2e -- --trace=off
+implementation_revision: 4552048aeb2ba6da16b47ac289058b14d5641869
+started_at: 2026-07-22T19:06:36.168Z
+finished_at: 2026-07-22T19:06:50.883Z
+exit_code: 0
+signal: none
+
+[stdout]
+
+> ukiebook-3@0.1.0 test:unit04:e2e
+> playwright test --config playwright.unit04.e2e.config.ts --trace=off
+
+
+Running 4 tests using 1 worker
+
+  ✓  1 [chromium] › tests/e2e-unit04/moderation-flow.spec.ts:36:1 › S-13 exposes the five author-visible lifecycle states without internal AI signals (2.9s)
+  ✓  2 [chromium] › tests/e2e-unit04/moderation-flow.spec.ts:64:1 › anonymous and author sessions cannot enter manager moderation (414ms)
+  ✓  3 [chromium] › tests/e2e-unit04/moderation-flow.spec.ts:73:1 › invalid CSRF cannot mutate a moderation case (2.1s)
+  ✓  4 [chromium] › tests/e2e-unit04/moderation-flow.spec.ts:110:1 › S-18 manager resolves every subject type and removal makes S-02 unavailable (5.8s)
+
+  4 passed (14.3s)
+
+[stderr]
+[WebServer] (node:769) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:960) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:961) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:1025) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:1188) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:1223) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:1312) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:1311) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+(node:1318) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)

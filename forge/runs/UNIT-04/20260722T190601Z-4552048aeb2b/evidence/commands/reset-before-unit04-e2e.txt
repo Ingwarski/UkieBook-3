@@ -1,0 +1,12 @@
+name: reset-before-unit04-e2e
+command: npx --no-install tsx --conditions=react-server scripts/reset-unit04-test-state.ts
+implementation_revision: 4552048aeb2ba6da16b47ac289058b14d5641869
+started_at: 2026-07-22T19:06:35.591Z
+finished_at: 2026-07-22T19:06:36.168Z
+exit_code: 0
+signal: none
+
+[stdout]
+{"artifact_roots":["unit04-evidence-private","unit04-evidence-public"],"database":"ukiebook_unit04","schema":"reset-and-migrated","status":"passed"}
+
+[stderr]

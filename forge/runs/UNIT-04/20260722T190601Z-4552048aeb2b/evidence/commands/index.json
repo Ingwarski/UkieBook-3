@@ -1,0 +1,182 @@
+{
+  "commands": [
+    {
+      "arguments": [
+        "ls",
+        "--depth=0"
+      ],
+      "command": "npm ls --depth=0",
+      "executable": "npm",
+      "exit_code": 0,
+      "finished_at": "2026-07-22T19:06:02.054Z",
+      "name": "dependency-tree",
+      "receipt": "evidence/commands/dependency-tree.txt",
+      "signal": null,
+      "started_at": "2026-07-22T19:06:01.611Z"
+    },
+    {
+      "arguments": [
+        "audit",
+        "--audit-level=high"
+      ],
+      "command": "npm audit --audit-level=high",
+      "executable": "npm",
+      "exit_code": 0,
+      "finished_at": "2026-07-22T19:06:02.607Z",
+      "name": "dependency-audit",
+      "receipt": "evidence/commands/dependency-audit.txt",
+      "signal": null,
+      "started_at": "2026-07-22T19:06:02.055Z"
+    },
+    {
+      "arguments": [
+        "run",
+        "typecheck"
+      ],
+      "command": "npm run typecheck",
+      "executable": "npm",
+      "exit_code": 0,
+      "finished_at": "2026-07-22T19:06:06.147Z",
+      "name": "typecheck",
+      "receipt": "evidence/commands/typecheck.txt",
+      "signal": null,
+      "started_at": "2026-07-22T19:06:02.608Z"
+    },
+    {
+      "arguments": [
+        "run",
+        "lint"
+      ],
+      "command": "npm run lint",
+      "executable": "npm",
+      "exit_code": 0,
+      "finished_at": "2026-07-22T19:06:10.753Z",
+      "name": "lint",
+      "receipt": "evidence/commands/lint.txt",
+      "signal": null,
+      "started_at": "2026-07-22T19:06:06.148Z"
+    },
+    {
+      "arguments": [
+        "test"
+      ],
+      "command": "npm test",
+      "executable": "npm",
+      "exit_code": 0,
+      "finished_at": "2026-07-22T19:06:26.067Z",
+      "name": "unit-tests",
+      "receipt": "evidence/commands/unit-tests.txt",
+      "signal": null,
+      "started_at": "2026-07-22T19:06:10.754Z"
+    },
+    {
+      "arguments": [
+        "run",
+        "verify:repository"
+      ],
+      "command": "npm run verify:repository",
+      "executable": "npm",
+      "exit_code": 0,
+      "finished_at": "2026-07-22T19:06:26.577Z",
+      "name": "repository-hygiene",
+      "receipt": "evidence/commands/repository-hygiene.txt",
+      "signal": null,
+      "started_at": "2026-07-22T19:06:26.069Z"
+    },
+    {
+      "arguments": [
+        "run",
+        "build"
+      ],
+      "command": "npm run build",
+      "executable": "npm",
+      "exit_code": 0,
+      "finished_at": "2026-07-22T19:06:34.927Z",
+      "name": "build",
+      "receipt": "evidence/commands/build.txt",
+      "signal": null,
+      "started_at": "2026-07-22T19:06:26.578Z"
+    },
+    {
+      "arguments": [
+        "run",
+        "verify:unit04:postgres"
+      ],
+      "command": "npm run verify:unit04:postgres",
+      "executable": "npm",
+      "exit_code": 0,
+      "finished_at": "2026-07-22T19:06:35.590Z",
+      "name": "real-postgres-unit04",
+      "receipt": "evidence/commands/real-postgres-unit04.txt",
+      "signal": null,
+      "started_at": "2026-07-22T19:06:34.928Z"
+    },
+    {
+      "arguments": [
+        "--no-install",
+        "tsx",
+        "--conditions=react-server",
+        "scripts/reset-unit04-test-state.ts"
+      ],
+      "command": "npx --no-install tsx --conditions=react-server scripts/reset-unit04-test-state.ts",
+      "executable": "npx",
+      "exit_code": 0,
+      "finished_at": "2026-07-22T19:06:36.168Z",
+      "name": "reset-before-unit04-e2e",
+      "receipt": "evidence/commands/reset-before-unit04-e2e.txt",
+      "signal": null,
+      "started_at": "2026-07-22T19:06:35.591Z"
+    },
+    {
+      "arguments": [
+        "run",
+        "test:unit04:e2e",
+        "--",
+        "--trace=off"
+      ],
+      "command": "npm run test:unit04:e2e -- --trace=off",
+      "executable": "npm",
+      "exit_code": 0,
+      "finished_at": "2026-07-22T19:06:50.883Z",
+      "name": "unit04-e2e",
+      "receipt": "evidence/commands/unit04-e2e.txt",
+      "signal": null,
+      "started_at": "2026-07-22T19:06:36.168Z"
+    },
+    {
+      "arguments": [
+        "--no-install",
+        "tsx",
+        "--conditions=react-server",
+        "scripts/reset-unit04-test-state.ts"
+      ],
+      "command": "npx --no-install tsx --conditions=react-server scripts/reset-unit04-test-state.ts",
+      "executable": "npx",
+      "exit_code": 0,
+      "finished_at": "2026-07-22T19:06:51.511Z",
+      "name": "reset-before-unit04-visual",
+      "receipt": "evidence/commands/reset-before-unit04-visual.txt",
+      "signal": null,
+      "started_at": "2026-07-22T19:06:50.883Z"
+    },
+    {
+      "arguments": [
+        "run",
+        "test:unit04:visual",
+        "--",
+        "--trace=off"
+      ],
+      "command": "npm run test:unit04:visual -- --trace=off",
+      "executable": "npm",
+      "exit_code": 0,
+      "finished_at": "2026-07-22T19:07:25.248Z",
+      "name": "unit04-visual",
+      "receipt": "evidence/commands/unit04-visual.txt",
+      "signal": null,
+      "started_at": "2026-07-22T19:06:51.512Z"
+    }
+  ],
+  "implementation_revision": "4552048aeb2ba6da16b47ac289058b14d5641869",
+  "unit": "UNIT-04",
+  "updated_at": "2026-07-22T19:07:25.248Z"
+}

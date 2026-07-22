@@ -12,7 +12,7 @@
 
 Active `operator-final-7b/v3` містить high-fidelity HTML-еталон S-01, який є дизайн-доказом, а не production implementation; наявний production-код не перебирає на себе роль visual source of truth.
 
-Implementation alignment для S-11/S-12 перевірено на UNIT-03 revision `6fb52daf3ff11630454c13a76adfd7875c749e8f`; canonical evidence: `forge/runs/UNIT-03/20260722T151115Z-6fb52daf3ff1`. Поточні S-13/S-18/S-02 unavailable surfaces звірено зі структурним контрактом UNIT-04, але canonical UNIT-04 receipt ще не зареєстровано й цей документ його не заявляє. Runtime implementation не замінює PRD/screen-map як джерела продуктової поведінки та не стає visual source of truth.
+Implementation alignment для S-11/S-12 перевірено на UNIT-03 revision `6fb52daf3ff11630454c13a76adfd7875c749e8f`; canonical evidence: `forge/runs/UNIT-03/20260722T151115Z-6fb52daf3ff1`. S-13/S-18/S-02 unavailable surfaces звірено зі структурним контрактом на UNIT-04 revision `4552048aeb2ba6da16b47ac289058b14d5641869`; canonical evidence: `forge/runs/UNIT-04/20260722T190601Z-4552048aeb2b/run.json`. Runtime implementation не замінює PRD/screen-map як джерела продуктової поведінки та не стає visual source of truth.
 
 ## Wireframe Principles
 
