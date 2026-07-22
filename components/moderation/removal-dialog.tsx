@@ -13,7 +13,7 @@ import { ModerationSubmitButton } from "./moderation-submit-button";
 import styles from "./moderation.module.css";
 
 interface RemovalDialogProps {
-  readonly action: (formData: FormData) => void | Promise<void>;
+  readonly action: string;
   readonly caseDetail: ManagerModerationCaseDetail;
   readonly csrfToken: string;
   readonly error?: string;
@@ -78,7 +78,8 @@ export function RemovalDialog({
           Нові покупки стануть неможливими. Уже придбані EPUB і MOBI залишаться
           в бібліотеках покупців.
         </p>
-        <form action={action} className={styles.decisionForm}>
+        <form action={action} className={styles.decisionForm} method="post">
+          <input name="decision" type="hidden" value="remove_publication" />
           <input name="caseId" type="hidden" value={caseDetail.id} />
           <input name="csrfToken" type="hidden" value={csrfToken} />
           <input name="expectedRevision" type="hidden" value={caseDetail.revision} />

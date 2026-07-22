@@ -23,10 +23,10 @@ interface ManagerShellProps {
 function ManagerLinks() {
   return (
     <>
-      <Link aria-current="page" href="/admin/moderation">
+      <Link aria-current="page" href="/admin/moderation" prefetch={false}>
         <ShieldCheck aria-hidden="true" size={18} /> Ручна перевірка
       </Link>
-      <Link href="/">
+      <Link href="/" prefetch={false}>
         <Storefront aria-hidden="true" size={18} /> До каталогу
       </Link>
     </>
@@ -38,7 +38,7 @@ export function ManagerShell({ children, csrfToken }: ManagerShellProps) {
     <main className={styles.managerPage}>
       <div className={styles.managerTop}>
         <header className={styles.managerHeader}>
-          <Link aria-label="UkieBook — головна" className={styles.brand} href="/">
+          <Link aria-label="UkieBook — головна" className={styles.brand} href="/" prefetch={false}>
             <Image
               alt=""
               aria-hidden="true"

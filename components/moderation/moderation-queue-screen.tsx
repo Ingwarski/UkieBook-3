@@ -8,10 +8,6 @@ import { randomUUID } from "node:crypto";
 import Image from "next/image";
 import Link from "next/link";
 
-import {
-  decideModerationCaseAction,
-  removePublicationAction,
-} from "../../app/admin/moderation/actions";
 import type {
   ManagerModerationCaseDetail,
   ManagerModerationQueueItem,
@@ -25,6 +21,8 @@ import { ModerationSubmitButton } from "./moderation-submit-button";
 import { ModerationNotice } from "./moderation-notice";
 import { RemovalDialog } from "./removal-dialog";
 import styles from "./moderation.module.css";
+
+const moderationDecisionEndpoint = "/admin/moderation/decision";
 
 interface ModerationQueueScreenProps {
   readonly csrfToken: string;
@@ -113,6 +111,7 @@ function QueueItem({
         aria-current={selected ? "true" : undefined}
         className={[styles.queueLink, selected && styles.queueLinkSelected].filter(Boolean).join(" ")}
         href={queueHref(filter, item.id)}
+        prefetch={false}
       >
         <span className={styles.queueItemTop}>
           <span className={styles.subjectType}>{subjectLabels[item.subjectType]}</span>
@@ -172,7 +171,7 @@ function CaseDetail({
   const removalError = decision === "remove_publication" ? error : undefined;
   return (
     <article aria-labelledby="moderation-case-title" className={styles.detailPanel}>
-      <Link className={styles.detailBack} href={queueHref(filter)}>
+      <Link className={styles.detailBack} href={queueHref(filter)} prefetch={false}>
         <ArrowLeft aria-hidden="true" size={18} /> До черги
       </Link>
       <div className={styles.detailTop}>
@@ -230,7 +229,7 @@ function CaseDetail({
 
       <section aria-labelledby="case-decision-title" className={[styles.detailSection, styles.decisionArea].join(" ")}>
         <h3 id="case-decision-title">Рішення</h3>
-        <form action={decideModerationCaseAction} className={styles.primaryDecision}>
+        <form action={moderationDecisionEndpoint} className={styles.primaryDecision} method="post">
           <DecisionHiddenFields action={primary.action} caseDetail={caseDetail} csrfToken={csrfToken} filter={filter} />
           <ModerationSubmitButton pendingLabel="Зберігаємо рішення…">
             <CheckCircle aria-hidden="true" size={18} /> {primary.label}
@@ -238,7 +237,7 @@ function CaseDetail({
         </form>
 
         {caseDetail.subjectType === "review" ? (
-          <form action={decideModerationCaseAction} className={styles.negativeDecision}>
+          <form action={moderationDecisionEndpoint} className={styles.negativeDecision} method="post">
             <DecisionHiddenFields action={negative.action} caseDetail={caseDetail} csrfToken={csrfToken} filter={filter} />
             {rejectionError ? (
               <p className={styles.fieldError} role="alert">
@@ -252,7 +251,7 @@ function CaseDetail({
         ) : !caseDetail.isPublished ? (
           <details className={styles.decisionDisclosure} open={Boolean(rejectionError)}>
             <summary>{negative.label}</summary>
-            <form action={decideModerationCaseAction} className={styles.decisionForm}>
+            <form action={moderationDecisionEndpoint} className={styles.decisionForm} method="post">
               <DecisionHiddenFields action={negative.action} caseDetail={caseDetail} csrfToken={csrfToken} filter={filter} />
               <label htmlFor={`reason-${caseDetail.id}`}>Категорія причини</label>
               <select
@@ -293,7 +292,7 @@ function CaseDetail({
             <h3 id="remove-book-title">Доступність книжки</h3>
             <p>Прибирання з Каталогу блокує нові покупки й потребує окремого підтвердження.</p>
             <RemovalDialog
-              action={removePublicationAction}
+              action={moderationDecisionEndpoint}
               caseDetail={caseDetail}
               csrfToken={csrfToken}
               error={removalError}
@@ -353,7 +352,7 @@ export function ModerationQueueScreen({
             <span aria-hidden="true" className={styles.emptyIcon}><ShieldCheck size={30} /></span>
             <h2>Все перевірено</h2>
             <p>Нових Ризикових випадків у вибраному фільтрі немає.</p>
-            {filter !== "all" ? <Link className={styles.secondaryLink} href="/admin/moderation">Показати всю чергу</Link> : null}
+            {filter !== "all" ? <Link className={styles.secondaryLink} href="/admin/moderation" prefetch={false}>Показати всю чергу</Link> : null}
           </div>
         </section>
       ) : (
