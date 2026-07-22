@@ -33,7 +33,7 @@ a {
   color: inherit;
 }
 
-:where(a, button, input, textarea, select, [tabindex]):focus-visible {
+:where(a, button, input, textarea, select, summary, [tabindex]):focus-visible {
   outline: 3px solid var(--color-focus-ring);
   outline-offset: 3px;
 }
@@ -50,7 +50,7 @@ a {
 }
 
 @media (forced-colors: active) {
-  :where(a, button, input, textarea, select, [tabindex]):focus-visible {
+  :where(a, button, input, textarea, select, summary, [tabindex]):focus-visible {
     outline: 3px solid CanvasText;
   }
 }

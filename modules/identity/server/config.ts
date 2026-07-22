@@ -18,6 +18,8 @@ export interface AuthRuntimeConfig {
   readonly sessionIdleLifetimeSeconds: number;
 }
 
+export type AuthCookieConfig = Pick<AuthRuntimeConfig, "appOrigin">;
+
 function normalizedOrigin(value: string): string {
   const url = new URL(value);
   if (url.username || url.password || url.pathname !== "/" || url.search || url.hash) {
@@ -37,10 +39,7 @@ export function authRuntimeConfig(environment: ServerEnvironment): AuthRuntimeCo
   if (!environment.AUTH_SECRET) {
     throw new Error("AUTH_SECRET is required for identity operations");
   }
-  const appOrigin = normalizedOrigin(environment.APP_ORIGIN);
-  if (environment.APP_ENV === "production" && !appOrigin.startsWith("https://")) {
-    throw new Error("Production APP_ORIGIN must use HTTPS");
-  }
+  const { appOrigin } = authCookieConfig(environment);
   if (environment.AUTH_TEST_PROVIDER_ORIGIN && environment.APP_ENV !== "test") {
     throw new Error("AUTH_TEST_PROVIDER_ORIGIN is allowed only when APP_ENV=test");
   }
@@ -52,6 +51,14 @@ export function authRuntimeConfig(environment: ServerEnvironment): AuthRuntimeCo
     sessionAbsoluteLifetimeSeconds: 30 * 24 * 60 * 60,
     sessionIdleLifetimeSeconds: 7 * 24 * 60 * 60,
   };
+}
+
+export function authCookieConfig(environment: ServerEnvironment): AuthCookieConfig {
+  const appOrigin = normalizedOrigin(environment.APP_ORIGIN);
+  if (environment.APP_ENV === "production" && !appOrigin.startsWith("https://")) {
+    throw new Error("Production APP_ORIGIN must use HTTPS");
+  }
+  return { appOrigin };
 }
 
 function productionDefinition(

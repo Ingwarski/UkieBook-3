@@ -1,17 +1,14 @@
 import "server-only";
 
-import { openPostgresDatabase } from "../../../db/postgres";
 import { readServerEnvironment } from "../../platform/environment/server";
 import type { SqlDatabase } from "../../platform/sql-port";
+import { productionDatabase } from "../../platform/server/database";
 import type { OAuthProviderId } from "../types";
 import { authRuntimeConfig, createProviderRegistry } from "./config";
 import type { OAuthProvider } from "./provider";
 
-let database: SqlDatabase | undefined;
-
 export function identityDatabase(): SqlDatabase {
-  database ??= openPostgresDatabase(readServerEnvironment().DATABASE_URL);
-  return database;
+  return productionDatabase();
 }
 
 export function identityRuntime(): {

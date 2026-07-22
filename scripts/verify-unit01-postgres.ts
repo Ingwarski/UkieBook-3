@@ -40,8 +40,8 @@ import { decideRouteAccess } from "../modules/identity/route-policy";
 import type { AuthIntent } from "../modules/identity/types";
 import { loadRestrictedPayoutEnvelope } from "../modules/payout-details/server/repository";
 import {
+  IDENTITY_SESSIONS_AUTHOR_PROFILE_MIGRATION_ID,
   PLATFORM_FOUNDATION_MIGRATION_ID,
-  PLATFORM_SCHEMA_REVISION,
 } from "../modules/platform/schema-revision";
 import type { SqlDatabase } from "../modules/platform/sql-port";
 import { withSqlTransaction } from "../modules/platform/sql-port";
@@ -70,6 +70,7 @@ if (
   );
 }
 const verifiedDatabaseUrl = databaseUrl;
+const unit01Migrations = migrations.slice(0, 2);
 const FOUNDATION_TABLES = ["durable_jobs", "outbox_events"] as const;
 const IDENTITY_TABLES = [
   "author_payout_details",
@@ -197,7 +198,7 @@ async function identityCounts(database: SqlDatabase): Promise<IdentityCounts> {
 
 async function rollbackAllKnownMigrations(database: SqlDatabase): Promise<void> {
   for (;;) {
-    const rolledBack = await rollbackLatestMigration(database);
+    const rolledBack = await rollbackLatestMigration(database, unit01Migrations);
     if (!rolledBack) {
       return;
     }
@@ -215,10 +216,10 @@ async function cleanAppliedDatabase(database: SqlDatabase): Promise<{
     [],
     "Refusing to drop unmanaged tables in the dedicated UNIT-01 database",
   );
-  const applied = await applyMigrations(database);
+  const applied = await applyMigrations(database, unit01Migrations);
   assert.deepEqual(applied, [
     { direction: "up", id: PLATFORM_FOUNDATION_MIGRATION_ID },
-    { direction: "up", id: PLATFORM_SCHEMA_REVISION },
+    { direction: "up", id: IDENTITY_SESSIONS_AUTHOR_PROFILE_MIGRATION_ID },
   ]);
   const counts = await identityCounts(database);
   assert.deepEqual(counts, {
@@ -281,10 +282,10 @@ async function runProof(
     "The dedicated UNIT-01 database contains unmanaged application tables",
   );
 
-  const firstApply = await applyMigrations(database);
+  const firstApply = await applyMigrations(database, unit01Migrations);
   assert.deepEqual(firstApply, [
     { direction: "up", id: PLATFORM_FOUNDATION_MIGRATION_ID },
-    { direction: "up", id: PLATFORM_SCHEMA_REVISION },
+    { direction: "up", id: IDENTITY_SESSIONS_AUTHOR_PROFILE_MIGRATION_ID },
   ]);
   const tablesAfterApply = await applicationTables(database);
   assert.deepEqual(tablesAfterApply, ALL_APPLICATION_TABLES);
@@ -394,10 +395,10 @@ async function runProof(
     "The active-session lookup index must remain partial",
   );
 
-  const rolledBackIdentity = await rollbackLatestMigration(database);
+  const rolledBackIdentity = await rollbackLatestMigration(database, unit01Migrations);
   assert.deepEqual(rolledBackIdentity, {
     direction: "down",
-    id: PLATFORM_SCHEMA_REVISION,
+    id: IDENTITY_SESSIONS_AUTHOR_PROFILE_MIGRATION_ID,
   });
   const tablesAfterIdentityRollback = await applicationTables(database);
   assert.deepEqual(tablesAfterIdentityRollback, [...FOUNDATION_TABLES].sort());
@@ -407,16 +408,19 @@ async function runProof(
     [PLATFORM_FOUNDATION_MIGRATION_ID],
   );
 
-  const identityReapply = await applyMigrations(database);
+  const identityReapply = await applyMigrations(database, unit01Migrations);
   assert.deepEqual(identityReapply, [
-    { direction: "up", id: PLATFORM_SCHEMA_REVISION },
+    { direction: "up", id: IDENTITY_SESSIONS_AUTHOR_PROFILE_MIGRATION_ID },
   ]);
   const historyAfterReapply = await listAppliedMigrations(database);
   assert.deepEqual(
     historyAfterReapply.map((row) => row.id),
-    [PLATFORM_FOUNDATION_MIGRATION_ID, PLATFORM_SCHEMA_REVISION],
+    [
+      PLATFORM_FOUNDATION_MIGRATION_ID,
+      IDENTITY_SESSIONS_AUTHOR_PROFILE_MIGRATION_ID,
+    ],
   );
-  for (const [index, migration] of migrations.entries()) {
+  for (const [index, migration] of unit01Migrations.entries()) {
     assert.equal(historyAfterReapply[index]?.checksum, migration.checksum);
     assert.match(historyAfterReapply[index]?.checksum ?? "", /^[0-9a-f]{64}$/u);
   }

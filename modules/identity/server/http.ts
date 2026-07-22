@@ -1,6 +1,6 @@
 import "server-only";
 
-import type { AuthRuntimeConfig } from "./config";
+import type { AuthCookieConfig, AuthRuntimeConfig } from "./config";
 
 export function flowCookieName(config: AuthRuntimeConfig): string {
   return config.appOrigin.startsWith("https://")
@@ -8,10 +8,17 @@ export function flowCookieName(config: AuthRuntimeConfig): string {
     : "ukiebook_oauth_flow";
 }
 
-export function sessionCookieName(config: AuthRuntimeConfig): string {
+export function sessionCookieName(config: AuthCookieConfig): string {
   return config.appOrigin.startsWith("https://")
     ? "__Host-ukiebook_session"
     : "ukiebook_session";
+}
+
+export function readSessionCookie(
+  cookies: { get(name: string): { readonly value: string } | undefined },
+  config: AuthCookieConfig,
+): string | null {
+  return cookies.get(sessionCookieName(config))?.value ?? null;
 }
 
 export function secureCookie(config: AuthRuntimeConfig): boolean {

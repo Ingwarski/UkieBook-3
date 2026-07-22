@@ -19,6 +19,7 @@
     "scheduler": "tsx workers/scheduler.ts",
     "db:migrate": "tsx db/migrations/cli.ts up",
     "db:rollback": "tsx db/migrations/cli.ts down",
+    "db:seed:unit02": "tsx scripts/seed-unit02-catalog.ts",
     "lint": "eslint . --max-warnings=0 && node scripts/verify-source-boundaries.mjs && node scripts/prove-client-boundary-negative.mjs",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
@@ -28,18 +29,25 @@
     "test:visual": "playwright test --config playwright.visual.config.ts",
     "test:unit01:e2e": "playwright test --config playwright.unit01.e2e.config.ts",
     "test:unit01:visual": "playwright test --config playwright.unit01.visual.config.ts",
+    "test:unit02:e2e": "playwright test --config playwright.unit02.e2e.config.ts",
+    "test:unit02:visual": "playwright test --config playwright.unit02.visual.config.ts",
     "verify:repository": "node scripts/verify-repository-hygiene.mjs",
     "verify": "npm run typecheck && npm run lint && npm test && npm run build && npm run test:e2e && npm run test:visual",
     "verify:unit00": "node scripts/run-unit00-verification.mjs",
-    "verify:unit01": "node scripts/run-unit01-verification.mjs"
+    "verify:unit01": "node scripts/run-unit01-verification.mjs",
+    "verify:unit02": "node scripts/run-unit02-verification.mjs"
   },
   "dependencies": {
+    "@fontsource-variable/golos-text": "^5.3.0",
+    "@fontsource-variable/literata": "^5.3.0",
+    "@phosphor-icons/react": "^2.1.10",
     "next": "16.2.11",
     "oauth4webapi": "3.8.6",
     "pg": "8.22.0",
     "react": "19.2.8",
     "react-dom": "19.2.8",
     "server-only": "0.0.1",
+    "sharp": "0.35.3",
     "zod": "4.4.3"
   },
   "devDependencies": {
@@ -62,6 +70,7 @@
     "vitest": "4.1.10"
   },
   "overrides": {
-    "postcss": "8.5.21"
+    "postcss": "8.5.21",
+    "sharp": "0.35.3"
   }
 }

@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { IdentityShell } from "../components/identity";
 
 export default function Forbidden() {
@@ -7,7 +9,7 @@ export default function Forbidden() {
       headingId="access-forbidden-title"
       title="Доступ заборонено"
     >
-      <a href="/">Повернутися до книгарні</a>
+      <Link href="/">Повернутися до книгарні</Link>
     </IdentityShell>
   );
 }

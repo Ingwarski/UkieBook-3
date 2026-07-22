@@ -1,6 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 
+import "@fontsource-variable/golos-text/wght.css";
+import "@fontsource-variable/literata/wght.css";
+
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -9,6 +12,9 @@ export const metadata: Metadata = {
     template: "%s · UkieBook",
   },
   description: "Українська платформа електронних книжок.",
+  icons: {
+    icon: "/brand/UkieBook-logo.jpg",
+  },
 };
 
 export const viewport: Viewport = {

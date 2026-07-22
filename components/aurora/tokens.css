@@ -29,13 +29,15 @@
   --motion-fast: 180ms ease-out;
 
   /* AA semantic aliases; approved source tokens above remain immutable. */
-  --color-text-subtle: #75655B;
-  --color-accent-action: #A453C9;
-  --color-accent-action-hover: #9340B7;
+  --color-text-subtle: #705F55;
+  --color-accent-action: #903CB3;
+  --color-accent-action-hover: #8431A7;
+  --color-formula-platform-text-active: #8C572C;
   --color-border-control: #9A887D;
   --color-focus-ring: #7A359D;
-  /* Golos Text remains a source token; use the documented fallback until provenance is cleared. */
-  --font-ui-active: system-ui, sans-serif;
+  /* Self-hosted OFL builds preserve the approved Aurora typography without a runtime CDN. */
+  --font-ui-active: "Golos Text Variable", "Golos Text", system-ui, sans-serif;
+  --font-reading-active: "Literata Variable", Literata, Georgia, serif;
   --color-status-success: #216E4E;
   --color-status-warning: #7A4D10;
   --color-status-danger: #A3312D;

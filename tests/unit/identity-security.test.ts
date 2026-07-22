@@ -17,6 +17,7 @@ import {
 } from "../../modules/identity/server/crypto";
 import {
   flowCookieName,
+  readSessionCookie,
   sessionCookieName,
 } from "../../modules/identity/server/http";
 import { readServerEnvironment } from "../../modules/platform/environment/runtime";
@@ -113,6 +114,27 @@ describe("UNIT-01 identity security contracts", () => {
     expect(
       flowCookieName({ ...httpsConfig, appEnv: "test", appOrigin: "http://127.0.0.1:3000" }),
     ).toBe("ukiebook_oauth_flow");
+
+    const cookies = new Map([
+      ["__Host-ukiebook_session", { value: "host-token" }],
+      ["ukiebook_session", { value: "plain-token" }],
+    ]);
+    expect(readSessionCookie(cookies, httpsConfig)).toBe("host-token");
+    expect(
+      readSessionCookie(cookies, { appOrigin: "http://127.0.0.1:3000" }),
+    ).toBe("plain-token");
+    expect(
+      readSessionCookie(
+        new Map([["ukiebook_session", { value: "attacker-token" }]]),
+        httpsConfig,
+      ),
+    ).toBeNull();
+    expect(
+      readSessionCookie(
+        new Map([["__Host-ukiebook_session", { value: "stale-host-token" }]]),
+        { appOrigin: "http://127.0.0.1:3000" },
+      ),
+    ).toBeNull();
   });
 
   it("validates a public name without inventing uniqueness", () => {

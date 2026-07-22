@@ -102,5 +102,11 @@ describe("Aurora V2 token contract", () => {
     expect(contrastRatio(auroraSemanticTokens.controlBorder, auroraTokens.color.background)).toBeGreaterThanOrEqual(
       3,
     );
+    expect(
+      contrastRatio(
+        auroraSemanticTokens.formulaPlatformText,
+        auroraTokens.color.formulaPlatform,
+      ),
+    ).toBeGreaterThanOrEqual(4.5);
   });
 });

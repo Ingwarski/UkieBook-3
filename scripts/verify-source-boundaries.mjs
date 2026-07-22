@@ -109,7 +109,9 @@ const sensitiveServerFiles = new Set(
       return (
         relative.startsWith("modules/identity/server/") ||
         relative.startsWith("modules/author-profile/server/") ||
-        relative.startsWith("modules/payout-details/server/")
+        relative.startsWith("modules/payout-details/server/") ||
+        relative.startsWith("modules/catalog/server/") ||
+        relative.startsWith("modules/platform/server/")
       );
     }),
 );
