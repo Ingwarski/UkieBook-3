@@ -2,11 +2,12 @@ import { BookOpenText, Plus } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
 import Link from "next/link";
 
-import { AuroraButton, AuroraStatusBadge, type AuroraStatusTone } from "../aurora";
+import { AuroraStatusBadge, type AuroraStatusTone } from "../aurora";
 import type { AuthorBookListItem } from "../../modules/publishing/types";
 import { createDraftAction } from "../../app/author/publish/actions";
 
 import { AuthorShell } from "./author-shell";
+import { PublishingSubmitButton } from "./publishing-submit-button";
 import { publishingDraftResumeHref } from "./resume-href";
 import styles from "./publishing.module.css";
 
@@ -33,7 +34,7 @@ function NewBookForm({ csrfToken }: { readonly csrfToken: string }) {
   return (
     <form action={createDraftAction}>
       <input name="csrfToken" type="hidden" value={csrfToken} />
-      <AuroraButton type="submit"><Plus aria-hidden="true" size={18} /> Опублікувати нову книжку</AuroraButton>
+      <PublishingSubmitButton><Plus aria-hidden="true" size={18} /> Опублікувати нову книжку</PublishingSubmitButton>
     </form>
   );
 }

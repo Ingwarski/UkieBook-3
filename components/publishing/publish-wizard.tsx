@@ -9,11 +9,10 @@ import {
   submitBookDraftAction,
 } from "../../app/author/publish/actions";
 import type { BookDraftReadModel, PublishingGenre, PublishingPriceHint } from "../../modules/publishing/types";
-import { AuroraButton } from "../aurora";
-
 import { AuthorShell } from "./author-shell";
 import { PublishingErrorNotice } from "./error-notice";
 import { LegalConfirmations } from "./legal-confirmations";
+import { PublishingSubmitButton } from "./publishing-submit-button";
 import styles from "./publishing.module.css";
 import { GoogleDocsImporter, UploadDropzone } from "./upload-dropzone";
 
@@ -154,7 +153,7 @@ function StepTwo({ csrfToken, draft }: { readonly csrfToken: string; readonly dr
           nextHref={`/author/publish?draft=${encodeURIComponent(draft.draftId)}&step=2&saved=1&uploaded=illustration`}
         />
         <Actions backHref={`/author/publish?draft=${encodeURIComponent(draft.draftId)}&step=1`}>
-          <AuroraButton type="submit">Далі <ArrowRight aria-hidden="true" size={18} /></AuroraButton>
+          <PublishingSubmitButton>Далі <ArrowRight aria-hidden="true" size={18} /></PublishingSubmitButton>
         </Actions>
       </form>
     </>
@@ -194,7 +193,7 @@ function StepThree({ csrfToken, draft }: { readonly csrfToken: string; readonly 
           <MagicWand aria-hidden="true" size={30} />
           <strong>Створити просту</strong>
           <span className={styles.fieldHelp}>Шаблон із назвою, автором і жанром; результат — справжній PNG.</span>
-          <AuroraButton variant="secondary" type="submit">Створити обкладинку</AuroraButton>
+          <PublishingSubmitButton variant="secondary">Створити обкладинку</PublishingSubmitButton>
         </form>
       </div>
       <Actions backHref={`/author/publish?draft=${encodeURIComponent(draft.draftId)}&step=2`}>
@@ -228,7 +227,7 @@ function StepFour({ csrfToken, draft, genres, priceHint }: Pick<PublishWizardPro
           <span className={styles.fieldHelp} id="price-help">Поточний конфігурований орієнтир: {(priceHint.minKopiykas / 100).toLocaleString("uk-UA")}–{(priceHint.maxKopiykas / 100).toLocaleString("uk-UA")} грн. Остаточну ціну встановлюєте ви.</span>
         </div>
         <Actions backHref={`/author/publish?draft=${encodeURIComponent(draft.draftId)}&step=3`}>
-          <AuroraButton type="submit"><BookOpenText aria-hidden="true" size={18} /> Підготувати preview</AuroraButton>
+          <PublishingSubmitButton><BookOpenText aria-hidden="true" size={18} /> Підготувати preview</PublishingSubmitButton>
         </Actions>
       </form>
     </>

@@ -6,8 +6,7 @@ import Link from "next/link";
 import { useRef, useState, type KeyboardEvent } from "react";
 
 import type { BookDraftReadModel } from "../../modules/publishing/types";
-import { AuroraButton } from "../aurora";
-
+import { PublishingSubmitButton } from "./publishing-submit-button";
 import styles from "./publishing.module.css";
 
 interface PreviewWorkspaceProps {
@@ -124,9 +123,9 @@ export function PreviewWorkspace({ csrfToken, draft, saveSampleAction }: Preview
             Список створено з готового видання. Обраний розділ стане доступним читачам безкоштовно.
           </span>
         </div>
-        <AuroraButton disabled={sampleSectionIndex === ""} type="submit">
+        <PublishingSubmitButton disabled={sampleSectionIndex === ""}>
           <CheckCircle aria-hidden="true" size={19} /> Зберегти фрагмент і перейти далі
-        </AuroraButton>
+        </PublishingSubmitButton>
       </form>
       <div className={styles.wizardActions}>
         <Link className={styles.secondaryLink} href={`/author/publish?draft=${encodeURIComponent(draft.draftId)}&step=4`}><ArrowLeft aria-hidden="true" size={18} /> Повернутися до редагування</Link>

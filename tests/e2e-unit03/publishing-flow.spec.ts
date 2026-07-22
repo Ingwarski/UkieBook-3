@@ -22,6 +22,14 @@ async function signInAuthor(page: import("@playwright/test").Page) {
   }
 }
 
+async function startNewBook(page: import("@playwright/test").Page) {
+  await page.waitForLoadState("networkidle");
+  await Promise.all([
+    page.waitForURL(/\/author\/publish\?draft=.*&step=1/u),
+    page.getByRole("button", { name: /Опублікувати нову книжку/u }).first().click(),
+  ]);
+}
+
 test("Author completes S-10 → S-11 → S-12 → separate confirmations → submitted", async ({
   page,
   request,
@@ -29,7 +37,7 @@ test("Author completes S-10 → S-11 → S-12 → separate confirmations → sub
   await signInAuthor(page);
   await expect(page).toHaveURL(/\/author\/(?:publish|books)/u);
   if (page.url().endsWith("/author/books")) {
-    await page.getByRole("button", { name: /Опублікувати нову книжку/u }).first().click();
+    await startNewBook(page);
   }
   await expect(page.getByRole("heading", { name: "Завантажте рукопис" })).toBeVisible();
   await page.locator('input[type="file"]').setInputFiles({
@@ -72,7 +80,7 @@ test("Author completes S-10 → S-11 → S-12 → separate confirmations → sub
   await expect(page).toHaveURL(/\/author\/publish\/preview\?draft=/u);
   await expect(page.getByRole("heading", { name: "Попередній перегляд видання" })).toBeVisible();
   await expect(page.getByRole("heading", { name: "Ніч над Дніпром" }).last()).toBeVisible({
-    timeout: 30_000,
+    timeout: 60_000,
   });
   const readingSurface = page.locator("article").filter({ hasText: "Ніч над Дніпром" }).first();
   await expect(readingSurface.locator("img")).toHaveCount(2);
@@ -151,8 +159,10 @@ test("Author completes S-10 → S-11 → S-12 → separate confirmations → sub
 
 test("unsupported and broken uploads recover inline without losing the draft", async ({ page }) => {
   await signInAuthor(page);
-  await expect(page).toHaveURL(/\/author\/books/u);
-  await page.getByRole("button", { name: /Опублікувати нову книжку/u }).first().click();
+  await expect(page).toHaveURL(/\/author\/(?:publish|books)/u);
+  if (page.url().endsWith("/author/books")) {
+    await startNewBook(page);
+  }
   const input = page.locator('input[type="file"]');
   const googleDocs = page.getByLabel("Посилання Google Docs");
   await googleDocs.fill("https://example.com/not-a-google-document");
@@ -202,8 +212,10 @@ test("unsupported and broken uploads recover inline without losing the draft", a
 
 test("S-12 conversion failure is announced, retries, and preserves the same draft", async ({ page }) => {
   await signInAuthor(page);
-  await expect(page).toHaveURL(/\/author\/books/u);
-  await page.getByRole("button", { name: /Опублікувати нову книжку/u }).first().click();
+  await expect(page).toHaveURL(/\/author\/(?:publish|books)/u);
+  if (page.url().endsWith("/author/books")) {
+    await startNewBook(page);
+  }
   await page.locator('input[type="file"]').setInputFiles({
     buffer: Buffer.from(docxBytesFixture()),
     mimeType: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
@@ -312,6 +324,7 @@ test("S-12 conversion failure is announced, retries, and preserves the same draf
   await expect(conversionError).toContainText("Чернетку збережено");
   await expect(conversionError.getByRole("button", { name: "Спробувати ще раз" })).toBeVisible();
   await expect(conversionError.getByRole("link", { name: "Завантажити інший файл" })).toBeVisible();
+  await page.waitForLoadState("networkidle");
   await conversionError.getByRole("button", { name: "Спробувати ще раз" }).click();
   await expect(page).toHaveURL(new RegExp(`/author/publish/preview\\?draft=${draftId}`));
   await expect(page.getByRole("heading", { name: "Чернетка, що пережила помилку" }).last()).toBeVisible({

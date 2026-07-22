@@ -3,11 +3,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 
-import { AuroraButton } from "../../../../components/aurora";
 import {
   AuthorShell,
   PreviewPending,
   PreviewWorkspace,
+  PublishingSubmitButton,
 } from "../../../../components/publishing";
 import { PublishingErrorNotice } from "../../../../components/publishing/error-notice";
 import styles from "../../../../components/publishing/publishing.module.css";
@@ -87,7 +87,7 @@ export default async function PublishingPreviewPage({ searchParams }: PreviewPag
               <form action={retryConversionAction}>
                 <input name="csrfToken" type="hidden" value={context!.csrfToken} />
                 <input name="draftId" type="hidden" value={draft.draftId} />
-                <AuroraButton type="submit">Спробувати ще раз</AuroraButton>
+                <PublishingSubmitButton>Спробувати ще раз</PublishingSubmitButton>
               </form>
               <Link className={styles.textLink} href={`/author/publish?draft=${encodeURIComponent(draft.draftId)}&step=1`}><ArrowLeft aria-hidden="true" size={17} /> Завантажити інший файл</Link>
             </div>

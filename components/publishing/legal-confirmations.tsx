@@ -3,8 +3,7 @@
 import { PaperPlaneTilt } from "@phosphor-icons/react";
 import { useState } from "react";
 
-import { AuroraButton } from "../aurora";
-
+import { PublishingSubmitButton } from "./publishing-submit-button";
 import styles from "./publishing.module.css";
 
 interface LegalConfirmationsProps {
@@ -41,7 +40,7 @@ export function LegalConfirmations({ action, csrfToken, draftId }: LegalConfirma
       <p aria-live="polite" className={styles.submitExplanation}>
         {ready ? "Обидва підтвердження надано. Книжку можна подати." : "Щоб подати книжку, надайте обидва окремі підтвердження."}
       </p>
-      <AuroraButton disabled={!ready} type="submit"><PaperPlaneTilt aria-hidden="true" size={19} /> Подати книжку</AuroraButton>
+      <PublishingSubmitButton disabled={!ready}><PaperPlaneTilt aria-hidden="true" size={19} /> Подати книжку</PublishingSubmitButton>
     </form>
   );
 }
