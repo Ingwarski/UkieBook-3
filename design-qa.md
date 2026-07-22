@@ -13,11 +13,11 @@
 - Reviewed implementation revision: `3f77594bcb615847bdd71846374184cd2070d305`
 - Review source run: `forge/runs/UNIT-02-C1/20260722T114213Z-3f77594bcb61`
 - Combined target/production comparison: `evidence/visual/comparison/unit02-design-compare-final.png`
-- Combined comparison SHA-256: `f7ecc5d1af46d332cc38431366934bf9665681377cc29e1ae6ec76f9e37fb0bc`
+- Reviewed comparison SHA-256: `f7ecc5d1af46d332cc38431366934bf9665681377cc29e1ae6ec76f9e37fb0bc`
 - Visual matrix: `evidence/visual/unit02-visual-matrix.json`
 - Visual matrix SHA-256: `1b332839bc28bbfacdbdb3265425a27c702641d23ef73c017c25e09f121eb522`
-- Complete visual receipt count: `53`
-- Ordered visual receipt digest: `cb88b66195c7628c312ac19b2eb02e5c8f3730a47e22255fcda919cd5c4a41e9`
+- Reviewed visual receipt count: `53`
+- Reviewed visual receipt digest SHA-256: `cb88b66195c7628c312ac19b2eb02e5c8f3730a47e22255fcda919cd5c4a41e9`
 - Receipt digest algorithm: SHA-256 of `JSON.stringify(receipts.map(({ file, sha256 }) => ({ file, sha256 })))`
 - Visual matrix result: `passed`; console errors: `[]`
 - Reviewed at: `2026-07-22T11:46:51Z`
