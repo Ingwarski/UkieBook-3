@@ -22,14 +22,20 @@ describe("UNIT-02 Aurora catalog presentation", () => {
     );
 
     expect(screen.getByRole("heading", { name: /Затишні вечори/u })).toBeTruthy();
-    expect(screen.getByText("EPUB і MOBI одразу в бібліотеку. 65,8% — автору.")).toBeTruthy();
+    expect(
+      screen.getByText("Електронні книжки EPUB і MOBI миттєво у вашу бібліотеку."),
+    ).toBeTruthy();
     expect(screen.getByText("Прозора формула: з кожних 100 грн")).toBeTruthy();
+    expect(screen.getByRole("img", { name: "35 відсотків платформі, 65 відсотків автору" })).toBeTruthy();
+    expect(screen.getByText("35%")).toBeTruthy();
+    expect(screen.getByText("65% — автору")).toBeTruthy();
     expect(screen.getByRole("navigation", { name: "Основна навігація" })).toBeTruthy();
     expect(screen.getAllByRole("search")).toHaveLength(2);
     expect(screen.getByRole("link", { name: "Кошик, 2 книжки" })).toBeTruthy();
     expect(screen.queryByText("🛒")).toBeNull();
     expect(screen.queryByText("⌕")).toBeNull();
     expect(screen.getAllByRole("link", { name: /Хроніки степу/u })[0]).toBeTruthy();
+    expect(document.querySelector("[class*='coverCopy']")).toBeNull();
   });
 
   it("adds authenticated access without replacing baseline navigation", () => {

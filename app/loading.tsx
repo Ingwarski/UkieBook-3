@@ -12,7 +12,7 @@ export default function CatalogLoading() {
             <br />
             <span>з українською книжкою</span>
           </h1>
-          <p>EPUB і MOBI одразу в бібліотеку. 65,8% — автору.</p>
+          <p>Електронні книжки EPUB і MOBI миттєво у вашу бібліотеку.</p>
         </section>
         <div className={styles.loadingShelf}>
           {Array.from({ length: 5 }, (_, index) => (

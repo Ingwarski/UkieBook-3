@@ -101,7 +101,7 @@ export function CatalogScreen({ errorMessage, model, viewer }: CatalogScreenProp
             <br />
             <span>з українською книжкою</span>
           </h1>
-          <p>EPUB і MOBI одразу в бібліотеку. 65,8% — автору.</p>
+          <p>Електронні книжки EPUB і MOBI миттєво у вашу бібліотеку.</p>
         </section>
 
         <section aria-label="Вибір редакції" className={styles.shelf}>

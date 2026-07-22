@@ -1,10 +1,11 @@
 import { createHash } from "node:crypto";
-import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { mkdir, readFile, readdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 
 import sharp from "sharp";
 
+const comparisonUnitId = process.env.UNIT_ID?.trim() || "UNIT-02";
 const comparisonFiles = [
   "unit02-design-compare-final.png",
   "unit02-target-final-1280.png",
@@ -14,29 +15,49 @@ const comparisonFiles = [
 ];
 
 const approvedBaseline = {
-  baselineId: "AVB-UKIEBOOK-AURORA-7B-V2",
-  canonicalScreenshotHash: "752774cd8814d93c2e2b47672a84f6441430c9320f06b1b348130b99b8585c4a",
-  htmlHash: "35df0816497c1b178b9ad37b5f6331aebce4d26712581e3da4ccad73cde78462",
-  logoHash: "5cdd21d3ba038632528fc17a13068e3792d03a029779251cd738aaada4aa0ad3",
-  receiptHash: "e26d965e196f98a408c5ce9735acb07350175a9a3befb3f77851094910bec033",
-  targetBundleHash: "c66b23c55e68649e67e029d47c8e69d3bef3791f8c4c6677aa0a6cef2259c51d",
+  baselineId: "AVB-UKIEBOOK-AURORA-7B-V3",
+  canonicalScreenshotHash: "25d667d08214092f8bf8df93bf0a2c15738a2a28430286ec98c05a0f173d1984",
+  htmlHash: "01f6ab68ed967ef03c7230842d1ede7c948643bb7d24a65c4eb45ac7498093f9",
+  logoHash: "db838dd4ad696f63cccb6aa86ab98e53dc5c6e13c1778ac340f62c5e4514617f",
+  receiptHash: "ffae4a71e0db785033aad606e91b1557ef46d56d86690f8e09ae6cc81906323c",
+  targetBundleHash: "e50c9f82c241195d7f5d8876d9dcdcd7fd45b71cdaf6d2eedfe2e327a7182724",
+  treeHash: "7b13c9e123694cf800ccda987aa64a7f98e625d671161a838b4f94e315feba97",
 };
 
 async function sha256(file) {
   return createHash("sha256").update(await readFile(file)).digest("hex");
 }
 
-async function validateApprovedBaseline(repositoryRoot) {
+async function listFiles(directory) {
+  const entries = await readdir(directory, { withFileTypes: true });
+  const files = [];
+  for (const entry of entries) {
+    const entryPath = path.join(directory, entry.name);
+    if (entry.isDirectory()) files.push(...(await listFiles(entryPath)));
+    else if (entry.isFile()) files.push(entryPath);
+  }
+  return files;
+}
+
+function shasumReceiptHash(entries) {
+  const receipt = entries.map(({ file, sha256: digest }) => `${digest}  ${file}\n`).join("");
+  return createHash("sha256").update(receipt).digest("hex");
+}
+
+export async function validateApprovedBaseline(repositoryRoot) {
   const paths = {
-    canonicalScreenshot: path.join(repositoryRoot, "output/playwright/baseline-s01-v2-1280.png"),
+    canonicalScreenshot: path.join(repositoryRoot, "output/playwright/baseline-s01-v3-1280.png"),
     html: path.join(
       repositoryRoot,
-      "forge/design/candidates/operator-final-7b/v2/ukiebook-catalog.html",
+      "forge/design/candidates/operator-final-7b/v3/ukiebook-catalog.html",
     ),
-    logo: path.join(repositoryRoot, "UkieBook-logo.jpg"),
+    logo: path.join(
+      repositoryRoot,
+      "forge/design/candidates/operator-final-7b/v3/assets/UkieBook-logo-transparent.svg",
+    ),
     receipt: path.join(
       repositoryRoot,
-      "forge/design/evidence/AVB-UKIEBOOK-AURORA-7B-V2.visual-qa.json",
+      "forge/design/evidence/AVB-UKIEBOOK-AURORA-7B-V3.visual-qa.json",
     ),
   };
   const actual = {
@@ -60,13 +81,48 @@ async function validateApprovedBaseline(repositoryRoot) {
       hash,
     ]),
   );
+  const frozenRoot = path.join(
+    repositoryRoot,
+    "forge/design/candidates/operator-final-7b/v3",
+  );
+  const frozenFiles = (await listFiles(frozenRoot))
+    .map((file) => path.relative(repositoryRoot, file).split(path.sep).join("/"))
+    .sort();
+  const expectedFrozenFiles = [...sourceHashes.keys()].sort();
+  if (JSON.stringify(frozenFiles) !== JSON.stringify(expectedFrozenFiles)) {
+    throw new Error("Approved Aurora V3 tree file set does not match its locked receipt");
+  }
+  const frozenEntries = [];
+  for (const file of frozenFiles) {
+    const digest = await sha256(path.join(repositoryRoot, file));
+    if (digest !== sourceHashes.get(file)) {
+      throw new Error(`Approved Aurora V3 artifact hash mismatch: ${file}`);
+    }
+    frozenEntries.push({ file, sha256: digest });
+  }
+  const targetBundleFiles = [
+    "forge/design/candidates/operator-final-7b/v3/ukiebook-catalog.html",
+    "forge/design/candidates/operator-final-7b/v3/assets/UkieBook-logo-transparent.svg",
+    ...frozenFiles.filter((file) => file.includes("/assets/covers/")),
+  ];
+  const targetBundleEntries = targetBundleFiles.map((file) => ({
+    file,
+    sha256: sourceHashes.get(file),
+  }));
+  const computedTargetBundleHash = shasumReceiptHash(targetBundleEntries);
+  const computedTreeHash = shasumReceiptHash(frozenEntries);
   if (
     receipt.baseline_id !== approvedBaseline.baselineId ||
     receipt.target_hash !== approvedBaseline.targetBundleHash ||
-    sourceHashes.get("forge/design/candidates/operator-final-7b/v2/ukiebook-catalog.html") !==
+    receipt.prototype_tree_hash !== approvedBaseline.treeHash ||
+    computedTargetBundleHash !== approvedBaseline.targetBundleHash ||
+    computedTreeHash !== approvedBaseline.treeHash ||
+    sourceHashes.get("forge/design/candidates/operator-final-7b/v3/ukiebook-catalog.html") !==
       approvedBaseline.htmlHash ||
-    sourceHashes.get("UkieBook-logo.jpg") !== approvedBaseline.logoHash ||
-    captureHashes.get("output/playwright/baseline-s01-v2-1280.png") !==
+    sourceHashes.get(
+      "forge/design/candidates/operator-final-7b/v3/assets/UkieBook-logo-transparent.svg",
+    ) !== approvedBaseline.logoHash ||
+    captureHashes.get("output/playwright/baseline-s01-v3-1280.png") !==
       approvedBaseline.canonicalScreenshotHash
   ) {
     throw new Error("Approved Aurora visual-QA receipt does not match its locked artifacts");
@@ -104,7 +160,7 @@ export async function generateUnit02Comparison({
   const approvedTarget = await validateApprovedBaseline(repositoryRoot);
   const canonicalTarget = path.join(
     repositoryRoot,
-    "output/playwright/baseline-s01-v2-1280.png",
+    "output/playwright/baseline-s01-v3-1280.png",
   );
   const sources = {
     s01: path.join(visualRoot, "s01-default-1280@2x.png"),
@@ -160,5 +216,7 @@ if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) 
   );
   const outputRoot = path.resolve(process.argv[3] ?? "output/playwright");
   await generateUnit02Comparison({ outputRoots: [outputRoot], visualRoot });
-  console.log(`Generated UNIT-02 comparison from ${path.relative(process.cwd(), visualRoot)}`);
+  console.log(
+    `Generated ${comparisonUnitId} comparison from ${path.relative(process.cwd(), visualRoot)}`,
+  );
 }

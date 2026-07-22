@@ -77,7 +77,7 @@ describe("UNIT-02 catalog PostgreSQL read model", () => {
           VALUES (
             $1, $2, 'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa', $3, $4,
             'Публічний опис', 'Фрагмент', '[{"kind":"paragraph","text":"Текст"}]',
-            '/books/covers/khroniky-stepu.png', 'teal', $5, $6,
+            '/books/covers/final/khroniky-stepu.png', 'teal', $5, $6,
             CASE WHEN $6::int IS NULL THEN NULL ELSE '2026-07-01T00:00:00Z'::timestamptz END,
             CASE WHEN $6::int IS NULL THEN NULL ELSE '2026-08-01T00:00:00Z'::timestamptz END,
             $7, $8, 4.8, 10

@@ -1,0 +1,226 @@
+{
+  "schema_version": "1.0",
+  "evidence_id": "VQA-AVB-UKIEBOOK-AURORA-7B-V3-20260722",
+  "adapter": "playwright Chromium + xmllint + sharp + shasum",
+  "environment": {
+    "os": "macOS",
+    "verification_transport": "http://127.0.0.1:4178/forge/design/candidates/operator-final-7b/v3/ukiebook-catalog.html",
+    "canonical_local_target": "file:///Users/ingwar/Documents/UkieBook%203/forge/design/candidates/operator-final-7b/v3/ukiebook-catalog.html"
+  },
+  "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+  "candidate_id": "operator-final-7b",
+  "candidate_version": "v3",
+  "source_mode": "operator-scoped-immutable-correction",
+  "approval_status": "selected-and-approved-by-operator-scoped-correction",
+  "approval_basis": "The operator directly required the six visual and formula corrections on 2026-07-22; no alternative generation or redundant approval prompt is required.",
+  "supersedes_baseline_id": "AVB-UKIEBOOK-AURORA-7B-V2",
+  "target_reference": "forge/design/candidates/operator-final-7b/v3 (HTML plus frozen local logo and seven cover assets)",
+  "target_hash": "e50c9f82c241195d7f5d8876d9dcdcd7fd45b71cdaf6d2eedfe2e327a7182724",
+  "target_hash_algorithm": "SHA-256 of ordered shasum -a 256 lines: HTML, transparent SVG, then seven cover PNGs in filename order",
+  "prototype_source_root": "forge/design/candidates/operator-final-7b/v3",
+  "prototype_tree_hash": "7b13c9e123694cf800ccda987aa64a7f98e625d671161a838b4f94e315feba97",
+  "prototype_tree_hash_algorithm": "SHA-256 of filename-sorted workspace-relative shasum -a 256 lines for every file under the V3 source root",
+  "route": "/",
+  "states": [
+    "default",
+    "shelf-cover-hover",
+    "tile-hover"
+  ],
+  "viewports": [
+    "1280x900 exact correction target"
+  ],
+  "theme": "Aurora Pastel 7b light with operator correction V3",
+  "content_fixture": "frozen Ukrainian catalog fixture with image-baked cover typography",
+  "operator_correction_scope": [
+    "all Book cover corners are square",
+    "cover title and Author typography is baked into distinct realistic cover artwork",
+    "public formula is 35% platform and 65% Author",
+    "hero copy is exactly: Електронні книжки EPUB і MOBI миттєво у вашу бібліотеку.",
+    "all five shelf cover bottoms remain inside the first shelf",
+    "the official transparent-background SVG is used without blend mode"
+  ],
+  "source_artifact_ids": [
+    {
+      "path": "forge/design/candidates/operator-final-7b/v3/README.md",
+      "sha256": "b04c3d2a038df682786537fc95f98a6e768a019f09ae77852a1c71d4f53f3ee2"
+    },
+    {
+      "path": "forge/design/candidates/operator-final-7b/v3/ukiebook-catalog.html",
+      "sha256": "01f6ab68ed967ef03c7230842d1ede7c948643bb7d24a65c4eb45ac7498093f9"
+    },
+    {
+      "path": "forge/design/candidates/operator-final-7b/v3/assets/UkieBook-logo-transparent.svg",
+      "sha256": "db838dd4ad696f63cccb6aa86ab98e53dc5c6e13c1778ac340f62c5e4514617f",
+      "dimensions": "1254x1254",
+      "scope": "frozen transparent official-logo derivative"
+    },
+    {
+      "path": "forge/design/candidates/operator-final-7b/v3/assets/covers/khroniky-stepu.png",
+      "sha256": "97788951e5e108587c0548e2649df449dfe72211f4448fbebcbb32d8cee352ef",
+      "dimensions": "1024x1536"
+    },
+    {
+      "path": "forge/design/candidates/operator-final-7b/v3/assets/covers/kryzhani-maky.png",
+      "sha256": "e0a03310ad24a201d02570cc9ddd03871a782a02e13e0fec20e50c2e85b4796b",
+      "dimensions": "1024x1536"
+    },
+    {
+      "path": "forge/design/candidates/operator-final-7b/v3/assets/covers/lysty-z-poltavy.png",
+      "sha256": "856154c1a71c244167788411b8d99a90a93521f5957261f7a8d583939b39eda8",
+      "dimensions": "1024x1536"
+    },
+    {
+      "path": "forge/design/candidates/operator-final-7b/v3/assets/covers/misto-na-vodi.png",
+      "sha256": "3b78e66d79c33c39a52b3c18f1f8914e2a9f7ec1cbca606471ffc151cd7c9fbc",
+      "dimensions": "1024x1536"
+    },
+    {
+      "path": "forge/design/candidates/operator-final-7b/v3/assets/covers/piznie-lito.png",
+      "sha256": "5d03f3a982039a28ac8b34db880383ecf83c97486ced3621e894216ea1caed86",
+      "dimensions": "1024x1536"
+    },
+    {
+      "path": "forge/design/candidates/operator-final-7b/v3/assets/covers/sad-kamianykh-ptakhiv.png",
+      "sha256": "ff24e59f388bcdf6419c7dcd5b2c3a67f0c89854892d9062ed31bdaaafaa7a1d",
+      "dimensions": "1024x1536"
+    },
+    {
+      "path": "forge/design/candidates/operator-final-7b/v3/assets/covers/tini-nad-lymanom.png",
+      "sha256": "b235f20856311186ebbf14f4b30b9afa75f27131b0581e28c5c64bf89f6331b3",
+      "dimensions": "1024x1536"
+    }
+  ],
+  "asset_provenance": {
+    "logo": "The V3 copy is byte-identical to public/brand/UkieBook-logo-transparent.svg.",
+    "covers": "All seven V3 copies are byte-identical to the corresponding public/books/covers/final PNGs.",
+    "html_dependencies": "Every visible image and the favicon resolve inside the frozen V3 source root; the HTML has no dependency on mutable public asset paths."
+  },
+  "implementation_capture_ids": [
+    {
+      "path": "output/playwright/baseline-s01-v3-1280.png",
+      "sha256": "25d667d08214092f8bf8df93bf0a2c15738a2a28430286ec98c05a0f173d1984",
+      "state": "default",
+      "qa_check_id": "VIS-S01-1280-DEFAULT"
+    },
+    {
+      "path": "output/playwright/baseline-s01-v3-1280-hover.png",
+      "sha256": "04450d11032f5d05e21591519c25b5584ecd055b78ea73be6bf2c1258780d072",
+      "state": "shelf-cover-hover",
+      "qa_check_id": "VIS-S01-1280-HOVER"
+    },
+    {
+      "path": "output/playwright/baseline-s01-v3-1280-tile-hover.png",
+      "sha256": "7125b6fc2709525c082c0ce52790ba8ffa6acdffcc1d26140f31c4ea0fbef21d",
+      "state": "tile-hover",
+      "qa_check_id": "VIS-S01-1280-TILE-HOVER"
+    },
+    {
+      "path": "output/playwright/baseline-s01-v3-logo.png",
+      "sha256": "245a4efcd1df53499c3d35d95ca56b2722d000e8eb2156a2923782fac6a44dec",
+      "qa_check_id": "VIS-BRAND-LOGO-TRANSPARENT"
+    },
+    {
+      "path": "output/playwright/baseline-s01-v3-cover.png",
+      "sha256": "4fbfc6953752a3389bfebf918b3063e749df093a9e6c9624d7e9e79e4aa79006",
+      "qa_check_id": "VIS-COVER-ARTWORK-TYPOGRAPHY"
+    },
+    {
+      "path": "output/playwright/baseline-s01-v3-formula.png",
+      "sha256": "9274e713a3e7b6a89866a2d3d39b6cbd71eff603321df634584fb589f0555343",
+      "qa_check_id": "VIS-FORMULA-35-65"
+    }
+  ],
+  "geometry_comparison": {
+    "source": "Playwright getBoundingClientRect at 1280x900 after font and image load",
+    "inherited_equal_boxes": {
+      "header.nav": {"x": 30, "y": 24, "width": 1220, "height": 72},
+      ".logo": {"x": 70, "y": 47, "width": 93.703125, "height": 26},
+      ".hero": {"x": 30, "y": 96, "width": 1220, "height": 212.21875}
+    },
+    "approved_correction_delta": {
+      ".shelf": {
+        "v2": {"x": 30, "y": 308.21875, "width": 1220, "height": 270},
+        "v3": {"x": 30, "y": 308.21875, "width": 1220, "height": 294},
+        "reason": "24px bottom-safe shelf extension"
+      },
+      ".cards": {
+        "v2_y": 578.21875,
+        "v3_y": 602.21875
+      },
+      ".formula": {
+        "v2": {"x": 70, "y": 776.21875, "width": 1140, "height": 98},
+        "v3": {"x": 70, "y": 800.21875, "width": 1140, "height": 98}
+      }
+    },
+    "result": "Only the explicitly approved 24px shelf containment correction moves downstream regions; inherited locked geometry remains equal."
+  },
+  "component_measurements": {
+    "VIS-COVER-SQUARE": {
+      "nominal_shelf_box": "138x207",
+      "aspect_ratio": "2 / 3",
+      "computed_radius_all_five": ["0px", "0px", "0px", "0px", "0px"],
+      "tile_radius": "0px"
+    },
+    "VIS-COVER-ARTWORK-TYPOGRAPHY": {
+      "frozen_assets": 7,
+      "unique_sha256_values": 7,
+      "dimensions_all": "1024x1536",
+      "visible_cover_dom_contract": "each cover contains one image and no live title, Author or genre overlay",
+      "distinct_unavailable_cover": "assets/covers/tini-nad-lymanom.png"
+    },
+    "VIS-SHELF-UNCROPPED": {
+      "shelf_height": "294px",
+      "shelf_padding_bottom": "24px",
+      "rotated_cover_bottom_gaps_px": [27.655, 35.655, 50.531, 11.655, 2.531],
+      "minimum_bottom_gap_px": 2.531,
+      "result": "all five image bottoms remain inside the shelf"
+    },
+    "VIS-FORMULA-35-65": {
+      "public_segments": ["35% platform", "65% Author"],
+      "measured_segment_shares": {"platform": 0.3499846, "author": 0.6499897},
+      "manager_only_internal_breakdown": "35% = 29% net platform revenue + 6%"
+    },
+    "VIS-BRAND-LOGO-TRANSPARENT": {
+      "rendered_box": "26x26",
+      "source_loaded": true,
+      "source_natural_dimensions": "1254x1254",
+      "svg_image_elements": 1,
+      "svg_path_elements": 0,
+      "embedded_media_type": "image/png",
+      "embedded_png_bytes": 74024,
+      "embedded_png_channels": 4,
+      "embedded_png_alpha_min": 0,
+      "embedded_png_alpha_max": 255,
+      "blend_mode_workaround": false
+    }
+  },
+  "interactions_checked": [
+    "the page and every frozen local image return HTTP 200",
+    "all visible images report complete with expected natural dimensions",
+    "the exact corrected Ukrainian hero sentence renders",
+    "all five shelf covers remain fully inside the shelf after rotation and offset",
+    "central shelf cover hover preserves rotation and applies the 16px lift",
+    "first glass tile hover reaches matrix(1, 0, 0, 1, 0, -4)",
+    "the public formula measures as the operator-directed 35/65 split",
+    "the rendered logo uses the transparent SVG without mix-blend-mode"
+  ],
+  "console_result": {
+    "errors": 0,
+    "warnings": 0,
+    "failed_http_responses": 0,
+    "page_errors": 0
+  },
+  "external_browser_open": {
+    "result": "owned by UNIT-02-C1 finalizer",
+    "evidence_boundary": "This receipt records internal immutable-candidate QA; the unit finalizer separately opens the corrected production screens in the operator-required external Chrome."
+  },
+  "qa_result": "approved_scoped_baseline_correction_with_component_evidence",
+  "findings": [],
+  "evidence_limits": [
+    "the immutable target proves the corrected S-01 desktop presentation and CSS hover states, not production runtime behavior",
+    "the static candidate is not the responsive production implementation",
+    "manager-only 29% + 6% accounting is documented as scope but is intentionally not rendered in the public ribbon",
+    "external Chrome inspection of corrected production routes belongs to the UNIT-02-C1 finalization receipt"
+  ],
+  "timestamp": "2026-07-22T14:15:15+03:00"
+}

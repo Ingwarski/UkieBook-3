@@ -7,13 +7,12 @@ export function FormulaRibbon() {
         Прозора формула: з кожних 100 грн
       </h2>
       <div
-        aria-label="6 відсотків податки, 65,8 відсотка автору, 28,2 відсотка платформі"
+        aria-label="35 відсотків платформі, 65 відсотків автору"
         className={styles.formulaBar}
         role="img"
       >
-        <span className={styles.formulaTax}>6</span>
-        <span className={styles.formulaAuthor}>65,8 — автору</span>
-        <span className={styles.formulaPlatform}>28,2</span>
+        <span className={styles.formulaPlatform}>35%</span>
+        <span className={styles.formulaAuthor}>65% — автору</span>
       </div>
     </section>
   );

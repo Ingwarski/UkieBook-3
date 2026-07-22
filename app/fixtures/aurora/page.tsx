@@ -27,7 +27,7 @@ const swatches = [
   ["Brand accent", auroraTokens.color.accent],
   ["Gradient start", auroraTokens.color.gradientStart],
   ["Gradient end", auroraTokens.color.gradientEnd],
-  ["Formula tax", auroraTokens.color.formulaTax],
+  ["Formula platform · 35%", auroraTokens.color.formulaPlatform],
 ] as const;
 
 export default function AuroraFixturePage() {
@@ -53,7 +53,7 @@ export default function AuroraFixturePage() {
         <AuroraGlassSurface as="section" aria-labelledby="fixture-colors" className={styles.section}>
           <h2 id="fixture-colors">Source tokens</h2>
           <p className={styles.sectionDescription}>
-            Значення відтворюють затверджений V2 Design Spine без підміни палітри.
+            Значення відтворюють затверджений V3 Design Spine без підміни палітри.
           </p>
           <div className={styles.swatches}>
             {swatches.map(([label, color]) => (

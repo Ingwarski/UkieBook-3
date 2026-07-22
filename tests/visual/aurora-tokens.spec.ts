@@ -15,7 +15,7 @@ function normalizeCssValue(value: string): string {
   return value.replace(/\s+/g, "").toLowerCase();
 }
 
-test("VIS-TOKENS matches the immutable Aurora V2 contract", async ({ page }, testInfo) => {
+test("VIS-TOKENS matches the immutable Aurora V3 contract", async ({ page }, testInfo) => {
   await page.goto("/fixtures/aurora");
   await page.emulateMedia({ reducedMotion: "reduce" });
   await expect(page.locator("main")).toHaveAttribute(
@@ -72,7 +72,7 @@ test("VIS-TOKENS matches the immutable Aurora V2 contract", async ({ page }, tes
   for (const name of Object.keys(auroraCssVariables)) {
     expect(
       normalizeCssValue(browserTokens[name]?.actual_canonical ?? ""),
-      `${name} drifted from the approved Aurora V2 token`,
+      `${name} drifted from the approved Aurora V3 token`,
     ).toBe(normalizeCssValue(browserTokens[name]?.expected_canonical ?? ""));
   }
 

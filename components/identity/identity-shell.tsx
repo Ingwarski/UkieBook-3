@@ -1,7 +1,7 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
 
-import officialLogo from "../../UkieBook-logo-exact.svg";
+import officialLogo from "../../UkieBook-logo-transparent.svg";
 import { AuroraGlassSurface } from "../aurora";
 
 import styles from "./identity.module.css";

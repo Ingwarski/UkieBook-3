@@ -63,9 +63,7 @@
   width: 26px;
   height: 26px;
   display: block;
-  border-radius: 2px;
-  object-fit: cover;
-  mix-blend-mode: multiply;
+  object-fit: contain;
 }
 
 .wordmark {
@@ -369,13 +367,13 @@
 .shelf {
   position: relative;
   z-index: 1;
-  height: 270px;
+  height: 294px;
   display: flex;
   align-items: flex-end;
   justify-content: center;
   gap: 26px;
   overflow: visible;
-  padding: 30px 40px 0;
+  padding: 30px 40px 24px;
 }
 
 .shelfCoverLink {
@@ -428,125 +426,13 @@
   width: 320px;
   max-width: 100%;
   aspect-ratio: 2 / 3;
-  border-radius: 24px;
+  border-radius: var(--radius-cover);
   box-shadow: var(--shadow-cover);
 }
 
 .coverArtwork {
-  z-index: -2;
+  z-index: 0;
   object-fit: cover;
-}
-
-.coverShade {
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(12, 20, 29, 0.78) 0%,
-    rgba(12, 20, 29, 0.4) 25%,
-    rgba(12, 20, 29, 0.34) 34%,
-    rgba(12, 20, 29, 0.8) 42%,
-    rgba(12, 20, 29, 0.8) 68%,
-    rgba(12, 20, 29, 0.4) 76%,
-    rgba(12, 20, 29, 0.8) 100%
-  );
-}
-
-.bookCover[data-cover-theme="mustard"] .coverShade {
-  background: linear-gradient(
-    180deg,
-    rgba(45, 34, 4, 0.78) 0%,
-    rgba(45, 34, 4, 0.4) 25%,
-    rgba(45, 34, 4, 0.34) 34%,
-    rgba(45, 34, 4, 0.8) 42%,
-    rgba(45, 34, 4, 0.8) 68%,
-    rgba(45, 34, 4, 0.4) 76%,
-    rgba(45, 34, 4, 0.8) 100%
-  );
-}
-
-.coverCopy {
-  position: absolute;
-  inset: 14px 12px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  color: #fff;
-  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.42);
-}
-
-.coverGenre,
-.coverAuthor {
-  font-size: 9px;
-  letter-spacing: 0.1em;
-  line-height: 1.25;
-  text-transform: uppercase;
-}
-
-.coverGenre {
-  opacity: 1;
-}
-
-.coverAuthor {
-  opacity: 1;
-}
-
-.coverTitle {
-  max-width: 100%;
-  font-size: 15px;
-  font-weight: 800;
-  line-height: 1.15;
-}
-
-.tileCover .coverCopy {
-  inset: auto 7px 7px;
-}
-
-.tileCover .coverShade {
-  background: linear-gradient(
-    180deg,
-    rgba(12, 20, 29, 0.34) 0%,
-    rgba(12, 20, 29, 0.88) 52%,
-    rgba(12, 20, 29, 0.94) 100%
-  );
-}
-
-.tileCover[data-cover-theme="mustard"] .coverShade {
-  background: linear-gradient(
-    180deg,
-    rgba(45, 34, 4, 0.34) 0%,
-    rgba(45, 34, 4, 0.88) 52%,
-    rgba(45, 34, 4, 0.94) 100%
-  );
-}
-
-.tileCover .coverTitle {
-  font-size: 9px;
-  line-height: 1.2;
-}
-
-.resultCover .coverCopy {
-  inset: 16px 13px;
-}
-
-.resultCover .coverTitle {
-  font-size: 17px;
-}
-
-.detailCover .coverCopy {
-  inset: 28px 24px;
-}
-
-.detailCover .coverTitle {
-  max-width: 260px;
-  font-size: 31px;
-  letter-spacing: -0.03em;
-}
-
-.detailCover .coverGenre,
-.detailCover .coverAuthor {
-  font-size: 11px;
 }
 
 .featuredTiles {
@@ -662,13 +548,8 @@
   font-weight: 700;
 }
 
-.formulaTax {
-  width: 6%;
-  background: var(--color-formula-tax);
-}
-
 .formulaAuthor {
-  width: 65.8%;
+  width: 65%;
   background: linear-gradient(90deg, #9851b8, #b95085);
   color: #fff;
   font-size: 14px;
@@ -676,7 +557,7 @@
 }
 
 .formulaPlatform {
-  width: 28.2%;
+  width: 35%;
   background: var(--color-formula-platform);
   color: var(--color-formula-platform-text-active);
 }
@@ -1300,12 +1181,12 @@
 }
 
 .loadingShelf {
-  height: 270px;
+  height: 294px;
   display: flex;
   align-items: flex-end;
   justify-content: center;
   gap: 26px;
-  padding: 30px 40px 28px;
+  padding: 30px 40px 24px;
 }
 
 .loadingCover {
@@ -1389,7 +1270,7 @@
 .bookLoadingCover {
   width: 320px;
   aspect-ratio: 2 / 3;
-  border-radius: 24px;
+  border-radius: var(--radius-cover);
 }
 
 .bookLoadingBody > div {
@@ -1553,12 +1434,12 @@
   }
 
   .shelf {
-    height: 258px;
+    height: 262px;
     justify-content: flex-start;
     gap: 22px;
     overflow-x: auto;
     overflow-y: hidden;
-    padding: 40px 28px 22px;
+    padding: 40px 28px 26px;
     scroll-padding-inline: 28px;
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
@@ -1576,6 +1457,16 @@
   }
 
   .shelfCover {
+    width: 128px;
+    height: 192px;
+  }
+
+  .loadingShelf {
+    height: 262px;
+    padding-block: 40px 26px;
+  }
+
+  .loadingCover {
     width: 128px;
     height: 192px;
   }
@@ -1730,16 +1621,12 @@
     flex: none;
   }
 
-  .formulaTax {
-    width: 6%;
-  }
-
   .formulaAuthor {
-    width: 65.8%;
+    width: 65%;
   }
 
   .formulaPlatform {
-    width: 28.2%;
+    width: 35%;
   }
 
   .catalogResults {

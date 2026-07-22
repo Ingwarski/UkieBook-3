@@ -95,85 +95,6 @@ async function waitForImages(
   );
 }
 
-async function minimumCoverCopyContrast(
-  page: import("@playwright/test").Page,
-  coverLink: import("@playwright/test").Locator,
-): Promise<number> {
-  const cover = coverLink.locator("span").first();
-  const copy = coverLink.locator('span[aria-hidden="true"]').last();
-  const scrollPosition = await page.evaluate(() => ({ x: window.scrollX, y: window.scrollY }));
-  await cover.scrollIntoViewIfNeeded();
-  try {
-    const coverBox = await cover.boundingBox();
-    expect(coverBox).not.toBeNull();
-    const textBoxes = (
-      await Promise.all(
-        (await copy.locator(":scope > span").all()).map((text) => text.boundingBox()),
-      )
-    ).filter((value): value is NonNullable<typeof value> => value !== null);
-    expect(textBoxes.length).toBeGreaterThan(0);
-    const renderedBuffer = await page.screenshot({ animations: "disabled", clip: coverBox! });
-    let backdropBuffer: Buffer;
-    await copy.evaluate((element) => {
-      element.style.visibility = "hidden";
-    });
-    try {
-      backdropBuffer = await page.screenshot({ animations: "disabled", clip: coverBox! });
-    } finally {
-      await copy.evaluate((element) => {
-        element.style.removeProperty("visibility");
-      });
-    }
-    const rendered = await sharp(renderedBuffer)
-      .removeAlpha()
-      .raw()
-      .toBuffer({ resolveWithObject: true });
-    const backdrop = await sharp(backdropBuffer)
-      .removeAlpha()
-      .raw()
-      .toBuffer({ resolveWithObject: true });
-    const { data, info } = backdrop;
-    const scaleX = info.width / coverBox!.width;
-    const scaleY = info.height / coverBox!.height;
-    let glyphPixels = 0;
-    let minimum = Number.POSITIVE_INFINITY;
-    for (const textBox of textBoxes) {
-      const startX = Math.max(0, Math.floor((textBox.x - coverBox!.x) * scaleX));
-      const endX = Math.min(
-        info.width,
-        Math.ceil((textBox.x + textBox.width - coverBox!.x) * scaleX),
-      );
-      const startY = Math.max(0, Math.floor((textBox.y - coverBox!.y) * scaleY));
-      const endY = Math.min(
-        info.height,
-        Math.ceil((textBox.y + textBox.height - coverBox!.y) * scaleY),
-      );
-      for (let y = startY; y < endY; y += 1) {
-        for (let x = startX; x < endX; x += 1) {
-          const offset = (y * info.width + x) * info.channels;
-          const brightnessDelta =
-            rendered.data[offset]! +
-            rendered.data[offset + 1]! +
-            rendered.data[offset + 2]! -
-            data[offset]! -
-            data[offset + 1]! -
-            data[offset + 2]!;
-          if (brightnessDelta < 24) continue;
-          glyphPixels += 1;
-          minimum = Math.min(
-            minimum,
-            contrastAgainstWhite(data[offset]!, data[offset + 1]!, data[offset + 2]!),
-          );
-        }
-      }
-    }
-    expect(glyphPixels).toBeGreaterThan(10);
-    return rounded(minimum);
-  } finally {
-    await scrollInstantly(page, scrollPosition);
-  }
-}
-
 async function minimumWhiteContrastAcrossElement(
   element: import("@playwright/test").Locator,
 ): Promise<number> {
@@ -518,7 +439,7 @@ test.afterAll(async () => {
     path.join(evidenceRoot, "unit02-visual-matrix.json"),
     `${JSON.stringify(
       {
-        baseline_id: "AVB-UKIEBOOK-AURORA-7B-V2",
+        baseline_id: "AVB-UKIEBOOK-AURORA-7B-V3",
         console_errors: consoleErrors,
         implementation_revision: implementationRevision,
         receipts,
@@ -527,7 +448,7 @@ test.afterAll(async () => {
             ? "passed"
             : "failed",
         target_bundle_hash:
-          "c66b23c55e68649e67e029d47c8e69d3bef3791f8c4c6677aa0a6cef2259c51d",
+          "e50c9f82c241195d7f5d8876d9dcdcd7fd45b71cdaf6d2eedfe2e327a7182724",
         verified_at: new Date().toISOString(),
       },
       null,
@@ -573,18 +494,18 @@ test("S-01 keeps the locked 1280 geometry, official logo and additive hovers", a
   };
   expect(geometry.header).toEqual({ height: 72, width: 1220, x: 30, y: 24 });
   expect(geometry.hero).toEqual({ height: 212.219, width: 1220, x: 30, y: 96 });
-  expect(geometry.shelf).toEqual({ height: 270, width: 1220, x: 30, y: 308.219 });
-  expect(geometry.tiles).toEqual({ height: 172, width: 1220, x: 30, y: 578.219 });
-  expect(geometry.formula).toEqual({ height: 98, width: 1140, x: 70, y: 776.219 });
+  expect(geometry.shelf).toEqual({ height: 294, width: 1220, x: 30, y: 308.219 });
+  expect(geometry.tiles).toEqual({ height: 172, width: 1220, x: 30, y: 602.219 });
+  expect(geometry.formula).toEqual({ height: 98, width: 1140, x: 70, y: 800.219 });
 
   const logo = activeMain.getByRole("link", { name: "UkieBook — головна" }).locator("img");
   await expect(logo).toBeVisible();
   expect(await logo.boundingBox()).toMatchObject({ height: 26, width: 26, x: 70, y: 47 });
-  await expect(logo).toHaveAttribute("src", /UkieBook-logo\.jpg/u);
+  await expect(logo).toHaveAttribute("src", /UkieBook-logo-transparent\.svg/u);
 
   const covers = activeMain.locator('section[aria-label="Вибір редакції"] > a');
   await expect(covers).toHaveCount(5);
-  const coverContrasts: Record<"result" | "shelf" | "tile", number[]> = {
+  const coverEvidence: Record<"result" | "shelf" | "tile", string[]> = {
     result: [],
     shelf: [],
     tile: [],
@@ -599,17 +520,32 @@ test("S-01 keeps the locked 1280 geometry, official logo and additive hovers", a
       const coverBox = await root.locator("span").first().boundingBox();
       expect(coverBox).not.toBeNull();
       expect(coverBox!.height / coverBox!.width).toBeGreaterThan(1.4);
-      const minimumContrast = await minimumCoverCopyContrast(page, root);
-      expect(minimumContrast, `${variant} cover copy`).toBeGreaterThanOrEqual(4.5);
-      coverContrasts[variant].push(minimumContrast);
+      const cover = root.locator("span").first();
+      await expect(cover).toHaveCSS("border-radius", "0px");
+      await expect(cover.locator(":scope > span")).toHaveCount(0);
+      const image = cover.locator("img");
+      await expect(image).toBeVisible();
+      const imageSource = (await image.getAttribute("src")) ?? "";
+      expect(imageSource).toMatch(/books(?:%2F|\/)covers(?:%2F|\/)final/u);
+      expect(await image.evaluate((node) => (node as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
+      coverEvidence[variant].push(imageSource);
     }
+  }
+  const shelfBox = await activeMain
+    .locator('section[aria-label="Вибір редакції"]')
+    .boundingBox();
+  const shelfCoverBoxes = await Promise.all((await covers.all()).map((cover) => cover.boundingBox()));
+  expect(shelfBox).not.toBeNull();
+  for (const coverBox of shelfCoverBoxes) {
+    expect(coverBox).not.toBeNull();
+    expect(coverBox!.y + coverBox!.height).toBeLessThanOrEqual(shelfBox!.y + shelfBox!.height + 0.5);
   }
   const segments = await page
     .locator('main:not([aria-label]) section[aria-labelledby="formula-title"] [role="img"] > span')
     .evaluateAll((elements) => elements.map((element) => element.getBoundingClientRect().width));
   const total = segments.reduce((sum, width) => sum + width, 0);
   const percentages = segments.map((width) => (width / total) * 100);
-  for (const [index, expected] of [6, 65.8, 28.2].entries()) {
+  for (const [index, expected] of [35, 65].entries()) {
     expect(percentages[index]).toBeCloseTo(expected, 1);
   }
   const formulaAuthorContrast = await minimumWhiteContrastAcrossElement(
@@ -675,7 +611,7 @@ test("S-01 keeps the locked 1280 geometry, official logo and additive hovers", a
     "s01-default-1280@2x.png",
     {
       accessibility: {
-        coverContrasts,
+        coverEvidence,
         formulaAuthorContrast,
         heroGradientContrast,
         navigationContrasts,
@@ -779,8 +715,19 @@ test("S-01 reflows deterministically without clipping at required widths", async
       .locator('section[aria-labelledby="formula-title"] [role="img"] > span')
       .evaluateAll((elements) => elements.map((element) => element.getBoundingClientRect().width));
     const formulaTotal = formulaSegments.reduce((sum, segmentWidth) => sum + segmentWidth, 0);
-    for (const [index, expected] of [6, 65.8, 28.2].entries()) {
+    for (const [index, expected] of [35, 65].entries()) {
       expect((formulaSegments[index]! / formulaTotal) * 100).toBeCloseTo(expected, 1);
+    }
+    const shelf = activeMain.locator('section[aria-label="Вибір редакції"]');
+    const shelfBox = await shelf.boundingBox();
+    expect(shelfBox).not.toBeNull();
+    for (const cover of await shelf.locator(":scope > a").all()) {
+      const coverBox = await cover.boundingBox();
+      expect(coverBox).not.toBeNull();
+      expect(coverBox!.y + coverBox!.height).toBeLessThanOrEqual(
+        shelfBox!.y + shelfBox!.height + 0.5,
+      );
+      await expect(cover.locator("span").first()).toHaveCSS("border-radius", "0px");
     }
     let disclosureFocus: Record<string, unknown> | undefined;
     let mobileTargetCount: number | undefined;
@@ -993,16 +940,9 @@ test("S-02 covers Discount on/off, sample, paged reviews and unavailable states"
       await expect(activeMain).toBeVisible();
       const layout = await assertNoHorizontalOverflow(page);
       const targetCount = await assertInteractiveTargets(activeMain);
-      const detailCoverContrast =
-        state === "discount"
-          ? await minimumCoverCopyContrast(
-              page,
-              activeMain.locator("article > section").first().locator(":scope > div").last(),
-            )
-          : undefined;
-      if (detailCoverContrast !== undefined) {
-        expect(detailCoverContrast).toBeGreaterThanOrEqual(4.5);
-      }
+      const detailCover = activeMain.locator("article img").first().locator("xpath=..");
+      await expect(detailCover).toHaveCSS("border-radius", "0px");
+      await expect(detailCover.locator(":scope > span")).toHaveCount(0);
       const backContrast =
         state === "discount"
           ? await minimumSolidGlyphContrast(
@@ -1039,7 +979,7 @@ test("S-02 covers Discount on/off, sample, paged reviews and unavailable states"
         page,
         `s02-${state}-${width}@2x.png`,
         {
-          accessibility: { backContrast, detailCoverContrast, disclosureFocus, targetCount },
+          accessibility: { backContrast, disclosureFocus, targetCount },
           layout,
           screen: "S-02",
           state,

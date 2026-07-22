@@ -6,12 +6,13 @@
 - `docs/product-idea.md` — «Важливі перевірки перед реалізацією» (юрист/бухгалтер, тарифи mono) — джерело release-гейтів.
 - `docs/guardrails.md` — поведінкова політика доказів (Verification Rules, Evidence Requirements) — цей файл застосовує її як контракт завершеності.
 - `docs/architecture.md` — верифікаційні потреби: лідж (AD-2/7), ідемпотентні вебхуки (AD-3), асинхронний конвеєр (AD-4), safe-fail модерації (AD-5), runtime/commands (AD-6), Baseline reimplementation (AD-8), сепарація даних і public catalog projection (AD-11).
-- `docs/design-brief.md` — AA-підлога й approved Baseline `AVB-UKIEBOOK-AURORA-7B-V2`, bundle hash `c66b23c55e68…`, mixed exact/extension Visual DoD Scope та інтегрований official-logo override.
+- `docs/design-brief.md` — AA-підлога й approved Baseline `AVB-UKIEBOOK-AURORA-7B-V3`, bundle hash `e50c9f82c241195d7f5d8876d9dcdcd7fd45b71cdaf6d2eedfe2e327a7182724`, mixed exact/extension Visual DoD Scope та correction contract.
 - `docs/screen-map.md`, `docs/wireframes.md`, `docs/user-journey.md` — покриття екранів/станів/потоків для UX-гейтів.
 - `docs/project-context.md` — спожито: розд. 13 (ризики → пріоритети верифікації).
 - `package.json`, lockfile, runtime sources and `forge/runs/UNIT-00/20260721T202102Z-f6e503b242d5/` — UNIT-00 bootstrap implementation and revision-bound evidence.
 - `forge/runs/UNIT-01/20260721T221049Z-ab030a00f213/` — UNIT-01 revision-bound evidence for S-03/S-17 identity, session/role/profile boundaries, real PostgreSQL concurrency, browser flows and Aurora extension visual checks. Live credentialed Google/Facebook consent is explicitly `blocked` for provider activation and is not represented as passed.
-- `forge/runs/UNIT-02/20260722T011333Z-a441ab415d28/` — UNIT-02 revision-bound evidence for S-01/S-02 catalog behavior, real PostgreSQL projection/Discount boundaries, 70-test regression suite, browser interactions and a 53-receipt exact-plus-extension visual matrix. Its comparison receipt is bound to the reviewed implementation ancestor, target hashes, matrix digest and `design-qa.md`; Baseline impact is `none`.
+- `forge/runs/UNIT-02/20260722T011333Z-a441ab415d28/` — historical UNIT-02 behavior/persistence evidence and superseded V2 visual receipt; the correction does not rewrite this immutable run.
+- `__C1_RUN_PATH__` at revision `__C1_REVISION__` — active UNIT-02-C1 evidence for V3 target/evidence hashes plus transparent SVG logo, all square Book Cover corners, seven distinct baked-artwork sources, first shelf row not clipped, exact hero sentence and public `35/65` ribbon. Next executable feature unit remains UNIT-03.
 
 ## Definition Of Done Model
 
@@ -50,15 +51,15 @@
 
 | Gate | Purpose | Source References | Applies To | Required Evidence | Pass Condition | Fail Or Block Condition | Rerun Rule | Automation Status |
 |---|---|---|---|---|---|---|---|---|
-| `build` | Production build збирається | guardrails Verification Rules; AD-6 | кожен юніт після bootstrap | свіжий `npm run build` лог | exit 0 | будь-яка помилка | після кожної зміни | automated; UNIT-00…UNIT-02 passed, latest implementation `a441ab415d2818872599f01efae856acebf75b42` |
-| `typecheck_lint` | Статична коректність | guardrails; AD-6 | кожен юніт після bootstrap | свіжі `npm run typecheck` і `npm run lint` логи | 0 помилок | помилки | після кожної зміни | automated; UNIT-00…UNIT-02 passed, latest implementation `a441ab415d2818872599f01efae856acebf75b42` |
-| `tests` | Автотести юніта й регресії | guardrails; AD-2/3/4/7/11 | кожен юніт після bootstrap | свіжий `npm test`; для affected journeys також `npm run test:e2e` | усі застосовні прогони зелені | будь-який failed/blocked застосовний тест | після кожного фіксу | automated; UNIT-02 passed: 70 Vitest, standard E2E 1/1, standard visual 1/1, UNIT-02 E2E 5/5 and UNIT-02 visual 10/10 at `a441ab415d2818872599f01efae856acebf75b42` |
+| `build` | Production build збирається | guardrails Verification Rules; AD-6 | кожен юніт після bootstrap | свіжий `npm run build` лог | exit 0 | будь-яка помилка | після кожної зміни | automated; UNIT-00…UNIT-02 historical runs passed; active UNIT-02-C1 result is revision-bound in `__C1_RUN_PATH__` |
+| `typecheck_lint` | Статична коректність | guardrails; AD-6 | кожен юніт після bootstrap | свіжі `npm run typecheck` і `npm run lint` логи | 0 помилок | помилки | після кожної зміни | automated; UNIT-00…UNIT-02 historical runs passed; active UNIT-02-C1 result is revision-bound in `__C1_RUN_PATH__` |
+| `tests` | Автотести юніта й регресії | guardrails; AD-2/3/4/7/11 | кожен юніт після bootstrap | свіжий `npm test`; для affected journeys також `npm run test:e2e` | усі застосовні прогони зелені | будь-який failed/blocked застосовний тест | після кожного фіксу | automated; original UNIT-02 counts remain historical; active correction regression/browser/visual results are recorded in `__C1_RUN_PATH__` |
 
 ### Unit Checks
 
 | Gate | Purpose | Source References | Applies To | Required Evidence | Pass Condition | Fail Or Block Condition | Rerun Rule | Automation Status |
 |---|---|---|---|---|---|---|---|---|
-| `money_formula` | Розподіл 6/65,8/28,2 від фактично сплаченої ціни, включно зі знижками | FR-REW-2/3 | rewards | тест-кейси сум (зокрема граничні копійки) | точні суми | розбіжність ≥ 1 коп. | після змін rewards | not available yet |
+| `money_formula` | Публічний розподіл `35% платформі / 65% автору` від фактично сплаченої ціни; менеджерський `35 = 29 net platform + 6 platform tax component`; `29+6+65=100` | FR-REW-2/3 | rewards, formula presentation | integer-kopiyka vectors including discounts/refunds/rounding; exact-bps assertions `2900+600+6500=10000`; UI visibility split | correct rounded monetary amounts; `platform_share_bps=3500`, `author_share_bps=6500`; manager sees `2900/600/6500`; public/Author never exposes internal `29+6` as extra ribbon segments | будь-яка розбіжність ≥1 коп., old percentage, or public/internal meaning leak | після змін rewards/formula copy | presentation part covered by UNIT-02-C1; ledger calculation not available until rewards unit |
 | `ledger_reproducibility` | Кожна сума в S-15/S-19 відтворюється з подій ліджа | AD-2; FR-PYT-2 | rewards | звірка похідних рядків із подіями | збіг | розбіжність | після змін rewards | not available yet |
 | `paid_sale_only` | Нарахування лише з підтверджених оплат; повернення компенсуються | FR-PAY-5, FR-REF-3 | commerce→rewards | тести подій оплати/повернення | інваріант тримається | нарахування без оплати | після змін commerce | not available yet |
 | `payout_rules` | Поріг 100 грн, перенесення, утримання 250 грн, черга накопичення, засновник 100% | FR-PYT-4, FR-UPD-2, FR-FND-2 | rewards | тест-кейси payout-рядків | правила точні | відхилення | після змін rewards | not available yet |
@@ -87,6 +88,7 @@
 | `accessibility_floor` | AA-підлога: контраст, фокус, клавіатура, підписи, цілі ≥44px | design-brief Accessibility Floor | фронтенд-юніти | перевірки контрасту + клавіатурний прохід | відповідає | порушення AA | після змін UI | scoped automation passed for UNIT-01 and UNIT-02 affected routes: semantic controls/landmarks, visible keyboard equivalents, ≥44px targets, contrast and 200% reflow; release-wide AT/browser audit remains per owning screens |
 | `responsive_viewports` | 390/430/768/1280/1440 без горизонтального скролу й втрати пріоритетів | design-brief Responsive; wireframes Responsive Notes | фронтенд-юніти | скріншоти вʼюпортів | структура за wireframes | зламаний вʼюпорт | після змін layout | automated for UNIT-01 S-03/S-17 and UNIT-02 S-01/S-02; UNIT-02 records its applicable 390/430/768/1280/1440 geometry/state matrix with no horizontal overflow |
 | `vis_tokens` | Aurora source token export and browser computed styles match active Baseline values | design-brief Approved Baseline; AD-8; QA `VIS-TOKENS` | UNIT-00 foundation fixture and later shared-token changes | `npm run test:visual` capture + structured computed-style evidence | exact source-token values, Baseline ID/hash and no blocking finding | value/hash drift or missing browser proof | after shared token/fixture changes or Baseline replacement | automated and passed for the UNIT-00 fixture and scoped UNIT-02 public production surfaces |
+| `vis_correction_v3` | Enforce the exact operator correction on every affected public catalog rendering | design-brief V3 Baseline; wireframes S-01; QA `VIS-COVER`, `VIS-FORMULA`, `VIS-BRAND-LOGO`, `VIS-SHELF`, `VIS-HERO-COPY` | UNIT-02-C1 and every later shared-cover/header/formula change | target + production screenshots and computed styles; asset-source uniqueness; image-pixel/DOM separation; logo transparency/source hash; shelf geometry | all Book Covers `border-radius:0`; seven distinct approved artworks with baked titles and no overlay; five shelf covers fully visible; exact hero sentence; public bar `35:65`; active SVG source SHA-256 `db838dd4ad696f63cccb6aa86ab98e53dc5c6e13c1778ac340f62c5e4514617f` and no backing plate | any rounded cover, duplicate/placeholder art presented as distinct, live title overlay, bottom clipping, copy/formula drift or opaque logo background | after cover/header/hero/formula/layout asset or token change | active evidence `__C1_RUN_PATH__` |
 
 #### `approved_visual_baseline_fidelity` (параметризований гейт)
 
@@ -94,18 +96,18 @@
 - Purpose: видимий користувачу фронтенд відповідає approved visual contract з чесною exact/extension coverage.
 - Source References: design-brief `Approved Visual Baseline`; guardrails Design Authority Rules; pipeline-контракт.
 - Applies To: кожен frontend/full-stack/integration юніт із visible UI S-01…S-21. Exact pixel target applies only to S-01 1280 default/hover; all other scopes use approved Aurora system + owning screen/wireframe/state contracts.
-- Baseline ID: `AVB-UKIEBOOK-AURORA-7B-V2`.
-- Immutable Target Hash: target bundle `c66b23c55e68649e67e029d47c8e69d3bef3791f8c4c6677aa0a6cef2259c51d`; candidate tree `8aaddd35645bd9c58c095a7182fbbbd43dd8730c5cf90b489a97597431cc6505`.
+- Baseline ID: `AVB-UKIEBOOK-AURORA-7B-V3`.
+- Immutable Target Hash: target bundle `e50c9f82c241195d7f5d8876d9dcdcd7fd45b71cdaf6d2eedfe2e327a7182724`; candidate tree `7b13c9e123694cf800ccda987aa64a7f98e625d671161a838b4f94e315feba97`.
 - Affected Routes States And Viewports: unit parameter; exact `S-01 / default+hover 1280x900`; derived 390/430/768/1440 and all required states; S-02…S-21 system-consistency coverage at applicable viewports/states.
-- Permitted Variance And Operator Overrides: exact list in design-brief Baseline; imported final design, skip-three-candidates override and official `UkieBook-logo.jpg` rendered in the locked S-01 brand slot are active.
+- Permitted Variance And Operator Overrides: exact list in design-brief Baseline; imported final design and skip-three-candidates override remain. The correction locks `UkieBook-logo-transparent.svg` without background, square-corner covers, seven distinct baked-artwork assets, no cover-title overlay, fully visible five-cover shelf, exact hero sentence and public `35/65` bar.
 - QA Check IDs: `VIS-S01-1280-DEFAULT`, `VIS-S01-1280-HOVER`, `VIS-S01-RESPONSIVE`, `VIS-AURORA-PUBLIC`, `VIS-AURORA-AUTHOR`, `VIS-AURORA-MANAGER`, `VIS-TOKENS`, `VIS-GLASS`, `VIS-COVER`, `VIS-FORMULA`, `VIS-BRAND-LOGO` plus affected RES/A11Y/UX IDs.
-- VisualQAEvidence References: `forge/design/evidence/AVB-UKIEBOOK-AURORA-7B-V2.visual-qa.json` and implementation evidence produced per unit.
+- VisualQAEvidence References: `forge/design/evidence/AVB-UKIEBOOK-AURORA-7B-V3.visual-qa.json` SHA-256 `ffae4a71e0db785033aad606e91b1557ef46d56d86690f8e09ae6cc81906323c` and implementation evidence produced per unit; active correction run `__C1_RUN_PATH__`.
 - PrototypePromotionReceipt: not applicable for the approved reference (`Prototype Reuse: none`, AD-8). It becomes required only if a later plan explicitly changes reuse to traced promote/diff.
-- Required Evidence: current Baseline ID/hash; for exact S-01, screenshot comparison to immutable HTML/capture; for extension scope, token/component/state/viewport review; concrete QA IDs; VisualQAEvidence; runtime interaction proof separately.
-- Pass Condition: Baseline active/current; the correct exact or extension comparison mode was used; required coverage exists; each deviation is permitted/source-backed; no blocking finding.
+- Required Evidence: current Baseline ID/hash; for exact S-01, screenshot comparison to immutable HTML/capture plus machine-readable checks for square cover radii, seven unique artwork sources, absence of live cover overlays, full five-cover shelf geometry, exact `Електронні книжки EPUB і MOBI миттєво у вашу бібліотеку.`, formula `35:65`, transparent logo source/hash/background; for extension scope, token/component/state/viewport review; concrete QA IDs; VisualQAEvidence; runtime interaction proof separately.
+- Pass Condition: Baseline active/current; the correct exact or extension comparison mode was used; all correction invariants and required coverage exist; each deviation is permitted/source-backed; no blocking finding.
 - Fail Or Block Condition: застарілий/заміщений базлайн; відсутній таргет чи покриття; непояснений матеріальний дрейф; відкритий P0/P1/блокувальний P2.
 - Rerun Rule: після кожної зміни UI юніта; після зміни активного базлайна.
-- Automation Status: UNIT-01 Aurora extension mode for S-03/S-17 passed at `ab030a00f213d33f62783f0287dd8e5dcfe67101`. UNIT-02 exact S-01 plus Aurora-extension S-02 mode passed at `a441ab415d2818872599f01efae856acebf75b42`: 53 distinct receipt files with validated hashes, target/implementation side-by-side review binding, zero console errors, required viewports/states, catalog-owned semantic interaction equivalents, Cover/logo asset receipts and zero P0/P1/blocking P2 in scope. Other screens and the UNIT-05-owned Cart destination/behavior remain governed by their owning units.
+- Automation Status: UNIT-01 Aurora extension mode for S-03/S-17 passed at `ab030a00f213d33f62783f0287dd8e5dcfe67101`. Original UNIT-02 behavior/persistence evidence at `a441ab415d2818872599f01efae856acebf75b42` remains valid history, but its V2 visual comparison is superseded. Active S-01/S-02 visual correction is UNIT-02-C1 at revision `__C1_REVISION__`, evidence `__C1_RUN_PATH__`. Other screens and the UNIT-05-owned Cart destination/behavior remain governed by their owning units.
 
 ### Release Checks
 
@@ -161,7 +163,7 @@
 - Статичні документи доводять намір, не поведінку: жодних тверджень WCAG/безпеки/продуктивності з самих доків.
 - Мокап/скріншот/прототип — дизайн-доказ; функціональність вимагає реального стану/даних/дій і runner-доказів (guardrails Evidence Requirements).
 - Approved Visual Baseline — візуальний еталон, не доказ працездатності.
-- UNIT-02 visual evidence passes only S-01/S-02 and shared primitives as rendered there; it does not pre-pass later public, Author or Manager screens. Its side-by-side comparison is review evidence, while E2E/PostgreSQL receipts separately prove behavior and persistence.
+- Active UNIT-02-C1 visual evidence applies only to S-01/S-02 and shared primitives as rendered there; it does not pre-pass later public, Author or Manager screens. Its V3 side-by-side comparison is review evidence, while original UNIT-02 E2E/PostgreSQL receipts separately prove behavior and persistence.
 - Прогін у тестовому режимі mono не доводить продакшн-тарифи (OQ-2 закривається лише `mono_terms_confirmed`).
 
 ## Failure And Blocker Classification

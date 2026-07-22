@@ -394,7 +394,7 @@ async function proveDatabasePriceBoundary(database: SqlDatabase): Promise<void> 
             '88888888-8888-4888-8888-888888888888', 'Invalid discount',
             'a8888888-8888-4888-8888-888888888888', 'Boundary Proof', 'proza',
             'Boundary proof row', 'Fragment', '[]'::jsonb,
-            '/books/covers/misto-na-vodi.png', 'cobalt',
+            '/books/covers/final/misto-na-vodi.png', 'cobalt',
             10000, 10000, '2026-07-01T00:00:00Z', '2026-08-01T00:00:00Z',
             'published', 999
           )

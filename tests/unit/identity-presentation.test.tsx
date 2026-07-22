@@ -61,7 +61,7 @@ describe("UNIT-01 identity presentation", () => {
     const mark = home.querySelector("img");
     expect(mark?.getAttribute("alt")).toBe("");
     expect(mark?.getAttribute("aria-hidden")).toBe("true");
-    expect(mark?.getAttribute("src")).toContain("UkieBook-logo-exact.svg");
+    expect(mark?.getAttribute("src")).toContain("UkieBook-logo-transparent.svg");
   });
 
   it("renders the S-17 field, privacy boundary, success and busy state accessibly", () => {

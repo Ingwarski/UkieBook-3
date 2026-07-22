@@ -39,7 +39,7 @@ export const CATALOG_BOOK_FIXTURES: readonly CatalogFixtureBook[] = [
     availability: "published",
     basePriceKopiykas: 26500,
     catalogRank: 3,
-    coverPath: "/books/covers/khroniky-stepu.png",
+    coverPath: "/books/covers/final/khroniky-stepu.png",
     coverTheme: "teal",
     description:
       "Родинна історія, що проходить крізь століття українського степу. Старі мапи, усні перекази й один несподіваний лист повертають героїв до місця, де памʼять сильніша за час.",
@@ -70,7 +70,7 @@ export const CATALOG_BOOK_FIXTURES: readonly CatalogFixtureBook[] = [
     availability: "published",
     basePriceKopiykas: 18000,
     catalogRank: 5,
-    coverPath: "/books/covers/lysty-z-poltavy.png",
+    coverPath: "/books/covers/final/lysty-z-poltavy.png",
     coverTheme: "mustard",
     description:
       "Документальна мозаїка листів, міських історій і особистих спостережень про Полтаву. Книжка збирає приватні голоси міста у чесну розмову про дім і зміни.",
@@ -97,7 +97,7 @@ export const CATALOG_BOOK_FIXTURES: readonly CatalogFixtureBook[] = [
     availability: "published",
     basePriceKopiykas: 19500,
     catalogRank: 4,
-    coverPath: "/books/covers/misto-na-vodi.png",
+    coverPath: "/books/covers/final/misto-na-vodi.png",
     coverTheme: "cobalt",
     description:
       "Місто прокидається у власному відображенні. Молодий архітектор шукає зниклий квартал і поступово розуміє, що вода зберігає більше відповідей, ніж міські архіви.",
@@ -124,7 +124,7 @@ export const CATALOG_BOOK_FIXTURES: readonly CatalogFixtureBook[] = [
     availability: "published",
     basePriceKopiykas: 25000,
     catalogRank: 1,
-    coverPath: "/books/covers/sad-kamianykh-ptakhiv.png",
+    coverPath: "/books/covers/final/sad-kamianykh-ptakhiv.png",
     coverTheme: "coral",
     description:
       "У покинутому саду оживають камʼяні птахи, а кожна скульптура береже чужу таємницю. Атмосферний роман про втрату, повернення і сміливість називати речі своїми іменами.",
@@ -155,7 +155,7 @@ export const CATALOG_BOOK_FIXTURES: readonly CatalogFixtureBook[] = [
     availability: "published",
     basePriceKopiykas: 13500,
     catalogRank: 2,
-    coverPath: "/books/covers/piznie-lito.png",
+    coverPath: "/books/covers/final/piznie-lito.png",
     coverTheme: "violet",
     description:
       "Збірка віршів про світло, що залишається після довгого дня. Невеликі тексти складаються у теплий щоденник дороги, дому й пізнього літа.",
@@ -182,7 +182,7 @@ export const CATALOG_BOOK_FIXTURES: readonly CatalogFixtureBook[] = [
     availability: "published",
     basePriceKopiykas: 22000,
     catalogRank: 6,
-    coverPath: "/books/covers/kryzhani-maky.png",
+    coverPath: "/books/covers/final/kryzhani-maky.png",
     coverTheme: "indigo",
     description:
       "На півночі, де квіти проростають крізь кригу, юна хранителька має повернути весну до міста. Ліричне фентезі про обіцянку, памʼять і силу ніжності.",
@@ -209,8 +209,8 @@ export const CATALOG_BOOK_FIXTURES: readonly CatalogFixtureBook[] = [
     availability: "unavailable",
     basePriceKopiykas: 17500,
     catalogRank: 7,
-    coverPath: "/books/covers/misto-na-vodi.png",
-    coverTheme: "cobalt",
+    coverPath: "/books/covers/final/tini-nad-lymanom.png",
+    coverTheme: "teal",
     description:
       "Архівна сторінка видання збережена для читачів, але сама книжка більше не пропонується до продажу.",
     discountEndsAt: null,

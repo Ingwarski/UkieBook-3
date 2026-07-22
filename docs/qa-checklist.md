@@ -2,21 +2,20 @@
 
 ## Source References
 
-- `docs/prd.md` v1.1 — FR/NFR, User Stories, E2E acceptance scenarios.
+- `docs/prd.md` v1.2 — FR/NFR, User Stories, E2E acceptance scenarios and operator-confirmed `35/65` rule.
 - `docs/user-journey.md` — primary Buyer/Author and supporting/Manager journeys.
 - `docs/screen-map.md` — canonical S-01…S-21 routes/states.
 - `docs/wireframes.md` — structural deltas and responsive behavior.
-- `docs/design-brief.md` — approved Baseline `AVB-UKIEBOOK-AURORA-7B-V2`; target bundle hash `c66b23c55e68649e67e029d47c8e69d3bef3791f8c4c6677aa0a6cef2259c51d`; permitted variance.
-- `UkieBook-logo.jpg` — official logo operator override; SHA-256 `5cdd21d3ba038632528fc17a13068e3792d03a029779251cd738aaada4aa0ad3`.
-- `UkieBook-logo-exact.svg` — official equivalent SVG container; SHA-256 `abb3acf8cfa673161e6547ca725f7b337b29185a7eb6918218f887faadc66d98`; embeds the official JPEG byte-for-byte and has no vector primitives.
-- `forge/design/evidence/UkieBook-logo-svg-equivalence.json` — XML, byte-equivalence, static-safety and browser-render evidence; Baseline impact `none`.
-- `forge/design/evidence/AVB-UKIEBOOK-AURORA-7B-V2.visual-qa.json` — reference QA for the immutable V2 target, including exact geometry, rendered official logo and component captures; not production implementation evidence.
+- `docs/design-brief.md` — approved Baseline `AVB-UKIEBOOK-AURORA-7B-V3`; target bundle hash `e50c9f82c241195d7f5d8876d9dcdcd7fd45b71cdaf6d2eedfe2e327a7182724`; permitted variance.
+- `UkieBook-logo-transparent.svg` / `public/brand/UkieBook-logo-transparent.svg` — active official transparent-background SVG container; SHA-256 `db838dd4ad696f63cccb6aa86ab98e53dc5c6e13c1778ac340f62c5e4514617f`; raster-backed, not path-vector artwork.
+- `forge/design/evidence/AVB-UKIEBOOK-AURORA-7B-V3.visual-qa.json` — reference QA for the immutable V3 target; SHA-256 `ffae4a71e0db785033aad606e91b1557ef46d56d86690f8e09ae6cc81906323c`; not production implementation evidence.
+- V1/V2 target, JPG/exact-SVG and equivalence receipts remain immutable superseded history only.
 - `docs/architecture.md` — AD-2/3/4/6/7/8/9/10/11 and security boundaries.
 - `docs/dod-evals.md` — reusable gates, severity and result contract.
 - `docs/guardrails.md` — evidence policy.
 - `docs/project-context.md` — consumed section 7 (platform/viewports) and section 13 (risk applicability).
 
-Product-route, journey and release checks below remain `blocked` until their owning units produce fresh implementation evidence. UNIT-00 platform foundation, UNIT-01 identity/profile and UNIT-02 S-01/S-02 catalog slices recorded next are scoped exceptions; Baseline approval removes the design-approval blocker but does not pass unimplemented product runtime checks.
+Product-route, journey and release checks below remain `blocked` until their owning units produce fresh implementation evidence. UNIT-00 platform foundation, UNIT-01 identity/profile, UNIT-02 behavior/persistence and UNIT-02-C1 V3 visual correction recorded next are scoped exceptions; Baseline approval removes the design-approval blocker but does not pass unimplemented product runtime checks.
 
 ### UNIT-00 Foundation Execution
 
@@ -36,15 +35,22 @@ Product-route, journey and release checks below remain `blocked` until their own
 - **Scoped QA IDs Passed:** UX-04/06/07 for S-03/S-17; VIS-AURORA-PUBLIC for S-03; VIS-AURORA-AUTHOR for S-17; VIS-TOKENS/VIS-GLASS/VIS-BRAND-LOGO on those routes; RES-01/04/06; the control-contrast portion of A11Y-01, exercised S-03/S-17 portions of A11Y-02/03/05, and A11Y-04 for every rendered S-03/S-17 link/button. This does not pass release-wide text/AT checks, unimplemented routes or the browser/device matrix.
 - **Findings/Activation Limit:** zero P0/P1/blocking P2 in unit scope. Credentialed Google/Facebook consent and registered-redirect smoke is `blocked` until pre-production credentials exist: advisory for UNIT-01 completion, blocking for production provider activation.
 
-### UNIT-02 Catalog And Book-Page Execution
+### UNIT-02 Catalog And Book-Page Execution (historical visual baseline)
 
-- **Result:** `passed` for UNIT-02 at implementation revision `a441ab415d2818872599f01efae856acebf75b42`.
+- **Result:** `passed` for UNIT-02 behavior/persistence at implementation revision `a441ab415d2818872599f01efae856acebf75b42`; its V2 visual verdict is superseded by UNIT-02-C1.
 - **Canonical Evidence:** `forge/runs/UNIT-02/20260722T011333Z-a441ab415d28/run.json` and its 92-file run tree (86 files under `evidence/`, 5 eval results and `run.json`); evidence secret scan `passed`, no trace/HAR artifacts or credential/privacy-sentinel leaks.
 - **Passed Acceptance Scope:** ACC-08; ST-01; WF-02 and S-02 side of WF-04; UX-03/04/07; the catalog-owned cover/tile/search/Genre/Discount portion of INT-04; S-01/S-02 portions of RES-01/02/03/06 and A11Y-01/02/04/06/08. Search by title/Author, Genre and Discount filters, featured/price sorting, stable pagination, dated Discount `[start,end)`, integer-kopiyka UAH presentation, sample, paged reviews, loading/empty/error/long-results and known-unavailable Book are implemented. The Cart control is a semantic header handoff only; its destination and Cart behavior remain unpassed until UNIT-05. Purchase/review submission and publishing-side preview also remain with later owning units.
 - **Functional Evidence:** 70/70 Vitest; standard E2E 1/1 and visual 1/1; UNIT-02 E2E 5/5; UNIT-02 visual 10/10. Dedicated real PostgreSQL proof reverses/reapplies `0003_catalog_read_model`, preserves migrations 0001/0002, seeds 7 deterministic fixture Books only through guarded acknowledgement, exposes 6 public Books across 2 pages and proves public DTO separation plus Discount boundaries.
-- **Visual/Responsive Evidence:** 53 distinct receipt files with validated hashes across S-01 390/430/768/1280/1440 and S-02 390/768/1280 plus targeted 430/1440 geometry checks; exact S-01 default/shelf-hover/tile-hover and keyboard equivalents are bound to the immutable V2 target, while S-02 follows the Aurora extension contract. `design-qa.md` binds the reviewed comparison, matrix digest and implementation ancestor; the comparison receipt binds all five output hashes to that exact `design-qa.md` hash. The matrix records zero console errors, and both official logo containers plus six real 1024×1536 Covers passed asset receipts.
-- **Scoped Visual IDs Passed:** `VIS-S01-1280-DEFAULT`, `VIS-S01-1280-HOVER`, `VIS-S01-RESPONSIVE`; `VIS-AURORA-PUBLIC` for S-02; `VIS-TOKENS`, `VIS-GLASS`, `VIS-COVER`, `VIS-FORMULA` and `VIS-BRAND-LOGO` on S-01/S-02. This does not pass those shared checks for unimplemented routes or replace the later cross-browser/AT release audit.
-- **Findings/Limit:** zero P0/P1/blocking P2 in UNIT-02 scope; Baseline change `none`. Catalog data is a guarded deterministic bootstrap projection until UNIT-03/UNIT-04 publication events populate it; this is an explicit integration seam, not a release-ready content pipeline.
+- **Historical Visual/Responsive Evidence:** 53 distinct V2 receipt files remain immutable implementation history, but they no longer pass active V3 visual IDs. Their behavior/E2E/PostgreSQL evidence is not rewritten.
+- **Findings/Limit:** zero P0/P1/blocking P2 in original behavior scope. Catalog data is a guarded deterministic bootstrap projection until UNIT-03/UNIT-04 publication events populate it; this is an explicit integration seam, not a release-ready content pipeline.
+
+### UNIT-02-C1 V3 Correction Execution
+
+- **Result:** `passed` for correction scope at implementation revision `__C1_REVISION__`.
+- **Canonical Evidence:** `__C1_RUN_PATH__`; active baseline target bundle `e50c9f82c241195d7f5d8876d9dcdcd7fd45b71cdaf6d2eedfe2e327a7182724`, tree `7b13c9e123694cf800ccda987aa64a7f98e625d671161a838b4f94e315feba97`, reference VQA `ffae4a71e0db785033aad606e91b1557ef46d56d86690f8e09ae6cc81906323c`.
+- **Passed Correction Scope:** every Book Cover rendered by affected shared/public primitives has `border-radius: 0`; S-01 uses seven distinct approved realistic cover artworks with different baked-in titles and no live title overlay; all five first-row covers are visible through their bottom edge; hero subcopy is exactly `Електронні книжки EPUB і MOBI миттєво у вашу бібліотеку.`; public ribbon is `35%` platform / `65% — автору`; active logo is the transparent-background SVG hash above and renders without a backing plate.
+- **Formula Boundary:** public and Author-facing presentation shows only `35/65`. Manager/rewards implementation must separately prove `29%` net platform revenue + `6%` platform tax component + `65%` Author, with `29+6+65=100`; UNIT-02-C1 does not claim the future rewards ledger is implemented.
+- **Next Unit:** UNIT-03.
 
 ## Product Acceptance
 
@@ -61,7 +67,7 @@ Product-route, journey and release checks below remain `blocked` until their own
 | ACC-09 | cart/mono | multi-book Cart; mono card/Apple Pay/Google Pay; failed checkout preserves Cart; duplicate webhook creates one sale | P1 / blocking | FR-PAY-1..5, AD-3 | sandbox e2e + idempotency tests | primary payment path |
 | ACC-10 | Library/email | paid Books appear immediately; email lists them; EPUB/MOBI can be re-downloaded; approved latest version is served | P1 / blocking | FR-PAY-4, FR-LIB-1..3 | e2e + captured email + object authorization tests | purchased value delivery |
 | ACC-11 | reviews/refunds | only verified Buyer can review; review moderates; Buyer can request Refund; Manager decision updates status and compensates accrual | P1 / blocking | FR-REV-1/2, FR-REF-1..3 | negative review tests + refund e2e | trust and money correction |
-| ACC-12 | rewards | current 6/65.8/28.2 rule uses actually paid discounted price, integer kopiykas, no Buyer personal data | P0 / blocking | FR-REW-1..6, AD-2/7 | money vectors + ledger reproduction + API inspection | financial invariant; formula provisional legally, exact technically until upstream changes |
+| ACC-12 | rewards | current public `35% platform / 65% Author` rule uses actually paid discounted price and integer kopiykas; manager allocation is `29%` net platform revenue + `6%` platform tax component + `65%` Author; no Buyer personal data | P0 / blocking | FR-REW-1..6, AD-2/7 | money vectors + exact-bps (`2900+600+6500=10000`) ledger reproduction + API/UI visibility inspection | financial invariant; external legal/tax release review remains separate from the operator-confirmed percentage truth |
 | ACC-13 | payouts | monthly row per Author, 100 UAH threshold/carry, Manager confirms actual Payout one-by-one, per-Book Payout status shown | P0 / blocking | FR-PYT-1..4, FR-REW-6 | payout rule suite + S-15/S-19 e2e | payout integrity |
 | ACC-14 | Founder Author | exactly one Founder Author; atomic transfer; 100% Payout; hidden from Author surfaces | P1 / blocking | FR-FND-1..4 | concurrency/transaction + RBAC/UI tests | singleton financial exception |
 | ACC-15 | localization/scope | Ukrainian UI, UAH, responsive web; no internal reader/fixed layout/out-of-scope features | P2 / blocking if violated | NFR-1/2; Out of Scope | route/content audit | prevents scope drift |
@@ -108,37 +114,39 @@ Canonical state source: `docs/screen-map.md`. Each check requires captures at re
 | Check ID | Applicability | Check | Severity / Release Effect | Source | Evidence | Rationale |
 |---|---|---|---|---|---|---|
 | UX-01 | all | canonical terms and Ukrainian copy; no Попередній перегляд видання/Безкоштовний фрагмент collision | P2 / blocking if meaning changes | canonical-terms | copy audit | domain clarity |
-| UX-02 | money surfaces | UAH and tabular numbers; formula labeled provisional only in appropriate legal/help context, not misrepresented | P2 / blocking | design-brief; PRD | captures/copy review | financial comprehension |
-| UX-03 | S-01 | Aurora Pastel 7b tokens, Golos hierarchy, 2:3 covers, glass, mesh, formula and target hover | P2 / blocking | Approved Baseline | visual diffs | explicit operator selection |
+| UX-02 | money surfaces | UAH and tabular numbers; public/Author formula is `35/65`; manager-only decomposition is `29+6+65`; legal/tax release status is not misrepresented as uncertainty about the confirmed percentages | P2 / blocking | design-brief; PRD | captures/copy review + role visibility checks | financial comprehension |
+| UX-03 | S-01 | Aurora Pastel 7b tokens, Golos hierarchy, square-corner 2:3 baked-artwork covers, glass, mesh, `35/65` formula, exact hero sentence, fully visible shelf and target hover | P2 / blocking | Approved Baseline | visual diffs + computed styles/assets/geometry | explicit operator selection |
 | UX-04 | S-02…S-17 | Aurora extension remains recognizable without inventing pixel targets | P2 / blocking for hierarchy/meaning drift | Design/Experience Spine | component/token/state review | system continuity |
 | UX-05 | S-18…S-21 | Aurora type/color/status semantics with quieter, denser Manager layout | P2 / blocking for supported viewport/meaning | Design Spine | captures | operational usability |
 | UX-06 | S-03/legal/moderation | provider-brand OAuth, readable license/rights, neutral Reason Category | P1 / blocking | design-brief | content/accessibility review | trust boundaries |
-| UX-07 | all branded surfaces | official UkieBook logo silhouette, proportions and internal line structure remain visually identical to the official JPG; the exact raster-backed SVG container is acceptable, but no invented redraw | P2 / blocking | operator override; design-brief | selected asset hash + equivalence evidence when SVG is used + rendered captures at required sizes | brand identity |
+| UX-07 | all branded surfaces | active `UkieBook-logo-transparent.svg` keeps the official silhouette/proportions/internal line structure, renders with transparent background and no backing plate; raster-backed SVG is not misrepresented as path-vector artwork | P2 / blocking | operator correction; design-brief | exact source hash + alpha/background inspection + rendered captures at required sizes | brand identity |
 
 ## Visual Regression Checks
 
-Common Baseline ID: `AVB-UKIEBOOK-AURORA-7B-V2`; Target Hash: `c66b23c55e68649e67e029d47c8e69d3bef3791f8c4c6677aa0a6cef2259c51d`. Reference evidence: `forge/design/evidence/AVB-UKIEBOOK-AURORA-7B-V2.visual-qa.json`.
+Common Baseline ID: `AVB-UKIEBOOK-AURORA-7B-V3`; Target Hash: `e50c9f82c241195d7f5d8876d9dcdcd7fd45b71cdaf6d2eedfe2e327a7182724`. Reference evidence: `forge/design/evidence/AVB-UKIEBOOK-AURORA-7B-V3.visual-qa.json` SHA-256 `ffae4a71e0db785033aad606e91b1557ef46d56d86690f8e09ae6cc81906323c`.
 
 | Check ID | Baseline ID / Target Hash | Applicability / Route / State / Viewport | Severity / Release Effect | Permitted Variance | Expected Evidence | Rationale | Result |
 |---|---|---|---|---|---|---|---|
-| VIS-S01-1280-DEFAULT | `AVB-UKIEBOOK-AURORA-7B-V2` / `c66b23c55e68649e67e029d47c8e69d3bef3791f8c4c6677aa0a6cef2259c51d` | S-01 `/`, default, 1280×900 | P2 / blocking | real data/covers, semantic controls, allowed a11y corrections only | fresh full-page capture + diff to V2 HTML/reference capture | locked 1:1 scope | passed by UNIT-02 at `a441ab415d2818872599f01efae856acebf75b42` |
-| VIS-S01-1280-HOVER | `AVB-UKIEBOOK-AURORA-7B-V2` / `c66b23c55e68649e67e029d47c8e69d3bef3791f8c4c6677aa0a6cef2259c51d` | S-01 `/`, cover and tile hover, 1280×900 | P2 / blocking | layered transform implementation, same visual outcome | before/after capture + keyboard focus equivalent | target interaction | passed by UNIT-02: separate shelf/tile hover and focus receipts |
-| VIS-S01-RESPONSIVE | `AVB-UKIEBOOK-AURORA-7B-V2` / `c66b23c55e68649e67e029d47c8e69d3bef3791f8c4c6677aa0a6cef2259c51d` | S-01 default/loading/empty/error/results, 390/430/768/1440 | P2 / blocking | approved reflow: scroll-snap shelf, menu, stacked formula/filter drawer | captures + overflow/interaction checks | reference CSS is not mobile-ready | passed by UNIT-02 |
-| VIS-AURORA-PUBLIC | `AVB-UKIEBOOK-AURORA-7B-V2` / `c66b23c55e68649e67e029d47c8e69d3bef3791f8c4c6677aa0a6cef2259c51d` | S-02…S-09, applicable states, 390/768/1280 | P2 / blocking | design-spine extension, real content/state structure | token audit + representative state captures | no pixel target; system contract applies | S-02 passed by UNIT-02; S-03 passed by UNIT-01; S-04…S-09 blocked |
-| VIS-AURORA-AUTHOR | `AVB-UKIEBOOK-AURORA-7B-V2` / `c66b23c55e68649e67e029d47c8e69d3bef3791f8c4c6677aa0a6cef2259c51d` | S-10…S-17, applicable states, 390/768/1280 | P2 / blocking | calmer forms/tables within Aurora | token/component/state evidence | preserve brand and task clarity | S-17 scoped passed by UNIT-01; S-10…S-16 blocked |
-| VIS-AURORA-MANAGER | `AVB-UKIEBOOK-AURORA-7B-V2` / `c66b23c55e68649e67e029d47c8e69d3bef3791f8c4c6677aa0a6cef2259c51d` | S-18…S-21, applicable states, 390/768/1280 | P2 / blocking for meaning/viewport; otherwise advisory | denser, quieter operational surfaces | state captures + token/status audit | operational consistency | blocked |
-| VIS-TOKENS | `AVB-UKIEBOOK-AURORA-7B-V2` / `c66b23c55e68649e67e029d47c8e69d3bef3791f8c4c6677aa0a6cef2259c51d` | all visible routes, default and semantic states, 390/768/1280/1440 | P2 / blocking for hierarchy or brand drift | only source-backed contrast corrections and documented state colors | production token export/computed-style matrix + representative captures against V2 values | dedicated proof for Aurora palette, gradients, type, radii, spacing and shadows | S-01/S-02 passed by UNIT-02; S-03/S-17 by UNIT-01; remaining routes blocked |
-| VIS-GLASS | `AVB-UKIEBOOK-AURORA-7B-V2` / `c66b23c55e68649e67e029d47c8e69d3bef3791f8c4c6677aa0a6cef2259c51d` | glass cards/panels on applicable public, Author and Manager routes, default/hover/focus, 390/768/1280 | P2 / blocking for hierarchy or system drift | density may change only where the extension contract permits it | computed background/border/blur/radius/shadow + component captures matched to V2 glass evidence | glassmorphism is a named cross-screen invariant | S-01/S-02 passed by UNIT-02; S-03/S-17 by UNIT-01; remaining routes blocked |
-| VIS-COVER | `AVB-UKIEBOOK-AURORA-7B-V2` / `c66b23c55e68649e67e029d47c8e69d3bef3791f8c4c6677aa0a6cef2259c51d` | every Book Cover, default/hover/loading, 390/768/1280/1440 | P2 / blocking where hierarchy or supported viewport breaks | real Covers replace placeholders; aspect ratio, radius and hero depth remain | dimension/aspect assertions + production captures against V2 cover evidence | 2:3 Cover hero treatment is a named invariant | S-01/S-02 scoped passed by UNIT-02 with six real 2:3 Covers; later routes blocked |
-| VIS-FORMULA | `AVB-UKIEBOOK-AURORA-7B-V2` / `c66b23c55e68649e67e029d47c8e69d3bef3791f8c4c6677aa0a6cef2259c51d` | S-01 formula ribbon and applicable S-15 explanation, default/responsive, 390/768/1280/1440 | P2 / blocking for S-01 or financial meaning | responsive stacking may change layout, never labels, color mapping or 6/65.8/28.2 meaning | computed segment proportions/colors/type/radius + captures against V2 formula evidence | formula ribbon is both a visual and financial-comprehension invariant | S-01 passed by UNIT-02; S-15 remains blocked |
-| VIS-BRAND-LOGO | `AVB-UKIEBOOK-AURORA-7B-V2` / `c66b23c55e68649e67e029d47c8e69d3bef3791f8c4c6677aa0a6cef2259c51d` | all rendered logo instances, default/focus/high-density, 390/768/1280/1440 | P2 / blocking | official JPG or proven byte-identical SVG container; any optimized/transparent/true-vector derivative only when visually identical; locked S-01 93.703125×26px brand slot preserved | selected source/derivative hashes + SVG equivalence receipt where applicable + pixel/shape comparison + captures against integrated V2 logo evidence | explicit official-logo override is rendered in the immutable target; container format alone is not a visual change | S-01/S-02 passed by UNIT-02; S-03/S-17 by UNIT-01; remaining surfaces blocked |
+| VIS-S01-1280-DEFAULT | `AVB-UKIEBOOK-AURORA-7B-V3` / `e50c9f82c241195d7f5d8876d9dcdcd7fd45b71cdaf6d2eedfe2e327a7182724` | S-01 `/`, default, 1280×900 | P2 / blocking | real approved data/assets, semantic controls, allowed a11y corrections only | fresh full-page capture + diff to V3 HTML/reference capture | locked 1:1 correction scope | passed by UNIT-02-C1 at `__C1_REVISION__` |
+| VIS-S01-1280-HOVER | `AVB-UKIEBOOK-AURORA-7B-V3` / `e50c9f82c241195d7f5d8876d9dcdcd7fd45b71cdaf6d2eedfe2e327a7182724` | S-01 `/`, cover and tile hover, 1280×900 | P2 / blocking | layered transform implementation, same V3 visual outcome | before/after capture + keyboard focus equivalent | target interaction | passed by UNIT-02-C1 |
+| VIS-S01-RESPONSIVE | `AVB-UKIEBOOK-AURORA-7B-V3` / `e50c9f82c241195d7f5d8876d9dcdcd7fd45b71cdaf6d2eedfe2e327a7182724` | S-01 default/loading/empty/error/results, 390/430/768/1440 | P2 / blocking | approved reflow: scroll-snap shelf, menu, stacked formula/filter drawer; cover corners remain square | captures + overflow/interaction checks | reference CSS is not the mobile contract | passed by UNIT-02-C1 |
+| VIS-AURORA-PUBLIC | `AVB-UKIEBOOK-AURORA-7B-V3` / `e50c9f82c241195d7f5d8876d9dcdcd7fd45b71cdaf6d2eedfe2e327a7182724` | S-02…S-09, applicable states, 390/768/1280 | P2 / blocking | design-spine extension, real content/state structure | token audit + representative state captures | no pixel target; system contract applies | S-02 scoped passed by UNIT-02-C1; S-03 prior behavior remains UNIT-01 history and requires V3 visual receipt when affected; S-04…S-09 blocked |
+| VIS-AURORA-AUTHOR | `AVB-UKIEBOOK-AURORA-7B-V3` / `e50c9f82c241195d7f5d8876d9dcdcd7fd45b71cdaf6d2eedfe2e327a7182724` | S-10…S-17, applicable states, 390/768/1280 | P2 / blocking | calmer forms/tables within Aurora | token/component/state evidence | preserve brand and task clarity | S-17 prior behavior remains UNIT-01 history and requires V3 visual receipt when affected; S-10…S-16 blocked |
+| VIS-AURORA-MANAGER | `AVB-UKIEBOOK-AURORA-7B-V3` / `e50c9f82c241195d7f5d8876d9dcdcd7fd45b71cdaf6d2eedfe2e327a7182724` | S-18…S-21, applicable states, 390/768/1280 | P2 / blocking for meaning/viewport; otherwise advisory | denser, quieter operational surfaces | state captures + token/status audit | operational consistency | blocked |
+| VIS-TOKENS | `AVB-UKIEBOOK-AURORA-7B-V3` / `e50c9f82c241195d7f5d8876d9dcdcd7fd45b71cdaf6d2eedfe2e327a7182724` | all visible routes, default and semantic states, 390/768/1280/1440 | P2 / blocking for hierarchy or brand drift | only source-backed contrast corrections and documented state colors | production token export/computed-style matrix + representative captures against V3 values | dedicated proof for Aurora palette, gradients, type, radii, spacing and shadows | S-01/S-02 correction scoped by UNIT-02-C1; remaining routes per owning unit |
+| VIS-GLASS | `AVB-UKIEBOOK-AURORA-7B-V3` / `e50c9f82c241195d7f5d8876d9dcdcd7fd45b71cdaf6d2eedfe2e327a7182724` | glass cards/panels on applicable public, Author and Manager routes, default/hover/focus, 390/768/1280 | P2 / blocking for hierarchy or system drift | density may change only where the extension contract permits it | computed background/border/blur/radius/shadow + component captures matched to V3 glass evidence | glassmorphism is a named cross-screen invariant | S-01/S-02 scoped by UNIT-02-C1; prior S-03/S-17 behavior history remains; remaining routes blocked |
+| VIS-COVER | `AVB-UKIEBOOK-AURORA-7B-V3` / `e50c9f82c241195d7f5d8876d9dcdcd7fd45b71cdaf6d2eedfe2e327a7182724` | every Book Cover, default/hover/loading, 390/768/1280/1440 | P2 / blocking | real Covers remain 2:3, every corner radius is exactly `0`, artwork title is baked into image and no live title overlay is allowed | computed radius/aspect assertions; seven distinct approved S-01 source hashes/URLs and image captures; DOM overlay absence | square-corner realistic Cover hero treatment is a named invariant | S-01/S-02 scoped passed by UNIT-02-C1 with seven distinct artworks; later routes blocked |
+| VIS-SHELF | `AVB-UKIEBOOK-AURORA-7B-V3` / `e50c9f82c241195d7f5d8876d9dcdcd7fd45b71cdaf6d2eedfe2e327a7182724` | S-01 first row, default/hover, 1280×900 and responsive viewports | P2 / blocking | responsive reflow only; no bottom clipping of any of the five covers | cover/container bounding boxes, overflow computed styles, screenshots before/after hover | explicit operator correction | passed by UNIT-02-C1 |
+| VIS-HERO-COPY | `AVB-UKIEBOOK-AURORA-7B-V3` / `e50c9f82c241195d7f5d8876d9dcdcd7fd45b71cdaf6d2eedfe2e327a7182724` | S-01 hero, all states/viewports | P2 / blocking | line wrapping only; text is byte-for-byte `Електронні книжки EPUB і MOBI миттєво у вашу бібліотеку.` | DOM text assertion + captures | explicit operator correction | passed by UNIT-02-C1 |
+| VIS-FORMULA | `AVB-UKIEBOOK-AURORA-7B-V3` / `e50c9f82c241195d7f5d8876d9dcdcd7fd45b71cdaf6d2eedfe2e327a7182724` | S-01 public ribbon and applicable S-15 explanation, default/responsive, 390/768/1280/1440 | P2 / blocking for S-01 or financial meaning | responsive stacking may change layout, never labels, color mapping or `35% platform / 65% Author` meaning; manager `29+6` never appears as public segments | computed `35:65` segment proportions/colors/type/radius + text/role assertions + captures against V3 formula evidence | visual and financial-comprehension invariant | S-01 passed by UNIT-02-C1; S-15/manager allocation remains blocked until rewards unit |
+| VIS-BRAND-LOGO | `AVB-UKIEBOOK-AURORA-7B-V3` / `e50c9f82c241195d7f5d8876d9dcdcd7fd45b71cdaf6d2eedfe2e327a7182724` | all rendered logo instances, default/focus/high-density, 390/768/1280/1440 | P2 / blocking | active transparent SVG only; no backing plate; locked brand geometry preserved | source SHA-256 `db838dd4ad696f63cccb6aa86ab98e53dc5c6e13c1778ac340f62c5e4514617f`, alpha/background inspection + captures against V3 | explicit transparent-logo correction; raster-backed container is not claimed as path-vector | S-01/S-02 passed by UNIT-02-C1; other visible routes require current V3 receipt when touched |
 
 ## Responsive Checks
 
 | Check ID | Applicability | Check | Severity / Release Effect | Source | Evidence | Rationale |
 |---|---|---|---|---|---|---|
 | RES-01 | all | 390/430/768/1280/1440 no horizontal page overflow or inaccessible controls | P2 / blocking | design-brief | viewport automation + captures | supported web target |
-| RES-02 | S-01 | exact 1280; deterministic shelf/header/formula/results reflow on mobile | P2 / blocking | Baseline + wireframes | visual/overflow tests | known reference limitation |
+| RES-02 | S-01 | exact V3 at 1280; deterministic shelf/header/formula/results reflow on mobile; five-cover first row never clips at the bottom and cover corners remain square | P2 / blocking | Baseline + wireframes | visual/overflow/bounding-box tests | explicit correction plus responsive contract |
 | RES-03 | S-02/S-04/S-07 | one-column priority, sticky CTA where specified, readable Cart/Library rows | P2 / blocking | wireframes | captures + e2e | primary Buyer path |
 | RES-04 | S-11…S-17 | step indicator, full-screen Попередній перегляд видання, forms/consequences/CTA remain reachable | P2 / blocking | wireframes | mobile Author e2e | primary Author path |
 | RES-05 | S-18…S-21 | master-detail becomes list→detail; tables become labeled stacks | P2 / blocking | wireframes | captures | Manager mobile readability |
@@ -164,7 +172,7 @@ Common Baseline ID: `AVB-UKIEBOOK-AURORA-7B-V2`; Target Hash: `c66b23c55e68649e6
 | INT-01 | payments/submits/payouts | loading disables duplicate action; repeat click/webhook remains idempotent | P1 / blocking | AD-3/7; design-brief | concurrency tests | money/data integrity |
 | INT-02 | uploads/conversion | drag-over/progress/error/retry and draft preservation | P1 / blocking | AD-4; wireframes | scenario tests | no Author data loss |
 | INT-03 | moderation/refund/update | downstream surfaces update from authoritative state and announce change | P1 / blocking | architecture boundaries | integration tests | cross-module consistency |
-| INT-04 | S-01 | cover/tile hover does not erase base rotate; search/nav/cart are functional and keyboard-equivalent | P2 / blocking | Baseline | interaction trace | exact visual + real behavior |
+| INT-04 | S-01 | cover/tile hover does not erase base rotate or cause shelf clipping; search/nav/cart are functional and keyboard-equivalent; hover/focus never adds a live title overlay | P2 / blocking | Baseline | interaction trace + DOM/style assertions | exact visual + real behavior |
 
 ## Browser And Device Checks
 
@@ -180,9 +188,9 @@ Every run records Check ID, applicability, implementation revision, timestamp, e
 ## Evidence Limits
 
 - This checklist and approved design prove intended truth, not runtime implementation.
-- Reference Playwright captures prove the V2 HTML target, component invariants and integrated official logo render with zero console errors/warnings; they do not pass production VIS, accessibility, responsive or behavior checks.
-- V2 proves the official JPEG renders at 26×26px inside the locked 93.703125×26px S-01 brand slot; it does not prove that a later production transparent/optimized derivative preserves the mark at every required size.
-- The supplied SVG proves an equivalent container option only: it embeds that JPEG byte-for-byte and contains no path-based vector geometry, so it does not prove infinite-scale or transparent-vector quality.
+- Reference Playwright captures prove the V3 HTML target and its component correction invariants; they do not alone pass production VIS, accessibility, responsive or behavior checks.
+- V3 proves the active transparent-background SVG in the locked brand geometry at reference sizes. Each production route still needs its applicable rendered receipt; the absence of an opaque logo plate is an explicit assertion, not an inference from the `.svg` extension.
+- The active SVG is raster-backed and therefore proves neither path-vector geometry nor infinite-scale vector quality; QA must describe it accurately while checking transparency and visual identity.
 - Screenshots alone do not prove keyboard, AT, auth, payment, persistence, privacy, conversion or ledger behavior.
 - mono sandbox does not confirm production tariffs; OQ-2 closes only with current provider evidence.
 
@@ -191,17 +199,17 @@ Every run records Check ID, applicability, implementation revision, timestamp, e
 | Trigger | Mandatory rerun |
 |---|---|
 | publishing/converter change | ACC-02..04, UJ-01, ST-04, INT-02 |
-| commerce/rewards change | ACC-09/11..14, UJ-02/04/05, ST-08/09, INT-01/03 |
+| commerce/rewards/formula change | ACC-09/11..14, UJ-02/04/05, ST-06/08/09, UX-02, VIS-FORMULA, INT-01/03; exact `2900+600+6500=10000` vectors |
 | identity/RBAC change | ACC-01/12/14, ST-11, A11Y-02 |
-| S-01/CSS/token change | VIS-S01-*, VIS-TOKENS, VIS-GLASS, VIS-COVER, VIS-FORMULA, VIS-BRAND-LOGO, RES-01/02, A11Y-01/02/04/08 |
-| shared glass/Cover/formula primitive change | affected VIS-AURORA-*, VIS-GLASS, VIS-COVER or VIS-FORMULA plus affected responsive/accessibility checks |
-| either official logo container, derivative or placement change | UX-07, VIS-BRAND-LOGO, VIS-S01-1280-DEFAULT, affected responsive captures |
+| S-01/CSS/token/copy change | VIS-S01-*, VIS-TOKENS, VIS-GLASS, VIS-COVER, VIS-SHELF, VIS-HERO-COPY, VIS-FORMULA, VIS-BRAND-LOGO, RES-01/02, A11Y-01/02/04/08 |
+| shared glass/Cover/formula primitive change | affected VIS-AURORA-*, VIS-GLASS, VIS-COVER/VIS-SHELF or VIS-FORMULA plus affected responsive/accessibility checks |
+| official transparent SVG, its placement or logo surface background change | UX-07, VIS-BRAND-LOGO, VIS-S01-1280-DEFAULT, affected responsive captures and source/alpha checks |
 | Baseline ID/hash change | all VIS/UX/RES checks and every affected development-plan unit |
 | canonical terms/route-state change | UX-01, affected ST/UJ/WF checks |
 
 ## Release Readiness
 
-Blockers: product implementation units UNIT-03…UNIT-10 and the unimplemented portions of S-04…S-16/S-18…S-21 plus end-to-end journey evidence are not complete; credentialed Google/Facebook smoke blocks production provider activation; the MOBI engine is unproven; legal/tax review (OQ-1), mono production terms (OQ-2), and production font license/provenance remain open. UNIT-00, UNIT-01, UNIT-02 and the Approved Baseline are current and are not blockers within their verified scopes.
+Blockers: product implementation units UNIT-03…UNIT-10 and the unimplemented portions of S-04…S-16/S-18…S-21 plus end-to-end journey evidence are not complete; credentialed Google/Facebook smoke blocks production provider activation; the MOBI engine is unproven; legal/tax review (OQ-1), mono production terms (OQ-2), and production font license/provenance remain open. UNIT-00, UNIT-01 behavior, UNIT-02 behavior/persistence and UNIT-02-C1 V3 correction are current only within their recorded scopes. Next executable unit is UNIT-03.
 
 blocked
 

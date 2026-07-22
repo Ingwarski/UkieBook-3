@@ -2,11 +2,11 @@
 
 ## Source References
 
-- `docs/product-idea.md` — погоджені межі MVP та продуктовий намір (режим existing-file, hash `cf74e9b9…`).
+- `docs/product-idea.md` — погоджені межі MVP та продуктовий намір (режим existing-file, hash `27f15465…`, operator correction 2026-07-22).
 - `docs/prd.md` — авторитетне джерело продуктової поведінки (FR/NFR, припущення A-*, відкриті питання OQ-*); прямо називає product-idea своїм джерелом.
 - `docs/project-context.md` — підтверджений контекст: платформи, локалізація, залежності, операційні ризики.
 - `docs/canonical-terms.md` — канонічний словник і аліаси.
-- Явні рішення оператора 2026-07-21 — `forge/design` є фінальним мокапом і має бути використаний 1:1 з додаванням потрібної функціональності; `UkieBook-logo.jpg` є офіційним логотипом; усі зафіксовані прогалини треба закрити.
+- Явні рішення оператора 2026-07-21/22 — `forge/design` є фінальним мокапом і має бути використаний 1:1 з додаванням потрібної функціональності; scoped V3 correction замінює формулу на 35/65, hero-підпис на точний новий текст, фіксує квадратні кути всіх Обкладинок, сім унікальних baked-artwork covers, повністю видимий перший shelf-ряд і `UkieBook-logo-transparent.svg` як офіційний transparent-background container; усі зафіксовані прогалини треба закрити.
 - `forge/design/README.md` — scope/provenance фінального S-01 та правила поширення його візуальної системи; не джерело продуктової поведінки.
 - Кореневий `README.md` — індекс поточного SDD-стану; не переозначає PRD чи operator decisions.
 
@@ -48,7 +48,7 @@
 
 ## Forbidden Changes
 
-- Змінювати продуктову поведінку, зафіксовану в PRD, без upstream-рішення: поточну робочу формулу 6/65,8/28,2; ціну Оновлення книжки 250 грн; поріг Виплати 100 грн; п'ятирічну невиключну ліцензію; обовʼязковий OAuth-вхід; UAH-only; EPUB+MOBI. Формула є provisional до OQ-1: юридичний/бухгалтерський висновок може вимагати переінвокації `to-product-idea`/`to-prd`, але низхідний агент не змінює її сам.
+- Змінювати продуктову поведінку, зафіксовану в PRD, без upstream-рішення: поточну робочу формулу 35% платформі / 65% Автору та manager-only розклад 35 = 29% чистого заробітку платформи + 6% податкового компонента; ціну Оновлення книжки 250 грн; поріг Виплати 100 грн; п'ятирічну невиключну ліцензію; обовʼязковий OAuth-вхід; UAH-only; EPUB+MOBI. Формула є provisional до OQ-1: юридичний/бухгалтерський висновок може вимагати переінвокації `to-product-idea`/`to-prd`, але низхідний агент не змінює її сам.
 - Додавати в MVP позаскоупні можливості: комікси/фіксовану верстку, редагування текстів, підписки, пакети, промокоди, внутрішню читалку, інші мови/валюти.
 - Переписувати чи літературно редагувати авторський текст будь-де в продукті (дозволене лише базове технічне впорядкування з FR-PUB-2).
 - Розкривати внутрішні правила модерації в будь-якому користувацькому інтерфейсі чи тексті (FR-MOD-3).
@@ -66,9 +66,9 @@
 
 ## Design Authority Rules
 
-- Operator-selected visual source — `operator-final-7b/v2`: scoped immutable correction до imported `operator-final-7b/v1`, що інтегрує official `UkieBook-logo.jpg` у незмінну S-01 geometry; V1 зберігається лише як superseded history. Генерувати альтернативні естетичні напрями або автообирати інший заборонено, бо це суперечить прямій 1:1 вимозі.
+- Operator-selected visual source — `operator-final-7b/v3`: explicit scoped immutable correction до V2, що інтегрує transparent-background `UkieBook-logo-transparent.svg`, публічну стрічку 35/65, точний hero-підпис, квадратні кути всіх Обкладинок, сім унікальних baked-artwork covers і shelf без нижнього обрізання; V1/V2 зберігаються лише як superseded history. Генерувати альтернативні естетичні напрями або автообирати інший заборонено, бо це суперечить прямій 1:1 вимозі.
 - Approved Visual Baseline у `docs/design-brief.md` — єдиний канонічний visual DoD. Під час його реєстрації downstream-власник зобовʼязаний явно розділити: (a) locked S-01 desktop default/hover 1:1; (b) shared Aurora tokens/patterns; (c) extension scope S-02…S-21, невідображені стани й responsive reflow, структуру яких визначать їхні owner-артефакти.
-- Дозволена варіативність не є редизайном: реальні 2:3 Обкладинки й дані; production-semantic controls замість `div`/emoji/glyph placeholders; видимий focus; 44px touch targets; мінімальні contrast corrections; responsive reflow; functional states. Вона не може змінювати desktop-композицію S-01, тексти, основні кольори, типографічну ієрархію, радіуси, тіні, shelf/formula patterns або interaction meaning.
+- Дозволена варіативність не є редизайном: реальні дані; production-semantic controls замість `div`/emoji/glyph placeholders; видимий focus; 44px touch targets; мінімальні contrast corrections; responsive reflow; functional states. Вона не може змінювати V3 desktop-композицію S-01, точний hero-текст, 35/65 formula meaning, основні кольори, типографічну ієрархію, тіні, shelf/formula patterns, transparent SVG identity або interaction meaning. Жодна поверхня не може повертати заокруглення Обкладинкам, live-text overlay поверх cover art, повторне використання одного artwork для різних Книжок чи нижнє обрізання першого shelf-ряду.
 - HTML і screenshot є дизайн-доказом, не production-кодом або runtime-доказом. Production UI reimplements reference в обраному стеку; пряме копіювання прототипу не є вимогою.
 - Недоступне початкове джерело `UkieBook Design Options.dc.html` не блокує baseline: фінальний exported HTML/README/screenshot доступні й хешуються; відсутність джерела фіксується як evidence limit.
 
@@ -84,7 +84,7 @@
 
 Питати оператора лише коли:
 - відповідь неможливо вивести з джерел і вона матеріально змінює продуктовий скоуп чи високоризикову межу;
-- потрібне нове затвердження лише якщо пропонується інший цілісний visual baseline; для active `operator-final-7b/v2` затвердження вже надано явною scoped correction командою;
+- потрібне нове затвердження лише якщо пропонується інший цілісний visual baseline; для active `operator-final-7b/v3` затвердження вже надано явною scoped correction командою 2026-07-22;
 - потрібна just-in-time авторизація незворотного/фінансового/юридичного/публічного/чутливого ефекту.
 
 Формат: одне питання за раз, з рекомендованою відповіддю, обґрунтуванням, посиланням на джерело (або чесним «джерело не підтверджує») і наслідками альтернатив. Після відповіді — playback рішення. Playback не є затвердженням.
@@ -122,9 +122,9 @@
 
 ## Source Access Failures
 
-- Кореневий `README.md` доступний як індекс; продуктова істина лишається в PRD/context bundle. Дизайн-handoff `forge/design/README.md` і active immutable V2 target доступні.
+- Кореневий `README.md` доступний як індекс; продуктова істина лишається в PRD/context bundle. Active immutable V3 target і його normalized evidence є чинними; V1/V2 design artifacts доступні лише як superseded historical evidence.
 - Початковий `UkieBook Design Options.dc.html`, на який посилається handoff, відсутній; exported final HTML/screenshot/README доступні, тому це evidence limit, а не blocker.
-- Зовнішні джерела (умови mono, юридичні висновки) недоступні для перевірки з сесії — класифіковано як неблокувальні OQ-1/OQ-2; всі залежні числа позначені в PRD як робочі припущення.
+- Зовнішні джерела (умови mono, юридичні висновки) недоступні для перевірки з сесії — класифіковано як неблокувальні OQ-1/OQ-2; поточні 35/65 і manager-only 29+6 позначені в PRD як точні технічні правила, але provisional юридично/бухгалтерськи.
 
 ## Open Questions
 

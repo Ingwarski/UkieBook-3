@@ -18,9 +18,13 @@ import { generateUnit02Comparison } from "./generate-unit02-comparison.mjs";
 
 const execFileAsync = promisify(execFile);
 const repositoryRoot = process.cwd();
-const baselineId = "AVB-UKIEBOOK-AURORA-7B-V2";
+const unitId = process.env.UNIT_ID?.trim() || "UNIT-02-C1";
+if (unitId !== "UNIT-02-C1") {
+  throw new Error(`The V3 verifier is reserved for UNIT-02-C1, received: ${unitId}`);
+}
+const baselineId = "AVB-UKIEBOOK-AURORA-7B-V3";
 const targetBundleHash =
-  "c66b23c55e68649e67e029d47c8e69d3bef3791f8c4c6677aa0a6cef2259c51d";
+  "e50c9f82c241195d7f5d8876d9dcdcd7fd45b71cdaf6d2eedfe2e327a7182724";
 const expectedDatabaseName = "ukiebook_unit02";
 const generatedComparisonPaths = new Set([
   "output/playwright/unit02-design-compare-final.png",
@@ -33,7 +37,7 @@ const realDatabaseUrl = process.env.REAL_DATABASE_URL;
 
 if (!realDatabaseUrl) {
   throw new Error(
-    "REAL_DATABASE_URL is required; UNIT-02 cannot pass on an emulated database",
+    `REAL_DATABASE_URL is required; ${unitId} cannot pass on an emulated database`,
   );
 }
 
@@ -54,12 +58,12 @@ function requireDedicatedDatabase(databaseUrl) {
   const loopbackHosts = new Set(["127.0.0.1", "localhost", "::1", "[::1]"]);
   if (!loopbackHosts.has(parsed.hostname)) {
     throw new Error(
-      "UNIT-02 destructive database proofs require a loopback PostgreSQL host",
+      `${unitId} destructive database proofs require a loopback PostgreSQL host`,
     );
   }
   if (databaseName !== expectedDatabaseName) {
     throw new Error(
-      `UNIT-02 destructive database proofs require the exact dedicated database ${expectedDatabaseName}`,
+      `${unitId} destructive database proofs require the exact dedicated database ${expectedDatabaseName}`,
     );
   }
   if (!parsed.username || !parsed.password) {
@@ -82,7 +86,7 @@ const { stdout: statusOutput } = await execFileAsync(
 );
 if (statusOutput.trim()) {
   throw new Error(
-    "UNIT-02 verification must start from a clean implementation commit",
+    `${unitId} verification must start from a clean implementation commit`,
   );
 }
 
@@ -91,7 +95,7 @@ const runId = `${startedAt
   .toISOString()
   .replace(/[-:]/gu, "")
   .replace(/\.\d{3}Z$/u, "Z")}-${implementationRevision.slice(0, 12)}`;
-const runRoot = path.resolve("forge", "runs", "UNIT-02", runId);
+const runRoot = path.resolve("forge", "runs", unitId, runId);
 const commandDirectory = path.join(runRoot, "evidence", "commands");
 const evalDirectory = path.join(runRoot, "evals");
 await mkdir(commandDirectory, { recursive: true });
@@ -116,6 +120,7 @@ const sharedEnvironment = {
   UNIT02_ALLOW_FIXTURE_SEED: "1",
   UNIT02_DATABASE_URL: realDatabaseUrl,
   UNIT02_PRIVACY_SENTINEL: privacySentinel,
+  UNIT_ID: unitId,
   UNIT_EVIDENCE_DIR: runRoot,
 };
 const sensitiveValues = [
@@ -151,7 +156,7 @@ async function writeJson(relativePath, value) {
 
 async function runCommand(name, executable, arguments_, extraEnvironment = {}) {
   const started = new Date();
-  console.log(`\n[UNIT-02] ${name}`);
+  console.log(`\n[${unitId}] ${name}`);
   const child = spawn(executable, arguments_, {
     cwd: repositoryRoot,
     env: { ...sharedEnvironment, ...extraEnvironment },
@@ -207,7 +212,7 @@ async function runCommand(name, executable, arguments_, extraEnvironment = {}) {
   await writeJson("evidence/commands/index.json", {
     commands: commandResults,
     implementation_revision: implementationRevision,
-    unit: "UNIT-02",
+    unit: unitId,
     updated_at: finished.toISOString(),
   });
   if (exitCode !== 0) {
@@ -238,18 +243,21 @@ async function writeEval(fileName, value) {
     rerun_of: null,
     status: value.status ?? "passed",
     timestamp: new Date().toISOString(),
-    unit: "UNIT-02",
+    unit: unitId,
   });
 }
 
 async function writeRunResult(status, finishedAt, findings = []) {
   const sourceFiles = [
     "docs/architecture.md",
+    "docs/canonical-terms.md",
     "docs/design-brief.md",
     "docs/development-plan.md",
     "docs/dod-evals.md",
     "docs/guardrails.md",
     "docs/prd.md",
+    "docs/product-idea.md",
+    "docs/project-context.md",
     "docs/qa-checklist.md",
     "docs/screen-map.md",
     "docs/user-journey.md",
@@ -278,7 +286,7 @@ async function writeRunResult(status, finishedAt, findings = []) {
     started_at: startedAt.toISOString(),
     status,
     target_bundle_hash: targetBundleHash,
-    unit: "UNIT-02",
+    unit: unitId,
   });
 }
 
@@ -331,7 +339,7 @@ async function inspectEvidenceForSecretsAndTraces() {
       ...leaks.map(({ category, file }) => `${category} in ${file}`),
       ...forbiddenArtifacts.map((file) => `trace/HAR artifact ${file}`),
     ].join(", ");
-    throw new Error(`UNIT-02 evidence hygiene failed: ${details}`);
+    throw new Error(`${unitId} evidence hygiene failed: ${details}`);
   }
   return {
     checked_files: files.length,
@@ -384,11 +392,21 @@ function unit02VisualFiles() {
 }
 
 async function captureAssetManifest() {
+  const generatedSourceArtwork = {
+    file: "public/books/covers/tini-nad-lymanom.png",
+    provenance: "ImageGen source artwork committed for deterministic cover regeneration",
+    sha256: "4cd5b0fb2c9b694512075ece5224165188036772b8aa8edb0e01639733746902",
+  };
+  if ((await sha256File(generatedSourceArtwork.file)) !== generatedSourceArtwork.sha256) {
+    throw new Error("Generated source artwork hash mismatch");
+  }
   const expectedLogoHashes = {
     "public/brand/UkieBook-logo-exact.svg":
       "abb3acf8cfa673161e6547ca725f7b337b29185a7eb6918218f887faadc66d98",
     "public/brand/UkieBook-logo.jpg":
       "5cdd21d3ba038632528fc17a13068e3792d03a029779251cd738aaada4aa0ad3",
+    "public/brand/UkieBook-logo-transparent.svg":
+      "db838dd4ad696f63cccb6aa86ab98e53dc5c6e13c1778ac340f62c5e4514617f",
   };
   const logos = [];
   for (const [file, expectedHash] of Object.entries(expectedLogoHashes)) {
@@ -396,31 +414,72 @@ async function captureAssetManifest() {
     if (actualHash !== expectedHash) {
       throw new Error(`Official logo hash mismatch: ${file}`);
     }
-    logos.push({ file, sha256: actualHash, status: "passed" });
+    const transparency = file.endsWith("UkieBook-logo-transparent.svg")
+      ? await sharp(file).ensureAlpha().raw().toBuffer({ resolveWithObject: true })
+      : null;
+    if (transparency) {
+      const { data, info } = transparency;
+      const cornerAlpha = [
+        data[3],
+        data[(info.width - 1) * info.channels + 3],
+        data[(info.height - 1) * info.width * info.channels + 3],
+        data[(info.height * info.width - 1) * info.channels + 3],
+      ];
+      if (cornerAlpha.some((alpha) => alpha !== 0)) {
+        throw new Error("Transparent SVG logo has an opaque corner");
+      }
+      logos.push({ corner_alpha: cornerAlpha, file, sha256: actualHash, status: "passed" });
+    } else {
+      logos.push({ file, sha256: actualHash, status: "passed" });
+    }
   }
-  const coverDirectory = path.resolve("public/books/covers");
+  const coverDirectory = path.resolve("public/books/covers/final");
+  const expectedCoverHashes = {
+    "khroniky-stepu.png": "97788951e5e108587c0548e2649df449dfe72211f4448fbebcbb32d8cee352ef",
+    "kryzhani-maky.png": "e0a03310ad24a201d02570cc9ddd03871a782a02e13e0fec20e50c2e85b4796b",
+    "lysty-z-poltavy.png": "856154c1a71c244167788411b8d99a90a93521f5957261f7a8d583939b39eda8",
+    "misto-na-vodi.png": "3b78e66d79c33c39a52b3c18f1f8914e2a9f7ec1cbca606471ffc151cd7c9fbc",
+    "piznie-lito.png": "5d03f3a982039a28ac8b34db880383ecf83c97486ced3621e894216ea1caed86",
+    "sad-kamianykh-ptakhiv.png": "ff24e59f388bcdf6419c7dcd5b2c3a67f0c89854892d9062ed31bdaaafaa7a1d",
+    "tini-nad-lymanom.png": "b235f20856311186ebbf14f4b30b9afa75f27131b0581e28c5c64bf89f6331b3",
+  };
+  const expectedCoverNames = Object.keys(expectedCoverHashes).sort();
   const coverNames = (await readdir(coverDirectory))
     .filter((file) => file.endsWith(".png"))
     .sort();
-  if (coverNames.length !== 6) {
-    throw new Error("UNIT-02 requires exactly six generated production covers");
+  if (JSON.stringify(coverNames) !== JSON.stringify(expectedCoverNames)) {
+    throw new Error(`${unitId} requires the exact seven distinct production covers`);
   }
   const covers = [];
   for (const name of coverNames) {
-    const file = path.join("public/books/covers", name);
+    const file = path.join("public/books/covers/final", name);
+    const frozenFile = path.join(
+      "forge/design/candidates/operator-final-7b/v3/assets/covers",
+      name,
+    );
     const metadata = await sharp(file).metadata();
     if (metadata.width !== 1024 || metadata.height !== 1536) {
       throw new Error(`Cover is not the approved 2:3 production size: ${file}`);
     }
+    const actualHash = await sha256File(file);
+    const frozenHash = await sha256File(frozenFile);
+    if (actualHash !== expectedCoverHashes[name] || frozenHash !== actualHash) {
+      throw new Error(`Production/frozen Cover hash mismatch: ${name}`);
+    }
     covers.push({
       file,
+      frozen_file: frozenFile,
       height: metadata.height,
-      sha256: await sha256File(file),
+      sha256: actualHash,
       width: metadata.width,
     });
   }
+  if (new Set(covers.map(({ sha256 }) => sha256)).size !== expectedCoverNames.length) {
+    throw new Error(`${unitId} cover assets must all be visually distinct files`);
+  }
   await writeJson("evidence/visual/unit02-assets.json", {
     covers,
+    generated_source_artwork: generatedSourceArtwork,
     logos,
     status: "passed",
     verified_at: new Date().toISOString(),
@@ -439,7 +498,7 @@ function isReviewOnlyPath(file) {
   return (
     file === "design-qa.md" ||
     generatedComparisonPaths.has(file) ||
-    file.startsWith("forge/runs/UNIT-02/")
+    file.startsWith(`forge/runs/${unitId}/`)
   );
 }
 
@@ -475,14 +534,14 @@ async function validateDesignQaReview(designQa, comparisonHash, visualMatrix) {
     /Reviewed visual receipt digest SHA-256:\s*`([0-9a-f]{64})`/u,
   );
   if (reviewedComparisonHash !== comparisonHash) {
-    throw new Error("design-qa.md is not bound to the generated UNIT-02 comparison");
+    throw new Error(`design-qa.md is not bound to the generated ${unitId} comparison`);
   }
   if (reviewedReceiptCount !== visualMatrix.receipts.length) {
-    throw new Error("design-qa.md is not bound to the complete UNIT-02 visual matrix");
+    throw new Error(`design-qa.md is not bound to the complete ${unitId} visual matrix`);
   }
   const receiptDigest = visualReceiptDigest(visualMatrix.receipts);
   if (reviewedReceiptDigest !== receiptDigest) {
-    throw new Error("design-qa.md is not bound to all UNIT-02 visual receipt hashes");
+    throw new Error(`design-qa.md is not bound to all ${unitId} visual receipt hashes`);
   }
   try {
     await execFileAsync(
@@ -505,7 +564,7 @@ async function validateDesignQaReview(designQa, comparisonHash, visualMatrix) {
     .filter((file) => !isReviewOnlyPath(file));
   if (implementationChanges.length > 0) {
     throw new Error(
-      `Runtime files changed after the reviewed UNIT-02 revision: ${implementationChanges.join(", ")}`,
+      `Runtime files changed after the reviewed ${unitId} revision: ${implementationChanges.join(", ")}`,
     );
   }
   return {
@@ -521,7 +580,7 @@ async function assertRepositoryStableAtEnd() {
     cwd: repositoryRoot,
   });
   if (finalRevisionOutput.trim() !== implementationRevision) {
-    throw new Error("Repository HEAD changed during UNIT-02 verification");
+    throw new Error(`Repository HEAD changed during ${unitId} verification`);
   }
   const { stdout: finalStatusOutput } = await execFileAsync(
     "git",
@@ -539,7 +598,7 @@ async function assertRepositoryStableAtEnd() {
     );
   if (unexpected.length > 0) {
     throw new Error(
-      `Repository changed during UNIT-02 verification: ${[...new Set(unexpected)].join(", ")}`,
+      `Repository changed during ${unitId} verification: ${[...new Set(unexpected)].join(", ")}`,
     );
   }
 }
@@ -594,7 +653,7 @@ async function generateComparisonEvidence(visualMatrix) {
   });
 }
 
-console.log(`UNIT-02 implementation revision: ${implementationRevision}`);
+console.log(`${unitId} implementation revision: ${implementationRevision}`);
 console.log(`Evidence directory: ${path.relative(repositoryRoot, runRoot)}`);
 
 try {
@@ -660,16 +719,16 @@ try {
     visualMatrix.receipts.length !== expectedVisualFiles.length ||
     visualMatrix.console_errors?.length !== 0
   ) {
-    throw new Error("UNIT-02 visual matrix does not match the approved Baseline");
+    throw new Error(`${unitId} visual matrix does not match the approved Baseline`);
   }
   const capturedFiles = new Set(visualMatrix.receipts.map(({ file }) => file));
   for (const expectedFile of expectedVisualFiles) {
     if (!capturedFiles.has(expectedFile)) {
-      throw new Error(`UNIT-02 visual matrix omits ${expectedFile}`);
+      throw new Error(`${unitId} visual matrix omits ${expectedFile}`);
     }
     const receipt = visualMatrix.receipts.find(({ file }) => file === expectedFile);
     if (receipt.sha256 !== (await sha256File(path.join(runRoot, expectedFile)))) {
-      throw new Error(`UNIT-02 visual receipt hash mismatch: ${expectedFile}`);
+      throw new Error(`${unitId} visual receipt hash mismatch: ${expectedFile}`);
     }
   }
 
@@ -784,7 +843,7 @@ try {
   await writeJson("evidence/security/unit02-evidence-secret-scan.json", finalEvidenceScan);
   await assertRepositoryStableAtEnd();
   console.log(
-    `UNIT-02 verification passed; evidence: ${path.relative(repositoryRoot, runRoot)}`,
+    `${unitId} verification passed; evidence: ${path.relative(repositoryRoot, runRoot)}`,
   );
 } catch (error) {
   const finishedAt = new Date();
@@ -813,7 +872,7 @@ try {
     });
   } catch (writeError) {
     console.error(
-      `Unable to persist failed UNIT-02 run: ${redactSensitiveValues(
+      `Unable to persist failed ${unitId} run: ${redactSensitiveValues(
         writeError instanceof Error ? writeError.message : String(writeError),
       )}`,
     );

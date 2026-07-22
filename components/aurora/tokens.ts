@@ -1,7 +1,7 @@
-export const AURORA_BASELINE_ID = "AVB-UKIEBOOK-AURORA-7B-V2";
+export const AURORA_BASELINE_ID = "AVB-UKIEBOOK-AURORA-7B-V3";
 
 export const AURORA_TARGET_BUNDLE_HASH =
-  "c66b23c55e68649e67e029d47c8e69d3bef3791f8c4c6677aa0a6cef2259c51d";
+  "e50c9f82c241195d7f5d8876d9dcdcd7fd45b71cdaf6d2eedfe2e327a7182724";
 
 export const auroraTokens = {
   color: {
@@ -16,7 +16,6 @@ export const auroraTokens = {
     glass: "rgba(255,255,255,.70)",
     glassStrong: "rgba(255,255,255,.80)",
     hairline: "rgba(46,38,33,.06)",
-    formulaTax: "#F7E7DE",
     formulaPlatform: "#F6E4D2",
     formulaPlatformText: "#9A6438",
   },
@@ -25,8 +24,8 @@ export const auroraTokens = {
     reading: "Literata, Georgia, serif",
   },
   radius: {
-    cover: "16px",
-    thumbnail: "12px",
+    cover: "0px",
+    thumbnail: "0px",
     tile: "22px",
     formula: "26px",
     page: "14px",
@@ -72,7 +71,6 @@ export const auroraCssVariables = {
   "--color-glass": auroraTokens.color.glass,
   "--color-glass-strong": auroraTokens.color.glassStrong,
   "--color-hairline": auroraTokens.color.hairline,
-  "--color-formula-tax": auroraTokens.color.formulaTax,
   "--color-formula-platform": auroraTokens.color.formulaPlatform,
   "--color-formula-platform-text": auroraTokens.color.formulaPlatformText,
   "--mesh-aurora": auroraTokens.mesh.join(", "),

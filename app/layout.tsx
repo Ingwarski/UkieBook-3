@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   },
   description: "Українська платформа електронних книжок.",
   icons: {
-    icon: "/brand/UkieBook-logo.jpg",
+    icon: "/brand/UkieBook-logo-transparent.svg",
   },
 };
 

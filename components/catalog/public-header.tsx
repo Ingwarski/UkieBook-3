@@ -77,7 +77,7 @@ export function PublicHeader({ currentPage, query, viewer }: PublicHeaderProps) 
           className={styles.brandMark}
           height={26}
           priority
-          src="/brand/UkieBook-logo.jpg"
+          src="/brand/UkieBook-logo-transparent.svg"
           width={26}
         />
         <span className={styles.wordmark}>
