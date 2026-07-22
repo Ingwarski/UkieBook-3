@@ -339,8 +339,12 @@ test("S-12 conversion failure is announced, retries, and preserves the same draf
   await expect(conversionError.getByRole("button", { name: "Спробувати ще раз" })).toBeVisible();
   await expect(conversionError.getByRole("link", { name: "Завантажити інший файл" })).toBeVisible();
   await page.waitForLoadState("networkidle");
-  await conversionError.getByRole("button", { name: "Спробувати ще раз" }).click();
-  await expect(page).toHaveURL(new RegExp(`/author/publish/preview\\?draft=${draftId}`));
+  await Promise.all([
+    page.waitForURL(new RegExp(`/author/publish/preview\\?draft=${draftId}&retry=[^&]+`), {
+      timeout: 30_000,
+    }),
+    conversionError.getByRole("button", { name: "Спробувати ще раз" }).click(),
+  ]);
   await expect(page.getByRole("heading", { name: "Чернетка, що пережила помилку" }).last()).toBeVisible({
     timeout: 45_000,
   });

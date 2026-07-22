@@ -156,15 +156,17 @@ export async function saveSampleSectionAction(formData: FormData): Promise<void>
 export async function retryConversionAction(formData: FormData): Promise<void> {
   const { context, runtime } = await authorMutationContext(formData);
   const draftId = text(formData, "draftId");
+  let conversionRunId: string;
   try {
-    await queueDraftConversion(runtime.database, {
+    conversionRunId = await queueDraftConversion(runtime.database, {
       authorId: context.session.userId,
       draftId,
     });
   } catch (error) {
     redirect(`${publishUrl(draftId, 4, errorCode(error))}`);
   }
-  redirect(`/author/publish/preview?draft=${encodeURIComponent(draftId)}`);
+  const query = new URLSearchParams({ draft: draftId, retry: conversionRunId });
+  redirect(`/author/publish/preview?${query.toString()}`);
 }
 
 export async function submitBookDraftAction(formData: FormData): Promise<void> {
