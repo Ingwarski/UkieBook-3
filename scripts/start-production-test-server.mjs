@@ -7,6 +7,14 @@ if (!port || !/^\d+$/.test(port)) {
 }
 
 const standaloneRoot = path.resolve(".next/standalone");
+if (
+  process.env.PRIVATE_OBJECT_ROOT &&
+  !path.isAbsolute(process.env.PRIVATE_OBJECT_ROOT)
+) {
+  process.env.PRIVATE_OBJECT_ROOT = path.resolve(
+    process.env.PRIVATE_OBJECT_ROOT,
+  );
+}
 process.env.HOSTNAME = "127.0.0.1";
 process.env.PORT = port;
 process.chdir(standaloneRoot);
