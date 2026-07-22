@@ -7,6 +7,7 @@ import {
   listAppliedMigrations,
   rollbackLatestMigration,
 } from "../db/migrate";
+import { platformFoundationMigration } from "../db/migrations/0001_platform_foundation";
 import { DATABASE_SCHEMA_REVISION } from "../db/migrations";
 import { openPostgresDatabase } from "../db/postgres";
 import { enqueueDurableJob } from "../modules/platform/durable-jobs";
@@ -25,6 +26,7 @@ const evidenceRoot = process.env.UNIT_EVIDENCE_DIR
 const implementationRevision =
   process.env.APP_REVISION ?? process.env.IMPLEMENTATION_REVISION ?? "working-tree";
 const expectedDatabaseName = "ukiebook_unit00";
+const unit00Migrations = [platformFoundationMigration] as const;
 const parsedDatabaseUrl = new URL(databaseUrl);
 const databaseName = decodeURIComponent(
   parsedDatabaseUrl.pathname.replace(/^\//u, ""),
@@ -85,7 +87,7 @@ async function platformCounts(): Promise<CountRow> {
 
 async function resetKnownFoundation(): Promise<void> {
   for (;;) {
-    const rolledBack = await rollbackLatestMigration(database);
+    const rolledBack = await rollbackLatestMigration(database, unit00Migrations);
     if (!rolledBack) {
       break;
     }
@@ -116,9 +118,9 @@ try {
   const emptyTables = await applicationTables();
   assert.deepEqual(emptyTables, []);
 
-  const firstApply = await applyMigrations(database);
+  const firstApply = await applyMigrations(database, unit00Migrations);
   assert.deepEqual(firstApply, [
-    { direction: "up", id: DATABASE_SCHEMA_REVISION },
+    { direction: "up", id: platformFoundationMigration.id },
   ]);
   assert.deepEqual(await applicationTables(), ["durable_jobs", "outbox_events"]);
 
@@ -158,10 +160,10 @@ try {
     "Outbox idempotency constraint is missing",
   );
 
-  const rolledBack = await rollbackLatestMigration(database);
+  const rolledBack = await rollbackLatestMigration(database, unit00Migrations);
   assert.deepEqual(rolledBack, {
     direction: "down",
-    id: DATABASE_SCHEMA_REVISION,
+    id: platformFoundationMigration.id,
   });
   const tablesAfterRollback = await applicationTables();
   assert.deepEqual(tablesAfterRollback, []);
@@ -172,8 +174,8 @@ try {
   let concurrentReapply: Awaited<ReturnType<typeof applyMigrations>>[];
   try {
     concurrentReapply = await Promise.all([
-      applyMigrations(migratorA),
-      applyMigrations(migratorB),
+      applyMigrations(migratorA, unit00Migrations),
+      applyMigrations(migratorB, unit00Migrations),
     ]);
   } finally {
     await Promise.all([migratorA.close(), migratorB.close()]);
@@ -186,7 +188,7 @@ try {
   assert.equal(appliedHistory[0]?.checksum?.length, 64);
 
   const migrationEvidence = {
-    applied_revision: DATABASE_SCHEMA_REVISION,
+    applied_revision: platformFoundationMigration.id,
     constraints: constraints.rows,
     database: databaseIdentity,
     empty_application_tables_before_apply: emptyTables,
@@ -419,7 +421,7 @@ try {
   console.log(
     JSON.stringify({
       database: databaseIdentity,
-      migration_revision: DATABASE_SCHEMA_REVISION,
+      migration_revision: platformFoundationMigration.id,
       status: "passed",
       transaction: { afterRollbackCounts, committedCounts },
       worker: { sideEffects, workerResults },
