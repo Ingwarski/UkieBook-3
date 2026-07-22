@@ -1,0 +1,34 @@
+name: unit02-visual
+command: npm run test:unit02:visual -- --trace=off
+implementation_revision: 338d4450e107d6d6bafd56d4baa1ca3e578d0e04
+started_at: 2026-07-22T12:00:33.427Z
+finished_at: 2026-07-22T12:01:59.804Z
+exit_code: 0
+signal: none
+
+[stdout]
+
+> ukiebook-3@0.1.0 test:unit02:visual
+> playwright test --config playwright.unit02.visual.config.ts --trace=off
+
+
+Running 10 tests using 1 worker
+
+  ✓   1 [chromium-hidpi] › tests/visual-unit02/catalog-visual.spec.ts:463:1 › S-01 keeps the locked 1280 geometry, official logo and additive hovers (13.5s)
+  ✓   2 [chromium-hidpi] › tests/visual-unit02/catalog-visual.spec.ts:704:1 › S-01 reflows deterministically without clipping at required widths (10.6s)
+  ✓   3 [chromium-hidpi] › tests/visual-unit02/catalog-visual.spec.ts:778:1 › S-01 honors reduced-motion preference (3.6s)
+  ✓   4 [chromium-hidpi] › tests/visual-unit02/catalog-visual.spec.ts:813:1 › S-01 covers empty, filtered, query and long-result states at every responsive width (17.6s)
+  ✓   5 [chromium-hidpi] › tests/visual-unit02/catalog-visual.spec.ts:856:1 › S-01 captures the streaming loading shell at every responsive width (9.6s)
+  ✓   6 [chromium-hidpi] › tests/visual-unit02/catalog-visual.spec.ts:875:1 › S-01 captures its inline repository error at every responsive width (4.1s)
+  ✓   7 [chromium-hidpi] › tests/visual-unit02/catalog-visual.spec.ts:912:1 › S-02 covers Discount on/off, sample, paged reviews and unavailable states (17.2s)
+  ✓   8 [chromium-hidpi] › tests/visual-unit02/catalog-visual.spec.ts:994:1 › S-02 captures its streaming loading shell at every public viewport (3.4s)
+  ✓   9 [chromium-hidpi] › tests/visual-unit02/catalog-visual.spec.ts:1013:1 › S-02 mobile menu escapes the Aurora header crop and remains keyboard reachable (1.7s)
+  ✓  10 [chromium-hidpi] › tests/visual-unit02/catalog-visual.spec.ts:1045:1 › S-02 has no horizontal overflow at the remaining supported widths (2.4s)
+
+  10 passed (1.4m)
+
+[stderr]
+[WebServer] (node:2942) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+(node:2980) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)

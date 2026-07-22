@@ -1,0 +1,69 @@
+name: e2e
+command: npm run test:e2e -- --trace=off
+implementation_revision: 338d4450e107d6d6bafd56d4baa1ca3e578d0e04
+started_at: 2026-07-22T11:59:17.669Z
+finished_at: 2026-07-22T11:59:56.065Z
+exit_code: 0
+signal: none
+
+[stdout]
+
+> ukiebook-3@0.1.0 pretest:e2e
+> npm run build:web
+
+
+> ukiebook-3@0.1.0 build:web
+> next build && node scripts/prepare-standalone.mjs && node scripts/verify-client-boundary.mjs
+
+▲ Next.js 16.2.11 (Turbopack)
+- Experiments (use with caution):
+  ✓ authInterrupts
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 11.9s
+  Running TypeScript ...
+  Finished TypeScript in 11.8s ...
+  Collecting page data using 7 workers ...
+  Generating static pages using 7 workers (0/3) ...
+✓ Generating static pages using 7 workers (3/3) in 332ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ƒ /
+├ ○ /_not-found
+├ ƒ /admin
+├ ƒ /api/auth/[provider]/callback
+├ ƒ /api/auth/[provider]/start
+├ ƒ /api/auth/logout
+├ ƒ /api/health
+├ ƒ /author/books
+├ ƒ /author/profile
+├ ƒ /author/publish
+├ ƒ /books/[id]
+├ ○ /fixtures/aurora
+├ ƒ /library
+└ ƒ /login
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+
+Prepared the self-contained Next.js standalone runtime.
+Client secret boundary passed across 29 static files and 80 source files.
+
+> ukiebook-3@0.1.0 test:e2e
+> playwright test --config playwright.e2e.config.ts --trace=off
+
+
+Running 1 test using 1 worker
+
+  ✓  1 [chromium] › tests/e2e/foundation.spec.ts:22:1 › foundation health and Aurora fixture expose the shared contract without secrets (1.6s)
+::notice title=🎭 Playwright Run Summary::  1 passed (5.2s)
+
+  1 passed (5.2s)
+
+[stderr]
+[WebServer] (node:99355) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+(node:99556) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)

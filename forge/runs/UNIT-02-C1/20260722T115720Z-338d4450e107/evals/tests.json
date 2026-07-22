@@ -1,0 +1,17 @@
+{
+  "evidence": [
+    "forge/runs/UNIT-02-C1/20260722T115720Z-338d4450e107/evidence/commands/unit-tests.txt",
+    "forge/runs/UNIT-02-C1/20260722T115720Z-338d4450e107/evidence/commands/e2e.txt",
+    "forge/runs/UNIT-02-C1/20260722T115720Z-338d4450e107/evidence/commands/visual.txt",
+    "forge/runs/UNIT-02-C1/20260722T115720Z-338d4450e107/evidence/commands/unit02-e2e.txt",
+    "forge/runs/UNIT-02-C1/20260722T115720Z-338d4450e107/evidence/commands/unit02-visual.txt"
+  ],
+  "gate": "tests",
+  "findings": [],
+  "implementation_revision": "338d4450e107d6d6bafd56d4baa1ca3e578d0e04",
+  "owner": "Codex / catalog and Book Page",
+  "rerun_of": null,
+  "status": "passed",
+  "timestamp": "2026-07-22T12:02:00.826Z",
+  "unit": "UNIT-02-C1"
+}

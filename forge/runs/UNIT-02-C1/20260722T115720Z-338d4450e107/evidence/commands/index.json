@@ -1,0 +1,184 @@
+{
+  "commands": [
+    {
+      "arguments": [
+        "ls",
+        "--depth=0"
+      ],
+      "command": "npm ls --depth=0",
+      "executable": "npm",
+      "exit_code": 0,
+      "finished_at": "2026-07-22T11:57:20.842Z",
+      "name": "dependency-tree",
+      "receipt": "evidence/commands/dependency-tree.txt",
+      "signal": null,
+      "started_at": "2026-07-22T11:57:20.225Z"
+    },
+    {
+      "arguments": [
+        "audit",
+        "--audit-level=high"
+      ],
+      "command": "npm audit --audit-level=high",
+      "executable": "npm",
+      "exit_code": 0,
+      "finished_at": "2026-07-22T11:57:21.624Z",
+      "name": "dependency-audit",
+      "receipt": "evidence/commands/dependency-audit.txt",
+      "signal": null,
+      "started_at": "2026-07-22T11:57:20.843Z"
+    },
+    {
+      "arguments": [
+        "run",
+        "typecheck"
+      ],
+      "command": "npm run typecheck",
+      "executable": "npm",
+      "exit_code": 0,
+      "finished_at": "2026-07-22T11:57:26.664Z",
+      "name": "typecheck",
+      "receipt": "evidence/commands/typecheck.txt",
+      "signal": null,
+      "started_at": "2026-07-22T11:57:21.626Z"
+    },
+    {
+      "arguments": [
+        "run",
+        "lint"
+      ],
+      "command": "npm run lint",
+      "executable": "npm",
+      "exit_code": 0,
+      "finished_at": "2026-07-22T11:57:39.914Z",
+      "name": "lint",
+      "receipt": "evidence/commands/lint.txt",
+      "signal": null,
+      "started_at": "2026-07-22T11:57:26.667Z"
+    },
+    {
+      "arguments": [
+        "test"
+      ],
+      "command": "npm test",
+      "executable": "npm",
+      "exit_code": 0,
+      "finished_at": "2026-07-22T11:58:32.501Z",
+      "name": "unit-tests",
+      "receipt": "evidence/commands/unit-tests.txt",
+      "signal": null,
+      "started_at": "2026-07-22T11:57:39.918Z"
+    },
+    {
+      "arguments": [
+        "run",
+        "verify:repository"
+      ],
+      "command": "npm run verify:repository",
+      "executable": "npm",
+      "exit_code": 0,
+      "finished_at": "2026-07-22T11:58:34.768Z",
+      "name": "repository-hygiene",
+      "receipt": "evidence/commands/repository-hygiene.txt",
+      "signal": null,
+      "started_at": "2026-07-22T11:58:32.506Z"
+    },
+    {
+      "arguments": [
+        "run",
+        "build"
+      ],
+      "command": "npm run build",
+      "executable": "npm",
+      "exit_code": 0,
+      "finished_at": "2026-07-22T11:59:12.089Z",
+      "name": "build",
+      "receipt": "evidence/commands/build.txt",
+      "signal": null,
+      "started_at": "2026-07-22T11:58:34.772Z"
+    },
+    {
+      "arguments": [
+        "--no-install",
+        "tsx",
+        "--conditions=react-server",
+        "scripts/verify-unit02-postgres.ts"
+      ],
+      "command": "npx --no-install tsx --conditions=react-server scripts/verify-unit02-postgres.ts",
+      "executable": "npx",
+      "exit_code": 0,
+      "finished_at": "2026-07-22T11:59:17.667Z",
+      "name": "real-postgres-unit02",
+      "receipt": "evidence/commands/real-postgres-unit02.txt",
+      "signal": null,
+      "started_at": "2026-07-22T11:59:12.091Z"
+    },
+    {
+      "arguments": [
+        "run",
+        "test:e2e",
+        "--",
+        "--trace=off"
+      ],
+      "command": "npm run test:e2e -- --trace=off",
+      "executable": "npm",
+      "exit_code": 0,
+      "finished_at": "2026-07-22T11:59:56.065Z",
+      "name": "e2e",
+      "receipt": "evidence/commands/e2e.txt",
+      "signal": null,
+      "started_at": "2026-07-22T11:59:17.669Z"
+    },
+    {
+      "arguments": [
+        "run",
+        "test:visual",
+        "--",
+        "--trace=off"
+      ],
+      "command": "npm run test:visual -- --trace=off",
+      "executable": "npm",
+      "exit_code": 0,
+      "finished_at": "2026-07-22T12:00:20.850Z",
+      "name": "visual",
+      "receipt": "evidence/commands/visual.txt",
+      "signal": null,
+      "started_at": "2026-07-22T11:59:56.069Z"
+    },
+    {
+      "arguments": [
+        "run",
+        "test:unit02:e2e",
+        "--",
+        "--trace=off"
+      ],
+      "command": "npm run test:unit02:e2e -- --trace=off",
+      "executable": "npm",
+      "exit_code": 0,
+      "finished_at": "2026-07-22T12:00:33.426Z",
+      "name": "unit02-e2e",
+      "receipt": "evidence/commands/unit02-e2e.txt",
+      "signal": null,
+      "started_at": "2026-07-22T12:00:20.853Z"
+    },
+    {
+      "arguments": [
+        "run",
+        "test:unit02:visual",
+        "--",
+        "--trace=off"
+      ],
+      "command": "npm run test:unit02:visual -- --trace=off",
+      "executable": "npm",
+      "exit_code": 0,
+      "finished_at": "2026-07-22T12:01:59.804Z",
+      "name": "unit02-visual",
+      "receipt": "evidence/commands/unit02-visual.txt",
+      "signal": null,
+      "started_at": "2026-07-22T12:00:33.427Z"
+    }
+  ],
+  "implementation_revision": "338d4450e107d6d6bafd56d4baa1ca3e578d0e04",
+  "unit": "UNIT-02-C1",
+  "updated_at": "2026-07-22T12:01:59.804Z"
+}

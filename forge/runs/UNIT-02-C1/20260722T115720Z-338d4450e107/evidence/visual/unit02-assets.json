@@ -1,0 +1,83 @@
+{
+  "covers": [
+    {
+      "file": "public/books/covers/final/khroniky-stepu.png",
+      "frozen_file": "forge/design/candidates/operator-final-7b/v3/assets/covers/khroniky-stepu.png",
+      "height": 1536,
+      "sha256": "97788951e5e108587c0548e2649df449dfe72211f4448fbebcbb32d8cee352ef",
+      "width": 1024
+    },
+    {
+      "file": "public/books/covers/final/kryzhani-maky.png",
+      "frozen_file": "forge/design/candidates/operator-final-7b/v3/assets/covers/kryzhani-maky.png",
+      "height": 1536,
+      "sha256": "e0a03310ad24a201d02570cc9ddd03871a782a02e13e0fec20e50c2e85b4796b",
+      "width": 1024
+    },
+    {
+      "file": "public/books/covers/final/lysty-z-poltavy.png",
+      "frozen_file": "forge/design/candidates/operator-final-7b/v3/assets/covers/lysty-z-poltavy.png",
+      "height": 1536,
+      "sha256": "856154c1a71c244167788411b8d99a90a93521f5957261f7a8d583939b39eda8",
+      "width": 1024
+    },
+    {
+      "file": "public/books/covers/final/misto-na-vodi.png",
+      "frozen_file": "forge/design/candidates/operator-final-7b/v3/assets/covers/misto-na-vodi.png",
+      "height": 1536,
+      "sha256": "3b78e66d79c33c39a52b3c18f1f8914e2a9f7ec1cbca606471ffc151cd7c9fbc",
+      "width": 1024
+    },
+    {
+      "file": "public/books/covers/final/piznie-lito.png",
+      "frozen_file": "forge/design/candidates/operator-final-7b/v3/assets/covers/piznie-lito.png",
+      "height": 1536,
+      "sha256": "5d03f3a982039a28ac8b34db880383ecf83c97486ced3621e894216ea1caed86",
+      "width": 1024
+    },
+    {
+      "file": "public/books/covers/final/sad-kamianykh-ptakhiv.png",
+      "frozen_file": "forge/design/candidates/operator-final-7b/v3/assets/covers/sad-kamianykh-ptakhiv.png",
+      "height": 1536,
+      "sha256": "ff24e59f388bcdf6419c7dcd5b2c3a67f0c89854892d9062ed31bdaaafaa7a1d",
+      "width": 1024
+    },
+    {
+      "file": "public/books/covers/final/tini-nad-lymanom.png",
+      "frozen_file": "forge/design/candidates/operator-final-7b/v3/assets/covers/tini-nad-lymanom.png",
+      "height": 1536,
+      "sha256": "b235f20856311186ebbf14f4b30b9afa75f27131b0581e28c5c64bf89f6331b3",
+      "width": 1024
+    }
+  ],
+  "generated_source_artwork": {
+    "file": "public/books/covers/tini-nad-lymanom.png",
+    "provenance": "ImageGen source artwork committed for deterministic cover regeneration",
+    "sha256": "4cd5b0fb2c9b694512075ece5224165188036772b8aa8edb0e01639733746902"
+  },
+  "logos": [
+    {
+      "file": "public/brand/UkieBook-logo-exact.svg",
+      "sha256": "abb3acf8cfa673161e6547ca725f7b337b29185a7eb6918218f887faadc66d98",
+      "status": "passed"
+    },
+    {
+      "file": "public/brand/UkieBook-logo.jpg",
+      "sha256": "5cdd21d3ba038632528fc17a13068e3792d03a029779251cd738aaada4aa0ad3",
+      "status": "passed"
+    },
+    {
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "file": "public/brand/UkieBook-logo-transparent.svg",
+      "sha256": "db838dd4ad696f63cccb6aa86ab98e53dc5c6e13c1778ac340f62c5e4514617f",
+      "status": "passed"
+    }
+  ],
+  "status": "passed",
+  "verified_at": "2026-07-22T12:02:00.094Z"
+}

@@ -24,7 +24,7 @@ Money is integer kopiykas; standard percentage rules are exact basis points (`29
 
 ## Codebase Map
 
-Current UNIT-00 foundation, UNIT-01 identity/profile, UNIT-02 catalog/Book Page behavior and UNIT-02-C1 correction; latest correction revision `__C1_REVISION__`:
+Current UNIT-00 foundation, UNIT-01 identity/profile, UNIT-02 catalog/Book Page behavior and UNIT-02-C1 correction; latest correction revision `3f77594bcb615847bdd71846374184cd2070d305`:
 
 ```text
 app/
@@ -140,7 +140,7 @@ Module imports point inward to domain contracts; UI and provider adapters may de
 
 ### UNIT-02-C1 — Operator correction: V3 catalog presentation and formula truth
 
-- **Execution Status:** `completed` on 2026-07-22 at implementation revision `__C1_REVISION__`; canonical passed run `__C1_RUN_PATH__`.
+- **Execution Status:** `completed` on 2026-07-22 at implementation revision `3f77594bcb615847bdd71846374184cd2070d305`; canonical passed run `forge/runs/UNIT-02-C1/20260722T115720Z-338d4450e107/run.json`.
 - **Purpose:** close the exact operator correction without changing UNIT-02 catalog behavior or the next-unit order.
 - **Depends On:** UNIT-02.
 - **Work Items:** freeze `AVB-UKIEBOOK-AURORA-7B-V3`; use `UkieBook-logo-transparent.svg` without background; set every Book Cover radius to `0`; use seven distinct realistic 2:3 assets with different baked-in titles and no live title overlay; make all five first-row covers fully visible; set exact hero sentence `Електронні книжки EPUB і MOBI миттєво у вашу бібліотеку.`; set public ribbon to `35%` platform / `65% — автору`; reconcile all 13 SDD owner artifacts and tests.
@@ -378,7 +378,7 @@ UNIT-00, UNIT-01, UNIT-02 and correction UNIT-02-C1 are complete. The next execu
 - After every unit: `npm run typecheck`, `npm run lint`, `npm test`, `npm run build`; affected integration/e2e/visual commands follow the unit fields.
 - For UNIT-00 foundation changes, `REAL_DATABASE_URL=<ephemeral-postgres-url> npm run verify:unit00` is the canonical bundle-producing rerun and must target real PostgreSQL.
 - For UNIT-01 identity/profile changes, `REAL_DATABASE_URL=postgres://<credentials>@127.0.0.1:<port>/ukiebook_unit01 npm run verify:unit01` is the canonical bundle-producing rerun; the runner rejects a dirty tree, non-loopback host or different database name and includes real PostgreSQL, E2E, responsive/contrast and secret-evidence gates.
-- For UNIT-02/C1 catalog presentation changes, the UNIT-02 verifier must bind the V3 bundle/tree/VQA hashes, revision and external-browser visual inspection in `__C1_RUN_PATH__`; old V2 receipts never satisfy the active gate.
+- For UNIT-02/C1 catalog presentation changes, the UNIT-02 verifier must bind the V3 bundle/tree/VQA hashes, revision and external-browser visual inspection in `forge/runs/UNIT-02-C1/20260722T115720Z-338d4450e107/run.json`; old V2 receipts never satisfy the active gate.
 - Persist results in dod-evals format with unit, revision, timestamp, evidence and findings. A missing applicable command/result is `blocked`, never passed by inspection.
 - Money tests use integer fixtures, discount boundaries, duplicate/out-of-order events, Refund compensation, threshold/carry, update fee and Founder cases.
 - Conversion tests use representative DOCX/TXT/Google Docs fixtures with headings, Unicode Ukrainian text and inline Illustrations; EPUB/MOBI validators are external evidence.

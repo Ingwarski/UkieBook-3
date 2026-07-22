@@ -1,0 +1,916 @@
+{
+  "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+  "console_errors": [],
+  "implementation_revision": "338d4450e107d6d6bafd56d4baa1ca3e578d0e04",
+  "receipts": [
+    {
+      "accessibility": {
+        "coverEvidence": {
+          "result": [
+            "/_next/image?url=%2Fbooks%2Fcovers%2Ffinal%2Fsad-kamianykh-ptakhiv.png&w=3840&q=75",
+            "/_next/image?url=%2Fbooks%2Fcovers%2Ffinal%2Fpiznie-lito.png&w=3840&q=75",
+            "/_next/image?url=%2Fbooks%2Fcovers%2Ffinal%2Fkhroniky-stepu.png&w=3840&q=75",
+            "/_next/image?url=%2Fbooks%2Fcovers%2Ffinal%2Fmisto-na-vodi.png&w=3840&q=75"
+          ],
+          "shelf": [
+            "/_next/image?url=%2Fbooks%2Fcovers%2Ffinal%2Fkhroniky-stepu.png&w=3840&q=75",
+            "/_next/image?url=%2Fbooks%2Fcovers%2Ffinal%2Flysty-z-poltavy.png&w=3840&q=75",
+            "/_next/image?url=%2Fbooks%2Fcovers%2Ffinal%2Fmisto-na-vodi.png&w=3840&q=75",
+            "/_next/image?url=%2Fbooks%2Fcovers%2Ffinal%2Fsad-kamianykh-ptakhiv.png&w=3840&q=75",
+            "/_next/image?url=%2Fbooks%2Fcovers%2Ffinal%2Fpiznie-lito.png&w=3840&q=75"
+          ],
+          "tile": [
+            "/_next/image?url=%2Fbooks%2Fcovers%2Ffinal%2Fsad-kamianykh-ptakhiv.png&w=3840&q=75",
+            "/_next/image?url=%2Fbooks%2Fcovers%2Ffinal%2Fpiznie-lito.png&w=3840&q=75",
+            "/_next/image?url=%2Fbooks%2Fcovers%2Ffinal%2Fkhroniky-stepu.png&w=3840&q=75",
+            "/_next/image?url=%2Fbooks%2Fcovers%2Ffinal%2Fkryzhani-maky.png&w=3840&q=75"
+          ]
+        },
+        "formulaAuthorContrast": 4.758,
+        "heroGradientContrast": 4.602,
+        "navigationContrasts": {
+          "Жанри": 4.689,
+          "Знижки": 4.862,
+          "Авторам": 5.114
+        },
+        "semanticContrast": {
+          "accentOnCanvas": 5.699035452922529,
+          "formulaPlatform": 4.821570637216124
+        },
+        "targetCount": 30
+      },
+      "geometry": {
+        "formula": {
+          "x": 70,
+          "y": 800.219,
+          "width": 1140,
+          "height": 98
+        },
+        "header": {
+          "x": 30,
+          "y": 24,
+          "width": 1220,
+          "height": 72
+        },
+        "hero": {
+          "x": 30,
+          "y": 96,
+          "width": 1220,
+          "height": 212.219
+        },
+        "shelf": {
+          "x": 30,
+          "y": 308.219,
+          "width": 1220,
+          "height": 294
+        },
+        "tiles": {
+          "x": 30,
+          "y": 602.219,
+          "width": 1220,
+          "height": 172
+        }
+      },
+      "layout": {
+        "clientWidth": 1280,
+        "scrollWidth": 1280
+      },
+      "screen": "S-01",
+      "state": "default",
+      "viewport": {
+        "height": 900,
+        "width": 1280
+      },
+      "file": "evidence/visual/s01-default-1280@2x.png",
+      "sha256": "d959b935527173723a5e5e3c8f6e10a1db609da86d8ee6a59b82ee70d11d0738"
+    },
+    {
+      "interaction": {
+        "shelfLift": -16
+      },
+      "screen": "S-01",
+      "state": "shelf-hover",
+      "viewport": {
+        "height": 900,
+        "width": 1280
+      },
+      "file": "evidence/visual/s01-shelf-hover-1280@2x.png",
+      "sha256": "33f44bbc8666ab7261c6cf751b54737e63e67df52b0255778e2e6796006b13ae"
+    },
+    {
+      "interaction": {
+        "tileLift": -4
+      },
+      "screen": "S-01",
+      "state": "tile-hover",
+      "viewport": {
+        "height": 900,
+        "width": 1280
+      },
+      "file": "evidence/visual/s01-tile-hover-1280@2x.png",
+      "sha256": "d5521c58da1da0b79f0bc732568c7cbecfd663126870bd5fc9ebf592d3bd71cb"
+    },
+    {
+      "accessibility": {
+        "focus": {
+          "color": "rgb(122, 53, 157)",
+          "style": "solid",
+          "width": 3
+        }
+      },
+      "screen": "S-01",
+      "state": "shelf-keyboard-focus",
+      "viewport": {
+        "height": 900,
+        "width": 1280
+      },
+      "file": "evidence/visual/s01-shelf-focus-1280@2x.png",
+      "sha256": "8e36e5270fd45e0d933858d3541bdf1d17fdd7c089dea407500477dc7909bc87"
+    },
+    {
+      "accessibility": {
+        "focus": {
+          "color": "rgb(122, 53, 157)",
+          "style": "solid",
+          "width": 3
+        }
+      },
+      "screen": "S-01",
+      "state": "tile-keyboard-focus",
+      "viewport": {
+        "height": 900,
+        "width": 1280
+      },
+      "file": "evidence/visual/s01-tile-focus-1280@2x.png",
+      "sha256": "0a60e87f44d77f3f3df60dc715f04b8afbef44b212a4784612d76b504207cb1e"
+    },
+    {
+      "accessibility": {
+        "disclosureFocus": {
+          "color": "rgb(122, 53, 157)",
+          "style": "solid",
+          "width": 3
+        },
+        "mobileTargetCount": 13,
+        "targetCount": 22
+      },
+      "layout": {
+        "clientWidth": 390,
+        "scrollWidth": 390
+      },
+      "screen": "S-01",
+      "state": "responsive-default",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      },
+      "file": "evidence/visual/s01-default-390@2x.png",
+      "sha256": "3ed8aee92c1385c6ee9a7ab7fe45719bd9561964136886b72b6a51785eddd5eb"
+    },
+    {
+      "accessibility": {
+        "disclosureFocus": {
+          "color": "rgb(122, 53, 157)",
+          "style": "solid",
+          "width": 3
+        },
+        "mobileTargetCount": 13,
+        "targetCount": 22
+      },
+      "layout": {
+        "clientWidth": 430,
+        "scrollWidth": 430
+      },
+      "screen": "S-01",
+      "state": "responsive-default",
+      "viewport": {
+        "height": 844,
+        "width": 430
+      },
+      "file": "evidence/visual/s01-default-430@2x.png",
+      "sha256": "2d2b07022af5ddb1823f25a4645e58db602f3b57bad1f7183de6137d1af80c26"
+    },
+    {
+      "accessibility": {
+        "targetCount": 22
+      },
+      "layout": {
+        "clientWidth": 768,
+        "scrollWidth": 768
+      },
+      "screen": "S-01",
+      "state": "responsive-default",
+      "viewport": {
+        "height": 900,
+        "width": 768
+      },
+      "file": "evidence/visual/s01-default-768@2x.png",
+      "sha256": "ed3dd8fc9b7850889f3a6cd45755ad94134ab2409fd771f111a47d674ae1a568"
+    },
+    {
+      "accessibility": {
+        "targetCount": 30
+      },
+      "layout": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440
+      },
+      "screen": "S-01",
+      "state": "responsive-default",
+      "viewport": {
+        "height": 900,
+        "width": 1440
+      },
+      "file": "evidence/visual/s01-default-1440@2x.png",
+      "sha256": "c6b2066537013bc5ea1c085b7de64012ab9e6e8dc8c6dba7fa0393fff34cbe78"
+    },
+    {
+      "accessibility": {
+        "motion": {
+          "animationDuration": "1e-05s",
+          "transitionDuration": "1e-05s"
+        }
+      },
+      "screen": "S-01",
+      "state": "prefers-reduced-motion",
+      "viewport": {
+        "height": 900,
+        "width": 1280
+      },
+      "file": "evidence/visual/s01-reduced-motion-1280@2x.png",
+      "sha256": "d959b935527173723a5e5e3c8f6e10a1db609da86d8ee6a59b82ee70d11d0738"
+    },
+    {
+      "accessibility": {
+        "resetContrast": 6.029
+      },
+      "layout": {
+        "clientWidth": 390,
+        "scrollWidth": 390
+      },
+      "screen": "S-01",
+      "state": "empty",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      },
+      "file": "evidence/visual/s01-empty-390@2x.png",
+      "sha256": "3b87a16e62fcd1d04946abc00d2fe54419529ff816981bc9eab9b0dfac8b8339"
+    },
+    {
+      "accessibility": {
+        "resetContrast": 5.699
+      },
+      "layout": {
+        "clientWidth": 390,
+        "scrollWidth": 390
+      },
+      "screen": "S-01",
+      "state": "discount",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      },
+      "file": "evidence/visual/s01-discount-390@2x.png",
+      "sha256": "24ab0de9abbe6df3fcda8238e32a9bc67fa354c48ddbc9382f9dce96e0bd83b8"
+    },
+    {
+      "accessibility": {
+        "resetContrast": 5.699
+      },
+      "layout": {
+        "clientWidth": 390,
+        "scrollWidth": 390
+      },
+      "screen": "S-01",
+      "state": "query",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      },
+      "file": "evidence/visual/s01-query-390@2x.png",
+      "sha256": "24d58f6cdeb287e26cb2a09a03441d36393baf197ec3e9db6cdd1abe82659588"
+    },
+    {
+      "accessibility": {},
+      "layout": {
+        "clientWidth": 390,
+        "scrollWidth": 390
+      },
+      "screen": "S-01",
+      "state": "long-results",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      },
+      "file": "evidence/visual/s01-long-results-390@2x.png",
+      "sha256": "f1b17b9090ece4cf4d5ed0b51d447ff40859d61c85116cce280d33731d442691"
+    },
+    {
+      "accessibility": {},
+      "layout": {
+        "clientWidth": 430,
+        "scrollWidth": 430
+      },
+      "screen": "S-01",
+      "state": "empty",
+      "viewport": {
+        "height": 844,
+        "width": 430
+      },
+      "file": "evidence/visual/s01-empty-430@2x.png",
+      "sha256": "f6e9c51b5a2d530cefc3e29872a490d036f4eefc3e8b3523f27c3ade3c8bffa5"
+    },
+    {
+      "accessibility": {},
+      "layout": {
+        "clientWidth": 430,
+        "scrollWidth": 430
+      },
+      "screen": "S-01",
+      "state": "discount",
+      "viewport": {
+        "height": 844,
+        "width": 430
+      },
+      "file": "evidence/visual/s01-discount-430@2x.png",
+      "sha256": "c50369af5753413f1b5911a54d052e4a20efa3a2d6149b0d3dd4f47c21ffe750"
+    },
+    {
+      "accessibility": {},
+      "layout": {
+        "clientWidth": 430,
+        "scrollWidth": 430
+      },
+      "screen": "S-01",
+      "state": "query",
+      "viewport": {
+        "height": 844,
+        "width": 430
+      },
+      "file": "evidence/visual/s01-query-430@2x.png",
+      "sha256": "3610c834f47235a2c7d5fe4daf777cc906627cfcb6845c7433b4769088b21640"
+    },
+    {
+      "accessibility": {},
+      "layout": {
+        "clientWidth": 430,
+        "scrollWidth": 430
+      },
+      "screen": "S-01",
+      "state": "long-results",
+      "viewport": {
+        "height": 844,
+        "width": 430
+      },
+      "file": "evidence/visual/s01-long-results-430@2x.png",
+      "sha256": "c4430699ebf37b1e6f916817c064c17ed8c2e79ff93332531262ddf366db03ed"
+    },
+    {
+      "accessibility": {},
+      "layout": {
+        "clientWidth": 768,
+        "scrollWidth": 768
+      },
+      "screen": "S-01",
+      "state": "empty",
+      "viewport": {
+        "height": 900,
+        "width": 768
+      },
+      "file": "evidence/visual/s01-empty-768@2x.png",
+      "sha256": "3660ce684880115e7230b0dc20bcfc403512592b7fd8e80bc008c15c491faf0f"
+    },
+    {
+      "accessibility": {},
+      "layout": {
+        "clientWidth": 768,
+        "scrollWidth": 768
+      },
+      "screen": "S-01",
+      "state": "discount",
+      "viewport": {
+        "height": 900,
+        "width": 768
+      },
+      "file": "evidence/visual/s01-discount-768@2x.png",
+      "sha256": "61a8ab4784bc0695bcb076590c0c389e6dcc99b21e8394a4d0fff586997473b0"
+    },
+    {
+      "accessibility": {},
+      "layout": {
+        "clientWidth": 768,
+        "scrollWidth": 768
+      },
+      "screen": "S-01",
+      "state": "query",
+      "viewport": {
+        "height": 900,
+        "width": 768
+      },
+      "file": "evidence/visual/s01-query-768@2x.png",
+      "sha256": "34924203e5381f50594cd8639977436f63a107d33d39310ea68d7a7a0445dbd0"
+    },
+    {
+      "accessibility": {},
+      "layout": {
+        "clientWidth": 768,
+        "scrollWidth": 768
+      },
+      "screen": "S-01",
+      "state": "long-results",
+      "viewport": {
+        "height": 900,
+        "width": 768
+      },
+      "file": "evidence/visual/s01-long-results-768@2x.png",
+      "sha256": "b45c1edd729d3cb172d5ae431c8b4417e431acb61f3af5285000d60c9e8b8d45"
+    },
+    {
+      "accessibility": {},
+      "layout": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440
+      },
+      "screen": "S-01",
+      "state": "empty",
+      "viewport": {
+        "height": 900,
+        "width": 1440
+      },
+      "file": "evidence/visual/s01-empty-1440@2x.png",
+      "sha256": "012bdc89c14312707fd30c4ac706940600635494990d88b498bf30d01957f27f"
+    },
+    {
+      "accessibility": {
+        "resetContrast": 5.427
+      },
+      "layout": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440
+      },
+      "screen": "S-01",
+      "state": "discount",
+      "viewport": {
+        "height": 900,
+        "width": 1440
+      },
+      "file": "evidence/visual/s01-discount-1440@2x.png",
+      "sha256": "2792926dfed6ffd6f3ec467e062b93ce4051d09a58c6a6b1cb8daec46482b9be"
+    },
+    {
+      "accessibility": {},
+      "layout": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440
+      },
+      "screen": "S-01",
+      "state": "query",
+      "viewport": {
+        "height": 900,
+        "width": 1440
+      },
+      "file": "evidence/visual/s01-query-1440@2x.png",
+      "sha256": "8e42ee86cc2b268a1861697b11fe8da3522ef8036891173df6e7680478ede518"
+    },
+    {
+      "accessibility": {},
+      "layout": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440
+      },
+      "screen": "S-01",
+      "state": "long-results",
+      "viewport": {
+        "height": 900,
+        "width": 1440
+      },
+      "file": "evidence/visual/s01-long-results-1440@2x.png",
+      "sha256": "1e67d509ead3f0c334cac1466336fde9c84fe1636366da3bf4abaeccd0aaf752"
+    },
+    {
+      "screen": "S-01",
+      "state": "loading",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      },
+      "file": "evidence/visual/s01-loading-390@2x.png",
+      "sha256": "49a1d89892cc595d4e8ffb901855c1468987f66f0804b123ee8e91fe39511ca2"
+    },
+    {
+      "screen": "S-01",
+      "state": "loading",
+      "viewport": {
+        "height": 844,
+        "width": 430
+      },
+      "file": "evidence/visual/s01-loading-430@2x.png",
+      "sha256": "605ae05a311a3a295af85cd7a2a0eef9427653fe4e4b66bba3a10e0a80541fee"
+    },
+    {
+      "screen": "S-01",
+      "state": "loading",
+      "viewport": {
+        "height": 900,
+        "width": 768
+      },
+      "file": "evidence/visual/s01-loading-768@2x.png",
+      "sha256": "111df917c14a971e3d8bba04e32f0db505b76f073ea4d49e338da90c5e68d043"
+    },
+    {
+      "screen": "S-01",
+      "state": "loading",
+      "viewport": {
+        "height": 900,
+        "width": 1440
+      },
+      "file": "evidence/visual/s01-loading-1440@2x.png",
+      "sha256": "f8eed11a6c68379adba79bd34430326c176e8ef77cf69b231921564fcb906e34"
+    },
+    {
+      "layout": {
+        "clientWidth": 390,
+        "scrollWidth": 390
+      },
+      "screen": "S-01",
+      "state": "repository-error",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      },
+      "file": "evidence/visual/s01-error-390@2x.png",
+      "sha256": "1557b75780cf2bd1efb8042cb9ddaed8e8497558a614f6f7b8b8e065e9f74100"
+    },
+    {
+      "layout": {
+        "clientWidth": 430,
+        "scrollWidth": 430
+      },
+      "screen": "S-01",
+      "state": "repository-error",
+      "viewport": {
+        "height": 844,
+        "width": 430
+      },
+      "file": "evidence/visual/s01-error-430@2x.png",
+      "sha256": "a2415cb59f3def9beaa5488329a43603b0c76a78c0d8c3f8f34a987b9a7ec3d9"
+    },
+    {
+      "layout": {
+        "clientWidth": 768,
+        "scrollWidth": 768
+      },
+      "screen": "S-01",
+      "state": "repository-error",
+      "viewport": {
+        "height": 900,
+        "width": 768
+      },
+      "file": "evidence/visual/s01-error-768@2x.png",
+      "sha256": "d0b5423665f17b2197fa689072e7c211ba8c58dcc09aeba1a1700f89c9ca0c58"
+    },
+    {
+      "layout": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440
+      },
+      "screen": "S-01",
+      "state": "repository-error",
+      "viewport": {
+        "height": 900,
+        "width": 1440
+      },
+      "file": "evidence/visual/s01-error-1440@2x.png",
+      "sha256": "5656336b24caf2aacbbec8f717c06ff14eef1c6d995009ae324efdd14fe51ffd"
+    },
+    {
+      "accessibility": {
+        "backContrast": 5.018,
+        "targetCount": 9
+      },
+      "layout": {
+        "clientWidth": 390,
+        "scrollWidth": 390
+      },
+      "screen": "S-02",
+      "state": "discount",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      },
+      "file": "evidence/visual/s02-discount-390@2x.png",
+      "sha256": "ae7284a72bfc0f51a3df0c8cbb8120ca79c8035e63ec05c8e1249f0709938ff2"
+    },
+    {
+      "accessibility": {
+        "targetCount": 8
+      },
+      "layout": {
+        "clientWidth": 390,
+        "scrollWidth": 390
+      },
+      "screen": "S-02",
+      "state": "discount-inactive",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      },
+      "file": "evidence/visual/s02-discount-inactive-390@2x.png",
+      "sha256": "71661d599f0585d470fb235ebbada57ec14818ab3b93c25333714bb1e6e2b794"
+    },
+    {
+      "accessibility": {
+        "disclosureFocus": {
+          "color": "rgb(122, 53, 157)",
+          "style": "solid",
+          "width": 3
+        },
+        "targetCount": 9
+      },
+      "layout": {
+        "clientWidth": 390,
+        "scrollWidth": 390
+      },
+      "screen": "S-02",
+      "state": "sample-open",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      },
+      "file": "evidence/visual/s02-sample-open-390@2x.png",
+      "sha256": "43bd214651b621aed2a2d47ba5ce29b40f8f3c0c8dab19d948dc239c7c6edb05"
+    },
+    {
+      "accessibility": {
+        "targetCount": 9
+      },
+      "layout": {
+        "clientWidth": 390,
+        "scrollWidth": 390
+      },
+      "screen": "S-02",
+      "state": "reviews-page-2",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      },
+      "file": "evidence/visual/s02-reviews-page-2-390@2x.png",
+      "sha256": "a51952bbfe283a2a2205a735276440934e555ad2c95a99dbc0b1b40163a705d3"
+    },
+    {
+      "accessibility": {
+        "targetCount": 5
+      },
+      "layout": {
+        "clientWidth": 390,
+        "scrollWidth": 390
+      },
+      "screen": "S-02",
+      "state": "unavailable",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      },
+      "file": "evidence/visual/s02-unavailable-390@2x.png",
+      "sha256": "b49c350f151489a63a73f3552098606b480302d2e4b540fc5c326f232c80fa56"
+    },
+    {
+      "accessibility": {
+        "backContrast": 5.564,
+        "targetCount": 9
+      },
+      "layout": {
+        "clientWidth": 768,
+        "scrollWidth": 768
+      },
+      "screen": "S-02",
+      "state": "discount",
+      "viewport": {
+        "height": 900,
+        "width": 768
+      },
+      "file": "evidence/visual/s02-discount-768@2x.png",
+      "sha256": "0677fd8ec320bf44e6f1967f9c85c3f39a303cb8ab8222858505e5ab51fd21eb"
+    },
+    {
+      "accessibility": {
+        "targetCount": 8
+      },
+      "layout": {
+        "clientWidth": 768,
+        "scrollWidth": 768
+      },
+      "screen": "S-02",
+      "state": "discount-inactive",
+      "viewport": {
+        "height": 900,
+        "width": 768
+      },
+      "file": "evidence/visual/s02-discount-inactive-768@2x.png",
+      "sha256": "d1e7e83e2dc6e3f5ef56c7bb32a7b2de22b0a4638b36f257c2143cbe2952a60c"
+    },
+    {
+      "accessibility": {
+        "disclosureFocus": {
+          "color": "rgb(122, 53, 157)",
+          "style": "solid",
+          "width": 3
+        },
+        "targetCount": 9
+      },
+      "layout": {
+        "clientWidth": 768,
+        "scrollWidth": 768
+      },
+      "screen": "S-02",
+      "state": "sample-open",
+      "viewport": {
+        "height": 900,
+        "width": 768
+      },
+      "file": "evidence/visual/s02-sample-open-768@2x.png",
+      "sha256": "d89ba2166ac76d2e684768d6596f8ef5e7b1b1fc96760ccad95d97abf2e4c4f1"
+    },
+    {
+      "accessibility": {
+        "targetCount": 9
+      },
+      "layout": {
+        "clientWidth": 768,
+        "scrollWidth": 768
+      },
+      "screen": "S-02",
+      "state": "reviews-page-2",
+      "viewport": {
+        "height": 900,
+        "width": 768
+      },
+      "file": "evidence/visual/s02-reviews-page-2-768@2x.png",
+      "sha256": "687211031bd8ae994970ca4579b4fa7c607b2d764bdd963652d7fafbc4302fd1"
+    },
+    {
+      "accessibility": {
+        "targetCount": 5
+      },
+      "layout": {
+        "clientWidth": 768,
+        "scrollWidth": 768
+      },
+      "screen": "S-02",
+      "state": "unavailable",
+      "viewport": {
+        "height": 900,
+        "width": 768
+      },
+      "file": "evidence/visual/s02-unavailable-768@2x.png",
+      "sha256": "472b90fa5d9990b07979ecb3dca5f90b51d67836561e28235c11115998e63e22"
+    },
+    {
+      "accessibility": {
+        "backContrast": 5.738,
+        "targetCount": 14
+      },
+      "layout": {
+        "clientWidth": 1280,
+        "scrollWidth": 1280
+      },
+      "screen": "S-02",
+      "state": "discount",
+      "viewport": {
+        "height": 900,
+        "width": 1280
+      },
+      "file": "evidence/visual/s02-discount-1280@2x.png",
+      "sha256": "6945fe58363bc89ba60e4fcf6e251cd5b8b437004a82b26f23e3fcdd4a33186f"
+    },
+    {
+      "accessibility": {
+        "targetCount": 13
+      },
+      "layout": {
+        "clientWidth": 1280,
+        "scrollWidth": 1280
+      },
+      "screen": "S-02",
+      "state": "discount-inactive",
+      "viewport": {
+        "height": 900,
+        "width": 1280
+      },
+      "file": "evidence/visual/s02-discount-inactive-1280@2x.png",
+      "sha256": "6cf664b591a53c20fc0473cd37284ac435bd426a1d6ad6dcc38d164d312860dc"
+    },
+    {
+      "accessibility": {
+        "disclosureFocus": {
+          "color": "rgb(122, 53, 157)",
+          "style": "solid",
+          "width": 3
+        },
+        "targetCount": 14
+      },
+      "layout": {
+        "clientWidth": 1280,
+        "scrollWidth": 1280
+      },
+      "screen": "S-02",
+      "state": "sample-open",
+      "viewport": {
+        "height": 900,
+        "width": 1280
+      },
+      "file": "evidence/visual/s02-sample-open-1280@2x.png",
+      "sha256": "6e0d7498502f1f076bd9e88270535de7571e533a9acdb436ef339f0ad1fa5c92"
+    },
+    {
+      "accessibility": {
+        "targetCount": 14
+      },
+      "layout": {
+        "clientWidth": 1280,
+        "scrollWidth": 1280
+      },
+      "screen": "S-02",
+      "state": "reviews-page-2",
+      "viewport": {
+        "height": 900,
+        "width": 1280
+      },
+      "file": "evidence/visual/s02-reviews-page-2-1280@2x.png",
+      "sha256": "4a3c240f2dc512914b8d9d3db363455e288aa684d488562560502251d233ed82"
+    },
+    {
+      "accessibility": {
+        "targetCount": 10
+      },
+      "layout": {
+        "clientWidth": 1280,
+        "scrollWidth": 1280
+      },
+      "screen": "S-02",
+      "state": "unavailable",
+      "viewport": {
+        "height": 900,
+        "width": 1280
+      },
+      "file": "evidence/visual/s02-unavailable-1280@2x.png",
+      "sha256": "24bcff1741792d27e8425ed5f637c1df3a659af6937fc280f195df33ef47e537"
+    },
+    {
+      "screen": "S-02",
+      "state": "loading",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      },
+      "file": "evidence/visual/s02-loading-390@2x.png",
+      "sha256": "6ff18c7c2595370d377bea4187c8fc4990e5ff6abdc05f2bbae7f6950d398a5b"
+    },
+    {
+      "screen": "S-02",
+      "state": "loading",
+      "viewport": {
+        "height": 900,
+        "width": 768
+      },
+      "file": "evidence/visual/s02-loading-768@2x.png",
+      "sha256": "77480e7e2325aeebd016e5979864853bff3f378aaccc1148c6ab76d9150a78d6"
+    },
+    {
+      "screen": "S-02",
+      "state": "loading",
+      "viewport": {
+        "height": 900,
+        "width": 1280
+      },
+      "file": "evidence/visual/s02-loading-1280@2x.png",
+      "sha256": "4f0b25f0d8eabebd98ac10d5200489f2fc117fa40b93c024e51fe9d42003dc1e"
+    },
+    {
+      "accessibility": {
+        "focus": {
+          "color": "rgb(122, 53, 157)",
+          "style": "solid",
+          "width": 3
+        },
+        "targetCount": 8
+      },
+      "layout": {
+        "clientWidth": 390,
+        "scrollWidth": 390
+      },
+      "screen": "S-02",
+      "state": "mobile-menu-open",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      },
+      "file": "evidence/visual/s02-menu-open-390@2x.png",
+      "sha256": "a4226d3746d116a7c51faea1af01934fc75987c3ab22ad203ecc2981835cf170"
+    }
+  ],
+  "status": "passed",
+  "target_bundle_hash": "e50c9f82c241195d7f5d8876d9dcdcd7fd45b71cdaf6d2eedfe2e327a7182724",
+  "verified_at": "2026-07-22T12:01:59.624Z"
+}

@@ -1,0 +1,23 @@
+name: real-postgres-unit02
+command: npx --no-install tsx --conditions=react-server scripts/verify-unit02-postgres.ts
+implementation_revision: 338d4450e107d6d6bafd56d4baa1ca3e578d0e04
+started_at: 2026-07-22T11:59:12.091Z
+finished_at: 2026-07-22T11:59:17.667Z
+exit_code: 0
+signal: none
+
+[stdout]
+{
+  "database": "ukiebook_<redacted>",
+  "evidence_written": true,
+  "migrations": [
+    "0001_platform_foundation",
+    "0002_identity_sessions_author_profile",
+    "0003_catalog_read_model"
+  ],
+  "public_books": 6,
+  "seed_digest_sha256": "a5a381b065ca21400b41938b609c68f65234ee34802670f7a0851a16ef587a95",
+  "status": "passed"
+}
+
+[stderr]

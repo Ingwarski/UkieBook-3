@@ -1,0 +1,16 @@
+{
+  "evidence": [
+    "forge/runs/UNIT-02-C1/20260722T115720Z-338d4450e107/evidence/commands/dependency-tree.txt",
+    "forge/runs/UNIT-02-C1/20260722T115720Z-338d4450e107/evidence/commands/dependency-audit.txt",
+    "forge/runs/UNIT-02-C1/20260722T115720Z-338d4450e107/evidence/commands/build.txt",
+    "forge/runs/UNIT-02-C1/20260722T115720Z-338d4450e107/evidence/architecture/runtime-revisions.json"
+  ],
+  "gate": "build",
+  "findings": [],
+  "implementation_revision": "338d4450e107d6d6bafd56d4baa1ca3e578d0e04",
+  "owner": "Codex / catalog and Book Page",
+  "rerun_of": null,
+  "status": "passed",
+  "timestamp": "2026-07-22T12:02:00.820Z",
+  "unit": "UNIT-02-C1"
+}

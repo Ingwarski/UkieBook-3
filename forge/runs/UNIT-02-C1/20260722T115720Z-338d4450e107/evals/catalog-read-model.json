@@ -1,0 +1,23 @@
+{
+  "covered_checks": [
+    "title and Author search",
+    "Genre and Discount filters",
+    "stable sorting and pagination",
+    "integer-kopiyka actual price",
+    "Book Page sample and paged reviews",
+    "known unavailable Book and public DTO separation"
+  ],
+  "evidence": [
+    "forge/runs/UNIT-02-C1/20260722T115720Z-338d4450e107/evidence/commands/real-postgres-unit02.txt",
+    "forge/runs/UNIT-02-C1/20260722T115720Z-338d4450e107/evidence/database/unit02-postgres-proof.json",
+    "forge/runs/UNIT-02-C1/20260722T115720Z-338d4450e107/evidence/commands/unit02-e2e.txt"
+  ],
+  "gate": "catalog_read_model",
+  "findings": [],
+  "implementation_revision": "338d4450e107d6d6bafd56d4baa1ca3e578d0e04",
+  "owner": "Codex / catalog and Book Page",
+  "rerun_of": null,
+  "status": "passed",
+  "timestamp": "2026-07-22T12:02:00.833Z",
+  "unit": "UNIT-02-C1"
+}

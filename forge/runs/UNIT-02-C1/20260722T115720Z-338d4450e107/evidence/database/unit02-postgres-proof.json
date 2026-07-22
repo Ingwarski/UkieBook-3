@@ -1,0 +1,73 @@
+{
+  "behavior": {
+    "catalog": {
+      "page_size": 4,
+      "public_books": 6,
+      "total_pages": 2
+    },
+    "filters": [
+      "author",
+      "discount",
+      "genre",
+      "title"
+    ],
+    "money": {
+      "active_discount_kopiykas": 21000,
+      "currency": "UAH",
+      "discount_end_exclusive": true,
+      "discount_start_inclusive": true,
+      "integer_kopiykas_enforced": true
+    },
+    "public_separation": {
+      "available_author_fields": [
+        "id",
+        "publicName"
+      ],
+      "unavailable_excluded_from_catalog": true,
+      "unavailable_page_has_no_price_or_sample": true
+    },
+    "rating_review_consistency": {
+      "books_checked": 7,
+      "status": "passed"
+    },
+    "sort_modes": [
+      "featured",
+      "price_asc",
+      "price_desc"
+    ]
+  },
+  "implementation_revision": "338d4450e107d6d6bafd56d4baa1ca3e578d0e04",
+  "migration_roundtrip": {
+    "earlier_migration_ids_preserved": [
+      "0001_platform_foundation",
+      "0002_identity_sessions_author_profile"
+    ],
+    "earlier_row_counts_preserved": {
+      "author_payout_details": 0,
+      "author_profiles": 0,
+      "durable_jobs": 0,
+      "identity_audit_events": 0,
+      "oauth_accounts": 0,
+      "oauth_flows": 0,
+      "outbox_events": 0,
+      "sessions": 0,
+      "user_roles": 0,
+      "users": 0
+    },
+    "migration_id": "0003_catalog_read_model",
+    "reversible_down_up": true
+  },
+  "seed": {
+    "acknowledged_seed": true,
+    "deterministic_digest_sha256": "a5a381b065ca21400b41938b609c68f65234ee34802670f7a0851a16ef587a95",
+    "fixture_counts": {
+      "books": 7,
+      "featured_slots": 9,
+      "genres": 5,
+      "reviews": 6
+    },
+    "production_guard": "passed",
+    "explicit_acknowledgement_guard": "passed"
+  },
+  "verified_at": "2026-07-22T11:59:17.622Z"
+}

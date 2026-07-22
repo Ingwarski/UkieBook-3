@@ -20,7 +20,7 @@
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "2026-07-22-unit02-c1-contract-reconciled",
+      "source_version": "2026-07-22-unit02-c1-evidence-reconciled",
       "source_hashes": {},
       "consumed_source_fragments": {},
       "dependencies": [],
@@ -31,7 +31,7 @@
         "required_structure": true,
         "source_traceability": true,
         "consumed_fragment_hash_algorithm": "SHA-256 of UTF-8 LF-normalized numbered section including heading, trimEnd plus one LF",
-        "dependency_revalidation": "passed for V3 contracts; UNIT-02-C1 implementation evidence pending",
+        "dependency_revalidation": "passed after UNIT-02-C1 revision-bound evidence reconciliation",
         "approved_baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
         "operator_correction_scope": [
           "square Book Covers",
@@ -41,7 +41,11 @@
           "public 35/65 formula and manager 29+6+65 split",
           "transparent SVG logo"
         ],
-        "unit02_c1_status": "verification-pending",
+        "unit02_c1_status": "completed",
+        "unit02_c1_implementation_revision": "338d4450e107d6d6bafd56d4baa1ca3e578d0e04",
+        "unit02_c1_reviewed_revision": "3f77594bcb615847bdd71846374184cd2070d305",
+        "unit02_c1_execution_evidence": "forge/runs/UNIT-02-C1/20260722T115720Z-338d4450e107/run.json",
+        "unit02_c1_visual_receipts": 53,
         "issues": []
       },
       "open_questions": [
@@ -59,7 +63,7 @@
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "2026-07-22-unit02-c1-contract-reconciled",
+      "source_version": "2026-07-22-unit02-c1-evidence-reconciled",
       "source_hashes": {
         "product-idea": "27f15465b9af01bc716d6f17c307ca38f26df2d206d0423a3d710a07eeb02b04"
       },
@@ -76,7 +80,7 @@
         "required_structure": true,
         "source_traceability": true,
         "consumed_fragment_hash_algorithm": "SHA-256 of UTF-8 LF-normalized numbered section including heading, trimEnd plus one LF",
-        "dependency_revalidation": "passed for V3 contracts; UNIT-02-C1 implementation evidence pending",
+        "dependency_revalidation": "passed after UNIT-02-C1 revision-bound evidence reconciliation",
         "approved_baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
         "operator_correction_scope": [
           "square Book Covers",
@@ -86,7 +90,11 @@
           "public 35/65 formula and manager 29+6+65 split",
           "transparent SVG logo"
         ],
-        "unit02_c1_status": "verification-pending",
+        "unit02_c1_status": "completed",
+        "unit02_c1_implementation_revision": "338d4450e107d6d6bafd56d4baa1ca3e578d0e04",
+        "unit02_c1_reviewed_revision": "3f77594bcb615847bdd71846374184cd2070d305",
+        "unit02_c1_execution_evidence": "forge/runs/UNIT-02-C1/20260722T115720Z-338d4450e107/run.json",
+        "unit02_c1_visual_receipts": 53,
         "issues": []
       },
       "open_questions": [
@@ -106,7 +114,7 @@
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "2026-07-22-unit02-c1-contract-reconciled",
+      "source_version": "2026-07-22-unit02-c1-evidence-reconciled",
       "source_hashes": {
         "product-idea": "27f15465b9af01bc716d6f17c307ca38f26df2d206d0423a3d710a07eeb02b04",
         "prd": "e8a3fad29c1d7b485ec55bd95f92764048de64fda4a08c5275fb349e9b079671"
@@ -124,7 +132,7 @@
         "required_structure": true,
         "source_traceability": true,
         "consumed_fragment_hash_algorithm": "SHA-256 of UTF-8 LF-normalized numbered section including heading, trimEnd plus one LF",
-        "dependency_revalidation": "passed for V3 contracts; UNIT-02-C1 implementation evidence pending",
+        "dependency_revalidation": "passed after UNIT-02-C1 revision-bound evidence reconciliation",
         "approved_baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
         "operator_correction_scope": [
           "square Book Covers",
@@ -134,7 +142,11 @@
           "public 35/65 formula and manager 29+6+65 split",
           "transparent SVG logo"
         ],
-        "unit02_c1_status": "verification-pending",
+        "unit02_c1_status": "completed",
+        "unit02_c1_implementation_revision": "338d4450e107d6d6bafd56d4baa1ca3e578d0e04",
+        "unit02_c1_reviewed_revision": "3f77594bcb615847bdd71846374184cd2070d305",
+        "unit02_c1_execution_evidence": "forge/runs/UNIT-02-C1/20260722T115720Z-338d4450e107/run.json",
+        "unit02_c1_visual_receipts": 53,
         "issues": []
       },
       "open_questions": [
@@ -154,7 +166,7 @@
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "2026-07-22-unit02-c1-contract-reconciled",
+      "source_version": "2026-07-22-unit02-c1-evidence-reconciled",
       "source_hashes": {
         "product-idea": "27f15465b9af01bc716d6f17c307ca38f26df2d206d0423a3d710a07eeb02b04",
         "prd": "e8a3fad29c1d7b485ec55bd95f92764048de64fda4a08c5275fb349e9b079671"
@@ -172,7 +184,7 @@
         "required_structure": true,
         "source_traceability": true,
         "consumed_fragment_hash_algorithm": "SHA-256 of UTF-8 LF-normalized numbered section including heading, trimEnd plus one LF",
-        "dependency_revalidation": "passed for V3 contracts; UNIT-02-C1 implementation evidence pending",
+        "dependency_revalidation": "passed after UNIT-02-C1 revision-bound evidence reconciliation",
         "approved_baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
         "operator_correction_scope": [
           "square Book Covers",
@@ -182,7 +194,11 @@
           "public 35/65 formula and manager 29+6+65 split",
           "transparent SVG logo"
         ],
-        "unit02_c1_status": "verification-pending",
+        "unit02_c1_status": "completed",
+        "unit02_c1_implementation_revision": "338d4450e107d6d6bafd56d4baa1ca3e578d0e04",
+        "unit02_c1_reviewed_revision": "3f77594bcb615847bdd71846374184cd2070d305",
+        "unit02_c1_execution_evidence": "forge/runs/UNIT-02-C1/20260722T115720Z-338d4450e107/run.json",
+        "unit02_c1_visual_receipts": 53,
         "issues": []
       },
       "open_questions": [
@@ -199,7 +215,7 @@
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "2026-07-22-unit02-c1-contract-reconciled",
+      "source_version": "2026-07-22-unit02-c1-evidence-reconciled",
       "source_hashes": {
         "product-idea": "27f15465b9af01bc716d6f17c307ca38f26df2d206d0423a3d710a07eeb02b04",
         "prd": "e8a3fad29c1d7b485ec55bd95f92764048de64fda4a08c5275fb349e9b079671",
@@ -233,7 +249,7 @@
         "required_structure": true,
         "source_traceability": true,
         "consumed_fragment_hash_algorithm": "SHA-256 of UTF-8 LF-normalized numbered section including heading, trimEnd plus one LF",
-        "dependency_revalidation": "passed for V3 contracts; UNIT-02-C1 implementation evidence pending",
+        "dependency_revalidation": "passed after UNIT-02-C1 revision-bound evidence reconciliation",
         "approved_baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
         "operator_correction_scope": [
           "square Book Covers",
@@ -243,7 +259,11 @@
           "public 35/65 formula and manager 29+6+65 split",
           "transparent SVG logo"
         ],
-        "unit02_c1_status": "verification-pending",
+        "unit02_c1_status": "completed",
+        "unit02_c1_implementation_revision": "338d4450e107d6d6bafd56d4baa1ca3e578d0e04",
+        "unit02_c1_reviewed_revision": "3f77594bcb615847bdd71846374184cd2070d305",
+        "unit02_c1_execution_evidence": "forge/runs/UNIT-02-C1/20260722T115720Z-338d4450e107/run.json",
+        "unit02_c1_visual_receipts": 53,
         "issues": []
       },
       "open_questions": [
@@ -262,7 +282,7 @@
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "2026-07-22-unit02-c1-contract-reconciled",
+      "source_version": "2026-07-22-unit02-c1-evidence-reconciled",
       "source_hashes": {
         "prd": "e8a3fad29c1d7b485ec55bd95f92764048de64fda4a08c5275fb349e9b079671",
         "project-context": "ee812b13c882c794ffdcf101d4b84b9ee2fc4c78c17a1e6867714cc430c2fb4d",
@@ -289,7 +309,7 @@
         "required_structure": true,
         "source_traceability": true,
         "consumed_fragment_hash_algorithm": "SHA-256 of UTF-8 LF-normalized numbered section including heading, trimEnd plus one LF",
-        "dependency_revalidation": "passed for V3 contracts; UNIT-02-C1 implementation evidence pending",
+        "dependency_revalidation": "passed after UNIT-02-C1 revision-bound evidence reconciliation",
         "approved_baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
         "operator_correction_scope": [
           "square Book Covers",
@@ -299,7 +319,11 @@
           "public 35/65 formula and manager 29+6+65 split",
           "transparent SVG logo"
         ],
-        "unit02_c1_status": "verification-pending",
+        "unit02_c1_status": "completed",
+        "unit02_c1_implementation_revision": "338d4450e107d6d6bafd56d4baa1ca3e578d0e04",
+        "unit02_c1_reviewed_revision": "3f77594bcb615847bdd71846374184cd2070d305",
+        "unit02_c1_execution_evidence": "forge/runs/UNIT-02-C1/20260722T115720Z-338d4450e107/run.json",
+        "unit02_c1_visual_receipts": 53,
         "issues": []
       },
       "open_questions": [
@@ -317,7 +341,7 @@
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "2026-07-22-unit02-c1-contract-reconciled",
+      "source_version": "2026-07-22-unit02-c1-evidence-reconciled",
       "source_hashes": {
         "prd": "e8a3fad29c1d7b485ec55bd95f92764048de64fda4a08c5275fb349e9b079671",
         "user-journey": "d22378db5ee0040fcac2d4d60d68f31bc3f365c89b1c74e3f45556d845a9a9cf",
@@ -343,7 +367,7 @@
         "required_structure": true,
         "source_traceability": true,
         "consumed_fragment_hash_algorithm": "SHA-256 of UTF-8 LF-normalized numbered section including heading, trimEnd plus one LF",
-        "dependency_revalidation": "passed for V3 contracts; UNIT-02-C1 implementation evidence pending",
+        "dependency_revalidation": "passed after UNIT-02-C1 revision-bound evidence reconciliation",
         "approved_baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
         "operator_correction_scope": [
           "square Book Covers",
@@ -353,7 +377,11 @@
           "public 35/65 formula and manager 29+6+65 split",
           "transparent SVG logo"
         ],
-        "unit02_c1_status": "verification-pending",
+        "unit02_c1_status": "completed",
+        "unit02_c1_implementation_revision": "338d4450e107d6d6bafd56d4baa1ca3e578d0e04",
+        "unit02_c1_reviewed_revision": "3f77594bcb615847bdd71846374184cd2070d305",
+        "unit02_c1_execution_evidence": "forge/runs/UNIT-02-C1/20260722T115720Z-338d4450e107/run.json",
+        "unit02_c1_visual_receipts": 53,
         "issues": []
       },
       "open_questions": [
@@ -371,7 +399,7 @@
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "2026-07-22-unit02-c1-contract-reconciled",
+      "source_version": "2026-07-22-unit02-c1-evidence-reconciled",
       "source_hashes": {
         "prd": "e8a3fad29c1d7b485ec55bd95f92764048de64fda4a08c5275fb349e9b079671",
         "user-journey": "d22378db5ee0040fcac2d4d60d68f31bc3f365c89b1c74e3f45556d845a9a9cf",
@@ -399,7 +427,7 @@
         "required_structure": true,
         "source_traceability": true,
         "consumed_fragment_hash_algorithm": "SHA-256 of UTF-8 LF-normalized numbered section including heading, trimEnd plus one LF",
-        "dependency_revalidation": "passed for V3 contracts; UNIT-02-C1 implementation evidence pending",
+        "dependency_revalidation": "passed after UNIT-02-C1 revision-bound evidence reconciliation",
         "approved_baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
         "operator_correction_scope": [
           "square Book Covers",
@@ -409,7 +437,11 @@
           "public 35/65 formula and manager 29+6+65 split",
           "transparent SVG logo"
         ],
-        "unit02_c1_status": "verification-pending",
+        "unit02_c1_status": "completed",
+        "unit02_c1_implementation_revision": "338d4450e107d6d6bafd56d4baa1ca3e578d0e04",
+        "unit02_c1_reviewed_revision": "3f77594bcb615847bdd71846374184cd2070d305",
+        "unit02_c1_execution_evidence": "forge/runs/UNIT-02-C1/20260722T115720Z-338d4450e107/run.json",
+        "unit02_c1_visual_receipts": 53,
         "issues": []
       },
       "open_questions": [
@@ -458,13 +490,13 @@
       "dependency_status": {
         "wireframes": "validated"
       },
-      "content_hash": "9b3884de00e1d79c040cd5d885121478fe17b66911d2a0cafdb90a03cea313e2",
+      "content_hash": "e57ecfb91b78598dd0dcb59787eef42d354e856fe049e1881143a360f4969e67",
       "validation": {
         "owner_boundary": true,
         "required_structure": true,
         "source_traceability": true,
         "consumed_fragment_hash_algorithm": "SHA-256 of UTF-8 LF-normalized numbered section including heading, trimEnd plus one LF",
-        "dependency_revalidation": "passed for V3 contracts; UNIT-02-C1 implementation evidence pending",
+        "dependency_revalidation": "passed after UNIT-02-C1 revision-bound evidence reconciliation",
         "approved_baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
         "operator_correction_scope": [
           "square Book Covers",
@@ -474,14 +506,18 @@
           "public 35/65 formula and manager 29+6+65 split",
           "transparent SVG logo"
         ],
-        "unit02_c1_status": "verification-pending",
+        "unit02_c1_status": "completed",
+        "unit02_c1_implementation_revision": "338d4450e107d6d6bafd56d4baa1ca3e578d0e04",
+        "unit02_c1_reviewed_revision": "3f77594bcb615847bdd71846374184cd2070d305",
+        "unit02_c1_execution_evidence": "forge/runs/UNIT-02-C1/20260722T115720Z-338d4450e107/run.json",
+        "unit02_c1_visual_receipts": 53,
         "issues": []
       },
       "open_questions": [
         "OQ-DB1",
         "OQ-DB2"
       ],
-      "supersedes": "13c8d324d95e18d559bc97c6077fba5e7a89795ee2d4445ffbc7f50105d2ef8f"
+      "supersedes": "ec5c5038f196e10f64301aea54b403bf017ddf6fa3259784dba08e1593252b5a"
     },
     "architecture": {
       "path": "docs/architecture.md",
@@ -492,14 +528,14 @@
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "2026-07-22-unit02-c1-contract-reconciled",
+      "source_version": "2026-07-22-unit02-c1-evidence-reconciled",
       "source_hashes": {
         "prd": "e8a3fad29c1d7b485ec55bd95f92764048de64fda4a08c5275fb349e9b079671",
         "guardrails": "6023487b6026c6b7b831c69b7d606ddc3891501ab91ef0b4f7f9b51a135dadd6",
         "user-journey": "d22378db5ee0040fcac2d4d60d68f31bc3f365c89b1c74e3f45556d845a9a9cf",
         "screen-map": "9e6cde1ceece17fc2bbb9bd17660acc5833af9c7a88940470e4a94228b547356",
         "wireframes": "e5da0fe3113b1372c1d3127cb19f12d6f7ddadbe280707f8b233f76ee7067f4f",
-        "design-brief": "9b3884de00e1d79c040cd5d885121478fe17b66911d2a0cafdb90a03cea313e2",
+        "design-brief": "e57ecfb91b78598dd0dcb59787eef42d354e856fe049e1881143a360f4969e67",
         "project-context": "ee812b13c882c794ffdcf101d4b84b9ee2fc4c78c17a1e6867714cc430c2fb4d",
         "canonical-terms": "7eb06f5fb353d0a65b893a9195291f4eafc5ceb1d6f75380b8e4224632156c16"
       },
@@ -520,13 +556,13 @@
       "dependency_status": {
         "design-brief": "validated"
       },
-      "content_hash": "5453f6131939a9511f293353d0477a3d7608e93fad592b0226a03666191a9f26",
+      "content_hash": "4986e4a14071444553ece4f1f7366cfe62206057b9c546986cf0d4d537879e0b",
       "validation": {
         "owner_boundary": true,
         "required_structure": true,
         "source_traceability": true,
         "consumed_fragment_hash_algorithm": "SHA-256 of UTF-8 LF-normalized numbered section including heading, trimEnd plus one LF",
-        "dependency_revalidation": "passed for V3 contracts; UNIT-02-C1 implementation evidence pending",
+        "dependency_revalidation": "passed after UNIT-02-C1 revision-bound evidence reconciliation",
         "approved_baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
         "operator_correction_scope": [
           "square Book Covers",
@@ -536,14 +572,18 @@
           "public 35/65 formula and manager 29+6+65 split",
           "transparent SVG logo"
         ],
-        "unit02_c1_status": "verification-pending",
+        "unit02_c1_status": "completed",
+        "unit02_c1_implementation_revision": "338d4450e107d6d6bafd56d4baa1ca3e578d0e04",
+        "unit02_c1_reviewed_revision": "3f77594bcb615847bdd71846374184cd2070d305",
+        "unit02_c1_execution_evidence": "forge/runs/UNIT-02-C1/20260722T115720Z-338d4450e107/run.json",
+        "unit02_c1_visual_receipts": 53,
         "issues": []
       },
       "open_questions": [
         "OQ-AR3",
         "OQ-AR4"
       ],
-      "supersedes": "4dc3b0c457f5a77a948389ccc332c0e4262a679a6d440fe598b97ddc6c13b173"
+      "supersedes": "5453f6131939a9511f293353d0477a3d7608e93fad592b0226a03666191a9f26"
     },
     "dod-evals": {
       "path": "docs/dod-evals.md",
@@ -554,12 +594,12 @@
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "2026-07-22-unit02-c1-contract-reconciled",
+      "source_version": "2026-07-22-unit02-c1-evidence-reconciled",
       "source_hashes": {
         "prd": "e8a3fad29c1d7b485ec55bd95f92764048de64fda4a08c5275fb349e9b079671",
         "guardrails": "6023487b6026c6b7b831c69b7d606ddc3891501ab91ef0b4f7f9b51a135dadd6",
-        "architecture": "5453f6131939a9511f293353d0477a3d7608e93fad592b0226a03666191a9f26",
-        "design-brief": "9b3884de00e1d79c040cd5d885121478fe17b66911d2a0cafdb90a03cea313e2",
+        "architecture": "4986e4a14071444553ece4f1f7366cfe62206057b9c546986cf0d4d537879e0b",
+        "design-brief": "e57ecfb91b78598dd0dcb59787eef42d354e856fe049e1881143a360f4969e67",
         "screen-map": "9e6cde1ceece17fc2bbb9bd17660acc5833af9c7a88940470e4a94228b547356",
         "wireframes": "e5da0fe3113b1372c1d3127cb19f12d6f7ddadbe280707f8b233f76ee7067f4f",
         "user-journey": "d22378db5ee0040fcac2d4d60d68f31bc3f365c89b1c74e3f45556d845a9a9cf",
@@ -576,13 +616,13 @@
       "dependency_status": {
         "architecture": "validated"
       },
-      "content_hash": "c11409f53f5b06e2c5184725eb69642fdd4c6756690fd122e1521a7f2d2dd9c3",
+      "content_hash": "95563f4bfafdc8c15d4c3ebe2bc7c04c415c9742f51ddd10a105c04720849efe",
       "validation": {
         "owner_boundary": true,
         "required_structure": true,
         "source_traceability": true,
         "consumed_fragment_hash_algorithm": "SHA-256 of UTF-8 LF-normalized numbered section including heading, trimEnd plus one LF",
-        "dependency_revalidation": "passed for V3 contracts; UNIT-02-C1 implementation evidence pending",
+        "dependency_revalidation": "passed after UNIT-02-C1 revision-bound evidence reconciliation",
         "approved_baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
         "operator_correction_scope": [
           "square Book Covers",
@@ -592,11 +632,15 @@
           "public 35/65 formula and manager 29+6+65 split",
           "transparent SVG logo"
         ],
-        "unit02_c1_status": "verification-pending",
+        "unit02_c1_status": "completed",
+        "unit02_c1_implementation_revision": "338d4450e107d6d6bafd56d4baa1ca3e578d0e04",
+        "unit02_c1_reviewed_revision": "3f77594bcb615847bdd71846374184cd2070d305",
+        "unit02_c1_execution_evidence": "forge/runs/UNIT-02-C1/20260722T115720Z-338d4450e107/run.json",
+        "unit02_c1_visual_receipts": 53,
         "issues": []
       },
       "open_questions": [],
-      "supersedes": "27631ff1313f2f6beafd9c22ddff0f5c7cadc36c77398158621915a141bd24a5"
+      "supersedes": "c11409f53f5b06e2c5184725eb69642fdd4c6756690fd122e1521a7f2d2dd9c3"
     },
     "qa-checklist": {
       "path": "docs/qa-checklist.md",
@@ -607,15 +651,15 @@
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "2026-07-22-unit02-c1-contract-reconciled",
+      "source_version": "2026-07-22-unit02-c1-evidence-reconciled",
       "source_hashes": {
         "prd": "e8a3fad29c1d7b485ec55bd95f92764048de64fda4a08c5275fb349e9b079671",
         "user-journey": "d22378db5ee0040fcac2d4d60d68f31bc3f365c89b1c74e3f45556d845a9a9cf",
         "screen-map": "9e6cde1ceece17fc2bbb9bd17660acc5833af9c7a88940470e4a94228b547356",
         "wireframes": "e5da0fe3113b1372c1d3127cb19f12d6f7ddadbe280707f8b233f76ee7067f4f",
-        "design-brief": "9b3884de00e1d79c040cd5d885121478fe17b66911d2a0cafdb90a03cea313e2",
-        "architecture": "5453f6131939a9511f293353d0477a3d7608e93fad592b0226a03666191a9f26",
-        "dod-evals": "c11409f53f5b06e2c5184725eb69642fdd4c6756690fd122e1521a7f2d2dd9c3",
+        "design-brief": "e57ecfb91b78598dd0dcb59787eef42d354e856fe049e1881143a360f4969e67",
+        "architecture": "4986e4a14071444553ece4f1f7366cfe62206057b9c546986cf0d4d537879e0b",
+        "dod-evals": "95563f4bfafdc8c15d4c3ebe2bc7c04c415c9742f51ddd10a105c04720849efe",
         "guardrails": "6023487b6026c6b7b831c69b7d606ddc3891501ab91ef0b4f7f9b51a135dadd6",
         "project-context": "ee812b13c882c794ffdcf101d4b84b9ee2fc4c78c17a1e6867714cc430c2fb4d",
         "canonical-terms": "7eb06f5fb353d0a65b893a9195291f4eafc5ceb1d6f75380b8e4224632156c16",
@@ -639,13 +683,13 @@
       "dependency_status": {
         "dod-evals": "validated"
       },
-      "content_hash": "0cd24957472a688d2fcc360d2acf9ca45de3dc078d085b58d5eaf365dd2797fb",
+      "content_hash": "da278c0e550a6d9c95d6e35a9ef932e101acaf03e0d0162e91494742721e96fd",
       "validation": {
         "owner_boundary": true,
         "required_structure": true,
         "source_traceability": true,
         "consumed_fragment_hash_algorithm": "SHA-256 of UTF-8 LF-normalized numbered section including heading, trimEnd plus one LF",
-        "dependency_revalidation": "passed for V3 contracts; UNIT-02-C1 implementation evidence pending",
+        "dependency_revalidation": "passed after UNIT-02-C1 revision-bound evidence reconciliation",
         "approved_baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
         "operator_correction_scope": [
           "square Book Covers",
@@ -655,11 +699,15 @@
           "public 35/65 formula and manager 29+6+65 split",
           "transparent SVG logo"
         ],
-        "unit02_c1_status": "verification-pending",
+        "unit02_c1_status": "completed",
+        "unit02_c1_implementation_revision": "338d4450e107d6d6bafd56d4baa1ca3e578d0e04",
+        "unit02_c1_reviewed_revision": "3f77594bcb615847bdd71846374184cd2070d305",
+        "unit02_c1_execution_evidence": "forge/runs/UNIT-02-C1/20260722T115720Z-338d4450e107/run.json",
+        "unit02_c1_visual_receipts": 53,
         "issues": []
       },
       "open_questions": [],
-      "supersedes": "bab52a16bdca0ad887a6e0b50ffa21453d5aa46b713288f4f6768813ccdc215b"
+      "supersedes": "0cd24957472a688d2fcc360d2acf9ca45de3dc078d085b58d5eaf365dd2797fb"
     },
     "development-plan": {
       "path": "docs/development-plan.md",
@@ -670,17 +718,17 @@
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "1.7-unit02-c1-verification-pending",
+      "source_version": "1.7-unit02-c1-completed",
       "source_hashes": {
         "prd": "e8a3fad29c1d7b485ec55bd95f92764048de64fda4a08c5275fb349e9b079671",
         "user-journey": "d22378db5ee0040fcac2d4d60d68f31bc3f365c89b1c74e3f45556d845a9a9cf",
         "screen-map": "9e6cde1ceece17fc2bbb9bd17660acc5833af9c7a88940470e4a94228b547356",
         "wireframes": "e5da0fe3113b1372c1d3127cb19f12d6f7ddadbe280707f8b233f76ee7067f4f",
-        "design-brief": "9b3884de00e1d79c040cd5d885121478fe17b66911d2a0cafdb90a03cea313e2",
-        "architecture": "5453f6131939a9511f293353d0477a3d7608e93fad592b0226a03666191a9f26",
-        "dod-evals": "c11409f53f5b06e2c5184725eb69642fdd4c6756690fd122e1521a7f2d2dd9c3",
+        "design-brief": "e57ecfb91b78598dd0dcb59787eef42d354e856fe049e1881143a360f4969e67",
+        "architecture": "4986e4a14071444553ece4f1f7366cfe62206057b9c546986cf0d4d537879e0b",
+        "dod-evals": "95563f4bfafdc8c15d4c3ebe2bc7c04c415c9742f51ddd10a105c04720849efe",
         "guardrails": "6023487b6026c6b7b831c69b7d606ddc3891501ab91ef0b4f7f9b51a135dadd6",
-        "qa-checklist": "0cd24957472a688d2fcc360d2acf9ca45de3dc078d085b58d5eaf365dd2797fb",
+        "qa-checklist": "da278c0e550a6d9c95d6e35a9ef932e101acaf03e0d0162e91494742721e96fd",
         "project-context": "ee812b13c882c794ffdcf101d4b84b9ee2fc4c78c17a1e6867714cc430c2fb4d",
         "canonical-terms": "7eb06f5fb353d0a65b893a9195291f4eafc5ceb1d6f75380b8e4224632156c16",
         "official-logo-transparent-svg": "db838dd4ad696f63cccb6aa86ab98e53dc5c6e13c1778ac340f62c5e4514617f",
@@ -705,13 +753,13 @@
         "qa-checklist": "validated",
         "design-brief": "validated"
       },
-      "content_hash": "24d2d0eb339de3892f062e39850f6841db5b57632f53d0835b2f1c31e4f144eb",
+      "content_hash": "d8ea21cc896292effee5c7fac463646640e57d46c72da7bfeebdd6227b786e97",
       "validation": {
         "owner_boundary": true,
         "required_structure": true,
         "source_traceability": true,
         "consumed_fragment_hash_algorithm": "SHA-256 of UTF-8 LF-normalized numbered section including heading, trimEnd plus one LF",
-        "dependency_revalidation": "passed for V3 contracts; UNIT-02-C1 implementation evidence pending",
+        "dependency_revalidation": "passed after UNIT-02-C1 revision-bound evidence reconciliation",
         "approved_baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
         "operator_correction_scope": [
           "square Book Covers",
@@ -721,7 +769,11 @@
           "public 35/65 formula and manager 29+6+65 split",
           "transparent SVG logo"
         ],
-        "unit02_c1_status": "verification-pending",
+        "unit02_c1_status": "completed",
+        "unit02_c1_implementation_revision": "338d4450e107d6d6bafd56d4baa1ca3e578d0e04",
+        "unit02_c1_reviewed_revision": "3f77594bcb615847bdd71846374184cd2070d305",
+        "unit02_c1_execution_evidence": "forge/runs/UNIT-02-C1/20260722T115720Z-338d4450e107/run.json",
+        "unit02_c1_visual_receipts": 53,
         "issues": []
       },
       "open_questions": [
@@ -729,7 +781,7 @@
         "OQ-DP2",
         "OQ-DP3"
       ],
-      "supersedes": "2bc6297ceff1608b87a86cf3d4deaf693743e85ba2ef5b4f82b90af3fdb469ab"
+      "supersedes": "24d2d0eb339de3892f062e39850f6841db5b57632f53d0835b2f1c31e4f144eb"
     }
   },
   "prototype_candidates": [
@@ -925,7 +977,7 @@
       "canonical_screenshot": "output/playwright/baseline-s01-v3-1280.png",
       "canonical_screenshot_sha256": "25d667d08214092f8bf8df93bf0a2c15738a2a28430286ec98c05a0f173d1984",
       "external_default_browser_open_result": {
-        "result": "pending-unit-finalization"
+        "result": "opened-in-external-Chrome-and-left-open"
       },
       "geometry_comparison": "inherited header/hero boxes equal V2; approved shelf extension is +24px",
       "console_result": {
@@ -1021,7 +1073,8 @@
       "unit_id": "UNIT-02",
       "impact": "V2 visual execution invalidated by direct operator correction",
       "resolution_unit": "UNIT-02-C1",
-      "status": "execution-invalidated"
+      "status": "resolved",
+      "evidence": "forge/runs/UNIT-02-C1/20260722T115720Z-338d4450e107/run.json"
     },
     {
       "unit_id": "UNIT-07",
@@ -1037,11 +1090,16 @@
   "input_requests": [],
   "pause_reason": null,
   "last_resume_event": {
-    "type": "operator-correction-unit-started",
-    "timestamp": "2026-07-22T11:39:01.656Z",
+    "type": "operator-correction-unit-completed",
+    "timestamp": "2026-07-22T12:10:51.815Z",
     "operator_instruction": "Correction unit with six exact visual/formula changes",
     "unit": "UNIT-02-C1",
-    "decision": "approve V3 scoped correction, invalidate V2 visual execution, and hold next-ready execution until correction evidence passes"
+    "implementation_revision": "338d4450e107d6d6bafd56d4baa1ca3e578d0e04",
+    "reviewed_revision": "3f77594bcb615847bdd71846374184cd2070d305",
+    "evidence": "forge/runs/UNIT-02-C1/20260722T115720Z-338d4450e107/run.json",
+    "decision": "resolve UNIT-02 visual invalidation against V3, retain UNIT-02 behavior evidence, and restore UNIT-03 as next executable unit"
   },
-  "next_ready_nodes": []
+  "next_ready_nodes": [
+    "phase-3:UNIT-03"
+  ]
 }
