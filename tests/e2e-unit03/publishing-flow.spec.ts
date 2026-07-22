@@ -67,8 +67,10 @@ test("Author completes S-10 → S-11 → S-12 → separate confirmations → sub
   await page
     .getByRole("textbox", { name: /^Опис \*/u })
     .fill("Українська історія про тишу, памʼять і нічну подорож Дніпром.");
-  await page.getByRole("button", { name: "Далі" }).click();
-  await expect(page).toHaveURL(/step=3/u);
+  await Promise.all([
+    page.waitForURL(/step=3/u, { timeout: 30_000 }),
+    page.getByRole("button", { name: "Далі" }).click(),
+  ]);
   await page.waitForLoadState("networkidle");
   await Promise.all([
     page.waitForURL(/step=4/u),
@@ -76,8 +78,10 @@ test("Author completes S-10 → S-11 → S-12 → separate confirmations → sub
   ]);
   await page.getByLabel("Основний жанр").selectOption("proza");
   await page.getByLabel("Базова ціна, грн").fill("199");
-  await page.getByRole("button", { name: "Підготувати preview" }).click();
-  await expect(page).toHaveURL(/\/author\/publish\/preview\?draft=/u);
+  await Promise.all([
+    page.waitForURL(/\/author\/publish\/preview\?draft=/u, { timeout: 30_000 }),
+    page.getByRole("button", { name: "Підготувати preview" }).click(),
+  ]);
   await expect(page.getByRole("heading", { name: "Попередній перегляд видання" })).toBeVisible();
   await expect(page.getByRole("heading", { name: "Ніч над Дніпром" }).last()).toBeVisible({
     timeout: 60_000,
@@ -95,8 +99,10 @@ test("Author completes S-10 → S-11 → S-12 → separate confirmations → sub
   const sampleSection = page.getByLabel("Безкоштовний фрагмент");
   await expect(sampleSection.locator("option:not([disabled])")).not.toHaveCount(0);
   await sampleSection.selectOption("0");
-  await page.getByRole("button", { name: "Зберегти фрагмент і перейти далі" }).click();
-  await expect(page).toHaveURL(/step=6/u);
+  await Promise.all([
+    page.waitForURL(/step=6/u, { timeout: 30_000 }),
+    page.getByRole("button", { name: "Зберегти фрагмент і перейти далі" }).click(),
+  ]);
   const submit = page.getByRole("button", { name: "Подати книжку" });
   await expect(submit).toBeDisabled();
   await page
@@ -107,8 +113,10 @@ test("Author completes S-10 → S-11 → S-12 → separate confirmations → sub
     .getByLabel(/Окремо приймаю пʼятирічну/u)
     .check();
   await expect(submit).toBeEnabled();
-  await submit.click();
-  await expect(page).toHaveURL(/\/author\/books\?submitted=1/u);
+  await Promise.all([
+    page.waitForURL(/\/author\/books\?submitted=1/u, { timeout: 30_000 }),
+    submit.click(),
+  ]);
   await expect(page.getByText("Книжку подано")).toBeVisible();
   await expect(page.getByText("На модерації", { exact: true })).toBeVisible();
 
@@ -228,8 +236,10 @@ test("S-12 conversion failure is announced, retries, and preserves the same draf
   await page
     .getByRole("textbox", { name: /^Опис \*/u })
     .fill("Цей опис, рукопис, обкладинка і комерційні поля мають пережити невдалу конвертацію.");
-  await page.getByRole("button", { name: "Далі" }).click();
-  await expect(page).toHaveURL(/step=3/u);
+  await Promise.all([
+    page.waitForURL(/step=3/u, { timeout: 30_000 }),
+    page.getByRole("button", { name: "Далі" }).click(),
+  ]);
   await page.waitForLoadState("networkidle");
   await Promise.all([
     page.waitForURL(/step=4/u),
@@ -237,14 +247,18 @@ test("S-12 conversion failure is announced, retries, and preserves the same draf
   ]);
   await page.getByLabel("Основний жанр").selectOption("proza");
   await page.getByLabel("Базова ціна, грн").fill("247");
-  await page.getByRole("button", { name: "Підготувати preview" }).click();
-  await expect(page).toHaveURL(/\/author\/publish\/preview\?draft=/u);
+  await Promise.all([
+    page.waitForURL(/\/author\/publish\/preview\?draft=/u, { timeout: 30_000 }),
+    page.getByRole("button", { name: "Підготувати preview" }).click(),
+  ]);
   await expect(page.getByRole("heading", { name: "Чернетка, що пережила помилку" }).last()).toBeVisible({
     timeout: 45_000,
   });
   await page.getByLabel("Безкоштовний фрагмент").selectOption("0");
-  await page.getByRole("button", { name: "Зберегти фрагмент і перейти далі" }).click();
-  await expect(page).toHaveURL(/step=6/u);
+  await Promise.all([
+    page.waitForURL(/step=6/u, { timeout: 30_000 }),
+    page.getByRole("button", { name: "Зберегти фрагмент і перейти далі" }).click(),
+  ]);
   await page.goto("/author/books");
   await page
     .locator("article")

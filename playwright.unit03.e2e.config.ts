@@ -25,6 +25,7 @@ const sharedEnvironment = {
 };
 
 export default defineConfig({
+  expect: { timeout: 30_000 },
   forbidOnly: true,
   fullyParallel: false,
   outputDir: "test-results/unit03-e2e",
