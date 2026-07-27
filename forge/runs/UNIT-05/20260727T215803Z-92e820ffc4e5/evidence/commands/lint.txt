@@ -1,0 +1,17 @@
+name: lint
+command: npm run lint
+implementation_revision: 92e820ffc4e5c69752543457ad7fecf12e960c15
+started_at: 2026-07-27T21:58:06.102Z
+finished_at: 2026-07-27T21:58:10.369Z
+exit_code: 0
+signal: none
+
+[stdout]
+
+> ukiebook-3@0.1.0 lint
+> eslint . --max-warnings=0 && node scripts/verify-source-boundaries.mjs && node scripts/prove-client-boundary-negative.mjs
+
+Source boundaries passed across 190 files and 13 client roots.
+Negative transitive client import was rejected as expected.
+
+[stderr]

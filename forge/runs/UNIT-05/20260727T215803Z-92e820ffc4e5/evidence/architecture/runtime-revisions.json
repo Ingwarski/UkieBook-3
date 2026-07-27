@@ -1,0 +1,24 @@
+{
+  "process_identities": [
+    {
+      "app_revision": "92e820ffc4e5c69752543457ad7fecf12e960c15",
+      "role": "worker",
+      "schema_revision": "0006_commerce_checkout"
+    },
+    {
+      "app_revision": "92e820ffc4e5c69752543457ad7fecf12e960c15",
+      "role": "scheduler",
+      "schema_revision": "0006_commerce_checkout"
+    },
+    {
+      "app_revision": "92e820ffc4e5c69752543457ad7fecf12e960c15",
+      "role": "db-migrate",
+      "schema_revision": "0006_commerce_checkout"
+    }
+  ],
+  "status": "passed",
+  "web": {
+    "app_revision": "92e820ffc4e5c69752543457ad7fecf12e960c15",
+    "schema_revision": "0006_commerce_checkout"
+  }
+}

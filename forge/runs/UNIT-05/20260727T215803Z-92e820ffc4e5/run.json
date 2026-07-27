@@ -1,0 +1,228 @@
+{
+  "baseline_binding": {
+    "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+    "manifest": "forge/sdd-manifest.json",
+    "manifest_sha256": "4030afc7135f9274e479599e1359cbc3b5278cf4b5623712d0dfff387e1367dc",
+    "target_bundle_hash": "e50c9f82c241195d7f5d8876d9dcdcd7fd45b71cdaf6d2eedfe2e327a7182724",
+    "visual_qa_evidence": "forge/design/evidence/AVB-UKIEBOOK-AURORA-7B-V3.visual-qa.json",
+    "visual_qa_evidence_sha256": "ffae4a71e0db785033aad606e91b1557ef46d56d86690f8e09ae6cc81906323c"
+  },
+  "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+  "commands": [
+    {
+      "arguments": [
+        "ls",
+        "--depth=0"
+      ],
+      "command": "npm ls --depth=0",
+      "executable": "npm",
+      "exit_code": 0,
+      "finished_at": "2026-07-27T21:58:04.016Z",
+      "name": "dependency-tree",
+      "receipt": "evidence/commands/dependency-tree.txt",
+      "signal": null,
+      "started_at": "2026-07-27T21:58:03.769Z"
+    },
+    {
+      "arguments": [
+        "audit",
+        "--audit-level=high"
+      ],
+      "command": "npm audit --audit-level=high",
+      "executable": "npm",
+      "exit_code": 0,
+      "finished_at": "2026-07-27T21:58:04.697Z",
+      "name": "dependency-audit",
+      "receipt": "evidence/commands/dependency-audit.txt",
+      "signal": null,
+      "started_at": "2026-07-27T21:58:04.017Z"
+    },
+    {
+      "arguments": [
+        "run",
+        "typecheck"
+      ],
+      "command": "npm run typecheck",
+      "executable": "npm",
+      "exit_code": 0,
+      "finished_at": "2026-07-27T21:58:06.101Z",
+      "name": "typecheck",
+      "receipt": "evidence/commands/typecheck.txt",
+      "signal": null,
+      "started_at": "2026-07-27T21:58:04.698Z"
+    },
+    {
+      "arguments": [
+        "run",
+        "lint"
+      ],
+      "command": "npm run lint",
+      "executable": "npm",
+      "exit_code": 0,
+      "finished_at": "2026-07-27T21:58:10.369Z",
+      "name": "lint",
+      "receipt": "evidence/commands/lint.txt",
+      "signal": null,
+      "started_at": "2026-07-27T21:58:06.102Z"
+    },
+    {
+      "arguments": [
+        "test"
+      ],
+      "command": "npm test",
+      "executable": "npm",
+      "exit_code": 0,
+      "finished_at": "2026-07-27T21:58:25.716Z",
+      "name": "unit-tests",
+      "receipt": "evidence/commands/unit-tests.txt",
+      "signal": null,
+      "started_at": "2026-07-27T21:58:10.369Z"
+    },
+    {
+      "arguments": [
+        "run",
+        "verify:repository"
+      ],
+      "command": "npm run verify:repository",
+      "executable": "npm",
+      "exit_code": 0,
+      "finished_at": "2026-07-27T21:58:26.231Z",
+      "name": "repository-hygiene",
+      "receipt": "evidence/commands/repository-hygiene.txt",
+      "signal": null,
+      "started_at": "2026-07-27T21:58:25.719Z"
+    },
+    {
+      "arguments": [
+        "run",
+        "build"
+      ],
+      "command": "npm run build",
+      "executable": "npm",
+      "exit_code": 0,
+      "finished_at": "2026-07-27T21:58:35.195Z",
+      "name": "build",
+      "receipt": "evidence/commands/build.txt",
+      "signal": null,
+      "started_at": "2026-07-27T21:58:26.232Z"
+    },
+    {
+      "arguments": [
+        "run",
+        "verify:unit05:postgres"
+      ],
+      "command": "npm run verify:unit05:postgres",
+      "executable": "npm",
+      "exit_code": 0,
+      "finished_at": "2026-07-27T21:58:36.340Z",
+      "name": "real-postgres-unit05",
+      "receipt": "evidence/commands/real-postgres-unit05.txt",
+      "signal": null,
+      "started_at": "2026-07-27T21:58:35.196Z"
+    },
+    {
+      "arguments": [
+        "--no-install",
+        "tsx",
+        "--conditions=react-server",
+        "scripts/reset-unit05-test-state.ts"
+      ],
+      "command": "npx --no-install tsx --conditions=react-server scripts/reset-unit05-test-state.ts",
+      "executable": "npx",
+      "exit_code": 0,
+      "finished_at": "2026-07-27T21:58:36.812Z",
+      "name": "reset-before-unit05-e2e",
+      "receipt": "evidence/commands/reset-before-unit05-e2e.txt",
+      "signal": null,
+      "started_at": "2026-07-27T21:58:36.342Z"
+    },
+    {
+      "arguments": [
+        "run",
+        "test:unit05:e2e",
+        "--",
+        "--trace=off"
+      ],
+      "command": "npm run test:unit05:e2e -- --trace=off",
+      "executable": "npm",
+      "exit_code": 0,
+      "finished_at": "2026-07-27T21:58:48.465Z",
+      "name": "unit05-e2e",
+      "receipt": "evidence/commands/unit05-e2e.txt",
+      "signal": null,
+      "started_at": "2026-07-27T21:58:36.813Z"
+    },
+    {
+      "arguments": [
+        "--no-install",
+        "tsx",
+        "--conditions=react-server",
+        "scripts/reset-unit05-test-state.ts"
+      ],
+      "command": "npx --no-install tsx --conditions=react-server scripts/reset-unit05-test-state.ts",
+      "executable": "npx",
+      "exit_code": 0,
+      "finished_at": "2026-07-27T21:58:48.904Z",
+      "name": "reset-before-unit05-visual",
+      "receipt": "evidence/commands/reset-before-unit05-visual.txt",
+      "signal": null,
+      "started_at": "2026-07-27T21:58:48.467Z"
+    },
+    {
+      "arguments": [
+        "run",
+        "test:unit05:visual",
+        "--",
+        "--trace=off"
+      ],
+      "command": "npm run test:unit05:visual -- --trace=off",
+      "executable": "npm",
+      "exit_code": 0,
+      "finished_at": "2026-07-27T21:59:12.514Z",
+      "name": "unit05-visual",
+      "receipt": "evidence/commands/unit05-visual.txt",
+      "signal": null,
+      "started_at": "2026-07-27T21:58:48.905Z"
+    }
+  ],
+  "database_proof": {
+    "database_name": "ukiebook_unit05",
+    "engine": "PostgreSQL",
+    "host_class": "loopback-embedded-dedicated",
+    "schema_revision": "0006_commerce_checkout"
+  },
+  "finished_at": "2026-07-27T21:59:12.551Z",
+  "findings": [
+    {
+      "activation_effect": "production-provider-activation-blocking",
+      "release_effect": "advisory",
+      "severity": "P3",
+      "summary": "Live mono acquiring checkout and wallet-method smoke is deferred to a credentialed sandbox or pre-production environment; the production adapter is exercised locally against a signed protocol simulator."
+    }
+  ],
+  "implementation_revision": "92e820ffc4e5c69752543457ad7fecf12e960c15",
+  "implementation_tree": "fb81f020a9a92dd2e88d0552d80cca8ebcb25787",
+  "prototype_reuse": "none",
+  "run_id": "20260727T215803Z-92e820ffc4e5",
+  "source_hashes": {
+    "docs/architecture.md": "2e6069ae1c80fe4941ce73204887a8ff41fcdee7436981503b74648af91e1d1a",
+    "docs/canonical-terms.md": "13e9794dc251668fedb9b7ac88a50f28b01b34c08ab79816f6bce7afd29ae24f",
+    "docs/design-brief.md": "a9803a7c869ba230ca6fa11d7b24c784111d914926f1b2bf943f308f803d9493",
+    "docs/development-plan.md": "144241c173812b65069f3c4392edf1a10332a8b4822008f4829a25fdb1e1a211",
+    "docs/dod-evals.md": "5629873d3ca143c1fa95ec9ac70392170ec69b5f0263f99662c822ca8430bb69",
+    "docs/guardrails.md": "3738d7c6df337b188dd41afc76c0520b4727d7bca9d82d87920829226b9c8cf3",
+    "docs/prd.md": "e8a3fad29c1d7b485ec55bd95f92764048de64fda4a08c5275fb349e9b079671",
+    "docs/product-idea.md": "27f15465b9af01bc716d6f17c307ca38f26df2d206d0423a3d710a07eeb02b04",
+    "docs/project-context.md": "a5ceacdc9af8eaede27e20bac350d4fa552c01e5baa6b8b86c287a7a1187d3bd",
+    "docs/qa-checklist.md": "03477e99363554abef7971325afb4c35beb761902e46d130d4c41eea24e28eda",
+    "docs/screen-map.md": "ae91ce64740c27d40f2d77c018e72c59cb4a18019f485c8024ff66403f624903",
+    "docs/user-journey.md": "901390f9c14ea8c025ff353238f45136b896d2405e3b4a530b76c33e7301faf5",
+    "docs/wireframes.md": "6c3963b5320f22227ef31ba4005aa570884fe68132c26ef23b10f27bf4017a1b",
+    "forge/sdd-manifest.json": "4030afc7135f9274e479599e1359cbc3b5278cf4b5623712d0dfff387e1367dc"
+  },
+  "started_at": "2026-07-27T21:58:03.111Z",
+  "status": "passed",
+  "target_bundle_hash": "e50c9f82c241195d7f5d8876d9dcdcd7fd45b71cdaf6d2eedfe2e327a7182724",
+  "unit": "UNIT-05",
+  "visual_receipt_digest_sha256": "808a42ae719425919c29e8e1a8b8df7c366c7bcc864922a77dba789ec589b342"
+}

@@ -1,0 +1,14 @@
+{
+  "evidence": [
+    "forge/runs/UNIT-05/20260727T215803Z-92e820ffc4e5/evidence/commands/unit-tests.txt",
+    "forge/runs/UNIT-05/20260727T215803Z-92e820ffc4e5/evidence/commands/unit05-e2e.txt",
+    "forge/runs/UNIT-05/20260727T215803Z-92e820ffc4e5/evidence/commands/unit05-visual.txt"
+  ],
+  "gate": "tests",
+  "findings": [],
+  "implementation_revision": "92e820ffc4e5c69752543457ad7fecf12e960c15",
+  "owner": "Codex / commerce and purchase notification",
+  "status": "passed",
+  "timestamp": "2026-07-27T21:59:12.533Z",
+  "unit": "UNIT-05"
+}

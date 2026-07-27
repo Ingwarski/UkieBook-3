@@ -1,0 +1,12 @@
+name: reset-before-unit05-e2e
+command: npx --no-install tsx --conditions=react-server scripts/reset-unit05-test-state.ts
+implementation_revision: 92e820ffc4e5c69752543457ad7fecf12e960c15
+started_at: 2026-07-27T21:58:36.342Z
+finished_at: 2026-07-27T21:58:36.812Z
+exit_code: 0
+signal: none
+
+[stdout]
+{"artifact_roots":["unit05-evidence-private","unit05-evidence-public","unit05-evidence-email","unit05-evidence-mono"],"database":"ukiebook_unit05","schema":"reset-and-migrated","status":"passed"}
+
+[stderr]

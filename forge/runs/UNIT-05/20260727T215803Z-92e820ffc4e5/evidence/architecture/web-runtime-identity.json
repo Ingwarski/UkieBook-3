@@ -1,0 +1,8 @@
+{
+  "app_revision": "92e820ffc4e5c69752543457ad7fecf12e960c15",
+  "executable": ".next/standalone/server.js",
+  "executable_sha256": "387714d2d1be34161a039cba8dfb2eda1d1985c98c65efef70fece520be1f086",
+  "schema_revision": "0006_commerce_checkout",
+  "status": "passed",
+  "verified_at": "2026-07-27T21:59:12.532Z"
+}

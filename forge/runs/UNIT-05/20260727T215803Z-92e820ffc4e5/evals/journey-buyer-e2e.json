@@ -1,0 +1,23 @@
+{
+  "covered_checks": [
+    "guest multi-book Cart persists and merges at OAuth return",
+    "one signed checkout creates one provider invoice",
+    "success reaches S-06 and failure preserves Cart",
+    "missing webhook reaches the same result through reconciliation",
+    "E-01 is captured after paid confirmation"
+  ],
+  "evidence": [
+    "forge/runs/UNIT-05/20260727T215803Z-92e820ffc4e5/evidence/commands/unit05-e2e.txt",
+    "forge/runs/UNIT-05/20260727T215803Z-92e820ffc4e5/evidence/commands/real-postgres-unit05.txt",
+    "forge/runs/UNIT-05/20260727T215803Z-92e820ffc4e5/evidence/database/unit05-postgres-proof.json",
+    "forge/runs/UNIT-05/20260727T215803Z-92e820ffc4e5/evidence/notifications/unit05-purchase-email.json"
+  ],
+  "gate": "journey_buyer_e2e",
+  "scope_limit": "The journey reaches the UNIT-06 Library handoff; entitlement delivery remains UNIT-06-owned.",
+  "findings": [],
+  "implementation_revision": "92e820ffc4e5c69752543457ad7fecf12e960c15",
+  "owner": "Codex / commerce and purchase notification",
+  "status": "passed",
+  "timestamp": "2026-07-27T21:59:12.534Z",
+  "unit": "UNIT-05"
+}

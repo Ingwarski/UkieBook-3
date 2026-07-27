@@ -1,0 +1,13 @@
+{
+  "checked_files": 190,
+  "client_roots": 13,
+  "findings": [],
+  "rules": [
+    "server-only-facade",
+    "runtime-env-import-policy",
+    "transitive-client-secret-boundary",
+    "inward-dependency-direction"
+  ],
+  "status": "passed",
+  "verified_at": "2026-07-27T21:58:10.037Z"
+}

@@ -1,0 +1,14 @@
+{
+  "activation_effect": "production-provider-activation-blocking",
+  "local_protocol_evidence": [
+    "forge/runs/UNIT-05/20260727T215803Z-92e820ffc4e5/evidence/commerce/mono-contract.json",
+    "forge/runs/UNIT-05/20260727T215803Z-92e820ffc4e5/evidence/commands/unit05-e2e.txt"
+  ],
+  "provider": {
+    "reason": "Credentialed mono sandbox or pre-production merchant access is not available to this local run.",
+    "status": "deferred"
+  },
+  "scope": "Live checkout, registered webhook and Apple Pay/Google Pay presentation only; exact production adapter code is covered by the signed local HTTP protocol and browser flow.",
+  "status": "blocked",
+  "verified_at": "2026-07-27T21:59:12.532Z"
+}

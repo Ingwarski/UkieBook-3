@@ -1,0 +1,20 @@
+{
+  "covered_checks": [
+    "E-01 contains the purchased titles and Library link",
+    "notification failure cannot roll back PaidSale",
+    "notification delivery is isolated and idempotent"
+  ],
+  "evidence": [
+    "forge/runs/UNIT-05/20260727T215803Z-92e820ffc4e5/evidence/commands/real-postgres-unit05.txt",
+    "forge/runs/UNIT-05/20260727T215803Z-92e820ffc4e5/evidence/database/unit05-postgres-proof.json",
+    "forge/runs/UNIT-05/20260727T215803Z-92e820ffc4e5/evidence/notifications/unit05-purchase-email.json",
+    "forge/runs/UNIT-05/20260727T215803Z-92e820ffc4e5/evidence/commands/unit05-e2e.txt"
+  ],
+  "gate": "purchase_notification",
+  "findings": [],
+  "implementation_revision": "92e820ffc4e5c69752543457ad7fecf12e960c15",
+  "owner": "Codex / commerce and purchase notification",
+  "status": "passed",
+  "timestamp": "2026-07-27T21:59:12.534Z",
+  "unit": "UNIT-05"
+}

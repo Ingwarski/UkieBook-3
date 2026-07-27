@@ -1,0 +1,6310 @@
+{
+  "accessibility_receipts": [
+    {
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "check_id": "s04-remove-item-focus-status",
+      "implementation_revision": "92e820ffc4e5c69752543457ad7fecf12e960c15",
+      "status": "passed",
+      "focus_return": "cart update status announced"
+    },
+    {
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "check_id": "s04-reflow-200",
+      "implementation_revision": "92e820ffc4e5c69752543457ad7fecf12e960c15",
+      "status": "passed",
+      "checked_viewport": 390,
+      "horizontal_overflow": false
+    },
+    {
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "check_id": "s04-keyboard-order-focus-activation",
+      "implementation_revision": "92e820ffc4e5c69752543457ad7fecf12e960c15",
+      "status": "passed",
+      "keyboard_order": [
+        "UkieBook — головна",
+        "Каталог",
+        "Жанри",
+        "Знижки",
+        "Авторам",
+        "Знайти",
+        "Кошик, 2 книжки",
+        "Меню профілю",
+        "Бібліотека",
+        "Профіль",
+        "Пізнє літо, Олена Вітрова",
+        "Пізнє літо",
+        "Видалити «Пізнє літо» з кошика",
+        "Місто на воді, Олена Вітрова",
+        "Місто на воді",
+        "Видалити «Місто на воді» з кошика",
+        "Продовжити покупки",
+        "Оплатити"
+      ]
+    },
+    {
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "check_id": "s05-transition-status-announcement",
+      "implementation_revision": "92e820ffc4e5c69752543457ad7fecf12e960c15",
+      "status": "passed",
+      "live_region": "Переходимо до оплати"
+    },
+    {
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "check_id": "s06-status-announcement",
+      "implementation_revision": "92e820ffc4e5c69752543457ad7fecf12e960c15",
+      "status": "passed",
+      "live_region": "Оплата підтверджується"
+    },
+    {
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "check_id": "s06-failure-keyboard-activation",
+      "implementation_revision": "92e820ffc4e5c69752543457ad7fecf12e960c15",
+      "status": "passed",
+      "focused_action": "Повернутися в кошик"
+    },
+    {
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "check_id": "s06-success-keyboard-activation",
+      "implementation_revision": "92e820ffc4e5c69752543457ad7fecf12e960c15",
+      "status": "passed",
+      "focused_action": "Перейти в бібліотеку"
+    },
+    {
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "check_id": "s06-reflow-200",
+      "implementation_revision": "92e820ffc4e5c69752543457ad7fecf12e960c15",
+      "status": "passed",
+      "checked_states": [
+        "failure",
+        "success"
+      ],
+      "checked_viewport": 390,
+      "horizontal_overflow": false
+    }
+  ],
+  "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+  "console_errors": [],
+  "expected_accessibility_check_ids": [
+    "s04-keyboard-order-focus-activation",
+    "s04-remove-item-focus-status",
+    "s04-reflow-200",
+    "s05-transition-status-announcement",
+    "s06-status-announcement",
+    "s06-success-keyboard-activation",
+    "s06-failure-keyboard-activation",
+    "s06-reflow-200"
+  ],
+  "expected_receipt_count": 30,
+  "implementation_revision": "92e820ffc4e5c69752543457ad7fecf12e960c15",
+  "page_errors": [],
+  "receipts": [
+    {
+      "accessibility": {
+        "alerts": [],
+        "controlContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "UkieBook — головна",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Кошик, порожній",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Відкрити меню",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(144, 60, 179)",
+            "foreground": "rgb(255, 255, 255)",
+            "label": "Знайти",
+            "threshold": 3,
+            "ratio": 6.029
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Каталог",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Жанри",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Знижки",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Авторам",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Увійти",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(144, 60, 179)",
+            "foreground": "rgb(255, 255, 255)",
+            "label": "До каталогу",
+            "threshold": 3,
+            "ratio": 6.029
+          }
+        ],
+        "formControls": [
+          {
+            "label": "Пошук за назвою або автором",
+            "labelCount": 1
+          }
+        ],
+        "mobileInputs": [
+          {
+            "fontSize": 16,
+            "label": "Пошук за назвою або автором"
+          }
+        ],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Кошик",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Кошик порожній",
+            "threshold": 4.5,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/s04-empty-390@2x.png",
+      "implementation_revision": "92e820ffc4e5c69752543457ad7fecf12e960c15",
+      "layout": {
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "viewportWidth": 390
+      },
+      "screen": "s04",
+      "sha256": "4d500b5da1854b9e993d65d9e28256f63989207edecdb1ef805dcd0673660554",
+      "state": "empty",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Кошик, порожній",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Відкрити меню",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Знайти",
+          "width": 70
+        },
+        {
+          "height": 44,
+          "label": "Каталог",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Жанри",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Знижки",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Авторам",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Увійти",
+          "width": 331
+        },
+        {
+          "height": 48,
+          "label": "До каталогу",
+          "width": 304
+        }
+      ],
+      "viewport": {
+        "device_scale_factor": 2,
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [],
+        "controlContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "UkieBook — головна",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Кошик, порожній",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Відкрити меню",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(144, 60, 179)",
+            "foreground": "rgb(255, 255, 255)",
+            "label": "Знайти",
+            "threshold": 3,
+            "ratio": 6.029
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Каталог",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Жанри",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Знижки",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Авторам",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Увійти",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(144, 60, 179)",
+            "foreground": "rgb(255, 255, 255)",
+            "label": "До каталогу",
+            "threshold": 3,
+            "ratio": 6.029
+          }
+        ],
+        "formControls": [
+          {
+            "label": "Пошук за назвою або автором",
+            "labelCount": 1
+          }
+        ],
+        "mobileInputs": [],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Кошик",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Кошик порожній",
+            "threshold": 4.5,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/s04-empty-768@2x.png",
+      "implementation_revision": "92e820ffc4e5c69752543457ad7fecf12e960c15",
+      "layout": {
+        "clientWidth": 768,
+        "scrollWidth": 768,
+        "viewportWidth": 768
+      },
+      "screen": "s04",
+      "sha256": "26a13b7c6ef0c29fb6d1058c13ccea1c3ba5826412204a2c2279d52b09ff0e0b",
+      "state": "empty",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Кошик, порожній",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Відкрити меню",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Знайти",
+          "width": 70
+        },
+        {
+          "height": 44,
+          "label": "Каталог",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Жанри",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Знижки",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Авторам",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Увійти",
+          "width": 331
+        },
+        {
+          "height": 48,
+          "label": "До каталогу",
+          "width": 634
+        }
+      ],
+      "viewport": {
+        "device_scale_factor": 2,
+        "height": 1024,
+        "width": 768
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [],
+        "controlContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "UkieBook — головна",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(112, 95, 85)",
+            "label": "Каталог",
+            "threshold": 3,
+            "ratio": 5.742
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(112, 95, 85)",
+            "label": "Жанри",
+            "threshold": 3,
+            "ratio": 5.742
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(112, 95, 85)",
+            "label": "Знижки",
+            "threshold": 3,
+            "ratio": 5.742
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(112, 95, 85)",
+            "label": "Авторам",
+            "threshold": 3,
+            "ratio": 5.742
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(112, 95, 85)",
+            "label": "Знайти",
+            "threshold": 3,
+            "ratio": 5.742
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Кошик, порожній",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(144, 60, 179)",
+            "foreground": "rgb(255, 255, 255)",
+            "label": "До каталогу",
+            "threshold": 3,
+            "ratio": 6.029
+          }
+        ],
+        "formControls": [
+          {
+            "label": "Пошук за назвою або автором",
+            "labelCount": 1
+          }
+        ],
+        "mobileInputs": [],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Кошик",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Кошик порожній",
+            "threshold": 4.5,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/s04-empty-1280@2x.png",
+      "implementation_revision": "92e820ffc4e5c69752543457ad7fecf12e960c15",
+      "layout": {
+        "clientWidth": 1280,
+        "scrollWidth": 1280,
+        "viewportWidth": 1280
+      },
+      "screen": "s04",
+      "sha256": "b8287795b210fa1e0d2de1c123527b8d02a3932042075698dcdc7f631f93eb9b",
+      "state": "empty",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Каталог",
+          "width": 55
+        },
+        {
+          "height": 44,
+          "label": "Жанри",
+          "width": 47
+        },
+        {
+          "height": 44,
+          "label": "Знижки",
+          "width": 54
+        },
+        {
+          "height": 44,
+          "label": "Авторам",
+          "width": 59
+        },
+        {
+          "height": 44,
+          "label": "Знайти",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Кошик, порожній",
+          "width": 44
+        },
+        {
+          "height": 48,
+          "label": "До каталогу",
+          "width": 910
+        }
+      ],
+      "viewport": {
+        "device_scale_factor": 2,
+        "height": 900,
+        "width": 1280
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [],
+        "controlContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "UkieBook — головна",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Кошик, 2 книжки",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Відкрити меню",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(144, 60, 179)",
+            "foreground": "rgb(255, 255, 255)",
+            "label": "Знайти",
+            "threshold": 3,
+            "ratio": 6.029
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Каталог",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Жанри",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Знижки",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Авторам",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Увійти",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(178, 107, 214)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Пізнє літо, Олена Вітрова",
+            "threshold": 3,
+            "ratio": 4.216
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Пізнє літо",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Видалити «Пізнє літо» з кошика",
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ],
+        "formControls": [
+          {
+            "label": "Пошук за назвою або автором",
+            "labelCount": 1
+          }
+        ],
+        "mobileInputs": [
+          {
+            "fontSize": 16,
+            "label": "Пошук за назвою або автором"
+          }
+        ],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Кошик",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Книжки",
+            "threshold": 4.5,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Пізнє літо",
+            "threshold": 4.5,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/s04-auth-required-390@2x.png",
+      "implementation_revision": "92e820ffc4e5c69752543457ad7fecf12e960c15",
+      "layout": {
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "viewportWidth": 390
+      },
+      "screen": "s04",
+      "sha256": "766bc3e875c70f936654d9be5a7b28ae9deb27b7b7664f5824d72884340a7a51",
+      "state": "auth-required",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Кошик, 2 книжки",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Відкрити меню",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Знайти",
+          "width": 70
+        },
+        {
+          "height": 44,
+          "label": "Каталог",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Жанри",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Знижки",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Авторам",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Увійти",
+          "width": 331
+        },
+        {
+          "height": 96,
+          "label": "Пізнє літо, Олена Вітрова",
+          "width": 64
+        },
+        {
+          "height": 44,
+          "label": "Пізнє літо",
+          "width": 90
+        },
+        {
+          "height": 44,
+          "label": "Видалити «Пізнє літо» з кошика",
+          "width": 44
+        },
+        {
+          "height": 96,
+          "label": "Місто на воді, Олена Вітрова",
+          "width": 64
+        },
+        {
+          "height": 44,
+          "label": "Місто на воді",
+          "width": 119
+        },
+        {
+          "height": 44,
+          "label": "Видалити «Місто на воді» з кошика",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Продовжити покупки",
+          "width": 198
+        },
+        {
+          "height": 48,
+          "label": "Оплатити",
+          "width": 328
+        }
+      ],
+      "viewport": {
+        "device_scale_factor": 2,
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [],
+        "controlContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "UkieBook — головна",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Кошик, 2 книжки",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Відкрити меню",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(144, 60, 179)",
+            "foreground": "rgb(255, 255, 255)",
+            "label": "Знайти",
+            "threshold": 3,
+            "ratio": 6.029
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Каталог",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Жанри",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Знижки",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Авторам",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Увійти",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(178, 107, 214)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Пізнє літо, Олена Вітрова",
+            "threshold": 3,
+            "ratio": 4.216
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Пізнє літо",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Видалити «Пізнє літо» з кошика",
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ],
+        "formControls": [
+          {
+            "label": "Пошук за назвою або автором",
+            "labelCount": 1
+          }
+        ],
+        "mobileInputs": [],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Кошик",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Книжки",
+            "threshold": 4.5,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Пізнє літо",
+            "threshold": 4.5,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/s04-auth-required-768@2x.png",
+      "implementation_revision": "92e820ffc4e5c69752543457ad7fecf12e960c15",
+      "layout": {
+        "clientWidth": 768,
+        "scrollWidth": 768,
+        "viewportWidth": 768
+      },
+      "screen": "s04",
+      "sha256": "00ad6f7e0fe5459bc0a89f03f17c83cd35d1ef1de930deeb3563fe288319ee48",
+      "state": "auth-required",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Кошик, 2 книжки",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Відкрити меню",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Знайти",
+          "width": 70
+        },
+        {
+          "height": 44,
+          "label": "Каталог",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Жанри",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Знижки",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Авторам",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Увійти",
+          "width": 331
+        },
+        {
+          "height": 108,
+          "label": "Пізнє літо, Олена Вітрова",
+          "width": 72
+        },
+        {
+          "height": 44,
+          "label": "Пізнє літо",
+          "width": 95
+        },
+        {
+          "height": 44,
+          "label": "Видалити «Пізнє літо» з кошика",
+          "width": 44
+        },
+        {
+          "height": 108,
+          "label": "Місто на воді, Олена Вітрова",
+          "width": 72
+        },
+        {
+          "height": 44,
+          "label": "Місто на воді",
+          "width": 126
+        },
+        {
+          "height": 44,
+          "label": "Видалити «Місто на воді» з кошика",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Продовжити покупки",
+          "width": 198
+        },
+        {
+          "height": 48,
+          "label": "Оплатити",
+          "width": 470
+        }
+      ],
+      "viewport": {
+        "device_scale_factor": 2,
+        "height": 1024,
+        "width": 768
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [],
+        "controlContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "UkieBook — головна",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(112, 95, 85)",
+            "label": "Каталог",
+            "threshold": 3,
+            "ratio": 5.742
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(112, 95, 85)",
+            "label": "Жанри",
+            "threshold": 3,
+            "ratio": 5.742
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(112, 95, 85)",
+            "label": "Знижки",
+            "threshold": 3,
+            "ratio": 5.742
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(112, 95, 85)",
+            "label": "Авторам",
+            "threshold": 3,
+            "ratio": 5.742
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(112, 95, 85)",
+            "label": "Знайти",
+            "threshold": 3,
+            "ratio": 5.742
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Кошик, 2 книжки",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(178, 107, 214)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Пізнє літо, Олена Вітрова",
+            "threshold": 3,
+            "ratio": 4.216
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Пізнє літо",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Видалити «Пізнє літо» з кошика",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(178, 107, 214)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Місто на воді, Олена Вітрова",
+            "threshold": 3,
+            "ratio": 4.216
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Місто на воді",
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ],
+        "formControls": [
+          {
+            "label": "Пошук за назвою або автором",
+            "labelCount": 1
+          }
+        ],
+        "mobileInputs": [],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Кошик",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Книжки",
+            "threshold": 4.5,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Пізнє літо",
+            "threshold": 4.5,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/s04-auth-required-1280@2x.png",
+      "implementation_revision": "92e820ffc4e5c69752543457ad7fecf12e960c15",
+      "layout": {
+        "clientWidth": 1280,
+        "scrollWidth": 1280,
+        "viewportWidth": 1280
+      },
+      "screen": "s04",
+      "sha256": "ad6310ff0c4e127438b3ccb2a6376132935128c443ed7c5d874dc2d2868d12a4",
+      "state": "auth-required",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Каталог",
+          "width": 55
+        },
+        {
+          "height": 44,
+          "label": "Жанри",
+          "width": 47
+        },
+        {
+          "height": 44,
+          "label": "Знижки",
+          "width": 54
+        },
+        {
+          "height": 44,
+          "label": "Авторам",
+          "width": 59
+        },
+        {
+          "height": 44,
+          "label": "Знайти",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Кошик, 2 книжки",
+          "width": 44
+        },
+        {
+          "height": 108,
+          "label": "Пізнє літо, Олена Вітрова",
+          "width": 72
+        },
+        {
+          "height": 44,
+          "label": "Пізнє літо",
+          "width": 95
+        },
+        {
+          "height": 44,
+          "label": "Видалити «Пізнє літо» з кошика",
+          "width": 44
+        },
+        {
+          "height": 108,
+          "label": "Місто на воді, Олена Вітрова",
+          "width": 72
+        },
+        {
+          "height": 44,
+          "label": "Місто на воді",
+          "width": 126
+        },
+        {
+          "height": 44,
+          "label": "Видалити «Місто на воді» з кошика",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Продовжити покупки",
+          "width": 198
+        },
+        {
+          "height": 48,
+          "label": "Оплатити",
+          "width": 270
+        }
+      ],
+      "viewport": {
+        "device_scale_factor": 2,
+        "height": 900,
+        "width": 1280
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [
+          {
+            "text": "Не вдалося оновити кошик. Спробуйте ще раз."
+          }
+        ],
+        "controlContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "UkieBook — головна",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Кошик, 2 книжки",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Відкрити меню",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(144, 60, 179)",
+            "foreground": "rgb(255, 255, 255)",
+            "label": "Знайти",
+            "threshold": 3,
+            "ratio": 6.029
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Каталог",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Жанри",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Знижки",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Авторам",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Увійти",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(178, 107, 214)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Пізнє літо, Олена Вітрова",
+            "threshold": 3,
+            "ratio": 4.216
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Пізнє літо",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Видалити «Пізнє літо» з кошика",
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ],
+        "formControls": [
+          {
+            "label": "Пошук за назвою або автором",
+            "labelCount": 1
+          }
+        ],
+        "mobileInputs": [
+          {
+            "fontSize": 16,
+            "label": "Пошук за назвою або автором"
+          }
+        ],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Кошик",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Книжки",
+            "threshold": 4.5,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Пізнє літо",
+            "threshold": 4.5,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/s04-error-390@2x.png",
+      "implementation_revision": "92e820ffc4e5c69752543457ad7fecf12e960c15",
+      "layout": {
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "viewportWidth": 390
+      },
+      "screen": "s04",
+      "sha256": "4a0235fd36b1f135425980f4314eaf08ffcbfe1e91e6f0817aa5086aac0e4ff7",
+      "state": "error",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Кошик, 2 книжки",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Відкрити меню",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Знайти",
+          "width": 70
+        },
+        {
+          "height": 44,
+          "label": "Каталог",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Жанри",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Знижки",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Авторам",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Увійти",
+          "width": 331
+        },
+        {
+          "height": 96,
+          "label": "Пізнє літо, Олена Вітрова",
+          "width": 64
+        },
+        {
+          "height": 44,
+          "label": "Пізнє літо",
+          "width": 90
+        },
+        {
+          "height": 44,
+          "label": "Видалити «Пізнє літо» з кошика",
+          "width": 44
+        },
+        {
+          "height": 96,
+          "label": "Місто на воді, Олена Вітрова",
+          "width": 64
+        },
+        {
+          "height": 44,
+          "label": "Місто на воді",
+          "width": 119
+        },
+        {
+          "height": 44,
+          "label": "Видалити «Місто на воді» з кошика",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Продовжити покупки",
+          "width": 198
+        },
+        {
+          "height": 48,
+          "label": "Оплатити",
+          "width": 328
+        }
+      ],
+      "viewport": {
+        "device_scale_factor": 2,
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [
+          {
+            "text": "Не вдалося оновити кошик. Спробуйте ще раз."
+          }
+        ],
+        "controlContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "UkieBook — головна",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Кошик, 2 книжки",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Відкрити меню",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(144, 60, 179)",
+            "foreground": "rgb(255, 255, 255)",
+            "label": "Знайти",
+            "threshold": 3,
+            "ratio": 6.029
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Каталог",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Жанри",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Знижки",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Авторам",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Увійти",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(178, 107, 214)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Пізнє літо, Олена Вітрова",
+            "threshold": 3,
+            "ratio": 4.216
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Пізнє літо",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Видалити «Пізнє літо» з кошика",
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ],
+        "formControls": [
+          {
+            "label": "Пошук за назвою або автором",
+            "labelCount": 1
+          }
+        ],
+        "mobileInputs": [],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Кошик",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Книжки",
+            "threshold": 4.5,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Пізнє літо",
+            "threshold": 4.5,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/s04-error-768@2x.png",
+      "implementation_revision": "92e820ffc4e5c69752543457ad7fecf12e960c15",
+      "layout": {
+        "clientWidth": 768,
+        "scrollWidth": 768,
+        "viewportWidth": 768
+      },
+      "screen": "s04",
+      "sha256": "f42d883a5abb7fb684fe70fa5377e3fe7343ce4d76b4871aaa281e82eb9dc653",
+      "state": "error",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Кошик, 2 книжки",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Відкрити меню",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Знайти",
+          "width": 70
+        },
+        {
+          "height": 44,
+          "label": "Каталог",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Жанри",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Знижки",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Авторам",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Увійти",
+          "width": 331
+        },
+        {
+          "height": 108,
+          "label": "Пізнє літо, Олена Вітрова",
+          "width": 72
+        },
+        {
+          "height": 44,
+          "label": "Пізнє літо",
+          "width": 95
+        },
+        {
+          "height": 44,
+          "label": "Видалити «Пізнє літо» з кошика",
+          "width": 44
+        },
+        {
+          "height": 108,
+          "label": "Місто на воді, Олена Вітрова",
+          "width": 72
+        },
+        {
+          "height": 44,
+          "label": "Місто на воді",
+          "width": 126
+        },
+        {
+          "height": 44,
+          "label": "Видалити «Місто на воді» з кошика",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Продовжити покупки",
+          "width": 198
+        },
+        {
+          "height": 48,
+          "label": "Оплатити",
+          "width": 470
+        }
+      ],
+      "viewport": {
+        "device_scale_factor": 2,
+        "height": 1024,
+        "width": 768
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [
+          {
+            "text": "Не вдалося оновити кошик. Спробуйте ще раз."
+          }
+        ],
+        "controlContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "UkieBook — головна",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(112, 95, 85)",
+            "label": "Каталог",
+            "threshold": 3,
+            "ratio": 5.742
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(112, 95, 85)",
+            "label": "Жанри",
+            "threshold": 3,
+            "ratio": 5.742
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(112, 95, 85)",
+            "label": "Знижки",
+            "threshold": 3,
+            "ratio": 5.742
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(112, 95, 85)",
+            "label": "Авторам",
+            "threshold": 3,
+            "ratio": 5.742
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(112, 95, 85)",
+            "label": "Знайти",
+            "threshold": 3,
+            "ratio": 5.742
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Кошик, 2 книжки",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(178, 107, 214)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Пізнє літо, Олена Вітрова",
+            "threshold": 3,
+            "ratio": 4.216
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Пізнє літо",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Видалити «Пізнє літо» з кошика",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(178, 107, 214)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Місто на воді, Олена Вітрова",
+            "threshold": 3,
+            "ratio": 4.216
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Місто на воді",
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ],
+        "formControls": [
+          {
+            "label": "Пошук за назвою або автором",
+            "labelCount": 1
+          }
+        ],
+        "mobileInputs": [],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Кошик",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Книжки",
+            "threshold": 4.5,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Пізнє літо",
+            "threshold": 4.5,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/s04-error-1280@2x.png",
+      "implementation_revision": "92e820ffc4e5c69752543457ad7fecf12e960c15",
+      "layout": {
+        "clientWidth": 1280,
+        "scrollWidth": 1280,
+        "viewportWidth": 1280
+      },
+      "screen": "s04",
+      "sha256": "6e6235eeb1d249f6717ba76d6894f56079e4a4908f1cfe54677af5a0a9f87b1b",
+      "state": "error",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Каталог",
+          "width": 55
+        },
+        {
+          "height": 44,
+          "label": "Жанри",
+          "width": 47
+        },
+        {
+          "height": 44,
+          "label": "Знижки",
+          "width": 54
+        },
+        {
+          "height": 44,
+          "label": "Авторам",
+          "width": 59
+        },
+        {
+          "height": 44,
+          "label": "Знайти",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Кошик, 2 книжки",
+          "width": 44
+        },
+        {
+          "height": 108,
+          "label": "Пізнє літо, Олена Вітрова",
+          "width": 72
+        },
+        {
+          "height": 44,
+          "label": "Пізнє літо",
+          "width": 95
+        },
+        {
+          "height": 44,
+          "label": "Видалити «Пізнє літо» з кошика",
+          "width": 44
+        },
+        {
+          "height": 108,
+          "label": "Місто на воді, Олена Вітрова",
+          "width": 72
+        },
+        {
+          "height": 44,
+          "label": "Місто на воді",
+          "width": 126
+        },
+        {
+          "height": 44,
+          "label": "Видалити «Місто на воді» з кошика",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Продовжити покупки",
+          "width": 198
+        },
+        {
+          "height": 48,
+          "label": "Оплатити",
+          "width": 270
+        }
+      ],
+      "viewport": {
+        "device_scale_factor": 2,
+        "height": 900,
+        "width": 1280
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [],
+        "controlContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "UkieBook — головна",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Кошик, 2 книжки",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Відкрити меню",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(144, 60, 179)",
+            "foreground": "rgb(255, 255, 255)",
+            "label": "Знайти",
+            "threshold": 3,
+            "ratio": 6.029
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Каталог",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Жанри",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Знижки",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Авторам",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Бібліотека",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Профіль",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(178, 107, 214)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Пізнє літо, Олена Вітрова",
+            "threshold": 3,
+            "ratio": 4.216
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Пізнє літо",
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ],
+        "formControls": [
+          {
+            "label": "Пошук за назвою або автором",
+            "labelCount": 1
+          }
+        ],
+        "mobileInputs": [
+          {
+            "fontSize": 16,
+            "label": "Пошук за назвою або автором"
+          }
+        ],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Кошик",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Книжки",
+            "threshold": 4.5,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Пізнє літо",
+            "threshold": 4.5,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/s04-populated-390@2x.png",
+      "implementation_revision": "92e820ffc4e5c69752543457ad7fecf12e960c15",
+      "layout": {
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "viewportWidth": 390
+      },
+      "screen": "s04",
+      "sha256": "517f000ffce5f499eb4373f250810fb7eef0667bd1e54487fc030f489e023aea",
+      "state": "populated",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Кошик, 2 книжки",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Відкрити меню",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Знайти",
+          "width": 70
+        },
+        {
+          "height": 44,
+          "label": "Каталог",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Жанри",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Знижки",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Авторам",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Бібліотека",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Профіль",
+          "width": 331
+        },
+        {
+          "height": 96,
+          "label": "Пізнє літо, Олена Вітрова",
+          "width": 64
+        },
+        {
+          "height": 44,
+          "label": "Пізнє літо",
+          "width": 90
+        },
+        {
+          "height": 44,
+          "label": "Видалити «Пізнє літо» з кошика",
+          "width": 44
+        },
+        {
+          "height": 96,
+          "label": "Місто на воді, Олена Вітрова",
+          "width": 64
+        },
+        {
+          "height": 44,
+          "label": "Місто на воді",
+          "width": 119
+        },
+        {
+          "height": 44,
+          "label": "Видалити «Місто на воді» з кошика",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Продовжити покупки",
+          "width": 198
+        },
+        {
+          "height": 48,
+          "label": "Оплатити",
+          "width": 328
+        }
+      ],
+      "viewport": {
+        "device_scale_factor": 2,
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [],
+        "controlContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "UkieBook — головна",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Кошик, 2 книжки",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Меню профілю",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Бібліотека",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Профіль",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Відкрити меню",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(144, 60, 179)",
+            "foreground": "rgb(255, 255, 255)",
+            "label": "Знайти",
+            "threshold": 3,
+            "ratio": 6.029
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Каталог",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Жанри",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Знижки",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Авторам",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Бібліотека",
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ],
+        "formControls": [
+          {
+            "label": "Пошук за назвою або автором",
+            "labelCount": 1
+          }
+        ],
+        "mobileInputs": [],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Кошик",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Книжки",
+            "threshold": 4.5,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Пізнє літо",
+            "threshold": 4.5,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/s04-populated-768@2x.png",
+      "implementation_revision": "92e820ffc4e5c69752543457ad7fecf12e960c15",
+      "layout": {
+        "clientWidth": 768,
+        "scrollWidth": 768,
+        "viewportWidth": 768
+      },
+      "screen": "s04",
+      "sha256": "41711b59149b0dc41e1702ce2e4da25e6bfc1dc8bbc3829d887de659f9cb34ae",
+      "state": "populated",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Кошик, 2 книжки",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Меню профілю",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Бібліотека",
+          "width": 172
+        },
+        {
+          "height": 44,
+          "label": "Профіль",
+          "width": 172
+        },
+        {
+          "height": 44,
+          "label": "Відкрити меню",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Знайти",
+          "width": 70
+        },
+        {
+          "height": 44,
+          "label": "Каталог",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Жанри",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Знижки",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Авторам",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Бібліотека",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Профіль",
+          "width": 331
+        },
+        {
+          "height": 108,
+          "label": "Пізнє літо, Олена Вітрова",
+          "width": 72
+        },
+        {
+          "height": 44,
+          "label": "Пізнє літо",
+          "width": 95
+        },
+        {
+          "height": 44,
+          "label": "Видалити «Пізнє літо» з кошика",
+          "width": 44
+        },
+        {
+          "height": 108,
+          "label": "Місто на воді, Олена Вітрова",
+          "width": 72
+        },
+        {
+          "height": 44,
+          "label": "Місто на воді",
+          "width": 126
+        },
+        {
+          "height": 44,
+          "label": "Видалити «Місто на воді» з кошика",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Продовжити покупки",
+          "width": 198
+        },
+        {
+          "height": 48,
+          "label": "Оплатити",
+          "width": 470
+        }
+      ],
+      "viewport": {
+        "device_scale_factor": 2,
+        "height": 1024,
+        "width": 768
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [],
+        "controlContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "UkieBook — головна",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(112, 95, 85)",
+            "label": "Каталог",
+            "threshold": 3,
+            "ratio": 5.742
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(112, 95, 85)",
+            "label": "Жанри",
+            "threshold": 3,
+            "ratio": 5.742
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(112, 95, 85)",
+            "label": "Знижки",
+            "threshold": 3,
+            "ratio": 5.742
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(112, 95, 85)",
+            "label": "Авторам",
+            "threshold": 3,
+            "ratio": 5.742
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(112, 95, 85)",
+            "label": "Знайти",
+            "threshold": 3,
+            "ratio": 5.742
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Кошик, 2 книжки",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Меню профілю",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Бібліотека",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Профіль",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(178, 107, 214)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Пізнє літо, Олена Вітрова",
+            "threshold": 3,
+            "ratio": 4.216
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Пізнє літо",
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ],
+        "formControls": [
+          {
+            "label": "Пошук за назвою або автором",
+            "labelCount": 1
+          }
+        ],
+        "mobileInputs": [],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Кошик",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Книжки",
+            "threshold": 4.5,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Пізнє літо",
+            "threshold": 4.5,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/s04-populated-1280@2x.png",
+      "implementation_revision": "92e820ffc4e5c69752543457ad7fecf12e960c15",
+      "layout": {
+        "clientWidth": 1280,
+        "scrollWidth": 1280,
+        "viewportWidth": 1280
+      },
+      "screen": "s04",
+      "sha256": "d7f211ce0f7cd3d5092d8d2d8136cab2663d9e4fd50ca3eb046fd5e85f36ab1b",
+      "state": "populated",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Каталог",
+          "width": 55
+        },
+        {
+          "height": 44,
+          "label": "Жанри",
+          "width": 47
+        },
+        {
+          "height": 44,
+          "label": "Знижки",
+          "width": 54
+        },
+        {
+          "height": 44,
+          "label": "Авторам",
+          "width": 59
+        },
+        {
+          "height": 44,
+          "label": "Знайти",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Кошик, 2 книжки",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Меню профілю",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Бібліотека",
+          "width": 172
+        },
+        {
+          "height": 44,
+          "label": "Профіль",
+          "width": 172
+        },
+        {
+          "height": 108,
+          "label": "Пізнє літо, Олена Вітрова",
+          "width": 72
+        },
+        {
+          "height": 44,
+          "label": "Пізнє літо",
+          "width": 95
+        },
+        {
+          "height": 44,
+          "label": "Видалити «Пізнє літо» з кошика",
+          "width": 44
+        },
+        {
+          "height": 108,
+          "label": "Місто на воді, Олена Вітрова",
+          "width": 72
+        },
+        {
+          "height": 44,
+          "label": "Місто на воді",
+          "width": 126
+        },
+        {
+          "height": 44,
+          "label": "Видалити «Місто на воді» з кошика",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Продовжити покупки",
+          "width": 198
+        },
+        {
+          "height": 48,
+          "label": "Оплатити",
+          "width": 270
+        }
+      ],
+      "viewport": {
+        "device_scale_factor": 2,
+        "height": 900,
+        "width": 1280
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [],
+        "controlContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "UkieBook — головна",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Кошик, 2 книжки",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Відкрити меню",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(144, 60, 179)",
+            "foreground": "rgb(255, 255, 255)",
+            "label": "Знайти",
+            "threshold": 3,
+            "ratio": 6.029
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Каталог",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Жанри",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Знижки",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Авторам",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Бібліотека",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Профіль",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(178, 107, 214)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Пізнє літо, Олена Вітрова",
+            "threshold": 3,
+            "ratio": 4.216
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Пізнє літо",
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ],
+        "formControls": [
+          {
+            "label": "Пошук за назвою або автором",
+            "labelCount": 1
+          }
+        ],
+        "mobileInputs": [
+          {
+            "fontSize": 16,
+            "label": "Пошук за назвою або автором"
+          }
+        ],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Кошик",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Книжки",
+            "threshold": 4.5,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Пізнє літо",
+            "threshold": 4.5,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/s04-populated-430@2x.png",
+      "implementation_revision": "92e820ffc4e5c69752543457ad7fecf12e960c15",
+      "layout": {
+        "clientWidth": 430,
+        "scrollWidth": 430,
+        "viewportWidth": 430
+      },
+      "screen": "s04",
+      "sha256": "1cbcf3412e15e8e4641f9302774e07e41f58ec0725c4dfc8bd1b70b25c3e21fd",
+      "state": "populated",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Кошик, 2 книжки",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Відкрити меню",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Знайти",
+          "width": 70
+        },
+        {
+          "height": 44,
+          "label": "Каталог",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Жанри",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Знижки",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Авторам",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Бібліотека",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Профіль",
+          "width": 331
+        },
+        {
+          "height": 96,
+          "label": "Пізнє літо, Олена Вітрова",
+          "width": 64
+        },
+        {
+          "height": 44,
+          "label": "Пізнє літо",
+          "width": 90
+        },
+        {
+          "height": 44,
+          "label": "Видалити «Пізнє літо» з кошика",
+          "width": 44
+        },
+        {
+          "height": 96,
+          "label": "Місто на воді, Олена Вітрова",
+          "width": 64
+        },
+        {
+          "height": 44,
+          "label": "Місто на воді",
+          "width": 119
+        },
+        {
+          "height": 44,
+          "label": "Видалити «Місто на воді» з кошика",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Продовжити покупки",
+          "width": 198
+        },
+        {
+          "height": 48,
+          "label": "Оплатити",
+          "width": 352
+        }
+      ],
+      "viewport": {
+        "device_scale_factor": 2,
+        "height": 932,
+        "width": 430
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [],
+        "controlContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "UkieBook — головна",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(112, 95, 85)",
+            "label": "Каталог",
+            "threshold": 3,
+            "ratio": 5.742
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(112, 95, 85)",
+            "label": "Жанри",
+            "threshold": 3,
+            "ratio": 5.742
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(112, 95, 85)",
+            "label": "Знижки",
+            "threshold": 3,
+            "ratio": 5.742
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(112, 95, 85)",
+            "label": "Авторам",
+            "threshold": 3,
+            "ratio": 5.742
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(112, 95, 85)",
+            "label": "Знайти",
+            "threshold": 3,
+            "ratio": 5.742
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Кошик, 2 книжки",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Меню профілю",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Бібліотека",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Профіль",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(178, 107, 214)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Пізнє літо, Олена Вітрова",
+            "threshold": 3,
+            "ratio": 4.216
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Пізнє літо",
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ],
+        "formControls": [
+          {
+            "label": "Пошук за назвою або автором",
+            "labelCount": 1
+          }
+        ],
+        "mobileInputs": [],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Кошик",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Книжки",
+            "threshold": 4.5,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Пізнє літо",
+            "threshold": 4.5,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/s04-populated-1440@2x.png",
+      "implementation_revision": "92e820ffc4e5c69752543457ad7fecf12e960c15",
+      "layout": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "viewportWidth": 1440
+      },
+      "screen": "s04",
+      "sha256": "2a35fb5532de9d27f143951ac0af2fded1a1802b9b4d9a6c039149618f7480d7",
+      "state": "populated",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Каталог",
+          "width": 55
+        },
+        {
+          "height": 44,
+          "label": "Жанри",
+          "width": 47
+        },
+        {
+          "height": 44,
+          "label": "Знижки",
+          "width": 54
+        },
+        {
+          "height": 44,
+          "label": "Авторам",
+          "width": 59
+        },
+        {
+          "height": 44,
+          "label": "Знайти",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Кошик, 2 книжки",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Меню профілю",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Бібліотека",
+          "width": 172
+        },
+        {
+          "height": 44,
+          "label": "Профіль",
+          "width": 172
+        },
+        {
+          "height": 108,
+          "label": "Пізнє літо, Олена Вітрова",
+          "width": 72
+        },
+        {
+          "height": 44,
+          "label": "Пізнє літо",
+          "width": 95
+        },
+        {
+          "height": 44,
+          "label": "Видалити «Пізнє літо» з кошика",
+          "width": 44
+        },
+        {
+          "height": 108,
+          "label": "Місто на воді, Олена Вітрова",
+          "width": 72
+        },
+        {
+          "height": 44,
+          "label": "Місто на воді",
+          "width": 126
+        },
+        {
+          "height": 44,
+          "label": "Видалити «Місто на воді» з кошика",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Продовжити покупки",
+          "width": 198
+        },
+        {
+          "height": 48,
+          "label": "Оплатити",
+          "width": 270
+        }
+      ],
+      "viewport": {
+        "device_scale_factor": 2,
+        "height": 1000,
+        "width": 1440
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [
+          {
+            "text": "Захищена оплатаПереходимо до оплати…Оплата відбудеться на сторінці mono. UkieBook не отримує дані картки."
+          }
+        ],
+        "controlContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "UkieBook — головна",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Кошик, 2 книжки",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Відкрити меню",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(144, 60, 179)",
+            "foreground": "rgb(255, 255, 255)",
+            "label": "Знайти",
+            "threshold": 3,
+            "ratio": 6.029
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Каталог",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Жанри",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Знижки",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Авторам",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Бібліотека",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Профіль",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(132, 49, 167)",
+            "label": "Відкрити захищену сторінку mono",
+            "threshold": 3,
+            "ratio": 6.665
+          }
+        ],
+        "formControls": [
+          {
+            "label": "Пошук за назвою або автором",
+            "labelCount": 1
+          }
+        ],
+        "mobileInputs": [
+          {
+            "fontSize": 16,
+            "label": "Пошук за назвою або автором"
+          }
+        ],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Переходимо до оплати…",
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/s05-redirecting-390@2x.png",
+      "implementation_revision": "92e820ffc4e5c69752543457ad7fecf12e960c15",
+      "layout": {
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "viewportWidth": 390
+      },
+      "screen": "s05",
+      "sha256": "7feff4b0f5272f5929ad0c6f6ac850570bb978db9a0ce88cb40b82f1fd5937d8",
+      "state": "redirecting",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Кошик, 2 книжки",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Відкрити меню",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Знайти",
+          "width": 70
+        },
+        {
+          "height": 44,
+          "label": "Каталог",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Жанри",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Знижки",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Авторам",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Бібліотека",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Профіль",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Відкрити захищену сторінку mono",
+          "width": 279
+        }
+      ],
+      "viewport": {
+        "device_scale_factor": 2,
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [
+          {
+            "text": "Захищена оплатаПереходимо до оплати…Оплата відбудеться на сторінці mono. UkieBook не отримує дані картки."
+          }
+        ],
+        "controlContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "UkieBook — головна",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Кошик, 2 книжки",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Меню профілю",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Бібліотека",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Профіль",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Відкрити меню",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(144, 60, 179)",
+            "foreground": "rgb(255, 255, 255)",
+            "label": "Знайти",
+            "threshold": 3,
+            "ratio": 6.029
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Каталог",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Жанри",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Знижки",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Авторам",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Бібліотека",
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ],
+        "formControls": [
+          {
+            "label": "Пошук за назвою або автором",
+            "labelCount": 1
+          }
+        ],
+        "mobileInputs": [],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Переходимо до оплати…",
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/s05-redirecting-768@2x.png",
+      "implementation_revision": "92e820ffc4e5c69752543457ad7fecf12e960c15",
+      "layout": {
+        "clientWidth": 768,
+        "scrollWidth": 768,
+        "viewportWidth": 768
+      },
+      "screen": "s05",
+      "sha256": "39986570a1445185fdf5a46df6dc0a0f3fcbaa52e6fd26e438c4bb72389cac4d",
+      "state": "redirecting",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Кошик, 2 книжки",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Меню профілю",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Бібліотека",
+          "width": 172
+        },
+        {
+          "height": 44,
+          "label": "Профіль",
+          "width": 172
+        },
+        {
+          "height": 44,
+          "label": "Відкрити меню",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Знайти",
+          "width": 70
+        },
+        {
+          "height": 44,
+          "label": "Каталог",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Жанри",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Знижки",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Авторам",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Бібліотека",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Профіль",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Відкрити захищену сторінку mono",
+          "width": 279
+        }
+      ],
+      "viewport": {
+        "device_scale_factor": 2,
+        "height": 1024,
+        "width": 768
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [
+          {
+            "text": "Захищена оплатаПереходимо до оплати…Оплата відбудеться на сторінці mono. UkieBook не отримує дані картки."
+          }
+        ],
+        "controlContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "UkieBook — головна",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(112, 95, 85)",
+            "label": "Каталог",
+            "threshold": 3,
+            "ratio": 5.742
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(112, 95, 85)",
+            "label": "Жанри",
+            "threshold": 3,
+            "ratio": 5.742
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(112, 95, 85)",
+            "label": "Знижки",
+            "threshold": 3,
+            "ratio": 5.742
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(112, 95, 85)",
+            "label": "Авторам",
+            "threshold": 3,
+            "ratio": 5.742
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(112, 95, 85)",
+            "label": "Знайти",
+            "threshold": 3,
+            "ratio": 5.742
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Кошик, 2 книжки",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Меню профілю",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Бібліотека",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Профіль",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(132, 49, 167)",
+            "label": "Відкрити захищену сторінку mono",
+            "threshold": 3,
+            "ratio": 6.665
+          }
+        ],
+        "formControls": [
+          {
+            "label": "Пошук за назвою або автором",
+            "labelCount": 1
+          }
+        ],
+        "mobileInputs": [],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Переходимо до оплати…",
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/s05-redirecting-1280@2x.png",
+      "implementation_revision": "92e820ffc4e5c69752543457ad7fecf12e960c15",
+      "layout": {
+        "clientWidth": 1280,
+        "scrollWidth": 1280,
+        "viewportWidth": 1280
+      },
+      "screen": "s05",
+      "sha256": "caccf47c2f29aa5eeaf4bf19d38439c1de13cbea7857632c0771abbd4364bc21",
+      "state": "redirecting",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Каталог",
+          "width": 55
+        },
+        {
+          "height": 44,
+          "label": "Жанри",
+          "width": 47
+        },
+        {
+          "height": 44,
+          "label": "Знижки",
+          "width": 54
+        },
+        {
+          "height": 44,
+          "label": "Авторам",
+          "width": 59
+        },
+        {
+          "height": 44,
+          "label": "Знайти",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Кошик, 2 книжки",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Меню профілю",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Бібліотека",
+          "width": 172
+        },
+        {
+          "height": 44,
+          "label": "Профіль",
+          "width": 172
+        },
+        {
+          "height": 44,
+          "label": "Відкрити захищену сторінку mono",
+          "width": 279
+        }
+      ],
+      "viewport": {
+        "device_scale_factor": 2,
+        "height": 900,
+        "width": 1280
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [
+          {
+            "text": "Очікуємо підтвердження від mono. Це може тривати кілька секунд."
+          }
+        ],
+        "controlContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "UkieBook — головна",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Кошик, 2 книжки",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Відкрити меню",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(144, 60, 179)",
+            "foreground": "rgb(255, 255, 255)",
+            "label": "Знайти",
+            "threshold": 3,
+            "ratio": 6.029
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Каталог",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Жанри",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Знижки",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Авторам",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Бібліотека",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Профіль",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(144, 60, 179)",
+            "foreground": "rgb(255, 255, 255)",
+            "label": "Перевірити стан",
+            "threshold": 3,
+            "ratio": 6.029
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "До кошика",
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ],
+        "formControls": [
+          {
+            "label": "Пошук за назвою або автором",
+            "labelCount": 1
+          }
+        ],
+        "mobileInputs": [
+          {
+            "fontSize": 16,
+            "label": "Пошук за назвою або автором"
+          }
+        ],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Оплата підтверджується",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Книжки в замовленні",
+            "threshold": 4.5,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/s06-pending-390@2x.png",
+      "implementation_revision": "92e820ffc4e5c69752543457ad7fecf12e960c15",
+      "layout": {
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "viewportWidth": 390
+      },
+      "screen": "s06",
+      "sha256": "e00b9776713a114a9cd659a2e72c8a2ba8ed942e93059e61c26e406963803739",
+      "state": "pending",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Кошик, 2 книжки",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Відкрити меню",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Знайти",
+          "width": 70
+        },
+        {
+          "height": 44,
+          "label": "Каталог",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Жанри",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Знижки",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Авторам",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Бібліотека",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Профіль",
+          "width": 331
+        },
+        {
+          "height": 48,
+          "label": "Перевірити стан",
+          "width": 342
+        },
+        {
+          "height": 48,
+          "label": "До кошика",
+          "width": 342
+        }
+      ],
+      "viewport": {
+        "device_scale_factor": 2,
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [
+          {
+            "text": "Очікуємо підтвердження від mono. Це може тривати кілька секунд."
+          }
+        ],
+        "controlContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "UkieBook — головна",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Кошик, 2 книжки",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Меню профілю",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Бібліотека",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Профіль",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Відкрити меню",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(144, 60, 179)",
+            "foreground": "rgb(255, 255, 255)",
+            "label": "Знайти",
+            "threshold": 3,
+            "ratio": 6.029
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Каталог",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Жанри",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Знижки",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Авторам",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Бібліотека",
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ],
+        "formControls": [
+          {
+            "label": "Пошук за назвою або автором",
+            "labelCount": 1
+          }
+        ],
+        "mobileInputs": [],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Оплата підтверджується",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Книжки в замовленні",
+            "threshold": 4.5,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/s06-pending-768@2x.png",
+      "implementation_revision": "92e820ffc4e5c69752543457ad7fecf12e960c15",
+      "layout": {
+        "clientWidth": 768,
+        "scrollWidth": 768,
+        "viewportWidth": 768
+      },
+      "screen": "s06",
+      "sha256": "6d54050e5658d0360403f82a9415d5ca859ccea2dc6e8fd266a0f23a66fcaed8",
+      "state": "pending",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Кошик, 2 книжки",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Меню профілю",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Бібліотека",
+          "width": 172
+        },
+        {
+          "height": 44,
+          "label": "Профіль",
+          "width": 172
+        },
+        {
+          "height": 44,
+          "label": "Відкрити меню",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Знайти",
+          "width": 70
+        },
+        {
+          "height": 44,
+          "label": "Каталог",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Жанри",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Знижки",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Авторам",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Бібліотека",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Профіль",
+          "width": 331
+        },
+        {
+          "height": 48,
+          "label": "Перевірити стан",
+          "width": 254
+        },
+        {
+          "height": 48,
+          "label": "До кошика",
+          "width": 254
+        }
+      ],
+      "viewport": {
+        "device_scale_factor": 2,
+        "height": 1024,
+        "width": 768
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [
+          {
+            "text": "Очікуємо підтвердження від mono. Це може тривати кілька секунд."
+          }
+        ],
+        "controlContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "UkieBook — головна",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(112, 95, 85)",
+            "label": "Каталог",
+            "threshold": 3,
+            "ratio": 5.742
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(112, 95, 85)",
+            "label": "Жанри",
+            "threshold": 3,
+            "ratio": 5.742
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(112, 95, 85)",
+            "label": "Знижки",
+            "threshold": 3,
+            "ratio": 5.742
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(112, 95, 85)",
+            "label": "Авторам",
+            "threshold": 3,
+            "ratio": 5.742
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(112, 95, 85)",
+            "label": "Знайти",
+            "threshold": 3,
+            "ratio": 5.742
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Кошик, 2 книжки",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Меню профілю",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Бібліотека",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Профіль",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(144, 60, 179)",
+            "foreground": "rgb(255, 255, 255)",
+            "label": "Перевірити стан",
+            "threshold": 3,
+            "ratio": 6.029
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "До кошика",
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ],
+        "formControls": [
+          {
+            "label": "Пошук за назвою або автором",
+            "labelCount": 1
+          }
+        ],
+        "mobileInputs": [],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Оплата підтверджується",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Книжки в замовленні",
+            "threshold": 4.5,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/s06-pending-1280@2x.png",
+      "implementation_revision": "92e820ffc4e5c69752543457ad7fecf12e960c15",
+      "layout": {
+        "clientWidth": 1280,
+        "scrollWidth": 1280,
+        "viewportWidth": 1280
+      },
+      "screen": "s06",
+      "sha256": "4dce59044378c56e4dae7e1e42f6cc39e288aab20cbaaa76f4b5a675e286ddfd",
+      "state": "pending",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Каталог",
+          "width": 55
+        },
+        {
+          "height": 44,
+          "label": "Жанри",
+          "width": 47
+        },
+        {
+          "height": 44,
+          "label": "Знижки",
+          "width": 54
+        },
+        {
+          "height": 44,
+          "label": "Авторам",
+          "width": 59
+        },
+        {
+          "height": 44,
+          "label": "Знайти",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Кошик, 2 книжки",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Меню профілю",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Бібліотека",
+          "width": 172
+        },
+        {
+          "height": 44,
+          "label": "Профіль",
+          "width": 172
+        },
+        {
+          "height": 48,
+          "label": "Перевірити стан",
+          "width": 254
+        },
+        {
+          "height": 48,
+          "label": "До кошика",
+          "width": 254
+        }
+      ],
+      "viewport": {
+        "device_scale_factor": 2,
+        "height": 900,
+        "width": 1280
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [
+          {
+            "text": "Оплату не підтверджено. Кошик збережено — спробуйте ще раз."
+          }
+        ],
+        "controlContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "UkieBook — головна",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Кошик, 2 книжки",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Відкрити меню",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(144, 60, 179)",
+            "foreground": "rgb(255, 255, 255)",
+            "label": "Знайти",
+            "threshold": 3,
+            "ratio": 6.029
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Каталог",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Жанри",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Знижки",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Авторам",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Бібліотека",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Профіль",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(144, 60, 179)",
+            "foreground": "rgb(255, 255, 255)",
+            "label": "Повернутися в кошик",
+            "threshold": 3,
+            "ratio": 6.029
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "До каталогу",
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ],
+        "formControls": [
+          {
+            "label": "Пошук за назвою або автором",
+            "labelCount": 1
+          }
+        ],
+        "mobileInputs": [
+          {
+            "fontSize": 16,
+            "label": "Пошук за назвою або автором"
+          }
+        ],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Оплату не підтверджено",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Кошик збережено",
+            "threshold": 4.5,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/s06-failure-390@2x.png",
+      "implementation_revision": "92e820ffc4e5c69752543457ad7fecf12e960c15",
+      "layout": {
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "viewportWidth": 390
+      },
+      "screen": "s06",
+      "sha256": "8a87126fdb20f99ef2fb07b7de627daa2d8461afdaa16b09b4313aa9b10f76a5",
+      "state": "failure",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Кошик, 2 книжки",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Відкрити меню",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Знайти",
+          "width": 70
+        },
+        {
+          "height": 44,
+          "label": "Каталог",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Жанри",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Знижки",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Авторам",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Бібліотека",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Профіль",
+          "width": 331
+        },
+        {
+          "height": 48,
+          "label": "Повернутися в кошик",
+          "width": 320
+        },
+        {
+          "height": 48,
+          "label": "До каталогу",
+          "width": 320
+        }
+      ],
+      "viewport": {
+        "device_scale_factor": 2,
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [
+          {
+            "text": "Оплату не підтверджено. Кошик збережено — спробуйте ще раз."
+          }
+        ],
+        "controlContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "UkieBook — головна",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Кошик, 2 книжки",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Меню профілю",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Бібліотека",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Профіль",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Відкрити меню",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(144, 60, 179)",
+            "foreground": "rgb(255, 255, 255)",
+            "label": "Знайти",
+            "threshold": 3,
+            "ratio": 6.029
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Каталог",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Жанри",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Знижки",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Авторам",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Бібліотека",
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ],
+        "formControls": [
+          {
+            "label": "Пошук за назвою або автором",
+            "labelCount": 1
+          }
+        ],
+        "mobileInputs": [],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Оплату не підтверджено",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Кошик збережено",
+            "threshold": 4.5,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/s06-failure-768@2x.png",
+      "implementation_revision": "92e820ffc4e5c69752543457ad7fecf12e960c15",
+      "layout": {
+        "clientWidth": 768,
+        "scrollWidth": 768,
+        "viewportWidth": 768
+      },
+      "screen": "s06",
+      "sha256": "6cd0ee3c67b815e62e7351147b11e4c983d548ffdee4ddf276c1fe63b723dcf3",
+      "state": "failure",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Кошик, 2 книжки",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Меню профілю",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Бібліотека",
+          "width": 172
+        },
+        {
+          "height": 44,
+          "label": "Профіль",
+          "width": 172
+        },
+        {
+          "height": 44,
+          "label": "Відкрити меню",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Знайти",
+          "width": 70
+        },
+        {
+          "height": 44,
+          "label": "Каталог",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Жанри",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Знижки",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Авторам",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Бібліотека",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Профіль",
+          "width": 331
+        },
+        {
+          "height": 48,
+          "label": "Повернутися в кошик",
+          "width": 254
+        },
+        {
+          "height": 48,
+          "label": "До каталогу",
+          "width": 254
+        }
+      ],
+      "viewport": {
+        "device_scale_factor": 2,
+        "height": 1024,
+        "width": 768
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [
+          {
+            "text": "Оплату не підтверджено. Кошик збережено — спробуйте ще раз."
+          }
+        ],
+        "controlContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "UkieBook — головна",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(112, 95, 85)",
+            "label": "Каталог",
+            "threshold": 3,
+            "ratio": 5.742
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(112, 95, 85)",
+            "label": "Жанри",
+            "threshold": 3,
+            "ratio": 5.742
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(112, 95, 85)",
+            "label": "Знижки",
+            "threshold": 3,
+            "ratio": 5.742
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(112, 95, 85)",
+            "label": "Авторам",
+            "threshold": 3,
+            "ratio": 5.742
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(112, 95, 85)",
+            "label": "Знайти",
+            "threshold": 3,
+            "ratio": 5.742
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Кошик, 2 книжки",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Меню профілю",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Бібліотека",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Профіль",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(144, 60, 179)",
+            "foreground": "rgb(255, 255, 255)",
+            "label": "Повернутися в кошик",
+            "threshold": 3,
+            "ratio": 6.029
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "До каталогу",
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ],
+        "formControls": [
+          {
+            "label": "Пошук за назвою або автором",
+            "labelCount": 1
+          }
+        ],
+        "mobileInputs": [],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Оплату не підтверджено",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Кошик збережено",
+            "threshold": 4.5,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/s06-failure-1280@2x.png",
+      "implementation_revision": "92e820ffc4e5c69752543457ad7fecf12e960c15",
+      "layout": {
+        "clientWidth": 1280,
+        "scrollWidth": 1280,
+        "viewportWidth": 1280
+      },
+      "screen": "s06",
+      "sha256": "cdf26a5359c2dda5d7fe6ba77db7d6e53a3a0b02af49ab5ac4c7340c32e90b06",
+      "state": "failure",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Каталог",
+          "width": 55
+        },
+        {
+          "height": 44,
+          "label": "Жанри",
+          "width": 47
+        },
+        {
+          "height": 44,
+          "label": "Знижки",
+          "width": 54
+        },
+        {
+          "height": 44,
+          "label": "Авторам",
+          "width": 59
+        },
+        {
+          "height": 44,
+          "label": "Знайти",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Кошик, 2 книжки",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Меню профілю",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Бібліотека",
+          "width": 172
+        },
+        {
+          "height": 44,
+          "label": "Профіль",
+          "width": 172
+        },
+        {
+          "height": 48,
+          "label": "Повернутися в кошик",
+          "width": 254
+        },
+        {
+          "height": 48,
+          "label": "До каталогу",
+          "width": 254
+        }
+      ],
+      "viewport": {
+        "device_scale_factor": 2,
+        "height": 900,
+        "width": 1280
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [
+          {
+            "text": "Оплату не підтверджено. Кошик збережено — спробуйте ще раз."
+          }
+        ],
+        "controlContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "UkieBook — головна",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Кошик, 2 книжки",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Відкрити меню",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(144, 60, 179)",
+            "foreground": "rgb(255, 255, 255)",
+            "label": "Знайти",
+            "threshold": 3,
+            "ratio": 6.029
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Каталог",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Жанри",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Знижки",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Авторам",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Бібліотека",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Профіль",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(144, 60, 179)",
+            "foreground": "rgb(255, 255, 255)",
+            "label": "Повернутися в кошик",
+            "threshold": 3,
+            "ratio": 6.029
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "До каталогу",
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ],
+        "formControls": [
+          {
+            "label": "Пошук за назвою або автором",
+            "labelCount": 1
+          }
+        ],
+        "mobileInputs": [
+          {
+            "fontSize": 16,
+            "label": "Пошук за назвою або автором"
+          }
+        ],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Оплату не підтверджено",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Кошик збережено",
+            "threshold": 4.5,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/s06-failure-430@2x.png",
+      "implementation_revision": "92e820ffc4e5c69752543457ad7fecf12e960c15",
+      "layout": {
+        "clientWidth": 430,
+        "scrollWidth": 430,
+        "viewportWidth": 430
+      },
+      "screen": "s06",
+      "sha256": "c8e1d2a9ac7a7435178a6bd3a71a9090188055b645c691f349305986d538c442",
+      "state": "failure",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Кошик, 2 книжки",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Відкрити меню",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Знайти",
+          "width": 70
+        },
+        {
+          "height": 44,
+          "label": "Каталог",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Жанри",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Знижки",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Авторам",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Бібліотека",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Профіль",
+          "width": 331
+        },
+        {
+          "height": 48,
+          "label": "Повернутися в кошик",
+          "width": 352
+        },
+        {
+          "height": 48,
+          "label": "До каталогу",
+          "width": 352
+        }
+      ],
+      "viewport": {
+        "device_scale_factor": 2,
+        "height": 932,
+        "width": 430
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [
+          {
+            "text": "Оплату не підтверджено. Кошик збережено — спробуйте ще раз."
+          }
+        ],
+        "controlContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "UkieBook — головна",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(112, 95, 85)",
+            "label": "Каталог",
+            "threshold": 3,
+            "ratio": 5.742
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(112, 95, 85)",
+            "label": "Жанри",
+            "threshold": 3,
+            "ratio": 5.742
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(112, 95, 85)",
+            "label": "Знижки",
+            "threshold": 3,
+            "ratio": 5.742
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(112, 95, 85)",
+            "label": "Авторам",
+            "threshold": 3,
+            "ratio": 5.742
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(112, 95, 85)",
+            "label": "Знайти",
+            "threshold": 3,
+            "ratio": 5.742
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Кошик, 2 книжки",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Меню профілю",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Бібліотека",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Профіль",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(144, 60, 179)",
+            "foreground": "rgb(255, 255, 255)",
+            "label": "Повернутися в кошик",
+            "threshold": 3,
+            "ratio": 6.029
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "До каталогу",
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ],
+        "formControls": [
+          {
+            "label": "Пошук за назвою або автором",
+            "labelCount": 1
+          }
+        ],
+        "mobileInputs": [],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Оплату не підтверджено",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Кошик збережено",
+            "threshold": 4.5,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/s06-failure-1440@2x.png",
+      "implementation_revision": "92e820ffc4e5c69752543457ad7fecf12e960c15",
+      "layout": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "viewportWidth": 1440
+      },
+      "screen": "s06",
+      "sha256": "c7ae6c3199750911517ad1a1504d35ad231ff6f5ca993d5f9209b412b63ff7bb",
+      "state": "failure",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Каталог",
+          "width": 55
+        },
+        {
+          "height": 44,
+          "label": "Жанри",
+          "width": 47
+        },
+        {
+          "height": 44,
+          "label": "Знижки",
+          "width": 54
+        },
+        {
+          "height": 44,
+          "label": "Авторам",
+          "width": 59
+        },
+        {
+          "height": 44,
+          "label": "Знайти",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Кошик, 2 книжки",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Меню профілю",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Бібліотека",
+          "width": 172
+        },
+        {
+          "height": 44,
+          "label": "Профіль",
+          "width": 172
+        },
+        {
+          "height": 48,
+          "label": "Повернутися в кошик",
+          "width": 254
+        },
+        {
+          "height": 48,
+          "label": "До каталогу",
+          "width": 254
+        }
+      ],
+      "viewport": {
+        "device_scale_factor": 2,
+        "height": 1000,
+        "width": 1440
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [
+          {
+            "text": "Підтвердження покупки готується до надсилання на email."
+          }
+        ],
+        "controlContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "UkieBook — головна",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Кошик, порожній",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Відкрити меню",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(144, 60, 179)",
+            "foreground": "rgb(255, 255, 255)",
+            "label": "Знайти",
+            "threshold": 3,
+            "ratio": 6.029
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Каталог",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Жанри",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Знижки",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Авторам",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Бібліотека",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Профіль",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(144, 60, 179)",
+            "foreground": "rgb(255, 255, 255)",
+            "label": "Перейти в бібліотеку",
+            "threshold": 3,
+            "ratio": 6.029
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "До каталогу",
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ],
+        "formControls": [
+          {
+            "label": "Пошук за назвою або автором",
+            "labelCount": 1
+          }
+        ],
+        "mobileInputs": [
+          {
+            "fontSize": 16,
+            "label": "Пошук за назвою або автором"
+          }
+        ],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Дякуємо за покупку",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Книжки в замовленні",
+            "threshold": 4.5,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/s06-success-390@2x.png",
+      "implementation_revision": "92e820ffc4e5c69752543457ad7fecf12e960c15",
+      "layout": {
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "viewportWidth": 390
+      },
+      "screen": "s06",
+      "sha256": "eaf19ca22d507a542f0de3afd761a1086010f40401af381420c81c7a0b46988d",
+      "state": "success",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Кошик, порожній",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Відкрити меню",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Знайти",
+          "width": 70
+        },
+        {
+          "height": 44,
+          "label": "Каталог",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Жанри",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Знижки",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Авторам",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Бібліотека",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Профіль",
+          "width": 331
+        },
+        {
+          "height": 48,
+          "label": "Перейти в бібліотеку",
+          "width": 320
+        },
+        {
+          "height": 48,
+          "label": "До каталогу",
+          "width": 320
+        }
+      ],
+      "viewport": {
+        "device_scale_factor": 2,
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [
+          {
+            "text": "Підтвердження покупки готується до надсилання на email."
+          }
+        ],
+        "controlContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "UkieBook — головна",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Кошик, порожній",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Меню профілю",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Бібліотека",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Профіль",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Відкрити меню",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(144, 60, 179)",
+            "foreground": "rgb(255, 255, 255)",
+            "label": "Знайти",
+            "threshold": 3,
+            "ratio": 6.029
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Каталог",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Жанри",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Знижки",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Авторам",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Бібліотека",
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ],
+        "formControls": [
+          {
+            "label": "Пошук за назвою або автором",
+            "labelCount": 1
+          }
+        ],
+        "mobileInputs": [],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Дякуємо за покупку",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Книжки в замовленні",
+            "threshold": 4.5,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/s06-success-768@2x.png",
+      "implementation_revision": "92e820ffc4e5c69752543457ad7fecf12e960c15",
+      "layout": {
+        "clientWidth": 768,
+        "scrollWidth": 768,
+        "viewportWidth": 768
+      },
+      "screen": "s06",
+      "sha256": "6f109dd66c52a41f44882a699fa4bd0e1ac4122f5b513a183f5361d7770e8a67",
+      "state": "success",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Кошик, порожній",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Меню профілю",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Бібліотека",
+          "width": 172
+        },
+        {
+          "height": 44,
+          "label": "Профіль",
+          "width": 172
+        },
+        {
+          "height": 44,
+          "label": "Відкрити меню",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Знайти",
+          "width": 70
+        },
+        {
+          "height": 44,
+          "label": "Каталог",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Жанри",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Знижки",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Авторам",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Бібліотека",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Профіль",
+          "width": 331
+        },
+        {
+          "height": 48,
+          "label": "Перейти в бібліотеку",
+          "width": 254
+        },
+        {
+          "height": 48,
+          "label": "До каталогу",
+          "width": 254
+        }
+      ],
+      "viewport": {
+        "device_scale_factor": 2,
+        "height": 1024,
+        "width": 768
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [
+          {
+            "text": "Підтвердження покупки готується до надсилання на email."
+          }
+        ],
+        "controlContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "UkieBook — головна",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(112, 95, 85)",
+            "label": "Каталог",
+            "threshold": 3,
+            "ratio": 5.742
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(112, 95, 85)",
+            "label": "Жанри",
+            "threshold": 3,
+            "ratio": 5.742
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(112, 95, 85)",
+            "label": "Знижки",
+            "threshold": 3,
+            "ratio": 5.742
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(112, 95, 85)",
+            "label": "Авторам",
+            "threshold": 3,
+            "ratio": 5.742
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(112, 95, 85)",
+            "label": "Знайти",
+            "threshold": 3,
+            "ratio": 5.742
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Кошик, порожній",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Меню профілю",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Бібліотека",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Профіль",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(144, 60, 179)",
+            "foreground": "rgb(255, 255, 255)",
+            "label": "Перейти в бібліотеку",
+            "threshold": 3,
+            "ratio": 6.029
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "До каталогу",
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ],
+        "formControls": [
+          {
+            "label": "Пошук за назвою або автором",
+            "labelCount": 1
+          }
+        ],
+        "mobileInputs": [],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Дякуємо за покупку",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Книжки в замовленні",
+            "threshold": 4.5,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/s06-success-1280@2x.png",
+      "implementation_revision": "92e820ffc4e5c69752543457ad7fecf12e960c15",
+      "layout": {
+        "clientWidth": 1280,
+        "scrollWidth": 1280,
+        "viewportWidth": 1280
+      },
+      "screen": "s06",
+      "sha256": "21cda4556100730d55ccb3bf674ac47b4dfc81f2ff27116b57bd286e3793d507",
+      "state": "success",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Каталог",
+          "width": 55
+        },
+        {
+          "height": 44,
+          "label": "Жанри",
+          "width": 47
+        },
+        {
+          "height": 44,
+          "label": "Знижки",
+          "width": 54
+        },
+        {
+          "height": 44,
+          "label": "Авторам",
+          "width": 59
+        },
+        {
+          "height": 44,
+          "label": "Знайти",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Кошик, порожній",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Меню профілю",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Бібліотека",
+          "width": 172
+        },
+        {
+          "height": 44,
+          "label": "Профіль",
+          "width": 172
+        },
+        {
+          "height": 48,
+          "label": "Перейти в бібліотеку",
+          "width": 254
+        },
+        {
+          "height": 48,
+          "label": "До каталогу",
+          "width": 254
+        }
+      ],
+      "viewport": {
+        "device_scale_factor": 2,
+        "height": 900,
+        "width": 1280
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [
+          {
+            "text": "Підтвердження покупки готується до надсилання на email."
+          }
+        ],
+        "controlContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "UkieBook — головна",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Кошик, порожній",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Відкрити меню",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(144, 60, 179)",
+            "foreground": "rgb(255, 255, 255)",
+            "label": "Знайти",
+            "threshold": 3,
+            "ratio": 6.029
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Каталог",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Жанри",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Знижки",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Авторам",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Бібліотека",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Профіль",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(144, 60, 179)",
+            "foreground": "rgb(255, 255, 255)",
+            "label": "Перейти в бібліотеку",
+            "threshold": 3,
+            "ratio": 6.029
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "До каталогу",
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ],
+        "formControls": [
+          {
+            "label": "Пошук за назвою або автором",
+            "labelCount": 1
+          }
+        ],
+        "mobileInputs": [
+          {
+            "fontSize": 16,
+            "label": "Пошук за назвою або автором"
+          }
+        ],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Дякуємо за покупку",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Книжки в замовленні",
+            "threshold": 4.5,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/s06-success-430@2x.png",
+      "implementation_revision": "92e820ffc4e5c69752543457ad7fecf12e960c15",
+      "layout": {
+        "clientWidth": 430,
+        "scrollWidth": 430,
+        "viewportWidth": 430
+      },
+      "screen": "s06",
+      "sha256": "406e1caf3f154462f81fd2c676cbb3fc3ccb344ac159ea5cd09bbbb8a4555201",
+      "state": "success",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Кошик, порожній",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Відкрити меню",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Знайти",
+          "width": 70
+        },
+        {
+          "height": 44,
+          "label": "Каталог",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Жанри",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Знижки",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Авторам",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Бібліотека",
+          "width": 331
+        },
+        {
+          "height": 44,
+          "label": "Профіль",
+          "width": 331
+        },
+        {
+          "height": 48,
+          "label": "Перейти в бібліотеку",
+          "width": 352
+        },
+        {
+          "height": 48,
+          "label": "До каталогу",
+          "width": 352
+        }
+      ],
+      "viewport": {
+        "device_scale_factor": 2,
+        "height": 932,
+        "width": 430
+      }
+    },
+    {
+      "accessibility": {
+        "alerts": [
+          {
+            "text": "Підтвердження покупки готується до надсилання на email."
+          }
+        ],
+        "controlContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "UkieBook — головна",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(112, 95, 85)",
+            "label": "Каталог",
+            "threshold": 3,
+            "ratio": 5.742
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(112, 95, 85)",
+            "label": "Жанри",
+            "threshold": 3,
+            "ratio": 5.742
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(112, 95, 85)",
+            "label": "Знижки",
+            "threshold": 3,
+            "ratio": 5.742
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(112, 95, 85)",
+            "label": "Авторам",
+            "threshold": 3,
+            "ratio": 5.742
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(112, 95, 85)",
+            "label": "Знайти",
+            "threshold": 3,
+            "ratio": 5.742
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Кошик, порожній",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Меню профілю",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Бібліотека",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Профіль",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(144, 60, 179)",
+            "foreground": "rgb(255, 255, 255)",
+            "label": "Перейти в бібліотеку",
+            "threshold": 3,
+            "ratio": 6.029
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "До каталогу",
+            "threshold": 3,
+            "ratio": 14.025
+          }
+        ],
+        "formControls": [
+          {
+            "label": "Пошук за назвою або автором",
+            "labelCount": 1
+          }
+        ],
+        "mobileInputs": [],
+        "placeholderContrast": [],
+        "textContrast": [
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Дякуємо за покупку",
+            "threshold": 3,
+            "ratio": 14.025
+          },
+          {
+            "background": "rgb(255, 247, 243)",
+            "foreground": "rgb(46, 38, 33)",
+            "label": "Книжки в замовленні",
+            "threshold": 4.5,
+            "ratio": 14.025
+          }
+        ]
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/s06-success-1440@2x.png",
+      "implementation_revision": "92e820ffc4e5c69752543457ad7fecf12e960c15",
+      "layout": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "viewportWidth": 1440
+      },
+      "screen": "s06",
+      "sha256": "d8f6b47621acd74afd515346507eacca21846ffce5f43cfd136f9d2875fe3366",
+      "state": "success",
+      "touch_targets": [
+        {
+          "height": 44,
+          "label": "UkieBook — головна",
+          "width": 94
+        },
+        {
+          "height": 44,
+          "label": "Каталог",
+          "width": 55
+        },
+        {
+          "height": 44,
+          "label": "Жанри",
+          "width": 47
+        },
+        {
+          "height": 44,
+          "label": "Знижки",
+          "width": 54
+        },
+        {
+          "height": 44,
+          "label": "Авторам",
+          "width": 59
+        },
+        {
+          "height": 44,
+          "label": "Знайти",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Кошик, порожній",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Меню профілю",
+          "width": 44
+        },
+        {
+          "height": 44,
+          "label": "Бібліотека",
+          "width": 172
+        },
+        {
+          "height": 44,
+          "label": "Профіль",
+          "width": 172
+        },
+        {
+          "height": 48,
+          "label": "Перейти в бібліотеку",
+          "width": 254
+        },
+        {
+          "height": 48,
+          "label": "До каталогу",
+          "width": 254
+        }
+      ],
+      "viewport": {
+        "device_scale_factor": 2,
+        "height": 1000,
+        "width": 1440
+      }
+    }
+  ],
+  "status": "passed"
+}

@@ -1,0 +1,23 @@
+{
+  "identities": [
+    {
+      "appRevision": "92e820ffc4e5c69752543457ad7fecf12e960c15",
+      "role": "worker",
+      "schemaRevision": "0006_commerce_checkout"
+    },
+    {
+      "appRevision": "92e820ffc4e5c69752543457ad7fecf12e960c15",
+      "role": "scheduler",
+      "schemaRevision": "0006_commerce_checkout"
+    },
+    {
+      "appRevision": "92e820ffc4e5c69752543457ad7fecf12e960c15",
+      "role": "db-migrate",
+      "schemaRevision": "0006_commerce_checkout"
+    }
+  ],
+  "shared_app_revision": "92e820ffc4e5c69752543457ad7fecf12e960c15",
+  "shared_schema_revision": "0006_commerce_checkout",
+  "status": "passed",
+  "verified_at": "2026-07-27T21:58:35.186Z"
+}

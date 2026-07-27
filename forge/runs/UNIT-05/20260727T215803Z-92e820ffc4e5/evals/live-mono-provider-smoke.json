@@ -1,0 +1,22 @@
+{
+  "deferred": true,
+  "evidence": [
+    "forge/runs/UNIT-05/20260727T215803Z-92e820ffc4e5/evidence/commerce/live-mono-provider-smoke.json",
+    "forge/runs/UNIT-05/20260727T215803Z-92e820ffc4e5/evidence/commerce/mono-contract.json",
+    "forge/runs/UNIT-05/20260727T215803Z-92e820ffc4e5/evidence/commands/unit05-e2e.txt"
+  ],
+  "findings": [
+    {
+      "activation_effect": "production-provider-activation-blocking",
+      "release_effect": "advisory",
+      "severity": "P3",
+      "summary": "Live mono acquiring checkout and wallet-method smoke is deferred to a credentialed sandbox or pre-production environment; the production adapter is exercised locally against a signed protocol simulator."
+    }
+  ],
+  "gate": "live_mono_provider_smoke",
+  "status": "blocked",
+  "implementation_revision": "92e820ffc4e5c69752543457ad7fecf12e960c15",
+  "owner": "Codex / commerce and purchase notification",
+  "timestamp": "2026-07-27T21:59:12.535Z",
+  "unit": "UNIT-05"
+}

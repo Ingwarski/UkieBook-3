@@ -1,0 +1,16 @@
+name: repository-hygiene
+command: npm run verify:repository
+implementation_revision: 92e820ffc4e5c69752543457ad7fecf12e960c15
+started_at: 2026-07-27T21:58:25.719Z
+finished_at: 2026-07-27T21:58:26.231Z
+exit_code: 0
+signal: none
+
+[stdout]
+
+> ukiebook-3@0.1.0 verify:repository
+> node scripts/verify-repository-hygiene.mjs
+
+Repository hygiene passed across 813 tracked files; only .env.example is allowed.
+
+[stderr]

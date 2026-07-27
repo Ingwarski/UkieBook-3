@@ -1,0 +1,15 @@
+{
+  "checks": [
+    "guest Cart is isolated by an opaque hashed cookie token",
+    "authenticated checkout requires the owning Buyer session",
+    "checkout result and payment redirect are ownership-checked",
+    "forged mono webhook signatures are rejected",
+    "card data and raw Cart tokens are never persisted"
+  ],
+  "evidence": [
+    "forge/runs/UNIT-05/20260727T215803Z-92e820ffc4e5/evidence/database/unit05-postgres-proof.json",
+    "forge/runs/UNIT-05/20260727T215803Z-92e820ffc4e5/evidence/commands/unit05-e2e.txt"
+  ],
+  "status": "passed",
+  "verified_at": "2026-07-27T21:59:12.532Z"
+}

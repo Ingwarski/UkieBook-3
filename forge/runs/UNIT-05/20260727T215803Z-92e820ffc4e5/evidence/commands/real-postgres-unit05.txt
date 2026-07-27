@@ -1,0 +1,18 @@
+name: real-postgres-unit05
+command: npm run verify:unit05:postgres
+implementation_revision: 92e820ffc4e5c69752543457ad7fecf12e960c15
+started_at: 2026-07-27T21:58:35.196Z
+finished_at: 2026-07-27T21:58:36.340Z
+exit_code: 0
+signal: none
+
+[stdout]
+
+> ukiebook-3@0.1.0 verify:unit05:postgres
+> node --import tsx scripts/unit05-embedded-postgres.mjs -- npx tsx --conditions=react-server scripts/verify-unit05-postgres.ts
+
+{"database":"ukiebook_unit05","mode":"explicit","status":"ready"}
+{"books":3,"buyer":"50505050-5050-4050-8050-505050505002","status":"passed"}
+{"card_data_non_persistence":"passed","cart_merge_deduplication":"passed","cart_persistence":"passed","duplicate_checkout_reuses_session":"passed","email_failure_independence":"passed","equal_timestamp_reconciliation_recovery":"passed","financial_snapshot_serialization":"passed","migration_roundtrip":"passed","missing_modified_date_reconciliation":"passed","missing_webhook_reconciliation":"passed","multi_book_single_invoice":"passed","notification_isolation":"passed","order_price_snapshot":"passed","order_snapshot_sealed_after_payment_session":"passed","paid_sale_append_only":"passed","paid_sale_atomicity":"passed","paid_sale_rollback_recovery":"passed","provider_payload_binding":"passed","provider_response_invoice_binding":"passed","payment_session_item_sum_guard":"passed","purchase_email_capture":"passed","raw_cart_token_non_persistence":"passed","reconciliation_horizon_continuity":"passed","reconciliation_outage_continuity":"passed","schema_revision":"0006_commerce_checkout","status":"passed","unpaid_cancelled_no_paid_sale":"passed","webhook_idempotency":"passed","webhook_out_of_order_guard":"passed","webhook_signature_verification":"passed"}
+
+[stderr]

@@ -7,7 +7,7 @@
 - `docs/canonical-terms.md` — applied roles, domain objects/actions/states, Screen/Flow Names and Terms to Avoid.
 - `docs/user-journey.md`, `docs/screen-map.md`, `docs/wireframes.md` — journey, S-01…S-21, routes/states/structure.
 - `docs/design-brief.md` — Approved Baseline `AVB-UKIEBOOK-AURORA-7B-V3`; target bundle hash `e50c9f82c241195d7f5d8876d9dcdcd7fd45b71cdaf6d2eedfe2e327a7182724`; tree hash `7b13c9e123694cf800ccda987aa64a7f98e625d671161a838b4f94e315feba97`; permitted variance.
-- `docs/architecture.md` — AD-1…AD-11, module/data/integration/security/runtime contracts.
+- `docs/architecture.md` — AD-1…AD-12, module/data/integration/security/runtime contracts.
 - `docs/dod-evals.md` — standing DoD and reusable gates.
 - `docs/qa-checklist.md` — concrete ACC/UJ/ST/WF/UX/VIS/RES/A11Y/INT/BD checks.
 - `docs/guardrails.md` — authority, evidence and high-risk boundaries.
@@ -15,6 +15,7 @@
 - `UkieBook-logo-transparent.svg` / `public/brand/UkieBook-logo-transparent.svg` — active official transparent-background SVG container, SHA-256 `db838dd4ad696f63cccb6aa86ab98e53dc5c6e13c1778ac340f62c5e4514617f`; raster-backed, not path-vector artwork.
 - `forge/runs/UNIT-03/20260722T151115Z-6fb52daf3ff1/run.json` — canonical completed UNIT-03 receipt at revision `6fb52daf3ff11630454c13a76adfd7875c749e8f`; S-10/S-11/S-12 through `BookSubmitted`, real EPUB+legacy MOBI conversion, private artifact boundary and scoped visual/accessibility evidence.
 - `forge/runs/UNIT-04/20260722T190601Z-4552048aeb2b/run.json` — canonical completed UNIT-04 receipt at revision `4552048aeb2ba6da16b47ac289058b14d5641869`; moderation/publication, S-13/S-18/S-02-unavailable, real PostgreSQL `0005_moderation_publication`, E2E and scoped Aurora visual/accessibility evidence.
+- `forge/runs/UNIT-05/20260727T215803Z-92e820ffc4e5/run.json` — canonical completed UNIT-05 receipt at revision `92e820ffc4e5c69752543457ad7fecf12e960c15`; persistent/mergeable Cart, immutable Order snapshots, mono redirect/status/signed-webhook reconciliation, transactional `PaidSale`, isolated E-01 notification, S-04/S-05/S-06 E2E and scoped Aurora visual/accessibility evidence.
 
 ## Implementation Strategy
 
@@ -26,7 +27,7 @@ Money is integer kopiykas; standard percentage rules are exact basis points (`29
 
 ## Codebase Map
 
-Current UNIT-00 foundation, UNIT-01 identity/profile, UNIT-02 catalog/Book Page behavior, UNIT-02-C1 correction, UNIT-03 publishing/conversion and canonically completed UNIT-04 moderation/publication slice at revision `4552048aeb2ba6da16b47ac289058b14d5641869`:
+Current UNIT-00 foundation, UNIT-01 identity/profile, UNIT-02 catalog/Book Page behavior, UNIT-02-C1 correction, UNIT-03 publishing/conversion, UNIT-04 moderation/publication and canonically completed UNIT-05 commerce/notification slice at revision `92e820ffc4e5c69752543457ad7fecf12e960c15`:
 
 ```text
 app/
@@ -42,6 +43,10 @@ app/
   api/author/publishing/    bounded private uploads/imports and Author-owned object reads
   admin/moderation/         S-18 Manager queue/detail and type-safe decisions
   api/admin/moderation/     Manager-only case-bound object reads
+  cart/                     S-04 persistent Cart and auth-return checkout entry
+  checkout/redirect/        S-05 provider transition
+  checkout/result/          S-06 pending/success/failure result
+  api/cart|checkout|payments/ Cart mutations, checkout start and mono webhook
   library/                  explicit guarded placeholder, not feature completion
   fixtures/aurora/          explicit non-product VIS-TOKENS fixture
 components/
@@ -50,6 +55,7 @@ components/
   catalog/                  semantic S-01/S-02 Aurora UI, formula, header, covers and pagination
   publishing/               Aurora Author list/wizard/preview, uploads, legal confirmations and recovery
   moderation/               Aurora S-18 master-detail, filters, decisions and removal dialog
+  commerce/                 Aurora S-04/S-05/S-06 Cart and checkout-result UI
 modules/
   platform/                 runtime identity, SQL port, transactions, outbox/jobs, env/evidence
   identity/                 OAuth adapters, crypto, repository, sessions, guards and policy
@@ -58,20 +64,22 @@ modules/
   catalog/                  additive public DTO/query/price contracts, PostgreSQL repository and guarded fixtures
   publishing/               drafts, immutable versions/declarations, converter, worker, private-storage port and service
   moderation/               BookSubmitted relay, screening, cases, decisions, active publication and audit
+  commerce/                 Cart, immutable Order/PaymentSession, mono adapter, webhook and reconciliation
+  notifications/            purchase-notification outbox consumer and provider adapter
 db/
-  migrations/               reversible checksummed PostgreSQL migrations 0001 through 0005
+  migrations/               reversible checksummed PostgreSQL migrations 0001 through 0006
   postgres.ts               production adapter
   pglite.ts                 test-only adapter
 workers/
   worker.ts scheduler.ts    separate executable roles
-scripts/                    build/boundary/hygiene, OAuth simulator, UNIT-00/01/02/03/04 evidence runners
+scripts/                    build/boundary/hygiene, OAuth/mono simulators, UNIT-00…05 evidence runners
 tests/
-  unit/ integration/ e2e/ visual/ plus UNIT-01/02/03/04 browser/visual suites
+  unit/ integration/ e2e/ visual/ plus UNIT-01…05 browser/visual suites
 public/brand/               active transparent-background UkieBook SVG and provider marks with provenance
 public/books/covers/final/  seven distinct realistic 2:3 baked-title production Covers
 ```
 
-The S-03/S-17 routes and identity/profile contracts above are complete only within UNIT-01; S-01/S-02 catalog behavior/read contracts are complete within UNIT-02 and their current V3 presentation within UNIT-02-C1. UNIT-03 ends at immutable `BookVersion` + `BookSubmitted`. UNIT-04 now consumes that boundary, implements safe auto-publication/manual routing, S-13/S-18, one active-publication pointer, atomic Catalog activation/removal and public Cover gating. Update/Review producer/application flows, Discount/250 UAH, rewards/founder and `/library` completion remain in their owning later units. UNIT-02 deterministic catalog seed remains a production-rejected bootstrap path.
+The S-03/S-17 routes and identity/profile contracts above are complete only within UNIT-01; S-01/S-02 catalog behavior/read contracts are complete within UNIT-02 and their current V3 presentation within UNIT-02-C1. UNIT-03 ends at immutable `BookVersion` + `BookSubmitted`. UNIT-04 consumes that boundary and closes moderation/publication through the public projection. UNIT-05 closes Cart/payment/PaidSale/E-01 only through the UNIT-06 entitlement handoff: `/library`, purchased-file delivery, reviews and Refund remain UNIT-06-owned. Update application, Discount/250 UAH and rewards/founder remain their later owning units. UNIT-02 deterministic catalog seed remains a production-rejected bootstrap path.
 
 Module imports point inward to domain contracts; UI and provider adapters may depend on domain interfaces, never the reverse. Cross-module mutation happens through commands/events, not direct table writes.
 
@@ -218,6 +226,7 @@ Module imports point inward to domain contracts; UI and provider adapters may de
 
 ### UNIT-05 — Cart, orders, mono and purchase notification
 
+- **Execution Status:** completed on 2026-07-27 at revision `92e820ffc4e5c69752543457ad7fecf12e960c15`; canonical evidence `forge/runs/UNIT-05/20260727T215803Z-92e820ffc4e5/run.json`.
 - **Purpose:** deliver S-04/S-05/S-06 and E-01 with idempotent Paid Sale events.
 - **Source References:** FR-PAY-1..5, US-006; Buyer journey/failure; architecture AD-3/7; QA ACC-09, UJ-02/03, ST-02, INT-01, BD-02.
 - **Depends On:** UNIT-00, UNIT-01, UNIT-02.
@@ -239,6 +248,7 @@ Module imports point inward to domain contracts; UI and provider adapters may de
 - **Interface Owner:** `commerce` / `notifications`.
 - **Compatibility Expectations:** price snapshot immutable; webhook event key unique; provider adapter replaceable.
 - **Integration Verification:** catalog→Cart→auth→mono sandbox/webhook→result→PaidSale/email.
+- **Completion Evidence:** `passed` at implementation revision `92e820ffc4e5c69752543457ad7fecf12e960c15`; canonical receipt `forge/runs/UNIT-05/20260727T215803Z-92e820ffc4e5/run.json`. All 12 canonical commands exited 0: schema revision `0006_commerce_checkout` and 28 real-PostgreSQL proof vectors passed; Vitest recorded 129 passed/3 skipped; Buyer E2E 3/3 covered success, preserved-Cart failure and missed-webhook reconciliation; 30/30 S-04/S-05/S-06 screenshots across 390/430/768/1280/1440 and 8/8 accessibility receipts passed with zero console/page errors or horizontal overflow; repository/evidence secret scans passed and `npm audit` found 0 vulnerabilities. External Chrome additionally confirmed the two-book guest Cart, OAuth merge, 398 UAH mono simulator invoice and successful S-06 result with empty Cart. The one P3 advisory defers credentialed live mono and wallet-method smoke to provider activation; production transactional email configuration also remains an operational adapter gate. Neither limit blocks UNIT-05 completion, and neither is represented as production-provider evidence.
 
 ### UNIT-06 — Library, reviews and Refund workflow
 
@@ -386,7 +396,7 @@ flowchart LR
   U09 --> U10[UNIT-10 Release]
 ```
 
-UNIT-00, UNIT-01, UNIT-02, correction UNIT-02-C1, UNIT-03 and UNIT-04 are canonically complete within their recorded scopes. UNIT-04 consumes UNIT-03 `BookSubmitted`, produces audited decisions/publication events, and atomically maintains the bounded public projection. The next executable unit is UNIT-05: persistent/mergeable Cart, S-04, provider-owned S-05 mono payment, S-06 result/recovery, immutable order-price snapshot, signed/idempotent webhook reconciliation, transactional `PaidSale`, isolated E-01 purchase notification, auth return-to and failed-payment recovery. No financial consumer begins against an unversioned `PaidSale`/`RefundApproved` event. UNIT-09 is a convergence unit, not a substitute for per-unit UX evidence.
+UNIT-00, UNIT-01, UNIT-02, correction UNIT-02-C1, UNIT-03, UNIT-04 and UNIT-05 are canonically complete within their recorded scopes. UNIT-05 produces versioned `PaidSale` and isolated E-01 notification evidence without claiming a Library entitlement. The next executable unit is UNIT-06: consume `PaidSale` into idempotent `LibraryEntitlement`, authorize EPUB/MOBI delivery, resolve the latest approved version, restrict reviews to verified Buyers, and close the Refund request/Manager-decision/`RefundApproved` workflow across S-07/S-08/S-09/S-20. No financial consumer begins against an unversioned `PaidSale`/`RefundApproved` event. UNIT-09 is a convergence unit, not a substitute for per-unit UX evidence.
 
 ## Verification Plan
 
@@ -396,6 +406,7 @@ UNIT-00, UNIT-01, UNIT-02, correction UNIT-02-C1, UNIT-03 and UNIT-04 are canoni
 - For UNIT-02/C1 catalog presentation changes, the UNIT-02 verifier must bind the V3 bundle/tree/VQA hashes, revision and external-browser visual inspection in `forge/runs/UNIT-02-C1/20260722T115720Z-338d4450e107/run.json`; old V2 receipts never satisfy the active gate.
 - For UNIT-03 publishing/converter changes, `REAL_DATABASE_URL=postgres://<credentials>@127.0.0.1:<port>/ukiebook_unit03 npm run verify:unit03` is the canonical bundle-producing rerun. It must keep the dedicated loopback database guard, Calibre `9.11.0`/adapter and both validators, migration `0004`, private-artifact/version/submission/failure-retry proofs, 3/3 Author E2E, and the 30-visual/7-accessibility receipt matrix; canonical completed evidence is `forge/runs/UNIT-03/20260722T151115Z-6fb52daf3ff1/run.json`.
 - For UNIT-04 moderation/publication changes, `UNIT04_DATABASE_URL=postgresql://<dedicated-credentials>@127.0.0.1:<port>/ukiebook_unit04 npm run verify:unit04` is the canonical bundle-producing rerun. It rejects a dirty tree, non-loopback host or different database name; requires migration `0005_moderation_publication`, safe clear/flagged/outage routing, role/CSRF separation, immutable decisions/audit, one active version, atomic Catalog/public-Cover activation/removal, 4/4 E2E, and the 50-visual/8-accessibility receipt matrix across 390/430/768/1280/1440. Canonical completed evidence is `forge/runs/UNIT-04/20260722T190601Z-4552048aeb2b/run.json` at revision `4552048aeb2ba6da16b47ac289058b14d5641869`; any affected change must rerun this contract.
+- For UNIT-05 commerce/notification changes, `npm run verify:unit05` is the canonical bundle-producing rerun. It rejects a dirty tree; opens a dedicated embedded or explicitly guarded loopback PostgreSQL database named `ukiebook_unit05`; requires migration `0006_commerce_checkout`, 28 persistence/payment/reconciliation/notification proofs, 3/3 Buyer E2E, a sanitized E-01 receipt, 30 visual receipts, all 8 named accessibility checks and evidence secret hygiene. Canonical completed evidence is `forge/runs/UNIT-05/20260727T215803Z-92e820ffc4e5/run.json` at revision `92e820ffc4e5c69752543457ad7fecf12e960c15`; any affected change must rerun this contract. Credentialed live mono/wallet smoke remains an activation gate, not a substitute for the canonical local protocol proof.
 - Persist results in dod-evals format with unit, revision, timestamp, evidence and findings. A missing applicable command/result is `blocked`, never passed by inspection.
 - Money tests use integer fixtures, discount boundaries, duplicate/out-of-order events, Refund compensation, threshold/carry, update fee and Founder cases.
 - Conversion tests use representative DOCX/TXT/Google Docs fixtures with headings, Unicode Ukrainian text and inline Illustrations; EPUB/MOBI validators are external evidence.

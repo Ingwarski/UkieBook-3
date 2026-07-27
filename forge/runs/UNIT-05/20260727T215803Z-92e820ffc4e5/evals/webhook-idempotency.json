@@ -1,0 +1,20 @@
+{
+  "covered_checks": [
+    "signed exact raw body",
+    "duplicate delivery produces one paid order and one PaidSale",
+    "stale and out-of-order observations cannot regress payment state"
+  ],
+  "evidence": [
+    "forge/runs/UNIT-05/20260727T215803Z-92e820ffc4e5/evidence/commands/real-postgres-unit05.txt",
+    "forge/runs/UNIT-05/20260727T215803Z-92e820ffc4e5/evidence/database/unit05-postgres-proof.json",
+    "forge/runs/UNIT-05/20260727T215803Z-92e820ffc4e5/evidence/commerce/mono-contract.json",
+    "forge/runs/UNIT-05/20260727T215803Z-92e820ffc4e5/evidence/commands/unit05-e2e.txt"
+  ],
+  "gate": "webhook_idempotency",
+  "findings": [],
+  "implementation_revision": "92e820ffc4e5c69752543457ad7fecf12e960c15",
+  "owner": "Codex / commerce and purchase notification",
+  "status": "passed",
+  "timestamp": "2026-07-27T21:59:12.534Z",
+  "unit": "UNIT-05"
+}

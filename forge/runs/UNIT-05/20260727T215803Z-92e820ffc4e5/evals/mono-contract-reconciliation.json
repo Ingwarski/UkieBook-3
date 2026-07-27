@@ -1,0 +1,24 @@
+{
+  "covered_checks": [
+    "signed webhook and provider-status observations converge",
+    "missing provider modifiedDate remains audit-only on webhook and is promoted by an authoritative status read",
+    "equal provider timestamps remain webhook-audit-only until authoritative reconciliation promotion",
+    "misrouted invoice-status responses cannot advance another payment session",
+    "provider outage leaves a durable successor",
+    "reconciliation continues beyond the provider-expiry horizon",
+    "terminal recovery resolves the overdue issue without duplicate PaidSale"
+  ],
+  "evidence": [
+    "forge/runs/UNIT-05/20260727T215803Z-92e820ffc4e5/evidence/commands/real-postgres-unit05.txt",
+    "forge/runs/UNIT-05/20260727T215803Z-92e820ffc4e5/evidence/database/unit05-postgres-proof.json",
+    "forge/runs/UNIT-05/20260727T215803Z-92e820ffc4e5/evidence/commerce/mono-contract.json",
+    "forge/runs/UNIT-05/20260727T215803Z-92e820ffc4e5/evidence/commands/unit05-e2e.txt"
+  ],
+  "gate": "mono_contract_reconciliation",
+  "findings": [],
+  "implementation_revision": "92e820ffc4e5c69752543457ad7fecf12e960c15",
+  "owner": "Codex / commerce and purchase notification",
+  "status": "passed",
+  "timestamp": "2026-07-27T21:59:12.534Z",
+  "unit": "UNIT-05"
+}

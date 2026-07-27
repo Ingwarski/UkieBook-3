@@ -1,0 +1,24 @@
+{
+  "checks": {
+    "exact_raw_body_signature": "passed",
+    "idempotent_delivery": "passed",
+    "missed_webhook_reconciliation": "passed",
+    "out_of_order_guard": "passed",
+    "provider_payload_binding": "passed",
+    "provider_response_invoice_binding": "passed",
+    "reconciliation_horizon_continuity": "passed",
+    "reconciliation_outage_continuity": "passed"
+  },
+  "implementation_revision": "92e820ffc4e5c69752543457ad7fecf12e960c15",
+  "official_sources": {
+    "create_invoice": "https://monobank.ua/api-docs/acquiring/methods/ia/post--api--merchant--invoice--create",
+    "get_invoice_status": "https://monobank.ua/api-docs/acquiring/methods/ia/get--api--merchant--invoice--status",
+    "get_webhook_public_key": "https://monobank.ua/en/api-docs/acquiring/dev/webhooks/get--api--merchant--pubkey",
+    "testing": "https://monobank.ua/api-docs/acquiring/dev/test/docs--testing",
+    "verify_webhook": "https://monobank.ua/api-docs/acquiring/dev/webhooks/verify"
+  },
+  "provider_surface": "mono acquiring create-invoice, invoice-status, public-key and signed webhook protocol",
+  "status": "passed",
+  "verified_against_official_sources_at": "2026-07-27",
+  "verified_at": "2026-07-27T21:58:36.342Z"
+}
