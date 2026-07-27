@@ -471,6 +471,7 @@ function parseProofJson(stdout) {
 }
 
 async function captureSanitizedPurchaseEmailEvidence() {
+  await mkdir(emailCaptureRoot, { recursive: true });
   const files = (await readdir(emailCaptureRoot)).filter((file) =>
     file.endsWith(".json"),
   );

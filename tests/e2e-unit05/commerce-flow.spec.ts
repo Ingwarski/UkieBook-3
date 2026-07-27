@@ -84,7 +84,6 @@ async function resetCommerceState(): Promise<void> {
       ],
     );
   });
-  await rm(emailCaptureRoot, { force: true, recursive: true });
   if (!monoControlToken) {
     throw new Error("UNIT05_MONO_CONTROL_TOKEN is required");
   }
@@ -170,6 +169,9 @@ async function monoControl(
 }
 
 test.describe.configure({ mode: "serial" });
+test.beforeAll(async () => {
+  await rm(emailCaptureRoot, { force: true, recursive: true });
+});
 test.beforeEach(resetCommerceState);
 
 test("S-04 merges a two-book guest cart at auth and one signed payment emits one paid sale", async ({
