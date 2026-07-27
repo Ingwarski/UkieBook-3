@@ -5,7 +5,7 @@ export default function CatalogLoading() {
   return (
     <main aria-busy="true" aria-label="Каталог завантажується" className={styles.catalogPage}>
       <div className={styles.auroraRegion}>
-        <PublicHeader viewer={{ isAuthor: false, signedIn: false }} />
+        <PublicHeader viewer={{ cartCount: 0, isAuthor: false, signedIn: false }} />
         <section className={styles.hero}>
           <h1>
             Затишні вечори

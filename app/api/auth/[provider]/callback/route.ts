@@ -1,6 +1,13 @@
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 
+import { anonymousCartTokenFrom } from "../../../../commerce-request";
+import {
+  ANONYMOUS_CART_COOKIE_NAME,
+  anonymousCartCookieOptions,
+  commerceRuntime,
+  mergeAnonymousCart,
+} from "../../../../../modules/commerce/server";
 import { isOAuthProviderId } from "../../../../../modules/identity/types";
 import {
   flowCookieName,
@@ -48,6 +55,21 @@ export async function GET(
       database: runtime.database,
       provider: runtime.provider(providerValue),
     });
+    const anonymousToken = anonymousCartTokenFrom(request.cookies);
+    let anonymousCartMerged = false;
+    if (anonymousToken) {
+      try {
+        const commerce = commerceRuntime();
+        await mergeAnonymousCart(commerce.database, {
+          anonymousToken,
+          buyerUserId: result.userId,
+        });
+        anonymousCartMerged = true;
+      } catch {
+        // Login remains successful and the guest token is retained so a later
+        // authenticated cart mutation can retry the merge without data loss.
+      }
+    }
     const target = new URL(result.redirectTo, runtime.config.appOrigin);
     const response = NextResponse.redirect(target, {
       headers: noStoreHeaders(),
@@ -61,6 +83,13 @@ export async function GET(
       secure: secureCookie(runtime.config),
     });
     clearFlowCookie(response, cookieName, secureCookie(runtime.config));
+    if (anonymousCartMerged) {
+      response.cookies.set(ANONYMOUS_CART_COOKIE_NAME, "", {
+        ...anonymousCartCookieOptions(runtime.config.appOrigin),
+        expires: new Date(0),
+        maxAge: 0,
+      });
+    }
     return response;
   } catch (error) {
     const failure =

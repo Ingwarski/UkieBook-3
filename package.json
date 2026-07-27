@@ -5,7 +5,7 @@
   "description": "UkieBook modular monolith foundation",
   "type": "module",
   "engines": {
-    "node": ">=20.17.0"
+    "node": ">=20.19.0"
   },
   "packageManager": "npm@11.13.0",
   "scripts": {
@@ -35,6 +35,8 @@
     "test:unit03:visual": "playwright test --config playwright.unit03.visual.config.ts",
     "test:unit04:e2e": "playwright test --config playwright.unit04.e2e.config.ts",
     "test:unit04:visual": "playwright test --config playwright.unit04.visual.config.ts",
+    "test:unit05:e2e": "node --import tsx scripts/unit05-embedded-postgres.mjs -- npx playwright test --config playwright.unit05.e2e.config.ts",
+    "test:unit05:visual": "node --import tsx scripts/unit05-embedded-postgres.mjs -- npx playwright test --config playwright.unit05.visual.config.ts",
     "verify:repository": "node scripts/verify-repository-hygiene.mjs",
     "verify": "npm run typecheck && npm run lint && npm test && npm run build && npm run test:e2e && npm run test:visual",
     "verify:unit00": "node scripts/run-unit00-verification.mjs",
@@ -44,7 +46,9 @@
     "verify:unit03:postgres": "tsx --conditions=react-server scripts/verify-unit03-postgres.ts",
     "verify:unit03": "node scripts/run-unit03-verification.mjs",
     "verify:unit04:postgres": "tsx --conditions=react-server scripts/verify-unit04-postgres.ts",
-    "verify:unit04": "node scripts/run-unit04-verification.mjs"
+    "verify:unit04": "node scripts/run-unit04-verification.mjs",
+    "verify:unit05:postgres": "node --import tsx scripts/unit05-embedded-postgres.mjs -- npx tsx --conditions=react-server scripts/verify-unit05-postgres.ts",
+    "verify:unit05": "node --import tsx scripts/run-unit05-verification.mjs"
   },
   "dependencies": {
     "@fontsource-variable/golos-text": "^5.3.0",
@@ -61,6 +65,8 @@
   },
   "devDependencies": {
     "@electric-sql/pglite": "0.5.4",
+    "@eslint/js": "10.0.1",
+    "@next/eslint-plugin-next": "16.2.11",
     "@playwright/test": "1.61.1",
     "@testing-library/dom": "10.4.1",
     "@testing-library/jest-dom": "7.0.0",
@@ -69,12 +75,15 @@
     "@types/pg": "8.20.0",
     "@types/react": "19.2.17",
     "@types/react-dom": "19.2.3",
+    "embedded-postgres": "18.4.0-beta.17",
     "esbuild": "0.28.1",
-    "eslint": "9.39.5",
-    "eslint-config-next": "16.2.11",
+    "eslint": "10.8.0",
+    "eslint-plugin-react-hooks": "7.1.1",
+    "globals": "17.8.0",
     "jose": "6.1.2",
     "jsdom": "29.1.1",
     "tsx": "4.23.1",
+    "typescript-eslint": "8.65.0",
     "typescript": "6.0.3",
     "vitest": "4.1.10"
   },

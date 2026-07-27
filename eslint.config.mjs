@@ -1,10 +1,37 @@
+import eslint from "@eslint/js";
+import next from "@next/eslint-plugin-next";
 import { defineConfig, globalIgnores } from "eslint/config";
-import nextVitals from "eslint-config-next/core-web-vitals";
-import nextTypeScript from "eslint-config-next/typescript";
+import reactHooks from "eslint-plugin-react-hooks";
+import globals from "globals";
+import tseslint from "typescript-eslint";
 
 export default defineConfig([
-  ...nextVitals,
-  ...nextTypeScript,
+  eslint.configs.recommended,
+  ...tseslint.configs.recommended,
+  {
+    files: ["**/*.{js,mjs,cjs,ts,tsx}"],
+    languageOptions: {
+      globals: {
+        ...globals.browser,
+        ...globals.nodeBuiltin
+      }
+    },
+    plugins: {
+      "@next/next": next,
+      "react-hooks": reactHooks
+    },
+    rules: {
+      ...next.configs["core-web-vitals"].rules,
+      ...reactHooks.configs.flat.recommended.rules,
+      "@typescript-eslint/no-empty-object-type": "off",
+      "no-control-regex": "off",
+      "no-empty-pattern": "off",
+      "no-unsafe-finally": "off",
+      "no-useless-assignment": "off",
+      "no-useless-escape": "off",
+      "preserve-caught-error": "off"
+    }
+  },
   {
     files: ["modules/**/*.{ts,tsx}", "db/**/*.ts", "workers/**/*.ts"],
     rules: {

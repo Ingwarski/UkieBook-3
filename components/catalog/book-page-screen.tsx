@@ -7,10 +7,14 @@ import { BookCover } from "./book-cover";
 import { PublicHeader, type PublicHeaderViewer } from "./public-header";
 import styles from "./catalog.module.css";
 
-interface BookPageScreenProps {
+export interface BookPageScreenViewer extends PublicHeaderViewer {
+  readonly csrfToken?: string;
+}
+
+export interface BookPageScreenProps {
   readonly book: BookPageReadModel;
   readonly sampleOpen?: boolean;
-  readonly viewer: PublicHeaderViewer;
+  readonly viewer: BookPageScreenViewer;
 }
 
 function ukrainianDate(value: string): string {
@@ -53,9 +57,6 @@ function ReviewPagination({ book }: { readonly book: BookPageReadModel }) {
 
 export function BookPageScreen({ book, sampleOpen = false, viewer }: BookPageScreenProps) {
   const available = book.availability === "available";
-  const cartHref = viewer.signedIn
-    ? `/cart?add=${encodeURIComponent(book.id)}`
-    : `/login?returnTo=${encodeURIComponent(`/cart?add=${book.id}`)}`;
   return (
     <main className={styles.bookPage}>
       <div className={styles.bookAuroraHeader}>
@@ -95,9 +96,20 @@ export function BookPageScreen({ book, sampleOpen = false, viewer }: BookPageScr
                     <strong>{book.price.formattedActualPrice}</strong>
                   </p>
                 )}
-                <a className={styles.primaryCta} href={cartHref}>
-                  <ShoppingCartSimple aria-hidden="true" size={20} /> Додати в кошик
-                </a>
+                <form
+                  action="/api/cart/items"
+                  className={styles.addToCartForm}
+                  method="post"
+                >
+                  <input name="bookId" type="hidden" value={book.id} />
+                  <input name="returnTo" type="hidden" value="/cart" />
+                  {viewer.csrfToken ? (
+                    <input name="csrfToken" type="hidden" value={viewer.csrfToken} />
+                  ) : null}
+                  <button className={styles.primaryCta} type="submit">
+                    <ShoppingCartSimple aria-hidden="true" size={20} /> Додати в кошик
+                  </button>
+                </form>
                 <a className={styles.secondaryCta} href={`/books/${book.id}?sample=1#sample`}>
                   Читати фрагмент
                 </a>

@@ -111,6 +111,10 @@ const sensitiveServerFiles = new Set(
         relative.startsWith("modules/author-profile/server/") ||
         relative.startsWith("modules/payout-details/server/") ||
         relative.startsWith("modules/catalog/server/") ||
+        relative.startsWith("modules/commerce/server/") ||
+        relative === "modules/commerce/mono-adapter.ts" ||
+        relative === "modules/commerce/cart-token.ts" ||
+        relative.startsWith("modules/notifications/server/") ||
         relative.startsWith("modules/publishing/conversion/") ||
         relative.startsWith("modules/publishing/server/") ||
         relative.startsWith("modules/publishing/storage/") ||

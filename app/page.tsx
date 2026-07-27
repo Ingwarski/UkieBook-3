@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import { CatalogScreen } from "../components/catalog";
+import { currentCartCount } from "./commerce-request";
 import { catalogFixtureShell } from "../modules/catalog/fixture-read-model";
 import { normalizeCatalogQuery } from "../modules/catalog/query";
 import { loadCatalog } from "../modules/catalog/server/service";
@@ -28,6 +29,7 @@ export default async function CatalogPage({ searchParams }: CatalogPageProps) {
       ? catalogResult.value
       : catalogFixtureShell(query, asOf);
   const session = sessionResult.status === "fulfilled" ? sessionResult.value : null;
+  const cartCount = await currentCartCount(session).catch(() => 0);
 
   return (
     <CatalogScreen
@@ -38,6 +40,7 @@ export default async function CatalogPage({ searchParams }: CatalogPageProps) {
       }
       model={model}
       viewer={{
+        cartCount,
         isAuthor: session?.session.roles.includes("author") ?? false,
         signedIn: session !== null,
       }}

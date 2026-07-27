@@ -15,5 +15,8 @@ export const PUBLISHING_PIPELINE_MIGRATION_ID = "0004_publishing_pipeline";
 export const MODERATION_PUBLICATION_MIGRATION_ID =
   "0005_moderation_publication";
 
+/** Immutable ID used by the UNIT-05 commerce checkout migration. */
+export const COMMERCE_CHECKOUT_MIGRATION_ID = "0006_commerce_checkout";
+
 /** Latest schema understood by every production runtime. */
-export const PLATFORM_SCHEMA_REVISION = MODERATION_PUBLICATION_MIGRATION_ID;
+export const PLATFORM_SCHEMA_REVISION = COMMERCE_CHECKOUT_MIGRATION_ID;

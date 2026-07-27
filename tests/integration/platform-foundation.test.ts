@@ -12,6 +12,7 @@ import { identitySessionsAuthorProfileMigration } from "../../db/migrations/0002
 import { catalogReadModelMigration } from "../../db/migrations/0003_catalog_read_model";
 import { publishingPipelineMigration } from "../../db/migrations/0004_publishing_pipeline";
 import { moderationPublicationMigration } from "../../db/migrations/0005_moderation_publication";
+import { commerceCheckoutMigration } from "../../db/migrations/0006_commerce_checkout";
 import { adaptPGlite } from "../../db/pglite";
 import type { SqlDatabase } from "../../db/query";
 import {
@@ -44,9 +45,10 @@ describe("UNIT-00 PostgreSQL foundation", () => {
       { id: "0003_catalog_read_model", direction: "up" },
       { id: "0004_publishing_pipeline", direction: "up" },
       { id: "0005_moderation_publication", direction: "up" },
+      { id: "0006_commerce_checkout", direction: "up" },
     ]);
     await expect(applyMigrations(database)).resolves.toEqual([]);
-    await expect(listAppliedMigrations(database)).resolves.toHaveLength(5);
+    await expect(listAppliedMigrations(database)).resolves.toHaveLength(6);
 
     const tables = await database.query<{ table_name: string }>(`
       SELECT table_name
@@ -60,6 +62,10 @@ describe("UNIT-00 PostgreSQL foundation", () => {
       "outbox_events",
     ]);
 
+    await expect(rollbackLatestMigration(database)).resolves.toEqual({
+      id: "0006_commerce_checkout",
+      direction: "down",
+    });
     await expect(rollbackLatestMigration(database)).resolves.toEqual({
       id: "0005_moderation_publication",
       direction: "down",
@@ -95,6 +101,7 @@ describe("UNIT-00 PostgreSQL foundation", () => {
       { id: "0003_catalog_read_model", direction: "up" },
       { id: "0004_publishing_pipeline", direction: "up" },
       { id: "0005_moderation_publication", direction: "up" },
+      { id: "0006_commerce_checkout", direction: "up" },
     ]);
 
     await expect(
@@ -104,6 +111,7 @@ describe("UNIT-00 PostgreSQL foundation", () => {
         catalogReadModelMigration,
         publishingPipelineMigration,
         moderationPublicationMigration,
+        commerceCheckoutMigration,
       ]),
     ).rejects.toThrow(/checksum does not match/i);
   });

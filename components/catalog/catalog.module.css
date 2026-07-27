@@ -957,6 +957,16 @@
   min-height: 50px;
 }
 
+.addToCartForm {
+  min-width: 0;
+  margin: 0;
+  display: flex;
+}
+
+.addToCartForm .primaryCta {
+  width: 100%;
+}
+
 .secondaryCta {
   border: 1px solid var(--color-border-control);
   background: #fff;
@@ -1734,15 +1744,18 @@
     grid-column: 1;
   }
 
-  .detailPurchase > .primaryCta {
+  .detailPurchase > .addToCartForm {
     position: fixed;
     z-index: 30;
     right: 14px;
     bottom: max(14px, env(safe-area-inset-bottom));
     left: 14px;
-    min-height: 52px;
     display: flex;
     box-shadow: 0 14px 34px rgba(88, 33, 113, 0.3);
+  }
+
+  .detailPurchase > .addToCartForm .primaryCta {
+    min-height: 52px;
   }
 
   .bookSection,

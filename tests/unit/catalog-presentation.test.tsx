@@ -17,7 +17,7 @@ describe("UNIT-02 Aurora catalog presentation", () => {
           pagination: { ...model.pagination, totalItems: 1 },
           results: [model.featuredShelf[0]!],
         }}
-        viewer={{ isAuthor: false, signedIn: false }}
+        viewer={{ cartCount: 2, isAuthor: false, signedIn: false }}
       />,
     );
 
@@ -39,7 +39,11 @@ describe("UNIT-02 Aurora catalog presentation", () => {
   });
 
   it("adds authenticated access without replacing baseline navigation", () => {
-    render(<PublicHeader viewer={{ isAuthor: true, signedIn: true }} />);
+    render(
+      <PublicHeader
+        viewer={{ cartCount: 0, isAuthor: true, signedIn: true }}
+      />,
+    );
     expect(screen.getAllByRole("link", { name: "Каталог" })).toHaveLength(2);
     expect(screen.getAllByRole("link", { name: "Авторам" })).toHaveLength(2);
     expect(screen.getAllByRole("link", { name: "Бібліотека" })).toHaveLength(2);
@@ -52,11 +56,17 @@ describe("UNIT-02 Aurora catalog presentation", () => {
       normalizeCatalogQuery({ discounted: "1", genre: "proza", sort: "price_asc" }),
     );
     const { rerender } = render(
-      <CatalogScreen model={baselineModel} viewer={{ isAuthor: false, signedIn: false }} />,
+      <CatalogScreen
+        model={baselineModel}
+        viewer={{ cartCount: 0, isAuthor: false, signedIn: false }}
+      />,
     );
     expect(screen.getAllByRole("link", { current: "page", name: "Каталог" })).toHaveLength(2);
     rerender(
-      <CatalogScreen model={filteredModel} viewer={{ isAuthor: false, signedIn: false }} />,
+      <CatalogScreen
+        model={filteredModel}
+        viewer={{ cartCount: 0, isAuthor: false, signedIn: false }}
+      />,
     );
     expect(screen.getAllByRole("link", { current: "page", name: "Каталог" })).toHaveLength(2);
     expect(screen.getAllByRole("link", { current: "location", name: "Жанри" })).toHaveLength(2);
@@ -72,23 +82,52 @@ describe("UNIT-02 Aurora catalog presentation", () => {
       "price_asc",
     );
 
-    rerender(<PublicHeader viewer={{ isAuthor: false, signedIn: false }} />);
+    rerender(
+      <PublicHeader
+        viewer={{ cartCount: 0, isAuthor: false, signedIn: false }}
+      />,
+    );
     expect(screen.queryByRole("link", { current: "page" })).toBeNull();
   });
 
   it("renders the constructive empty and inline-error states", () => {
     const model = catalogFixtureShell(normalizeCatalogQuery({ q: "невідома" }));
     const { rerender } = render(
-      <CatalogScreen model={model} viewer={{ isAuthor: false, signedIn: false }} />,
+      <CatalogScreen
+        model={model}
+        viewer={{ cartCount: 0, isAuthor: false, signedIn: false }}
+      />,
     );
     expect(screen.getByRole("heading", { name: "Нічого не знайдено" })).toBeTruthy();
     rerender(
       <CatalogScreen
         errorMessage="Повторіть спробу."
         model={model}
-        viewer={{ isAuthor: false, signedIn: false }}
+        viewer={{ cartCount: 0, isAuthor: false, signedIn: false }}
       />,
     );
     expect(screen.getByRole("alert").textContent).toContain("Повторіть спробу");
+  });
+
+  it("hides a zero badge and localizes the nonzero cart label", () => {
+    const { rerender } = render(
+      <PublicHeader
+        viewer={{ cartCount: 0, isAuthor: false, signedIn: false }}
+      />,
+    );
+    const emptyCart = screen.getByRole("link", { name: "Кошик, порожній" });
+    expect(emptyCart.querySelector("[class*='cartBadge']")).toBeNull();
+
+    rerender(
+      <PublicHeader
+        viewer={{ cartCount: 21, isAuthor: false, signedIn: false }}
+      />,
+    );
+    const populatedCart = screen.getByRole("link", {
+      name: "Кошик, 21 книжка",
+    });
+    expect(populatedCart.querySelector("[class*='cartBadge']")?.textContent).toBe(
+      "21",
+    );
   });
 });

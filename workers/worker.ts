@@ -20,6 +20,20 @@ import { createModerationScreeningHandler } from "../modules/moderation/server/w
 import { createPublishingConversionHandler } from "../modules/publishing/server/conversion-worker";
 import { LocalPrivateObjectStorage } from "../modules/publishing/storage/private-object-storage";
 import path from "node:path";
+import {
+  commercePaymentProvider,
+} from "../modules/commerce/server/runtime";
+import {
+  createPaymentCreationWatchdogHandler,
+  createPaymentReconciliationHandler,
+} from "../modules/commerce/server/service";
+import {
+  PAYMENT_CREATION_WATCHDOG_JOB_TYPE,
+  PAYMENT_RECONCILIATION_JOB_TYPE,
+} from "../modules/commerce/types";
+import { notificationRuntime } from "../modules/notifications/server/runtime";
+import { createPurchaseEmailHandler } from "../modules/notifications/server/service";
+import { PURCHASE_EMAIL_JOB_TYPE } from "../modules/notifications/types";
 
 export interface DurableJobHandlerContext {
   /** Aborts if the worker loses its database lease. Handlers must check it
@@ -206,9 +220,22 @@ async function main(): Promise<void> {
   process.once("SIGTERM", stop);
 
   try {
+    const queue = process.env.WORKER_QUEUE ?? "publishing";
+    const paymentProvider = commercePaymentProvider(environment);
+    const notifications = notificationRuntime(environment);
+    const reconciliationHandler = createPaymentReconciliationHandler({
+      database,
+      intervalMs: environment.PAYMENT_RECONCILIATION_INTERVAL_MS,
+      maxReconciliations:
+        Math.ceil(
+          (environment.PAYMENT_SESSION_VALIDITY_SECONDS * 1_000) /
+            environment.PAYMENT_RECONCILIATION_INTERVAL_MS,
+        ) + 4,
+      provider: paymentProvider,
+    });
     await runWorker({
       database,
-      queue: process.env.WORKER_QUEUE ?? "publishing",
+      queue,
       workerId: environment.WORKER_ID,
       handlers: {
         "publishing.convert.v1": createPublishingConversionHandler({
@@ -223,9 +250,20 @@ async function main(): Promise<void> {
           database,
           storage,
         }),
+        [PAYMENT_RECONCILIATION_JOB_TYPE]: reconciliationHandler,
+        [PAYMENT_CREATION_WATCHDOG_JOB_TYPE]:
+          createPaymentCreationWatchdogHandler({ database }),
+        [PURCHASE_EMAIL_JOB_TYPE]: createPurchaseEmailHandler({
+          adapter: notifications.adapter,
+          appOrigin: environment.APP_ORIGIN,
+          database,
+          from: notifications.from,
+        }),
       },
       beforePoll: async () => {
-        await relayBookSubmittedEvents(database, { limit: 25 });
+        if (queue === "publishing") {
+          await relayBookSubmittedEvents(database, { limit: 25 });
+        }
       },
       leaseSeconds: environment.JOB_LEASE_SECONDS,
       signal: abortController.signal,

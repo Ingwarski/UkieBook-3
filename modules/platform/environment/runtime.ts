@@ -39,6 +39,38 @@ const serverEnvironmentSchema = z.object({
     .default("https://docs.google.com"),
   JOB_LEASE_SECONDS: z.coerce.number().int().positive().default(60),
   JOB_MAX_ATTEMPTS: z.coerce.number().int().min(1).max(100).default(5),
+  MONO_API_ORIGIN: z
+    .string()
+    .trim()
+    .url()
+    .default("https://api.monobank.ua"),
+  MONO_MERCHANT_TOKEN: optionalNonEmptyString(z.string().trim().min(1)),
+  MONO_WEBHOOK_PUBLIC_KEY: optionalNonEmptyString(z.string().trim().min(1)),
+  PAYMENT_WEBHOOK_MAX_BYTES: z.coerce
+    .number()
+    .int()
+    .min(1_024)
+    .max(1_048_576)
+    .default(65_536),
+  PAYMENT_SESSION_VALIDITY_SECONDS: z.coerce
+    .number()
+    .int()
+    .min(60)
+    .max(86_400)
+    .default(3_600),
+  PAYMENT_RECONCILIATION_INTERVAL_MS: z.coerce
+    .number()
+    .int()
+    .min(1_000)
+    .max(3_600_000)
+    .default(30_000),
+  EMAIL_FROM: z
+    .string()
+    .trim()
+    .min(1)
+    .default("UkieBook <noreply@ukiebook.local>"),
+  EMAIL_CAPTURE_ROOT: optionalNonEmptyString(z.string().trim().min(1)),
+  UNIT05_EMAIL_CAPTURE_ROOT: optionalNonEmptyString(z.string().trim().min(1)),
   CALIBRE_EBOOK_CONVERT_PATH: optionalNonEmptyString(z.string().trim().min(1)),
   PRIVATE_OBJECT_ROOT: z
     .string()
@@ -72,6 +104,20 @@ const serverEnvironmentSchema = z.object({
       code: "custom",
       message: "PUBLISHING_PRICE_HINT_MAX_KOPIYKAS must be at least the minimum",
       path: ["PUBLISHING_PRICE_HINT_MAX_KOPIYKAS"],
+    });
+  }
+  const monoOrigin = new URL(environment.MONO_API_ORIGIN);
+  const loopbackHosts = new Set(["127.0.0.1", "localhost", "::1", "[::1]"]);
+  const isTestLoopback =
+    environment.APP_ENV === "test" &&
+    monoOrigin.protocol === "http:" &&
+    loopbackHosts.has(monoOrigin.hostname);
+  if (monoOrigin.protocol !== "https:" && !isTestLoopback) {
+    context.addIssue({
+      code: "custom",
+      message:
+        "MONO_API_ORIGIN must use HTTPS; HTTP loopback is allowed only in APP_ENV=test",
+      path: ["MONO_API_ORIGIN"],
     });
   }
 });

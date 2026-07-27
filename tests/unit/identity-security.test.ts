@@ -62,6 +62,14 @@ describe("UNIT-01 identity security contracts", () => {
       "/author/profile",
     );
     expect(normalizeReturnTo("/admin", appOrigin)).toBe("/admin");
+    expect(
+      normalizeReturnTo(
+        "/checkout/result?order=11111111-1111-4111-8111-111111111111",
+        appOrigin,
+      ),
+    ).toBe(
+      "/checkout/result?order=11111111-1111-4111-8111-111111111111",
+    );
     expect(normalizeAuthIntent("default", "/author/profile")).toBe(
       "author_onboarding",
     );

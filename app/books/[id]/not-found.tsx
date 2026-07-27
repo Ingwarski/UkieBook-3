@@ -8,7 +8,7 @@ export default function BookNotFound() {
   return (
     <main className={styles.bookPage}>
       <div className={styles.bookAuroraHeader}>
-        <PublicHeader viewer={{ isAuthor: false, signedIn: false }} />
+        <PublicHeader viewer={{ cartCount: 0, isAuthor: false, signedIn: false }} />
       </div>
       <section className={styles.notFoundSurface}>
         <p className={styles.eyebrow}>404</p>

@@ -14,12 +14,13 @@ import type { CatalogQuery } from "../../modules/catalog/types";
 import styles from "./catalog.module.css";
 
 export interface PublicHeaderViewer {
+  readonly cartCount: number;
   readonly isAuthor: boolean;
   readonly signedIn: boolean;
 }
 
 interface PublicHeaderProps {
-  readonly currentPage?: "catalog";
+  readonly currentPage?: "cart" | "catalog";
   readonly query?: CatalogQuery;
   readonly viewer: PublicHeaderViewer;
 }
@@ -28,7 +29,7 @@ function PrimaryLinks({
   currentPage,
   query,
 }: {
-  readonly currentPage?: "catalog";
+  readonly currentPage?: "cart" | "catalog";
   readonly query?: CatalogQuery;
 }) {
   const defaultQuery: CatalogQuery = query ?? {
@@ -67,7 +68,20 @@ function PrimaryLinks({
   );
 }
 
+function cartAccessibleLabel(count: number): string {
+  const lastTwo = count % 100;
+  const last = count % 10;
+  if (count === 0) return "Кошик, порожній";
+  if (lastTwo >= 11 && lastTwo <= 14) return `Кошик, ${count} книжок`;
+  if (last === 1) return `Кошик, ${count} книжка`;
+  if (last >= 2 && last <= 4) return `Кошик, ${count} книжки`;
+  return `Кошик, ${count} книжок`;
+}
+
 export function PublicHeader({ currentPage, query, viewer }: PublicHeaderProps) {
+  const cartCount = Number.isFinite(viewer.cartCount)
+    ? Math.max(0, Math.floor(viewer.cartCount))
+    : 0;
   return (
     <header className={styles.publicHeader}>
       <Link aria-label="UkieBook — головна" className={styles.brand} href="/">
@@ -109,11 +123,20 @@ export function PublicHeader({ currentPage, query, viewer }: PublicHeaderProps) 
           </button>
         </form>
 
-        <a aria-label="Кошик, 2 книжки" className={styles.cartHitArea} href="/cart">
+        <a
+          aria-current={currentPage === "cart" ? "page" : undefined}
+          aria-label={cartAccessibleLabel(cartCount)}
+          className={styles.cartHitArea}
+          href="/cart"
+        >
           <span aria-hidden="true" className={styles.cartVisual}>
             <ShoppingCartSimple size={18} weight="regular" />
           </span>
-          <span className={styles.cartBadge}>2</span>
+          {cartCount > 0 ? (
+            <span aria-hidden="true" className={styles.cartBadge}>
+              {cartCount > 99 ? "99+" : cartCount}
+            </span>
+          ) : null}
         </a>
 
         {viewer.signedIn ? (

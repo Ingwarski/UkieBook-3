@@ -5,7 +5,7 @@ export default function BookLoading() {
   return (
     <main aria-busy="true" aria-label="Книжка завантажується" className={styles.bookPage}>
       <div className={styles.bookAuroraHeader}>
-        <PublicHeader viewer={{ isAuthor: false, signedIn: false }} />
+        <PublicHeader viewer={{ cartCount: 0, isAuthor: false, signedIn: false }} />
       </div>
       <div className={styles.bookLoadingBody}>
         <span className={[styles.skeleton, styles.bookLoadingCover].join(" ")} />

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
+import { currentCartCount } from "../../commerce-request";
 import { BookPageScreen } from "../../../components/catalog";
 import { loadBookPage } from "../../../modules/catalog/server/service";
 import { currentSessionContext } from "../../../modules/identity/server/next-session";
@@ -40,12 +41,15 @@ export default async function BookRoute({ params, searchParams }: BookRouteProps
     currentSessionContext(),
   ]);
   if (!book) notFound();
+  const cartCount = await currentCartCount(session).catch(() => 0);
 
   return (
     <BookPageScreen
       book={book}
       sampleOpen={(Array.isArray(query.sample) ? query.sample[0] : query.sample) === "1"}
       viewer={{
+        cartCount,
+        csrfToken: session?.csrfToken,
         isAuthor: session?.session.roles.includes("author") ?? false,
         signedIn: session !== null,
       }}

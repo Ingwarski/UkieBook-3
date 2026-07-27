@@ -9,7 +9,12 @@ const allowedExactPaths = new Set([
   "/library",
   "/login",
 ]);
-const allowedPathPrefixes = ["/books/", "/author/", "/admin/"] as const;
+const allowedPathPrefixes = [
+  "/books/",
+  "/author/",
+  "/admin/",
+  "/checkout/",
+] as const;
 
 function containsUnsafeEncoding(value: string): boolean {
   let decoded = value;

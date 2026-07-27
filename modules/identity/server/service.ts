@@ -101,6 +101,7 @@ export interface OAuthCallbackResult {
   readonly idleExpiresAt: Date;
   readonly redirectTo: string;
   readonly sessionToken: string;
+  readonly userId: string;
 }
 
 export async function finishOAuthFlow(input: {
@@ -189,7 +190,13 @@ export async function finishOAuthFlow(input: {
   if (completed.authorOnboarding || (completed.roles.includes("author") && !completed.hasAuthorProfile)) {
     redirectTo = "/author/profile";
   }
-  return { absoluteExpiresAt, idleExpiresAt, redirectTo, sessionToken };
+  return {
+    absoluteExpiresAt,
+    idleExpiresAt,
+    redirectTo,
+    sessionToken,
+    userId: completed.userId,
+  };
 }
 
 export function oauthErrorMessage(code: string | null | undefined): string | undefined {
