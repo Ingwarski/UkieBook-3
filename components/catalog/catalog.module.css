@@ -1814,3 +1814,77 @@
     color: CanvasText;
   }
 }
+
+.reviewForm {
+  display: grid;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.reviewForm label {
+  font-weight: 750;
+}
+
+.reviewForm select,
+.reviewForm textarea {
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid var(--color-border-control);
+  border-radius: 12px;
+  background: #fff;
+  color: var(--color-text);
+  font: inherit;
+  font-size: 16px;
+}
+
+.reviewForm select {
+  padding: 0 12px;
+}
+
+.reviewForm textarea {
+  min-height: 130px;
+  padding: 12px;
+  line-height: 1.5;
+  resize: vertical;
+}
+
+.reviewSubmit {
+  min-height: 46px;
+  border: 1px solid var(--color-accent-action);
+  border-radius: var(--radius-pill);
+  background: var(--color-accent-action);
+  color: #fff;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.reviewSubmit:hover {
+  background: var(--color-accent-action-hover);
+}
+
+.reviewFeedback,
+.reviewFeedbackError {
+  border-radius: 12px;
+  margin-top: 12px !important;
+  padding: 10px 12px;
+  font-weight: 700;
+}
+
+.reviewFeedback {
+  background: rgba(47, 113, 77, 0.12);
+  color: #1e633e !important;
+}
+
+.reviewFeedbackError {
+  background: rgba(163, 49, 45, 0.1);
+  color: var(--color-status-danger) !important;
+}
+
+@media (max-width: 700px) {
+  .reviewForm select,
+  .reviewForm textarea,
+  .reviewSubmit {
+    min-height: 48px;
+  }
+}

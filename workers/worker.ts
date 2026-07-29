@@ -16,6 +16,8 @@ import type { SqlDatabase } from "../modules/platform/sql-port";
 import { UnavailableAiModerationAdapter } from "../modules/moderation/adapter";
 import { MODERATION_JOB_TYPE } from "../modules/moderation/types";
 import { relayBookSubmittedEvents } from "../modules/moderation/server/service";
+import { relayReviewSubmittedEvents } from "../modules/moderation/server/review-moderation";
+import { relayPaidSaleEntitlements, relayReviewModerationDecisions } from "../modules/library/server";
 import { createModerationScreeningHandler } from "../modules/moderation/server/worker";
 import { createPublishingConversionHandler } from "../modules/publishing/server/conversion-worker";
 import { LocalPrivateObjectStorage } from "../modules/publishing/storage/private-object-storage";
@@ -263,6 +265,9 @@ async function main(): Promise<void> {
       beforePoll: async () => {
         if (queue === "publishing") {
           await relayBookSubmittedEvents(database, { limit: 25 });
+          await relayPaidSaleEntitlements(database, { limit: 25 });
+          await relayReviewSubmittedEvents(database, { limit: 25 });
+          await relayReviewModerationDecisions(database, { limit: 25 });
         }
       },
       leaseSeconds: environment.JOB_LEASE_SECONDS,

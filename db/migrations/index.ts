@@ -4,6 +4,7 @@ import { catalogReadModelMigration } from "./0003_catalog_read_model";
 import { publishingPipelineMigration } from "./0004_publishing_pipeline";
 import { moderationPublicationMigration } from "./0005_moderation_publication";
 import { commerceCheckoutMigration } from "./0006_commerce_checkout";
+import { libraryReviewsRefundsMigration } from "./0007_library_reviews_refunds";
 import type { Migration } from "./types";
 import { PLATFORM_SCHEMA_REVISION } from "../../modules/platform/schema-revision";
 
@@ -14,6 +15,7 @@ export const migrations: readonly Migration[] = [
   publishingPipelineMigration,
   moderationPublicationMigration,
   commerceCheckoutMigration,
+  libraryReviewsRefundsMigration,
 ];
 export const DATABASE_SCHEMA_REVISION = PLATFORM_SCHEMA_REVISION;
 

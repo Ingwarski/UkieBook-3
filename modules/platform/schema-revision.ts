@@ -18,5 +18,9 @@ export const MODERATION_PUBLICATION_MIGRATION_ID =
 /** Immutable ID used by the UNIT-05 commerce checkout migration. */
 export const COMMERCE_CHECKOUT_MIGRATION_ID = "0006_commerce_checkout";
 
+/** Immutable ID used by the UNIT-06 Library, reviews and Refund migration. */
+export const LIBRARY_REVIEWS_REFUNDS_MIGRATION_ID =
+  "0007_library_reviews_refunds";
+
 /** Latest schema understood by every production runtime. */
-export const PLATFORM_SCHEMA_REVISION = COMMERCE_CHECKOUT_MIGRATION_ID;
+export const PLATFORM_SCHEMA_REVISION = LIBRARY_REVIEWS_REFUNDS_MIGRATION_ID;

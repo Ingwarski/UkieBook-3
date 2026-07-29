@@ -1,7 +1,10 @@
+import { randomUUID } from "node:crypto";
+
 import { ArrowLeft, ShoppingCartSimple, Star } from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
 
 import type { BookPageReadModel } from "../../modules/catalog/types";
+import type { BuyerReviewEligibility } from "../../modules/library/types";
 
 import { BookCover } from "./book-cover";
 import { PublicHeader, type PublicHeaderViewer } from "./public-header";
@@ -9,10 +12,12 @@ import styles from "./catalog.module.css";
 
 export interface BookPageScreenViewer extends PublicHeaderViewer {
   readonly csrfToken?: string;
+  readonly reviewEligibility?: BuyerReviewEligibility;
 }
 
 export interface BookPageScreenProps {
   readonly book: BookPageReadModel;
+  readonly reviewResult?: string;
   readonly sampleOpen?: boolean;
   readonly viewer: BookPageScreenViewer;
 }
@@ -55,7 +60,70 @@ function ReviewPagination({ book }: { readonly book: BookPageReadModel }) {
   );
 }
 
-export function BookPageScreen({ book, sampleOpen = false, viewer }: BookPageScreenProps) {
+function ReviewSlot({
+  bookId,
+  reviewResult,
+  viewer,
+}: {
+  readonly bookId: string;
+  readonly reviewResult?: string;
+  readonly viewer: BookPageScreenViewer;
+}) {
+  const eligibility = viewer.reviewEligibility ?? { kind: "not_eligible" as const };
+  if (eligibility.kind === "eligible" && viewer.csrfToken) {
+    return (
+      <aside className={styles.reviewSlot}>
+        <strong>Ваш підтверджений відгук</strong>
+        <p>Його побачать у Каталозі лише після ручної модерації.</p>
+        {reviewResult === "submitted" ? (
+          <p className={styles.reviewFeedback} role="status">Відгук на модерації.</p>
+        ) : null}
+        {reviewResult === "rejected" ? (
+          <p className={styles.reviewFeedbackError} role="alert">Не вдалося надіслати відгук. Перевірте дані й повторіть.</p>
+        ) : null}
+        <form action="/api/reviews" className={styles.reviewForm} method="post">
+          <input name="bookId" type="hidden" value={bookId} />
+          <input name="csrfToken" type="hidden" value={viewer.csrfToken} />
+          <input name="idempotencyKey" type="hidden" value={randomUUID()} />
+          <label htmlFor={`review-rating-${bookId}`}>Оцінка</label>
+          <select defaultValue="5" id={`review-rating-${bookId}`} name="rating">
+            <option value="5">5 — чудово</option>
+            <option value="4">4 — добре</option>
+            <option value="3">3 — нейтрально</option>
+            <option value="2">2 — посередньо</option>
+            <option value="1">1 — погано</option>
+          </select>
+          <label htmlFor={`review-text-${bookId}`}>Текст відгуку</label>
+          <textarea
+            id={`review-text-${bookId}`}
+            minLength={2}
+            name="reviewText"
+            required
+            rows={5}
+          />
+          <button className={styles.reviewSubmit} type="submit">Надіслати на модерацію</button>
+        </form>
+      </aside>
+    );
+  }
+  const message = eligibility.kind === "pending_moderation"
+    ? "Відгук на модерації. Менеджер перевіряє його перед публікацією."
+    : eligibility.kind === "published"
+      ? "Ваш відгук уже опубліковано в Каталозі."
+      : eligibility.kind === "not_published"
+        ? "Відгук не опубліковано після ручної модерації."
+        : viewer.signedIn
+          ? "Форма доступна лише після підтвердженої покупки."
+          : "Увійдіть після підтвердженої покупки, щоб залишити відгук.";
+  return (
+    <aside className={styles.reviewSlot}>
+      <strong>Придбали книжку?</strong>
+      <p role={eligibility.kind === "pending_moderation" ? "status" : undefined}>{message}</p>
+    </aside>
+  );
+}
+
+export function BookPageScreen({ book, reviewResult, sampleOpen = false, viewer }: BookPageScreenProps) {
   const available = book.availability === "available";
   return (
     <main className={styles.bookPage}>
@@ -179,13 +247,9 @@ export function BookPageScreen({ book, sampleOpen = false, viewer }: BookPageScr
             <p className={styles.noReviews}>Відгуків ще немає. Ця тиха полиця чекає першого читача.</p>
           )}
           <ReviewPagination book={book} />
-          <aside className={styles.reviewSlot}>
-            <strong>Придбали книжку?</strong>
-            <p>Форма відгуку зʼявиться тут після підтвердженої покупки.</p>
-          </aside>
+          <ReviewSlot bookId={book.id} reviewResult={reviewResult} viewer={viewer} />
         </section>
       </article>
-
     </main>
   );
 }

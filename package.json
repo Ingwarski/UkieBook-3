@@ -37,6 +37,8 @@
     "test:unit04:visual": "playwright test --config playwright.unit04.visual.config.ts",
     "test:unit05:e2e": "node --import tsx scripts/unit05-embedded-postgres.mjs -- npx playwright test --config playwright.unit05.e2e.config.ts",
     "test:unit05:visual": "node --import tsx scripts/unit05-embedded-postgres.mjs -- npx playwright test --config playwright.unit05.visual.config.ts",
+    "test:unit06:e2e": "node --import tsx scripts/unit06-embedded-postgres.mjs -- npx playwright test --config playwright.unit06.e2e.config.ts",
+    "test:unit06:visual": "node --import tsx scripts/unit06-embedded-postgres.mjs -- npx playwright test --config playwright.unit06.visual.config.ts",
     "verify:repository": "node scripts/verify-repository-hygiene.mjs",
     "verify": "npm run typecheck && npm run lint && npm test && npm run build && npm run test:e2e && npm run test:visual",
     "verify:unit00": "node scripts/run-unit00-verification.mjs",
@@ -48,7 +50,9 @@
     "verify:unit04:postgres": "tsx --conditions=react-server scripts/verify-unit04-postgres.ts",
     "verify:unit04": "node scripts/run-unit04-verification.mjs",
     "verify:unit05:postgres": "node --import tsx scripts/unit05-embedded-postgres.mjs -- npx tsx --conditions=react-server scripts/verify-unit05-postgres.ts",
-    "verify:unit05": "node --import tsx scripts/run-unit05-verification.mjs"
+    "verify:unit05": "node --import tsx scripts/run-unit05-verification.mjs",
+    "verify:unit06:postgres": "node --import tsx scripts/unit06-embedded-postgres.mjs -- npx tsx --conditions=react-server scripts/verify-unit06-postgres.ts",
+    "verify:unit06": "node --import tsx scripts/run-unit06-verification.mjs"
   },
   "dependencies": {
     "@fontsource-variable/golos-text": "^5.3.0",

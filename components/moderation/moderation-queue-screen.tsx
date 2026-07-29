@@ -167,6 +167,7 @@ function CaseDetail({
 }) {
   const primary = primaryDecision(caseDetail);
   const negative = negativeDecision(caseDetail);
+  const decisionEndpoint = caseDetail.subjectType === "review" ? "/admin/moderation/review-decision" : moderationDecisionEndpoint;
   const rejectionError = decision === negative.action ? error : undefined;
   const removalError = decision === "remove_publication" ? error : undefined;
   return (
@@ -229,7 +230,7 @@ function CaseDetail({
 
       <section aria-labelledby="case-decision-title" className={[styles.detailSection, styles.decisionArea].join(" ")}>
         <h3 id="case-decision-title">Рішення</h3>
-        <form action={moderationDecisionEndpoint} className={styles.primaryDecision} method="post">
+        <form action={decisionEndpoint} className={styles.primaryDecision} method="post">
           <DecisionHiddenFields action={primary.action} caseDetail={caseDetail} csrfToken={csrfToken} filter={filter} />
           <ModerationSubmitButton pendingLabel="Зберігаємо рішення…">
             <CheckCircle aria-hidden="true" size={18} /> {primary.label}
@@ -237,7 +238,7 @@ function CaseDetail({
         </form>
 
         {caseDetail.subjectType === "review" ? (
-          <form action={moderationDecisionEndpoint} className={styles.negativeDecision} method="post">
+          <form action={decisionEndpoint} className={styles.negativeDecision} method="post">
             <DecisionHiddenFields action={negative.action} caseDetail={caseDetail} csrfToken={csrfToken} filter={filter} />
             {rejectionError ? (
               <p className={styles.fieldError} role="alert">

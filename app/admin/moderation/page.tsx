@@ -10,7 +10,7 @@ import {
   MODERATION_SUBJECT_TYPES,
   type ModerationSubjectType,
 } from "../../../modules/moderation/types";
-import { loadManagerModerationQueue } from "../../../modules/moderation/server/service";
+import { loadManagerModerationQueueIncludingReviews } from "../../../modules/moderation/server/manager-review-queue";
 import { publishingPrivateObjectStorage } from "../../../modules/publishing/storage/runtime";
 
 export const metadata: Metadata = { title: "Ручна перевірка" };
@@ -51,7 +51,7 @@ export default async function ModerationPage({ searchParams }: ModerationPagePro
   const runtime = identityRuntime();
   const query = await searchParams;
   const requestedCaseId = selectedCaseId(first(query.case));
-  const queue = await loadManagerModerationQueue(
+  const queue = await loadManagerModerationQueueIncludingReviews(
     runtime.database,
     publishingPrivateObjectStorage(),
     {

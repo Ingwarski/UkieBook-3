@@ -15,16 +15,30 @@ import styles from "./moderation.module.css";
 const officialLogoSource =
   typeof officialLogo === "string" ? officialLogo : officialLogo.src;
 
+type ManagerSection = "moderation" | "refunds";
+
 interface ManagerShellProps {
   readonly children: ReactNode;
   readonly csrfToken: string;
+  readonly currentSection?: ManagerSection;
 }
 
-function ManagerLinks() {
+function ManagerLinks({ currentSection }: { readonly currentSection: ManagerSection }) {
   return (
     <>
-      <Link aria-current="page" href="/admin/moderation" prefetch={false}>
+      <Link
+        aria-current={currentSection === "moderation" ? "page" : undefined}
+        href="/admin/moderation"
+        prefetch={false}
+      >
         <ShieldCheck aria-hidden="true" size={18} /> Ручна перевірка
+      </Link>
+      <Link
+        aria-current={currentSection === "refunds" ? "page" : undefined}
+        href="/admin/refunds"
+        prefetch={false}
+      >
+        Повернення
       </Link>
       <Link href="/" prefetch={false}>
         <Storefront aria-hidden="true" size={18} /> До каталогу
@@ -33,7 +47,7 @@ function ManagerLinks() {
   );
 }
 
-export function ManagerShell({ children, csrfToken }: ManagerShellProps) {
+export function ManagerShell({ children, csrfToken, currentSection = "moderation" }: ManagerShellProps) {
   return (
     <main className={styles.managerPage}>
       <div className={styles.managerTop}>
@@ -53,7 +67,7 @@ export function ManagerShell({ children, csrfToken }: ManagerShellProps) {
             </span>
           </Link>
           <nav aria-label="Менеджерський простір" className={styles.managerNavigation}>
-            <ManagerLinks />
+            <ManagerLinks currentSection={currentSection} />
           </nav>
           <span className={styles.headerSpacer} />
           <form
@@ -71,7 +85,7 @@ export function ManagerShell({ children, csrfToken }: ManagerShellProps) {
               <List aria-hidden="true" size={22} />
             </summary>
             <nav aria-label="Мобільний менеджерський простір" className={styles.mobileNav}>
-              <ManagerLinks />
+              <ManagerLinks currentSection={currentSection} />
               <form action="/api/auth/logout" method="post">
                 <input name="csrfToken" type="hidden" value={csrfToken} />
                 <button type="submit">
