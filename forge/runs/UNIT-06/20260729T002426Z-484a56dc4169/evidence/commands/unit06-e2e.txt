@@ -1,0 +1,41 @@
+name: unit06-e2e
+command: npm run test:unit06:e2e -- --trace=off
+implementation_revision: 484a56dc41698dd8965e9b39b1cc79f25d91eca7
+started_at: 2026-07-29T00:25:06.545Z
+finished_at: 2026-07-29T00:25:14.866Z
+exit_code: 0
+signal: none
+
+[stdout]
+
+> ukiebook-3@0.1.0 test:unit06:e2e
+> node --import tsx scripts/unit06-embedded-postgres.mjs -- npx playwright test --config playwright.unit06.e2e.config.ts --trace=off
+
+{"database":"ukiebook_unit06","mode":"explicit","status":"ready"}
+
+Running 2 tests using 1 worker
+
+  ✓  1 [chromium] › tests/e2e-unit06/library-flow.spec.ts:45:1 › Buyer receives current approved EPUB/MOBI, can review, and can request a refund (2.5s)
+  ✓  2 [chromium] › tests/e2e-unit06/library-flow.spec.ts:91:1 › Manager publishes the review and records exactly one refund compensation (2.0s)
+
+  2 passed (7.6s)
+
+[stderr]
+[WebServer] (node:26377) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:26408) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:26411) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:26432) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:26463) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:26464) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:26467) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:26466) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+(node:26469) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)

@@ -1,0 +1,12 @@
+{
+  "evidence": [
+    "forge/runs/UNIT-06/20260729T002426Z-484a56dc4169/evidence/security/unit06-evidence-secret-scan.json"
+  ],
+  "gate": "evidence_hygiene",
+  "findings": [],
+  "implementation_revision": "484a56dc41698dd8965e9b39b1cc79f25d91eca7",
+  "owner": "Codex / library, reviews and refunds",
+  "status": "passed",
+  "timestamp": "2026-07-29T00:25:25.119Z",
+  "unit": "UNIT-06"
+}

@@ -1,0 +1,18 @@
+name: real-postgres-unit06
+command: npm run verify:unit06:postgres
+implementation_revision: 484a56dc41698dd8965e9b39b1cc79f25d91eca7
+started_at: 2026-07-29T00:25:05.501Z
+finished_at: 2026-07-29T00:25:06.544Z
+exit_code: 0
+signal: none
+
+[stdout]
+
+> ukiebook-3@0.1.0 verify:unit06:postgres
+> node --import tsx scripts/unit06-embedded-postgres.mjs -- npx tsx --conditions=react-server scripts/verify-unit06-postgres.ts
+
+{"database":"ukiebook_unit06","mode":"explicit","status":"ready"}
+{"active_version":"60606060-6060-4060-8060-606060606202","entitlement":"49f54708-af38-4216-8cb6-2b06bd18e502","status":"passed"}
+{"database_name":"ukiebook_unit06","proof":{"approved_version_resolution":"passed","download_authorization":"passed","entitlement_from_paid_sale":"passed","exactly_once_refund_compensation":"passed","migration_roundtrip":"passed","post_refund_revocation":"passed","review_manual_moderation":"passed"},"schema_revision":"0007_library_reviews_refunds","status":"passed","verified_at":"2026-07-29T00:25:06.528Z"}
+
+[stderr]

@@ -1,0 +1,12 @@
+{
+  "detected": true,
+  "expected_exit": "non-zero",
+  "fixture": [
+    "tests/fixtures/client-boundary/client.fixture",
+    "tests/fixtures/client-boundary/reexport.fixture"
+  ],
+  "rule": "transitive-client-secret-boundary",
+  "status": "passed",
+  "tool_exit_code": 1,
+  "verified_at": "2026-07-29T00:24:34.883Z"
+}

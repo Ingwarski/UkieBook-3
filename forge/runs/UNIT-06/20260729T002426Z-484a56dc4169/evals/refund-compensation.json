@@ -1,0 +1,20 @@
+{
+  "covered_checks": [
+    "Buyer requests a Refund",
+    "Manager approves the Refund",
+    "one append-only compensation and one RefundApproved event are recorded",
+    "entitlement and future review eligibility are revoked"
+  ],
+  "evidence": [
+    "forge/runs/UNIT-06/20260729T002426Z-484a56dc4169/evidence/commands/unit06-e2e.txt",
+    "forge/runs/UNIT-06/20260729T002426Z-484a56dc4169/evidence/commands/real-postgres-unit06.txt",
+    "forge/runs/UNIT-06/20260729T002426Z-484a56dc4169/evidence/database/unit06-postgres-proof.json"
+  ],
+  "gate": "refund_compensation",
+  "findings": [],
+  "implementation_revision": "484a56dc41698dd8965e9b39b1cc79f25d91eca7",
+  "owner": "Codex / library, reviews and refunds",
+  "status": "passed",
+  "timestamp": "2026-07-29T00:25:25.105Z",
+  "unit": "UNIT-06"
+}

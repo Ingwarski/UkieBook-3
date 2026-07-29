@@ -1,0 +1,23 @@
+{
+  "identities": [
+    {
+      "appRevision": "484a56dc41698dd8965e9b39b1cc79f25d91eca7",
+      "role": "worker",
+      "schemaRevision": "0007_library_reviews_refunds"
+    },
+    {
+      "appRevision": "484a56dc41698dd8965e9b39b1cc79f25d91eca7",
+      "role": "scheduler",
+      "schemaRevision": "0007_library_reviews_refunds"
+    },
+    {
+      "appRevision": "484a56dc41698dd8965e9b39b1cc79f25d91eca7",
+      "role": "db-migrate",
+      "schemaRevision": "0007_library_reviews_refunds"
+    }
+  ],
+  "shared_app_revision": "484a56dc41698dd8965e9b39b1cc79f25d91eca7",
+  "shared_schema_revision": "0007_library_reviews_refunds",
+  "status": "passed",
+  "verified_at": "2026-07-29T00:25:05.491Z"
+}

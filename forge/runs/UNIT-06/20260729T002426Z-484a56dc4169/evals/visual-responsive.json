@@ -1,0 +1,40 @@
+{
+  "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+  "evidence": [
+    "forge/runs/UNIT-06/20260729T002426Z-484a56dc4169/evidence/commands/unit06-visual.txt",
+    "forge/runs/UNIT-06/20260729T002426Z-484a56dc4169/evidence/visual/unit06-responsive-matrix.json",
+    "forge/runs/UNIT-06/20260729T002426Z-484a56dc4169/evidence/visual/unit06-s07-buyer-library-390.png",
+    "forge/runs/UNIT-06/20260729T002426Z-484a56dc4169/evidence/visual/unit06-s07-buyer-library-768.png",
+    "forge/runs/UNIT-06/20260729T002426Z-484a56dc4169/evidence/visual/unit06-s07-buyer-library-1280.png",
+    "forge/runs/UNIT-06/20260729T002426Z-484a56dc4169/evidence/visual/unit06-s08-verified-review-form-390.png",
+    "forge/runs/UNIT-06/20260729T002426Z-484a56dc4169/evidence/visual/unit06-s08-verified-review-form-768.png",
+    "forge/runs/UNIT-06/20260729T002426Z-484a56dc4169/evidence/visual/unit06-s08-verified-review-form-1280.png",
+    "forge/runs/UNIT-06/20260729T002426Z-484a56dc4169/evidence/visual/unit06-s09-refund-dialog-390.png",
+    "forge/runs/UNIT-06/20260729T002426Z-484a56dc4169/evidence/visual/unit06-s09-refund-dialog-768.png",
+    "forge/runs/UNIT-06/20260729T002426Z-484a56dc4169/evidence/visual/unit06-s09-refund-dialog-1280.png",
+    "forge/runs/UNIT-06/20260729T002426Z-484a56dc4169/evidence/visual/unit06-s20-manager-refund-queue-390.png",
+    "forge/runs/UNIT-06/20260729T002426Z-484a56dc4169/evidence/visual/unit06-s20-manager-refund-queue-768.png",
+    "forge/runs/UNIT-06/20260729T002426Z-484a56dc4169/evidence/visual/unit06-s20-manager-refund-queue-1280.png"
+  ],
+  "gate": "visual_responsive",
+  "receipt_count": 12,
+  "screens": [
+    "S-07",
+    "S-08",
+    "S-09",
+    "S-20"
+  ],
+  "target_bundle_hash": "e50c9f82c241195d7f5d8876d9dcdcd7fd45b71cdaf6d2eedfe2e327a7182724",
+  "viewports": [
+    390,
+    768,
+    1280
+  ],
+  "visual_receipt_digest_sha256": "a798259efa66e6a975591fef587c1c890e71fa5bc02598a87ba08c99a651df2e",
+  "findings": [],
+  "implementation_revision": "484a56dc41698dd8965e9b39b1cc79f25d91eca7",
+  "owner": "Codex / library, reviews and refunds",
+  "status": "passed",
+  "timestamp": "2026-07-29T00:25:25.105Z",
+  "unit": "UNIT-06"
+}

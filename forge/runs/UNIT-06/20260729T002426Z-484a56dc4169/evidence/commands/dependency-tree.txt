@@ -1,0 +1,46 @@
+name: dependency-tree
+command: npm ls --depth=0
+implementation_revision: 484a56dc41698dd8965e9b39b1cc79f25d91eca7
+started_at: 2026-07-29T00:24:27.346Z
+finished_at: 2026-07-29T00:24:27.754Z
+exit_code: 0
+signal: none
+
+[stdout]
+ukiebook-3@0.1.0 /Users/ingwar/Projects/UkieBook 3
+├── @electric-sql/pglite@0.5.4
+├── @eslint/js@10.0.1
+├── @fontsource-variable/golos-text@5.3.0
+├── @fontsource-variable/literata@5.3.0
+├── @next/eslint-plugin-next@16.2.11
+├── @phosphor-icons/react@2.1.10
+├── @playwright/test@1.61.1
+├── @testing-library/dom@10.4.1
+├── @testing-library/jest-dom@7.0.0
+├── @testing-library/react@16.3.2
+├── @types/node@24.13.3
+├── @types/pg@8.20.0
+├── @types/react-dom@19.2.3
+├── @types/react@19.2.17
+├── embedded-postgres@18.4.0-beta.17
+├── esbuild@0.28.1
+├── eslint-plugin-react-hooks@7.1.1
+├── eslint@10.8.0
+├── globals@17.8.0
+├── jose@6.1.2
+├── jsdom@29.1.1
+├── next@16.2.11
+├── oauth4webapi@3.8.6
+├── pg@8.22.0
+├── react-dom@19.2.8
+├── react@19.2.8
+├── server-only@0.0.1
+├── sharp@0.35.3 overridden
+├── tsx@4.23.1
+├── typescript-eslint@8.65.0
+├── typescript@6.0.3
+├── vitest@4.1.10
+└── zod@4.4.3
+
+
+[stderr]

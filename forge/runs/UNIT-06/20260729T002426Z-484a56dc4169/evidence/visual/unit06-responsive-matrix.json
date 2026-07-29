@@ -1,0 +1,635 @@
+{
+  "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+  "console_errors": [],
+  "expected_receipt_count": 12,
+  "implementation_revision": "484a56dc41698dd8965e9b39b1cc79f25d91eca7",
+  "page_errors": [],
+  "receipts": [
+    {
+      "accessibility": {
+        "controls": [
+          {
+            "height": 44,
+            "labelCount": 1,
+            "tag": "input",
+            "width": 209
+          },
+          {
+            "height": 44,
+            "labelCount": 1,
+            "tag": "button",
+            "width": 70.39
+          },
+          {
+            "height": 44,
+            "labelCount": 0,
+            "tag": "button",
+            "width": 312
+          }
+        ],
+        "semantic_main": "passed"
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/unit06-s07-buyer-library-390.png",
+      "implementation_revision": "484a56dc41698dd8965e9b39b1cc79f25d91eca7",
+      "layout": {
+        "clientWidth": 390,
+        "scrollWidth": 390
+      },
+      "screen": "s07",
+      "sha256": "447b6d033b32ef3bab9f3837c6ffc8c22cc0061e719bfb9d4c1837ee1d0c5514",
+      "state": "buyer-library",
+      "viewport": {
+        "device_scale_factor": 2,
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "accessibility": {
+        "controls": [
+          {
+            "height": 44,
+            "labelCount": 1,
+            "tag": "input",
+            "width": 209
+          },
+          {
+            "height": 44,
+            "labelCount": 1,
+            "tag": "button",
+            "width": 70.39
+          },
+          {
+            "height": 44,
+            "labelCount": 0,
+            "tag": "button",
+            "width": 201.39
+          }
+        ],
+        "semantic_main": "passed"
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/unit06-s07-buyer-library-768.png",
+      "implementation_revision": "484a56dc41698dd8965e9b39b1cc79f25d91eca7",
+      "layout": {
+        "clientWidth": 768,
+        "scrollWidth": 768
+      },
+      "screen": "s07",
+      "sha256": "f6044809d8fa925f32367c11c435ff6af67a6f8d31fb191fef958db554086b6b",
+      "state": "buyer-library",
+      "viewport": {
+        "device_scale_factor": 2,
+        "height": 1024,
+        "width": 768
+      }
+    },
+    {
+      "accessibility": {
+        "controls": [
+          {
+            "height": 44,
+            "labelCount": 1,
+            "tag": "input",
+            "width": 240
+          },
+          {
+            "height": 44,
+            "labelCount": 1,
+            "tag": "button",
+            "width": 44
+          },
+          {
+            "height": 44,
+            "labelCount": 0,
+            "tag": "button",
+            "width": 201.39
+          }
+        ],
+        "semantic_main": "passed"
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/unit06-s07-buyer-library-1280.png",
+      "implementation_revision": "484a56dc41698dd8965e9b39b1cc79f25d91eca7",
+      "layout": {
+        "clientWidth": 1280,
+        "scrollWidth": 1280
+      },
+      "screen": "s07",
+      "sha256": "c28a99a9f6f1e34bfcab9d0ea9d30a52b94744da599506407498b66559613903",
+      "state": "buyer-library",
+      "viewport": {
+        "device_scale_factor": 2,
+        "height": 900,
+        "width": 1280
+      }
+    },
+    {
+      "accessibility": {
+        "controls": [
+          {
+            "height": 44,
+            "labelCount": 1,
+            "tag": "input",
+            "width": 209
+          },
+          {
+            "height": 44,
+            "labelCount": 1,
+            "tag": "button",
+            "width": 70.39
+          },
+          {
+            "height": 52,
+            "labelCount": 0,
+            "tag": "button",
+            "width": 362
+          },
+          {
+            "height": 48,
+            "labelCount": 1,
+            "tag": "select",
+            "width": 314
+          },
+          {
+            "height": 146,
+            "labelCount": 1,
+            "tag": "textarea",
+            "width": 314
+          },
+          {
+            "height": 48,
+            "labelCount": 0,
+            "tag": "button",
+            "width": 314
+          }
+        ],
+        "semantic_main": "passed"
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/unit06-s08-verified-review-form-390.png",
+      "implementation_revision": "484a56dc41698dd8965e9b39b1cc79f25d91eca7",
+      "layout": {
+        "clientWidth": 390,
+        "scrollWidth": 390
+      },
+      "screen": "s08",
+      "sha256": "30262a40589e6c97a0e3aa6f7fefa449c885c790326bcf0c568370a6110fd792",
+      "state": "verified-review-form",
+      "viewport": {
+        "device_scale_factor": 2,
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "accessibility": {
+        "controls": [
+          {
+            "height": 44,
+            "labelCount": 1,
+            "tag": "input",
+            "width": 209
+          },
+          {
+            "height": 44,
+            "labelCount": 1,
+            "tag": "button",
+            "width": 70.39
+          },
+          {
+            "height": 50,
+            "labelCount": 0,
+            "tag": "button",
+            "width": 178.61
+          },
+          {
+            "height": 44,
+            "labelCount": 1,
+            "tag": "select",
+            "width": 632
+          },
+          {
+            "height": 146,
+            "labelCount": 1,
+            "tag": "textarea",
+            "width": 632
+          },
+          {
+            "height": 46,
+            "labelCount": 0,
+            "tag": "button",
+            "width": 632
+          }
+        ],
+        "semantic_main": "passed"
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/unit06-s08-verified-review-form-768.png",
+      "implementation_revision": "484a56dc41698dd8965e9b39b1cc79f25d91eca7",
+      "layout": {
+        "clientWidth": 768,
+        "scrollWidth": 768
+      },
+      "screen": "s08",
+      "sha256": "a0d284ca69956f67dd03f364c437688a5976e57ea535ea0fafebfd551624ce45",
+      "state": "verified-review-form",
+      "viewport": {
+        "device_scale_factor": 2,
+        "height": 1024,
+        "width": 768
+      }
+    },
+    {
+      "accessibility": {
+        "controls": [
+          {
+            "height": 44,
+            "labelCount": 1,
+            "tag": "input",
+            "width": 240
+          },
+          {
+            "height": 44,
+            "labelCount": 1,
+            "tag": "button",
+            "width": 44
+          },
+          {
+            "height": 50,
+            "labelCount": 0,
+            "tag": "button",
+            "width": 326.61
+          },
+          {
+            "height": 44,
+            "labelCount": 1,
+            "tag": "select",
+            "width": 860
+          },
+          {
+            "height": 146,
+            "labelCount": 1,
+            "tag": "textarea",
+            "width": 860
+          },
+          {
+            "height": 46,
+            "labelCount": 0,
+            "tag": "button",
+            "width": 860
+          }
+        ],
+        "semantic_main": "passed"
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/unit06-s08-verified-review-form-1280.png",
+      "implementation_revision": "484a56dc41698dd8965e9b39b1cc79f25d91eca7",
+      "layout": {
+        "clientWidth": 1280,
+        "scrollWidth": 1280
+      },
+      "screen": "s08",
+      "sha256": "d11fff1737007038d76ac9a0688c0863047c348e33eb2373ddc4c7d2975e21ec",
+      "state": "verified-review-form",
+      "viewport": {
+        "device_scale_factor": 2,
+        "height": 900,
+        "width": 1280
+      }
+    },
+    {
+      "accessibility": {
+        "controls": [
+          {
+            "height": 44,
+            "labelCount": 1,
+            "tag": "input",
+            "width": 209
+          },
+          {
+            "height": 44,
+            "labelCount": 1,
+            "tag": "button",
+            "width": 70.39
+          },
+          {
+            "height": 44,
+            "labelCount": 0,
+            "tag": "button",
+            "width": 312
+          },
+          {
+            "height": 126,
+            "labelCount": 1,
+            "tag": "textarea",
+            "width": 332
+          },
+          {
+            "height": 44,
+            "labelCount": 0,
+            "tag": "button",
+            "width": 332
+          },
+          {
+            "height": 44,
+            "labelCount": 0,
+            "tag": "button",
+            "width": 332
+          }
+        ],
+        "semantic_main": "passed"
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/unit06-s09-refund-dialog-390.png",
+      "implementation_revision": "484a56dc41698dd8965e9b39b1cc79f25d91eca7",
+      "layout": {
+        "clientWidth": 390,
+        "scrollWidth": 390
+      },
+      "screen": "s09",
+      "sha256": "81b7894d7569b033ddc9b5130b1790d764f87382f4cfb78e74e90e1581342997",
+      "state": "refund-dialog",
+      "viewport": {
+        "device_scale_factor": 2,
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "accessibility": {
+        "controls": [
+          {
+            "height": 44,
+            "labelCount": 1,
+            "tag": "input",
+            "width": 209
+          },
+          {
+            "height": 44,
+            "labelCount": 1,
+            "tag": "button",
+            "width": 70.39
+          },
+          {
+            "height": 44,
+            "labelCount": 0,
+            "tag": "button",
+            "width": 201.39
+          },
+          {
+            "height": 126,
+            "labelCount": 1,
+            "tag": "textarea",
+            "width": 502
+          },
+          {
+            "height": 44,
+            "labelCount": 0,
+            "tag": "button",
+            "width": 172.44
+          },
+          {
+            "height": 44,
+            "labelCount": 0,
+            "tag": "button",
+            "width": 115.33
+          }
+        ],
+        "semantic_main": "passed"
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/unit06-s09-refund-dialog-768.png",
+      "implementation_revision": "484a56dc41698dd8965e9b39b1cc79f25d91eca7",
+      "layout": {
+        "clientWidth": 768,
+        "scrollWidth": 768
+      },
+      "screen": "s09",
+      "sha256": "28984df104f2fe4f4c7c75ca38c2dbec179a86006fd6681be27d9cf27e4f10ad",
+      "state": "refund-dialog",
+      "viewport": {
+        "device_scale_factor": 2,
+        "height": 1024,
+        "width": 768
+      }
+    },
+    {
+      "accessibility": {
+        "controls": [
+          {
+            "height": 44,
+            "labelCount": 1,
+            "tag": "input",
+            "width": 240
+          },
+          {
+            "height": 44,
+            "labelCount": 1,
+            "tag": "button",
+            "width": 44
+          },
+          {
+            "height": 44,
+            "labelCount": 0,
+            "tag": "button",
+            "width": 201.39
+          },
+          {
+            "height": 126,
+            "labelCount": 1,
+            "tag": "textarea",
+            "width": 502
+          },
+          {
+            "height": 44,
+            "labelCount": 0,
+            "tag": "button",
+            "width": 172.44
+          },
+          {
+            "height": 44,
+            "labelCount": 0,
+            "tag": "button",
+            "width": 115.33
+          }
+        ],
+        "semantic_main": "passed"
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/unit06-s09-refund-dialog-1280.png",
+      "implementation_revision": "484a56dc41698dd8965e9b39b1cc79f25d91eca7",
+      "layout": {
+        "clientWidth": 1280,
+        "scrollWidth": 1280
+      },
+      "screen": "s09",
+      "sha256": "dc5418f663049740f178318db58fa063b96ef8880a3c172a758ca72b69d31e3c",
+      "state": "refund-dialog",
+      "viewport": {
+        "device_scale_factor": 2,
+        "height": 900,
+        "width": 1280
+      }
+    },
+    {
+      "accessibility": {
+        "controls": [
+          {
+            "height": 44,
+            "labelCount": 0,
+            "tag": "button",
+            "width": 222
+          },
+          {
+            "height": 70,
+            "labelCount": 1,
+            "tag": "textarea",
+            "width": 270
+          },
+          {
+            "height": 44,
+            "labelCount": 0,
+            "tag": "button",
+            "width": 270
+          },
+          {
+            "height": 70,
+            "labelCount": 1,
+            "tag": "textarea",
+            "width": 270
+          },
+          {
+            "height": 44,
+            "labelCount": 0,
+            "tag": "button",
+            "width": 270
+          }
+        ],
+        "semantic_main": "passed"
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/unit06-s20-manager-refund-queue-390.png",
+      "implementation_revision": "484a56dc41698dd8965e9b39b1cc79f25d91eca7",
+      "layout": {
+        "clientWidth": 390,
+        "scrollWidth": 390
+      },
+      "screen": "s20",
+      "sha256": "e9ff74ced0a1e1e1c2de2b45b1496516d033c98e391cd8a296bea46c48d46916",
+      "state": "manager-refund-queue",
+      "viewport": {
+        "device_scale_factor": 2,
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "accessibility": {
+        "controls": [
+          {
+            "height": 44,
+            "labelCount": 0,
+            "tag": "button",
+            "width": 222
+          },
+          {
+            "height": 70,
+            "labelCount": 1,
+            "tag": "textarea",
+            "width": 302
+          },
+          {
+            "height": 44,
+            "labelCount": 0,
+            "tag": "button",
+            "width": 302
+          },
+          {
+            "height": 70,
+            "labelCount": 1,
+            "tag": "textarea",
+            "width": 302
+          },
+          {
+            "height": 44,
+            "labelCount": 0,
+            "tag": "button",
+            "width": 302
+          }
+        ],
+        "semantic_main": "passed"
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/unit06-s20-manager-refund-queue-768.png",
+      "implementation_revision": "484a56dc41698dd8965e9b39b1cc79f25d91eca7",
+      "layout": {
+        "clientWidth": 768,
+        "scrollWidth": 768
+      },
+      "screen": "s20",
+      "sha256": "89fa0771221ef3fd9526bb59148775e4be594b4163a671ee1eceb4d99381836b",
+      "state": "manager-refund-queue",
+      "viewport": {
+        "device_scale_factor": 2,
+        "height": 1024,
+        "width": 768
+      }
+    },
+    {
+      "accessibility": {
+        "controls": [
+          {
+            "height": 44,
+            "labelCount": 0,
+            "tag": "button",
+            "width": 80.53
+          },
+          {
+            "height": 70,
+            "labelCount": 1,
+            "tag": "textarea",
+            "width": 418
+          },
+          {
+            "height": 44,
+            "labelCount": 0,
+            "tag": "button",
+            "width": 418
+          },
+          {
+            "height": 70,
+            "labelCount": 1,
+            "tag": "textarea",
+            "width": 418
+          },
+          {
+            "height": 44,
+            "labelCount": 0,
+            "tag": "button",
+            "width": 418
+          }
+        ],
+        "semantic_main": "passed"
+      },
+      "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+      "file": "evidence/visual/unit06-s20-manager-refund-queue-1280.png",
+      "implementation_revision": "484a56dc41698dd8965e9b39b1cc79f25d91eca7",
+      "layout": {
+        "clientWidth": 1280,
+        "scrollWidth": 1280
+      },
+      "screen": "s20",
+      "sha256": "f86756ff3e999a1a660570c401770791e82138544a02ae4a5789e91d14b677d9",
+      "state": "manager-refund-queue",
+      "viewport": {
+        "device_scale_factor": 2,
+        "height": 900,
+        "width": 1280
+      }
+    }
+  ],
+  "status": "passed",
+  "verified_at": "2026-07-29T00:25:24.883Z"
+}

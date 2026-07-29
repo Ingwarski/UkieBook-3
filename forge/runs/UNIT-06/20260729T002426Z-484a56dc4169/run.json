@@ -1,0 +1,182 @@
+{
+  "baseline_binding": {
+    "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+    "manifest": "forge/sdd-manifest.json",
+    "manifest_sha256": "6b79e29e39685810232b853881225de9a1916cdc47f5335d3872338b94b8efff",
+    "target_bundle_hash": "e50c9f82c241195d7f5d8876d9dcdcd7fd45b71cdaf6d2eedfe2e327a7182724",
+    "visual_qa_evidence": "forge/design/evidence/AVB-UKIEBOOK-AURORA-7B-V3.visual-qa.json",
+    "visual_qa_evidence_sha256": "ffae4a71e0db785033aad606e91b1557ef46d56d86690f8e09ae6cc81906323c"
+  },
+  "baseline_id": "AVB-UKIEBOOK-AURORA-7B-V3",
+  "commands": [
+    {
+      "arguments": [
+        "ls",
+        "--depth=0"
+      ],
+      "command": "npm ls --depth=0",
+      "executable": "npm",
+      "exit_code": 0,
+      "finished_at": "2026-07-29T00:24:27.754Z",
+      "name": "dependency-tree",
+      "receipt": "evidence/commands/dependency-tree.txt",
+      "signal": null,
+      "started_at": "2026-07-29T00:24:27.346Z"
+    },
+    {
+      "arguments": [
+        "run",
+        "typecheck"
+      ],
+      "command": "npm run typecheck",
+      "executable": "npm",
+      "exit_code": 0,
+      "finished_at": "2026-07-29T00:24:29.407Z",
+      "name": "typecheck",
+      "receipt": "evidence/commands/typecheck.txt",
+      "signal": null,
+      "started_at": "2026-07-29T00:24:27.755Z"
+    },
+    {
+      "arguments": [
+        "run",
+        "lint"
+      ],
+      "command": "npm run lint",
+      "executable": "npm",
+      "exit_code": 0,
+      "finished_at": "2026-07-29T00:24:34.889Z",
+      "name": "lint",
+      "receipt": "evidence/commands/lint.txt",
+      "signal": null,
+      "started_at": "2026-07-29T00:24:29.407Z"
+    },
+    {
+      "arguments": [
+        "test"
+      ],
+      "command": "npm test",
+      "executable": "npm",
+      "exit_code": 0,
+      "finished_at": "2026-07-29T00:24:54.498Z",
+      "name": "unit-tests",
+      "receipt": "evidence/commands/unit-tests.txt",
+      "signal": null,
+      "started_at": "2026-07-29T00:24:34.889Z"
+    },
+    {
+      "arguments": [
+        "run",
+        "verify:repository"
+      ],
+      "command": "npm run verify:repository",
+      "executable": "npm",
+      "exit_code": 0,
+      "finished_at": "2026-07-29T00:24:54.701Z",
+      "name": "repository-hygiene",
+      "receipt": "evidence/commands/repository-hygiene.txt",
+      "signal": null,
+      "started_at": "2026-07-29T00:24:54.499Z"
+    },
+    {
+      "arguments": [
+        "run",
+        "build"
+      ],
+      "command": "npm run build",
+      "executable": "npm",
+      "exit_code": 0,
+      "finished_at": "2026-07-29T00:25:05.500Z",
+      "name": "build",
+      "receipt": "evidence/commands/build.txt",
+      "signal": null,
+      "started_at": "2026-07-29T00:24:54.701Z"
+    },
+    {
+      "arguments": [
+        "run",
+        "verify:unit06:postgres"
+      ],
+      "command": "npm run verify:unit06:postgres",
+      "executable": "npm",
+      "exit_code": 0,
+      "finished_at": "2026-07-29T00:25:06.544Z",
+      "name": "real-postgres-unit06",
+      "receipt": "evidence/commands/real-postgres-unit06.txt",
+      "signal": null,
+      "started_at": "2026-07-29T00:25:05.501Z"
+    },
+    {
+      "arguments": [
+        "run",
+        "test:unit06:e2e",
+        "--",
+        "--trace=off"
+      ],
+      "command": "npm run test:unit06:e2e -- --trace=off",
+      "executable": "npm",
+      "exit_code": 0,
+      "finished_at": "2026-07-29T00:25:14.866Z",
+      "name": "unit06-e2e",
+      "receipt": "evidence/commands/unit06-e2e.txt",
+      "signal": null,
+      "started_at": "2026-07-29T00:25:06.545Z"
+    },
+    {
+      "arguments": [
+        "run",
+        "test:unit06:visual",
+        "--",
+        "--trace=off"
+      ],
+      "command": "npm run test:unit06:visual -- --trace=off",
+      "executable": "npm",
+      "exit_code": 0,
+      "finished_at": "2026-07-29T00:25:25.098Z",
+      "name": "unit06-visual",
+      "receipt": "evidence/commands/unit06-visual.txt",
+      "signal": null,
+      "started_at": "2026-07-29T00:25:14.866Z"
+    }
+  ],
+  "database_proof": {
+    "database_name": "ukiebook_unit06",
+    "engine": "PostgreSQL",
+    "evidence": "forge/runs/UNIT-06/20260729T002426Z-484a56dc4169/evidence/database/unit06-postgres-proof.json",
+    "host_class": "loopback-embedded-dedicated",
+    "schema_revision": "0007_library_reviews_refunds"
+  },
+  "evidence_index": {
+    "buyer_library_e2e": "forge/runs/UNIT-06/20260729T002426Z-484a56dc4169/evidence/commands/unit06-e2e.txt",
+    "postgresql_integration": "forge/runs/UNIT-06/20260729T002426Z-484a56dc4169/evidence/database/unit06-postgres-proof.json",
+    "responsive_visual_matrix": "forge/runs/UNIT-06/20260729T002426Z-484a56dc4169/evidence/visual/unit06-responsive-matrix.json",
+    "visual_run": "forge/runs/UNIT-06/20260729T002426Z-484a56dc4169/evidence/commands/unit06-visual.txt"
+  },
+  "finished_at": "2026-07-29T00:25:25.119Z",
+  "findings": [],
+  "implementation_revision": "484a56dc41698dd8965e9b39b1cc79f25d91eca7",
+  "implementation_tree": "7ebf0490016d47620aeb0e61717c6441ff30266e",
+  "prototype_reuse": "none",
+  "run_id": "20260729T002426Z-484a56dc4169",
+  "source_hashes": {
+    "docs/architecture.md": "7e6f395de0e23dffdb9657b9e68227fa1bb853753e4f73bc96bd5d9f23df6eee",
+    "docs/canonical-terms.md": "13e9794dc251668fedb9b7ac88a50f28b01b34c08ab79816f6bce7afd29ae24f",
+    "docs/design-brief.md": "a9803a7c869ba230ca6fa11d7b24c784111d914926f1b2bf943f308f803d9493",
+    "docs/development-plan.md": "e7c825182a548bd13f195950d4fa75e2fe8fd3f93c5e11a8281b73ff368d736d",
+    "docs/dod-evals.md": "c164ad4b235575ab0d12236bb67ce5263ac4913262f8270b87c9b3dc457a2875",
+    "docs/guardrails.md": "3738d7c6df337b188dd41afc76c0520b4727d7bca9d82d87920829226b9c8cf3",
+    "docs/prd.md": "e8a3fad29c1d7b485ec55bd95f92764048de64fda4a08c5275fb349e9b079671",
+    "docs/product-idea.md": "27f15465b9af01bc716d6f17c307ca38f26df2d206d0423a3d710a07eeb02b04",
+    "docs/project-context.md": "a5ceacdc9af8eaede27e20bac350d4fa552c01e5baa6b8b86c287a7a1187d3bd",
+    "docs/qa-checklist.md": "9a1639a2b096f7df0d93bcf03bdc2455508a260b5ad42b4b657df66561269e02",
+    "docs/screen-map.md": "ae91ce64740c27d40f2d77c018e72c59cb4a18019f485c8024ff66403f624903",
+    "docs/user-journey.md": "901390f9c14ea8c025ff353238f45136b896d2405e3b4a530b76c33e7301faf5",
+    "docs/wireframes.md": "6c3963b5320f22227ef31ba4005aa570884fe68132c26ef23b10f27bf4017a1b",
+    "forge/sdd-manifest.json": "6b79e29e39685810232b853881225de9a1916cdc47f5335d3872338b94b8efff"
+  },
+  "started_at": "2026-07-29T00:24:26.536Z",
+  "status": "passed",
+  "target_bundle_hash": "e50c9f82c241195d7f5d8876d9dcdcd7fd45b71cdaf6d2eedfe2e327a7182724",
+  "unit": "UNIT-06",
+  "visual_receipt_digest_sha256": "a798259efa66e6a975591fef587c1c890e71fa5bc02598a87ba08c99a651df2e"
+}

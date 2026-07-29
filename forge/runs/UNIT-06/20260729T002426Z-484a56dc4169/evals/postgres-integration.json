@@ -1,0 +1,22 @@
+{
+  "covered_checks": [
+    "approved_version_resolution",
+    "download_authorization",
+    "entitlement_from_paid_sale",
+    "exactly_once_refund_compensation",
+    "migration_roundtrip",
+    "post_refund_revocation",
+    "review_manual_moderation"
+  ],
+  "evidence": [
+    "forge/runs/UNIT-06/20260729T002426Z-484a56dc4169/evidence/commands/real-postgres-unit06.txt",
+    "forge/runs/UNIT-06/20260729T002426Z-484a56dc4169/evidence/database/unit06-postgres-proof.json"
+  ],
+  "gate": "postgres_integration",
+  "findings": [],
+  "implementation_revision": "484a56dc41698dd8965e9b39b1cc79f25d91eca7",
+  "owner": "Codex / library, reviews and refunds",
+  "status": "passed",
+  "timestamp": "2026-07-29T00:25:25.105Z",
+  "unit": "UNIT-06"
+}

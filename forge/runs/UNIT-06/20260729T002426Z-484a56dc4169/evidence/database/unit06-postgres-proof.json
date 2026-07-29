@@ -1,0 +1,15 @@
+{
+  "database_name": "ukiebook_unit06",
+  "proof": {
+    "approved_version_resolution": "passed",
+    "download_authorization": "passed",
+    "entitlement_from_paid_sale": "passed",
+    "exactly_once_refund_compensation": "passed",
+    "migration_roundtrip": "passed",
+    "post_refund_revocation": "passed",
+    "review_manual_moderation": "passed"
+  },
+  "schema_revision": "0007_library_reviews_refunds",
+  "status": "passed",
+  "verified_at": "2026-07-29T00:25:06.528Z"
+}
