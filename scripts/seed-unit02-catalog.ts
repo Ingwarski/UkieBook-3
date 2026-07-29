@@ -1,3 +1,6 @@
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+
 import { applyMigrations } from "../db/migrate";
 import { openPostgresDatabase } from "../db/postgres";
 import {
@@ -6,16 +9,11 @@ import {
   CATALOG_FEATURED_TILE_IDS,
   CATALOG_GENRE_FIXTURES,
 } from "../modules/catalog/fixtures";
-import { withSqlTransaction } from "../modules/platform/sql-port";
+import {
+  withSqlTransaction,
+  type SqlDatabase,
+} from "../modules/platform/sql-port";
 import { requireDedicatedUnit02DatabaseUrl } from "./unit02-database-guard";
-
-const databaseUrl = requireDedicatedUnit02DatabaseUrl(process.env.DATABASE_URL);
-if (process.env.APP_ENV === "production") {
-  throw new Error("UNIT-02 catalog fixtures cannot be seeded in production");
-}
-if (process.env.UNIT02_ALLOW_FIXTURE_SEED !== "1") {
-  throw new Error("Set UNIT02_ALLOW_FIXTURE_SEED=1 to acknowledge fixture seeding");
-}
 
 const reviews = [
   {
@@ -68,8 +66,7 @@ const reviews = [
   },
 ] as const;
 
-const database = openPostgresDatabase(databaseUrl);
-try {
+export async function seedCatalogFixtures(database: SqlDatabase) {
   await applyMigrations(database);
   await withSqlTransaction(database, async (connection) => {
     for (const genre of CATALOG_GENRE_FIXTURES) {
@@ -183,9 +180,35 @@ try {
       );
     }
   });
-  console.log(
-    `Seeded ${CATALOG_BOOK_FIXTURES.length} catalog books and ${reviews.length} reviews.`,
+
+  return {
+    books: CATALOG_BOOK_FIXTURES.length,
+    reviews: reviews.length,
+  };
+}
+
+if (
+  path.resolve(process.argv[1] ?? "") === fileURLToPath(import.meta.url)
+) {
+  if (process.env.APP_ENV === "production") {
+    throw new Error("UNIT-02 catalog fixtures cannot be seeded in production");
+  }
+  if (process.env.UNIT02_ALLOW_FIXTURE_SEED !== "1") {
+    throw new Error(
+      "Set UNIT02_ALLOW_FIXTURE_SEED=1 to acknowledge fixture seeding",
+    );
+  }
+
+  const databaseUrl = requireDedicatedUnit02DatabaseUrl(
+    process.env.DATABASE_URL,
   );
-} finally {
-  await database.close?.();
+  const database = openPostgresDatabase(databaseUrl);
+  try {
+    const summary = await seedCatalogFixtures(database);
+    console.log(
+      `Seeded ${summary.books} catalog books and ${summary.reviews} reviews.`,
+    );
+  } finally {
+    await database.close?.();
+  }
 }

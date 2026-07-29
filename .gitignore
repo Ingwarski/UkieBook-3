@@ -10,6 +10,7 @@
 /coverage/
 /playwright-report/
 /test-results/
+/output/playwright/
 
 # local environment and provider metadata
 .env*

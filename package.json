@@ -20,6 +20,7 @@
     "db:migrate": "tsx db/migrations/cli.ts up",
     "db:rollback": "tsx db/migrations/cli.ts down",
     "db:seed:unit02": "tsx scripts/seed-unit02-catalog.ts",
+    "preview:local": "node --import tsx scripts/start-local-preview.mjs",
     "lint": "eslint . --max-warnings=0 && node scripts/verify-source-boundaries.mjs && node scripts/prove-client-boundary-negative.mjs",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
