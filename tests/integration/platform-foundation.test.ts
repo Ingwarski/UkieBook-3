@@ -14,6 +14,7 @@ import { publishingPipelineMigration } from "../../db/migrations/0004_publishing
 import { moderationPublicationMigration } from "../../db/migrations/0005_moderation_publication";
 import { commerceCheckoutMigration } from "../../db/migrations/0006_commerce_checkout";
 import { libraryReviewsRefundsMigration } from "../../db/migrations/0007_library_reviews_refunds";
+import { rewardsPayoutsMigration } from "../../db/migrations/0008_rewards_payouts";
 import { adaptPGlite } from "../../db/pglite";
 import type { SqlDatabase } from "../../db/query";
 import {
@@ -48,9 +49,10 @@ describe("UNIT-00 PostgreSQL foundation", () => {
       { id: "0005_moderation_publication", direction: "up" },
       { id: "0006_commerce_checkout", direction: "up" },
       { id: "0007_library_reviews_refunds", direction: "up" },
+      { id: "0008_rewards_payouts", direction: "up" },
     ]);
     await expect(applyMigrations(database)).resolves.toEqual([]);
-    await expect(listAppliedMigrations(database)).resolves.toHaveLength(7);
+    await expect(listAppliedMigrations(database)).resolves.toHaveLength(8);
 
     const tables = await database.query<{ table_name: string }>(`
       SELECT table_name
@@ -64,6 +66,10 @@ describe("UNIT-00 PostgreSQL foundation", () => {
       "outbox_events",
     ]);
 
+    await expect(rollbackLatestMigration(database)).resolves.toEqual({
+      id: "0008_rewards_payouts",
+      direction: "down",
+    });
     await expect(rollbackLatestMigration(database)).resolves.toEqual({
       id: "0007_library_reviews_refunds",
       direction: "down",
@@ -109,6 +115,7 @@ describe("UNIT-00 PostgreSQL foundation", () => {
       { id: "0005_moderation_publication", direction: "up" },
       { id: "0006_commerce_checkout", direction: "up" },
       { id: "0007_library_reviews_refunds", direction: "up" },
+      { id: "0008_rewards_payouts", direction: "up" },
     ]);
 
     await expect(
@@ -120,6 +127,7 @@ describe("UNIT-00 PostgreSQL foundation", () => {
         moderationPublicationMigration,
         commerceCheckoutMigration,
         libraryReviewsRefundsMigration,
+        rewardsPayoutsMigration,
       ]),
     ).rejects.toThrow(/checksum does not match/i);
   });

@@ -22,5 +22,8 @@ export const COMMERCE_CHECKOUT_MIGRATION_ID = "0006_commerce_checkout";
 export const LIBRARY_REVIEWS_REFUNDS_MIGRATION_ID =
   "0007_library_reviews_refunds";
 
+/** Immutable ID used by the UNIT-07 rewards, payouts and Founder migration. */
+export const REWARDS_PAYOUTS_MIGRATION_ID = "0008_rewards_payouts";
+
 /** Latest schema understood by every production runtime. */
-export const PLATFORM_SCHEMA_REVISION = LIBRARY_REVIEWS_REFUNDS_MIGRATION_ID;
+export const PLATFORM_SCHEMA_REVISION = REWARDS_PAYOUTS_MIGRATION_ID;
